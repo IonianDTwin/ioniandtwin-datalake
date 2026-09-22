@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ionian-dtwin.local/schemas/indicator-schema.json",
+  "title": "IonianDTwin Indicator",
+  "type": "object",
+  "required": [
+    "indicator_id",
+    "name",
+    "category",
+    "source_ids",
+    "status"
+  ],
+  "properties": {
+    "indicator_id": { "type": "string", "description": "Canonical id, e.g. Data01" },
+    "name": { "type": "string" },
+    "name_el": { "type": "string", "description": "Greek name from the proposal, when present" },
+    "category": {
+      "type": "string",
+      "enum": [
+        "environmental_health_pollutants",
+        "dynamic_congestion",
+        "sustainable_transport",
+        "climate_adaptation",
+        "social_pressure_infrastructure",
+        "digital_infrastructure",
+        "spatial_sustainability",
+        "tourism_performance",
+        "density_typology",
+        "participation"
+      ]
+    },
+    "strategic_pillar": { "type": "string" },
+    "description": { "type": "string" },
+    "formula": { "type": ["string", "null"], "description": "Aggregation formula; null when unspecified" },
+    "unit": { "type": ["string", "null"] },
+    "polarity": { "type": ["string", "null"], "enum": ["positive", "negative", null] },
+    "spatial_level": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "e.g. NUTS2, municipality, tourism_zone, beach, transport_node, poi"
+    },
+    "temporal_resolution": { "type": ["string", "null"] },
+    "source_ids": { "type": "array", "items": { "type": "string" } },
+    "GSTC_mapping": { "type": "array", "items": { "type": "string" } },
+    "owner": { "type": ["string", "null"] },
+    "status": { "type": "string", "enum": ["PROPOSAL", "REQUIREMENT", "VERIFIED", "ASSUMPTION", "DECISION", "RISK", "BLOCKER"] },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": true
+}

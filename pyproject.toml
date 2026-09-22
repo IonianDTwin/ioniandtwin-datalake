@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ionian-dtwin"
+version = "0.1.0"
+description = "IonianDTwin — Digital Twin for sustainable tourism and urban/environmental management in the Ionian Islands Region"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary (university project; licensing pending)" }
+# No runtime dependencies yet. The workstation is currently a Markdown knowledge base.
+dependencies = []
+
+[project.optional-dependencies]
+# Verification tooling for later pull tests / PDF inspection.
+verify = [
+    "httpx>=0.27",
+    "pypdf>=4.0",
+]
+
+[tool.setuptools]
+packages = []

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ionian-dtwin.local/schemas/source-schema.json",
+  "title": "IonianDTwin Data Source",
+  "type": "object",
+  "required": [
+    "source_id",
+    "name",
+    "provider",
+    "access_type",
+    "verification_status"
+  ],
+  "properties": {
+    "source_id": { "type": "string" },
+    "name": { "type": "string" },
+    "provider": { "type": "string" },
+    "owner": { "type": ["string", "null"] },
+    "url": { "type": "string", "format": "uri" },
+    "documentation": { "type": ["string", "null"] },
+    "access_type": { "type": "string", "enum": ["api", "web", "download", "internal", "partner", "user_reports", "unknown"] },
+    "license_terms": { "type": ["string", "null"] },
+    "authentication": { "type": ["string", "null"], "enum": ["none", "api_key", "oauth", "registration", "partner", "unknown", null] },
+    "spatial_resolution": { "type": ["string", "null"] },
+    "temporal_resolution": { "type": ["string", "null"] },
+    "refresh_frequency": { "type": ["string", "null"] },
+    "schema_status": { "type": "string", "enum": ["documented", "observed", "unknown", "deprecated", "hypothetical"] },
+    "privacy_risk": { "type": "string", "enum": ["low", "medium", "high", "unknown"] },
+    "verification_status": {
+      "type": "string",
+      "enum": ["UNVERIFIED", "VERIFIED", "PARTIAL", "INACCESSIBLE", "DEPRECATED", "HYPOTHETICAL"]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string" },
+          "method": { "type": "string" },
+          "request_params": { "type": "object" },
+          "response_status": { "type": "integer" },
+          "content_type": { "type": "string" },
+          "checksum_sha256": { "type": "string" },
+          "accessed_at": { "type": "string", "description": "ISO 8601 with timezone" },
+          "evidence_path": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": true
+}

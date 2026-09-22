@@ -1,0 +1,223 @@
+# Indicator Metadata — IonianDTwin
+# Machine-readable metadata for Data01–Data34.
+# Fields follow the proposal: indicator_id, name, category, strategic_pillar,
+# description, formula, unit, polarity, spatial_level, temporal_resolution,
+# source_ids, GSTC_mapping, owner, status, notes.
+#
+# Units/formulas/polarity are NOT specified in the proposal and are left blank
+# (or marked ASSUMPTION) rather than invented.
+
+schema_version: "0.1"
+status: "draft"
+source: "technical proposal (Greek annex), Data01–Data34"
+
+indicators:
+  - indicator_id: "Data01"
+    name: "Airport CO2 levels"
+    name_el: "Επίπεδα CO2 αεροδρομίων"
+    category: "environmental_health_pollutants"
+    source_ids: ["CAMS", "local_iot"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data02"
+    name: "Excellent bathing waters (%)"
+    name_el: "Άριστα νερά κολύμβησης (%)"
+    category: "environmental_health_pollutants"
+    source_ids: ["CMEMS", "EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data03"
+    name: "Clean beach water (reports)"
+    name_el: "Καθαρό νερό παραλίας (Reports)"
+    category: "environmental_health_pollutants"
+    source_ids: ["CMEMS", "user_reports"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data04"
+    name: "Blue Flags"
+    name_el: "Γαλάζιες Σημαίες"
+    category: "environmental_health_pollutants"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data05"
+    name: "EMAS / EU Ecolabel"
+    name_el: "EMAS / EU Ecolabel"
+    category: "environmental_health_pollutants"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data06"
+    name: "Airport congestion"
+    category: "dynamic_congestion"
+    source_ids: ["MarineTraffic", "FlightRadar24"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data07"
+    name: "Port congestion"
+    category: "dynamic_congestion"
+    source_ids: ["MarineTraffic"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data08"
+    name: "Road congestion"
+    category: "dynamic_congestion"
+    source_ids: ["GoogleMaps"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data09"
+    name: "Beach congestion"
+    category: "dynamic_congestion"
+    source_ids: ["user_reports"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data10"
+    name: "City congestion"
+    category: "dynamic_congestion"
+    source_ids: ["GoogleMaps", "user_reports"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data11"
+    name: "KTEL (bus) congestion"
+    category: "sustainable_transport"
+    source_ids: ["local_transport_telematics"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data12"
+    name: "Urban transit congestion"
+    category: "sustainable_transport"
+    source_ids: ["local_transport_telematics"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data13"
+    name: "Weather conditions (temp, rain, …)"
+    category: "climate_adaptation"
+    source_ids: ["OpenWeatherMap", "Meteo.gr"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data14"
+    name: "High UV and protection"
+    category: "climate_adaptation"
+    source_ids: ["OpenWeatherMap", "Meteo.gr"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data15"
+    name: "Air quality / AI indoor-activity proposal"
+    category: "climate_adaptation"
+    source_ids: []
+    status: "PROPOSAL"
+    notes: "RISK duplicate label in proposal; see indicator-catalogue.md"
+
+  - indicator_id: "Data16"
+    name: "Tourism intensity (nights/residents)"
+    category: "social_pressure_infrastructure"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data17"
+    name: "Hospital / infrastructure congestion"
+    category: "social_pressure_infrastructure"
+    source_ids: ["official_announcements", "user_reports"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data18"
+    name: "Power / water outage"
+    category: "social_pressure_infrastructure"
+    source_ids: ["official_announcements", "user_reports"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data19"
+    name: "Short-term rental share (Airbnb)"
+    category: "social_pressure_infrastructure"
+    source_ids: ["EU_tourism_dashboard", "Airbnb"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data20"
+    name: "Internet speed (>100 Mb/s)"
+    category: "digital_infrastructure"
+    source_ids: ["user_reports"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data21"
+    name: "4G/5G availability"
+    category: "digital_infrastructure"
+    source_ids: ["user_reports"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data22"
+    name: "Tourist diversity (zones)"
+    category: "spatial_sustainability"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data23"
+    name: "Density of cultural elements"
+    category: "spatial_sustainability"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data24"
+    name: "Protected land (%)"
+    category: "spatial_sustainability"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data25"
+    name: "Accommodation in high-value areas"
+    category: "spatial_sustainability"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data26"
+    name: "Arrivals & overnight stays"
+    category: "tourism_performance"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data27"
+    name: "Tourism capacity (beds)"
+    category: "tourism_performance"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data28"
+    name: "Occupancy rate (%)"
+    category: "tourism_performance"
+    source_ids: ["social_media_booking"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data29"
+    name: "Seasonality (%)"
+    category: "tourism_performance"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data30"
+    name: "Average length of stay"
+    category: "tourism_performance"
+    source_ids: ["EU_tourism_dashboard", "social_media_booking"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data31"
+    name: "Tourism density (nights/km2)"
+    category: "density_typology"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data32"
+    name: "Dominant tourism typology"
+    category: "density_typology"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data33"
+    name: "Foreign tourist share (%)"
+    category: "density_typology"
+    source_ids: ["EU_tourism_dashboard"]
+    status: "PROPOSAL"
+
+  - indicator_id: "Data34"
+    name: "User feedback"
+    category: "participation"
+    source_ids: ["TripAdvisor", "GoogleReviews", "EU_tourism_dashboard"]
+    status: "PROPOSAL"

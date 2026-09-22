@@ -1,0 +1,17 @@
+observation_id,indicator_id,indicator_name,series_label,source_id,observed_at,value,unit,spatial_level,spatial_code
+Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2022,Data16,Tourism intensity (nights/residents),nights per 1000 residents,Eurostat_tour_occ_nin2,2022,80912.16,,NUTS2,EL62
+Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2023,Data16,Tourism intensity (nights/residents),nights per 1000 residents,Eurostat_tour_occ_nin2,2023,97705.53,,NUTS2,EL62
+Eurostat_tour_occ_nin2:Data26:overnight stays:2022,Data26,Arrivals & overnight stays,overnight stays,Eurostat_tour_occ_nin2,2022,16512634,nights,NUTS2,EL62
+Eurostat_tour_occ_nin2:Data26:overnight stays:2023,Data26,Arrivals & overnight stays,overnight stays,Eurostat_tour_occ_nin2,2023,19762799,nights,NUTS2,EL62
+Eurostat_tour_occ_nin2:Data31:nights per km²:2022,Data31,Tourism density (nights/km²),nights per km²,Eurostat_tour_occ_nin2,2022,7176.29,,NUTS2,EL62
+Eurostat_tour_occ_nin2:Data31:nights per km²:2023,Data31,Tourism density (nights/km²),nights per km²,Eurostat_tour_occ_nin2,2023,8588.79,,NUTS2,EL62
+Eurostat_tour_occ_nin2:Data33:foreign share:2022,Data33,Foreign tourist share (%),foreign share,Eurostat_tour_occ_nin2,2022,93.72,% of total,NUTS2,EL62
+Eurostat_tour_occ_nin2:Data33:foreign share:2023,Data33,Foreign tourist share (%),foreign share,Eurostat_tour_occ_nin2,2023,93.58,% of total,NUTS2,EL62
+Eurostat_tour_occ_arn2:Data26:arrivals:2022,Data26,Arrivals & overnight stays,arrivals,Eurostat_tour_occ_arn2,2022,2785360,,NUTS2,EL62
+Eurostat_tour_occ_arn2:Data26:arrivals:2023,Data26,Arrivals & overnight stays,arrivals,Eurostat_tour_occ_arn2,2023,3332407,,NUTS2,EL62
+Eurostat_tour_cap_nuts2:Data27:bed-places:2022,Data27,Tourism capacity (beds),bed-places,Eurostat_tour_cap_nuts2,2022,159790,,NUTS2,EL62
+Eurostat_tour_cap_nuts2:Data27:bed-places:2023,Data27,Tourism capacity (beds),bed-places,Eurostat_tour_cap_nuts2,2023,155968,,NUTS2,EL62
+OpenMeteo_forecast:Data13:air temperature:2026-09-22T14:15,Data13,"Weather conditions (temp, rain, …)",air temperature,OpenMeteo_forecast,2026-09-22T14:15,26.5,°C,point,"39.62,19.92"
+OpenMeteo_forecast:Data13:relative humidity:2026-09-22T14:15,Data13,"Weather conditions (temp, rain, …)",relative humidity,OpenMeteo_forecast,2026-09-22T14:15,57,%,point,"39.62,19.92"
+OpenMeteo_forecast:Data13:apparent (feels-like) temperature:2026-09-22T14:15,Data13,"Weather conditions (temp, rain, …)",apparent (feels-like) temperature,OpenMeteo_forecast,2026-09-22T14:15,28.8,°C,point,"39.62,19.92"
+OpenMeteo_forecast:Data14:max UV index:2026-09-22,Data14,High UV and protection,max UV index,OpenMeteo_forecast,2026-09-22,5.9,,point,"39.62,19.92"

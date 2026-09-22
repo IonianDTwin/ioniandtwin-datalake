@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open-Meteo weather forecast (temperature, humidity, UV index)</title>
+<style>
+  :root { --fg:#1a1a1a; --muted:#666; --line:#ddd; --accent:#0b57d0; --chip:#e8f0fe; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.45 -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--fg); }
+  header { padding: 20px 24px 16px; border-bottom: 1px solid var(--line); background:#f7f9fc; }
+  h1 { margin: 0 0 12px; font-size: 20px; }
+  .meta { display:grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+  .meta th { text-align:left; color: var(--muted); font-weight:600; vertical-align:top; }
+  .meta td { word-break: break-all; }
+  a { color: var(--accent); }
+  main { padding: 16px 24px 24px; }
+  h2 { font-size: 16px; margin: 20px 0 8px; }
+  .legend { margin: 12px 0; }
+  .legend li { margin: 4px 0; }
+  .headline { margin-bottom: 8px; }
+  .headline h2 { margin-top: 0; }
+  .nohead { color: var(--muted); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .card { border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; padding: 12px 14px; background: #fff; }
+  .card-id { font-family: ui-monospace, Menlo, monospace; font-size: 15px; font-weight: 700; color: var(--accent); }
+  .card-name { font-weight: 600; margin: 2px 0 8px; }
+  .card-series { list-style: none; margin: 0; padding: 0; }
+  .card-series li { padding: 4px 0; border-top: 1px dashed var(--line); }
+  .card-series .label { color: var(--muted); font-size: 12px; display: block; }
+  .card-series .value { font-weight: 700; color: #0b7a3d; }
+  .card-series .unit { color: var(--muted); font-size: 12px; }
+  .badge { display:inline-block; padding: 2px 8px; border-radius:999px; background:var(--chip); color:var(--accent); font-size:12px; margin-right:6px; }
+  .tablewrap { overflow:auto; border:1px solid var(--line); border-radius:6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align:left; vertical-align:top; }
+  th { background:#f2f5f9; position: sticky; top: 0; }
+  tr:nth-child(even) td { background:#fafbfd; }
+  td.ind { font-weight:600; color:var(--accent); white-space:nowrap; }
+  td.meaning { color:var(--muted); }
+  details { margin-top: 20px; }
+  pre { max-height: 420px; overflow:auto; background:#0f172a; color:#e2e8f0; padding: 14px; border-radius:6px; font: 12px/1.5 ui-monospace, Menlo, Consolas, monospace; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Open-Meteo weather forecast (temperature, humidity, UV index)</h1>
+  <div><span class="badge">decoded · openmeteo</span></div>
+  <table class="meta"><tr><th>Resource</th><td><a href="https://api.open-meteo.com/v1/forecast?latitude=39.62&amp;longitude=19.92&amp;current=temperature_2m,relative_humidity_2m,apparent_temperature&amp;daily=uv_index_max&amp;timezone=Europe%2FAthens&amp;forecast_days=1">https://api.open-meteo.com/v1/forecast?latitude=39.62&amp;longitude=19.92&amp;current=temperature_2m,relative_humidity_2m,apparent_temperature&amp;daily=uv_index_max&amp;timezone=Europe%2FAthens&amp;forecast_days=1</a></td></tr><tr><th>Status</th><td>200</td></tr><tr><th>Content-Type</th><td>application/json; charset=utf-8</td></tr><tr><th>Checksum (sha256)</th><td>e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23</td></tr><tr><th>Accessed at</th><td>2026-09-22T11:27:00Z</td></tr><tr><th>Raw JSON</th><td>open-meteo-corfu-forecast-2026-09-22.json</td></tr></table>
+</header>
+<main>
+  <section class="headline"><h2>Indicators pulled</h2><div class="cards"><div class="card"><div class="card-id">Data13</div><div class="card-name">Weather conditions (temp, rain, …)</div><ul class="card-series"><li><span class="label">air temperature</span> <span class="value">26.5</span> <span class="unit">°C</span></li><li><span class="label">relative humidity</span> <span class="value">57</span> <span class="unit">%</span></li><li><span class="label">apparent (feels-like) temperature</span> <span class="value">28.8</span> <span class="unit">°C</span></li></ul></div><div class="card"><div class="card-id">Data14</div><div class="card-name">High UV and protection</div><ul class="card-series"><li><span class="label">max UV index</span> <span class="value">5.9</span></li></ul></div></div></section>
+  
+  <h2>Full data (5 rows)</h2>
+  <div class="tablewrap"><table><thead><tr><th>block</th><th>field</th><th>unit</th><th>time</th><th>value</th><th>indicator</th><th>meaning</th></tr></thead><tbody><tr><td>current</td><td>interval</td><td>seconds</td><td>2026-09-22T14:15</td><td>900</td><td></td><td></td></tr><tr><td>current</td><td>temperature_2m</td><td>°C</td><td>2026-09-22T14:15</td><td>26.5</td><td>Data13 · Weather conditions (temp, rain, …)</td><td>Current air temperature at the location. (air temperature — °C)</td></tr><tr><td>current</td><td>relative_humidity_2m</td><td>%</td><td>2026-09-22T14:15</td><td>57</td><td>Data13 · Weather conditions (temp, rain, …)</td><td>Current relative humidity at 2 m. (relative humidity — %)</td></tr><tr><td>current</td><td>apparent_temperature</td><td>°C</td><td>2026-09-22T14:15</td><td>28.8</td><td>Data13 · Weather conditions (temp, rain, …)</td><td>Perceived temperature. (apparent (feels-like) temperature — °C)</td></tr><tr><td>daily</td><td>uv_index_max</td><td></td><td>2026-09-22</td><td>5.9</td><td>Data14 · High UV and protection</td><td>Maximum daily UV index; used for sun-protection guidance. (max UV index)</td></tr></tbody></table></div>
+  <details>
+    <summary>Raw JSON (547 bytes)</summary>
+    <pre>{&quot;latitude&quot;:39.625,&quot;longitude&quot;:19.875,&quot;generationtime_ms&quot;:0.1195669174194336,&quot;utc_offset_seconds&quot;:10800,&quot;timezone&quot;:&quot;Europe/Athens&quot;,&quot;timezone_abbreviation&quot;:&quot;GMT+3&quot;,&quot;elevation&quot;:16.0,&quot;current_units&quot;:{&quot;time&quot;:&quot;iso8601&quot;,&quot;interval&quot;:&quot;seconds&quot;,&quot;temperature_2m&quot;:&quot;°C&quot;,&quot;relative_humidity_2m&quot;:&quot;%&quot;,&quot;apparent_temperature&quot;:&quot;°C&quot;},&quot;current&quot;:{&quot;time&quot;:&quot;2026-09-22T14:15&quot;,&quot;interval&quot;:900,&quot;temperature_2m&quot;:26.5,&quot;relative_humidity_2m&quot;:57,&quot;apparent_temperature&quot;:28.8},&quot;daily_units&quot;:{&quot;time&quot;:&quot;iso8601&quot;,&quot;uv_index_max&quot;:&quot;&quot;},&quot;daily&quot;:{&quot;time&quot;:[&quot;2026-09-22&quot;],&quot;uv_index_max&quot;:[5.90]}}</pre>
+  </details>
+</main>
+</body>
+</html>

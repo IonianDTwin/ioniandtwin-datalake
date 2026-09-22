@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copernicus Data Space Ecosystem product catalogue (OData)</title>
+<style>
+  :root { --fg:#1a1a1a; --muted:#666; --line:#ddd; --accent:#0b57d0; --chip:#e8f0fe; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.45 -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--fg); }
+  header { padding: 20px 24px 16px; border-bottom: 1px solid var(--line); background:#f7f9fc; }
+  h1 { margin: 0 0 12px; font-size: 20px; }
+  .meta { display:grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+  .meta th { text-align:left; color: var(--muted); font-weight:600; vertical-align:top; }
+  .meta td { word-break: break-all; }
+  a { color: var(--accent); }
+  main { padding: 16px 24px 24px; }
+  h2 { font-size: 16px; margin: 20px 0 8px; }
+  .legend { margin: 12px 0; }
+  .legend li { margin: 4px 0; }
+  .headline { margin-bottom: 8px; }
+  .headline h2 { margin-top: 0; }
+  .nohead { color: var(--muted); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .card { border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 8px; padding: 12px 14px; background: #fff; }
+  .card-id { font-family: ui-monospace, Menlo, monospace; font-size: 15px; font-weight: 700; color: var(--accent); }
+  .card-name { font-weight: 600; margin: 2px 0 8px; }
+  .card-series { list-style: none; margin: 0; padding: 0; }
+  .card-series li { padding: 4px 0; border-top: 1px dashed var(--line); }
+  .card-series .label { color: var(--muted); font-size: 12px; display: block; }
+  .card-series .value { font-weight: 700; color: #0b7a3d; }
+  .card-series .unit { color: var(--muted); font-size: 12px; }
+  .badge { display:inline-block; padding: 2px 8px; border-radius:999px; background:var(--chip); color:var(--accent); font-size:12px; margin-right:6px; }
+  .tablewrap { overflow:auto; border:1px solid var(--line); border-radius:6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align:left; vertical-align:top; }
+  th { background:#f2f5f9; position: sticky; top: 0; }
+  tr:nth-child(even) td { background:#fafbfd; }
+  td.ind { font-weight:600; color:var(--accent); white-space:nowrap; }
+  td.meaning { color:var(--muted); }
+  details { margin-top: 20px; }
+  pre { max-height: 420px; overflow:auto; background:#0f172a; color:#e2e8f0; padding: 14px; border-radius:6px; font: 12px/1.5 ui-monospace, Menlo, Consolas, monospace; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Copernicus Data Space Ecosystem product catalogue (OData)</h1>
+  <div><span class="badge">decoded · odata</span></div>
+  <table class="meta"><tr><th>Resource</th><td><a href="https://catalogue.dataspace.copernicus.eu/odata/v1/Products?$top=1&amp;$format=json">https://catalogue.dataspace.copernicus.eu/odata/v1/Products?$top=1&amp;$format=json</a></td></tr><tr><th>Status</th><td>PARTIAL</td></tr><tr><th>Content-Type</th><td>application/json</td></tr><tr><th>Checksum (sha256)</th><td>cd7dff5ec4ec74f06e767162dca25509a12399fef41bd67aa831a9e07001fd87</td></tr><tr><th>Accessed at</th><td>2026-09-22T11:27:00Z</td></tr><tr><th>Raw JSON</th><td>copernicus-cdse-catalogue-top1.json</td></tr></table>
+</header>
+<main>
+  <section class="headline"><h2>Indicators pulled</h2><p class="nohead">No Data01–Data34 indicator is mapped in this sample.</p></section>
+  
+  <h2>Full data (1 rows)</h2>
+  <div class="tablewrap"><table><thead><tr><th>Id</th><th>Name</th><th>ContentType</th><th>ContentLength</th><th>OriginDate</th><th>PublicationDate</th><th>ModificationDate</th><th>Online</th><th>EvictionDate</th><th>S3Path</th><th>Checksum</th><th>ContentDate</th><th>Footprint</th><th>GeoFootprint</th></tr></thead><tbody><tr><td>91822f33-b15c-5b60-aa39-6d9f6f5c773b</td><td>S3A_SL_1_RBT____20160706T205957_20160706T210257_20181001T215134_0179_006_114______LR1_R_NT_003.SEN3</td><td>application/octet-stream</td><td>542376761</td><td>2019-03-21T01:16:29.232000Z</td><td>2019-05-14T17:17:22.271834Z</td><td>2025-09-16T03:52:25.825349Z</td><td>True</td><td>9999-12-31T23:59:59.999999Z</td><td>/eodata/Sentinel-3/SLSTR/SL_1_RBT/2016/07/06/S3A_SL_1_RBT____20160706T205957_20160706T210257_20181001T215134_0179_006_114______LR1_R_NT_003.SEN3</td><td>[{&#x27;Value&#x27;: &#x27;ff505505e09cdefe3d965a70b7b8b17e&#x27;, &#x27;Algorithm&#x27;: &#x27;MD5&#x27;, &#x27;ChecksumDate&#x27;: &#x27;2025-09-16T03:52:24.614596Z&#x27;}, {&#x27;Value&#x27;: &#x27;66eb82a56078b0606f662c611091a630a4221fd64c72cb520639a6725a22bb8f&#x27;, &#x27;Algorithm&#x27;: &#x27;BLAKE3&#x27;, &#x27;ChecksumDate&#x27;: &#x27;2025-09-16T03:52:25.464465Z&#x27;}]</td><td>{&#x27;Start&#x27;: &#x27;2016-07-06T20:59:56.833000Z&#x27;, &#x27;End&#x27;: &#x27;2016-07-06T21:02:56.833000Z&#x27;}</td><td>geography&#x27;SRID=4326;POLYGON ((-176.587 -10.5242, -176.134 -10.6484, -175.684 -10.7563, -175.231 -10.8716, -174.78 -10.9797, -174.326 -11.0944, -173.874 -11.2034, -173.416 -11.3188, -172.967 -11.4244, -172.513 -11.5338, -172.053 -11.6515, -171.604 -11.7505, -171.146 -11.8635, -170.688 -11.9701, -170.236 -12.0735, -169.777 -12.1806, -169.326 -12.2841, -168.863 -12.3928, -168.404 -12.4883, -167.95 -12.5924, -167.488 -12.6973, -167.032 -12.7909, -166.574 -12.8934, -166.119 -12.9947, -165.656 -13.088, -165.192 -13.1884, -164.738 -13.2821, -164.278 -13.3834, -163.815 -13.4772, -163.355 -13.5723, -163.176 -13.6, -162.623 -10.9843, -162.057 -8.32382, -161.487 -5.66299, -160.91 -3.00207, -161.086 -2.96333, -161.534 -2.8644, -161.982 -2.77032, -162.428 -2.67348, -162.877 -2.56657, -163.32 -2.47471, -163.769 -2.3719, -164.219 -2.26849, -164.667 -2.17515, -165.109 -2.07279, -165.56 -1.96926, -166.004 -1.87655, -166.459 -1.77084, -166.901 -1.67048, -167.35 -1.56672, -167.792 -1.46693, -168.247 -1.36276, -168.688 -1.26485, -169.139 -1.16367, -169.588 -1.0595, -170.032 -0.967031, -170.477 -0.860425, -170.929 -0.755659, -171.376 -0.654275, -171.821 -0.560059, -172.27 -0.451392, -172.711 -0.354687, -173.156 -0.249463, -173.611 -0.146871, -174.058 -0.045336, -174.659 -2.68001, -175.281 -5.3123, -175.927 -7.94172, -176.587 -10.5242))&#x27;</td><td>{&#x27;type&#x27;: &#x27;Polygon&#x27;, &#x27;coordinates&#x27;: [[[-176.587, -10.5242], [-176.134, -10.6484], [-175.684, -10.7563], [-175.231, -10.8716], [-174.78, -10.9797], [-174.326, -11.0944], [-173.874, -11.2034], [-173.416, -11.3188], [-172.967, -11.4244], [-172.513, -11.5338], [-172.053, -11.6515], [-171.604, -11.7505], [-171.146, -11.8635], [-170.688, -11.9701], [-170.236, -12.0735], [-169.777, -12.1806], [-169.326, -12.2841], [-168.863, -12.3928], [-168.404, -12.4883], [-167.95, -12.5924], [-167.488, -12.6973], [-167.032, -12.7909], [-166.574, -12.8934], [-166.119, -12.9947], [-165.656, -13.088], [-165.192, -13.1884], [-164.738, -13.2821], [-164.278, -13.3834], [-163.815, -13.4772], [-163.355, -13.5723], [-163.176, -13.6], [-162.623, -10.9843], [-162.057, -8.32382], [-161.487, -5.66299], [-160.91, -3.00207], [-161.086, -2.96333], [-161.534, -2.8644], [-161.982, -2.77032], [-162.428, -2.67348], [-162.877, -2.56657], [-163.32, -2.47471], [-163.769, -2.3719], [-164.219, -2.26849], [-164.667, -2.17515], [-165.109, -2.07279], [-165.56, -1.96926], [-166.004, -1.87655], [-166.459, -1.77084], [-166.901, -1.67048], [-167.35, -1.56672], [-167.792, -1.46693], [-168.247, -1.36276], [-168.688, -1.26485], [-169.139, -1.16367], [-169.588, -1.0595], [-170.032, -0.967031], [-170.477, -0.860425], [-170.929, -0.755659], [-171.376, -0.654275], [-171.821, -0.560059], [-172.27, -0.451392], [-172.711, -0.354687], [-173.156, -0.249463], [-173.611, -0.146871], [-174.058, -0.045336], [-174.659, -2.68001], [-175.281, -5.3123], [-175.927, -7.94172], [-176.587, -10.5242]]]}</td></tr></tbody></table></div>
+  <details>
+    <summary>Raw JSON (3926 bytes)</summary>
+    <pre>{&quot;@odata.context&quot;:&quot;$metadata#Products&quot;,&quot;value&quot;:[{&quot;@odata.mediaContentType&quot;:&quot;application/octet-stream&quot;,&quot;Id&quot;:&quot;91822f33-b15c-5b60-aa39-6d9f6f5c773b&quot;,&quot;Name&quot;:&quot;S3A_SL_1_RBT____20160706T205957_20160706T210257_20181001T215134_0179_006_114______LR1_R_NT_003.SEN3&quot;,&quot;ContentType&quot;:&quot;application/octet-stream&quot;,&quot;ContentLength&quot;:542376761,&quot;OriginDate&quot;:&quot;2019-03-21T01:16:29.232000Z&quot;,&quot;PublicationDate&quot;:&quot;2019-05-14T17:17:22.271834Z&quot;,&quot;ModificationDate&quot;:&quot;2025-09-16T03:52:25.825349Z&quot;,&quot;Online&quot;:true,&quot;EvictionDate&quot;:&quot;9999-12-31T23:59:59.999999Z&quot;,&quot;S3Path&quot;:&quot;/eodata/Sentinel-3/SLSTR/SL_1_RBT/2016/07/06/S3A_SL_1_RBT____20160706T205957_20160706T210257_20181001T215134_0179_006_114______LR1_R_NT_003.SEN3&quot;,&quot;Checksum&quot;:[{&quot;Value&quot;:&quot;ff505505e09cdefe3d965a70b7b8b17e&quot;,&quot;Algorithm&quot;:&quot;MD5&quot;,&quot;ChecksumDate&quot;:&quot;2025-09-16T03:52:24.614596Z&quot;},{&quot;Value&quot;:&quot;66eb82a56078b0606f662c611091a630a4221fd64c72cb520639a6725a22bb8f&quot;,&quot;Algorithm&quot;:&quot;BLAKE3&quot;,&quot;ChecksumDate&quot;:&quot;2025-09-16T03:52:25.464465Z&quot;}],&quot;ContentDate&quot;:{&quot;Start&quot;:&quot;2016-07-06T20:59:56.833000Z&quot;,&quot;End&quot;:&quot;2016-07-06T21:02:56.833000Z&quot;},&quot;Footprint&quot;:&quot;geography&#x27;SRID=4326;POLYGON ((-176.587 -10.5242, -176.134 -10.6484, -175.684 -10.7563, -175.231 -10.8716, -174.78 -10.9797, -174.326 -11.0944, -173.874 -11.2034, -173.416 -11.3188, -172.967 -11.4244, -172.513 -11.5338, -172.053 -11.6515, -171.604 -11.7505, -171.146 -11.8635, -170.688 -11.9701, -170.236 -12.0735, -169.777 -12.1806, -169.326 -12.2841, -168.863 -12.3928, -168.404 -12.4883, -167.95 -12.5924, -167.488 -12.6973, -167.032 -12.7909, -166.574 -12.8934, -166.119 -12.9947, -165.656 -13.088, -165.192 -13.1884, -164.738 -13.2821, -164.278 -13.3834, -163.815 -13.4772, -163.355 -13.5723, -163.176 -13.6, -162.623 -10.9843, -162.057 -8.32382, -161.487 -5.66299, -160.91 -3.00207, -161.086 -2.96333, -161.534 -2.8644, -161.982 -2.77032, -162.428 -2.67348, -162.877 -2.56657, -163.32 -2.47471, -163.769 -2.3719, -164.219 -2.26849, -164.667 -2.17515, -165.109 -2.07279, -165.56 -1.96926, -166.004 -1.87655, -166.459 -1.77084, -166.901 -1.67048, -167.35 -1.56672, -167.792 -1.46693, -168.247 -1.36276, -168.688 -1.26485, -169.139 -1.16367, -169.588 -1.0595, -170.032 -0.967031, -170.477 -0.860425, -170.929 -0.755659, -171.376 -0.654275, -171.821 -0.560059, -172.27 -0.451392, -172.711 -0.354687, -173.156 -0.249463, -173.611 -0.146871, -174.058 -0.045336, -174.659 -2.68001, -175.281 -5.3123, -175.927 -7.94172, -176.587 -10.5242))&#x27;&quot;,&quot;GeoFootprint&quot;:{&quot;type&quot;:&quot;Polygon&quot;,&quot;coordinates&quot;:[[[-176.587,-10.5242],[-176.134,-10.6484],[-175.684,-10.7563],[-175.231,-10.8716],[-174.78,-10.9797],[-174.326,-11.0944],[-173.874,-11.2034],[-173.416,-11.3188],[-172.967,-11.4244],[-172.513,-11.5338],[-172.053,-11.6515],[-171.604,-11.7505],[-171.146,-11.8635],[-170.688,-11.9701],[-170.236,-12.0735],[-169.777,-12.1806],[-169.326,-12.2841],[-168.863,-12.3928],[-168.404,-12.4883],[-167.95,-12.5924],[-167.488,-12.6973],[-167.032,-12.7909],[-166.574,-12.8934],[-166.119,-12.9947],[-165.656,-13.088],[-165.192,-13.1884],[-164.738,-13.2821],[-164.278,-13.3834],[-163.815,-13.4772],[-163.355,-13.5723],[-163.176,-13.6],[-162.623,-10.9843],[-162.057,-8.32382],[-161.487,-5.66299],[-160.91,-3.00207],[-161.086,-2.96333],[-161.534,-2.8644],[-161.982,-2.77032],[-162.428,-2.67348],[-162.877,-2.56657],[-163.32,-2.47471],[-163.769,-2.3719],[-164.219,-2.26849],[-164.667,-2.17515],[-165.109,-2.07279],[-165.56,-1.96926],[-166.004,-1.87655],[-166.459,-1.77084],[-166.901,-1.67048],[-167.35,-1.56672],[-167.792,-1.46693],[-168.247,-1.36276],[-168.688,-1.26485],[-169.139,-1.16367],[-169.588,-1.0595],[-170.032,-0.967031],[-170.477,-0.860425],[-170.929,-0.755659],[-171.376,-0.654275],[-171.821,-0.560059],[-172.27,-0.451392],[-172.711,-0.354687],[-173.156,-0.249463],[-173.611,-0.146871],[-174.058,-0.045336],[-174.659,-2.68001],[-175.281,-5.3123],[-175.927,-7.94172],[-176.587,-10.5242]]]}}],&quot;@odata.nextLink&quot;:&quot;https://catalogue.dataspace.copernicus.eu/odata/v1/Products?%24top=1&amp;%24format=json&amp;%24skip=1&quot;}</pre>
+  </details>
+</main>
+</body>
+</html>
