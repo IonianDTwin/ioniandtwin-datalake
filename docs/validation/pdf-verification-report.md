@@ -24,6 +24,12 @@ Evidence:
 - `VERIFIED` `Παράρτημα - Συνοδευτικό Πρότασης με Τεχνικές Λεπτομέρειες.docx` (52,185 bytes; `sha256` `b55eb175fe5f0ec8a1297a383c4e09709600a7a9dec6212ebebb3745b2819560`) — user-supplied source document, text-extracted locally.
 - `VERIFIED` Extracted text retained at `/tmp/proposal.txt` (52,972 bytes; 2026-09-21). It is the source of the Data01–Data34 catalogue and the source candidates.
 
+### Corrected proposal document (2026-09-24)
+
+- `VERIFIED` The user supplied a **corrected** `.docx` (review-mode changes accepted) at `data/raw/Παράρτημα - Συνοδευτικό Πρότασης με Τεχνικές Λεπτομέρειες.docx` (46,205 bytes; 2026-09-24). It is gitignored (`data/raw/*`) and will not be published.
+- `VERIFIED` Re-extracted locally; durable copy at `data/raw/parartima-technical-proposal-2026-09-24.txt` (`sha256` `d5db70231cd91f69d4d5447cadd8385f82766f69b4e435390027ce4f90f986f5`). Zero tracked-change markup remains (`w:del`/`w:ins`/`w:delText` = 0).
+- `DECISION` The corrected source removes the duplicate "Data 15. Πρόταση AI…" entry (D-008 confirmed) and still contains "Data 24, 35", which the user confirmed is a typo for "Data 24, 34" (D-007 confirmed).
+
 ## Not yet performed
 
 - `BLOCKER` No other external PDFs verified (e.g., Eurostat tourism methodology, Copernicus CAMS/CMEMS documentation). Deferred — a methodology PDF download would follow the same pattern as the GSTC PDF.

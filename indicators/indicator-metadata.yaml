@@ -102,11 +102,11 @@ indicators:
     status: "PROPOSAL"
 
   - indicator_id: "Data15"
-    name: "Air quality / AI indoor-activity proposal"
+    name: "Air quality"
     category: "climate_adaptation"
-    source_ids: []
+    source_ids: ["Copernicus CAMS", "OpenWeatherMap", "Meteo.gr"]
     status: "PROPOSAL"
-    notes: "RISK duplicate label in proposal; see indicator-catalogue.md"
+    notes: "DECISION D-008 (confirmed): the duplicate Data15 'AI indoor-activity proposal' was removed in the corrected source."
 
   - indicator_id: "Data16"
     name: "Tourism intensity (nights/residents)"

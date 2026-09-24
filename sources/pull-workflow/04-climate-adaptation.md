@@ -10,7 +10,7 @@
 |---|---|---|---|---|---|
 | Data13 | Weather conditions (temp, rain, …) | OpenWeatherMap / Meteo.gr | api | API key / unknown | Open-Meteo `VERIFIED` (substitute) |
 | Data14 | High UV and protection | OpenWeatherMap / Meteo.gr | api | API key / unknown | Open-Meteo `VERIFIED` (substitute) |
-| Data15 | Air quality / AI indoor-activity proposal | CAMS (air quality) / LLM output | api / internal | registration / local | UNVERIFIED |
+| Data15 | Air quality | CAMS / OpenWeatherMap / Meteo.gr | api | registration / key | UNVERIFIED (credential-gated) |
 
 ## Pull process
 
@@ -28,15 +28,15 @@
 4. **OpenWeatherMap** — `VERIFIED` HTTP 401 without a key. Add `OPENWEATHERMAP_API_KEY` to `.env` to use the proposal's named source.
 5. **Meteo.gr** — `UNVERIFIED`; locate the official endpoint/terms before use.
 
-### Data15 — Air quality / AI indoor-activity proposal
+### Data15 — Air quality
 
-`RISK` Duplicate label in the proposal (air quality **and** an AI-generated indoor-activity suggestion). Treat as two concerns:
+`DECISION` D-008 (confirmed 2026-09-24). Data15 = ambient air quality (Ποιότητα Αέρα). The corrected source removed the second "Data 15" — the AI indoor-activity suggestion — entirely; it survives only as prose (LLM visitor guidance), not as an indicator.
 
-1. **Air quality** — pull from CAMS (registration token required) or local IoT; same recipe as Data01.
-2. **AI indoor-activity proposal** — an LLM output derived from weather/UV/air-quality, **not** an external data source; generated locally (local-first LLM), not pulled.
+1. **Air quality** — pull from CAMS (registration token required) or local IoT; same recipe as Data01 (ambient NO2/PM/CO2 at a POI).
+2. **AI indoor-activity proposal** — an LLM output derived from weather/UV/air-quality; not a source, not numbered.
 
 ## Notes & blockers
 
 - `DECISION` Open-Meteo is a `PROPOSAL` substitute, not the proposal's named source; re-confirm before production.
 - `BLOCKER` OpenWeatherMap needs a key; CAMS data download needs a registration token.
-- `RISK` Do not merge the two meanings of Data15; keep the duplication flagged until the user resolves it.
+- `DECISION` D-008 (confirmed): Data15 is a single indicator (air quality); the AI indoor-activity item is an LLM feature, not a source.

@@ -18,9 +18,11 @@
 | Eurostat `tour_occ_nin2` (nights, NUTS2) | Eurostat/EC | SDMX 2.1 REST API | none | **VERIFIED** | HTTP 200; manifest 2026-09-22 |
 | Eurostat `tour_occ_arn2` (arrivals, NUTS2) | Eurostat/EC | SDMX 2.1 REST API | none | **VERIFIED** | HTTP 200; manifest 2026-09-22 |
 | Eurostat `tour_cap_nuts2` (bed-places, NUTS2) | Eurostat/EC | SDMX 2.1 REST API | none | **VERIFIED** | HTTP 200; manifest 2026-09-22 |
+| Eurostat `tour_occ_nim` (monthly nights, country) | Eurostat/EC | SDMX 2.1 REST API | none | **PARTIAL** | HTTP 200; country-level only (`geo=EL`); NUTS2 empty; manifest 2026-09-24 |
 | Open-Meteo (weather + UV) | Open-Meteo | HTTPS API | none | **VERIFIED** | HTTP 200; `PROPOSAL` substitute |
 | OpenWeatherMap | OpenWeatherMap | HTTPS API | API key | **INACCESSIBLE** | HTTP 401 (needs key) |
 | Copernicus CDSE catalogue | EU | HTTPS OData | none (catalogue) | **PARTIAL** | HTTP 200; download gated by token |
+| EEA WISE Bathing Water (Discodata SQL) | EEA | Discodata SQL API (JSON) | none | **VERIFIED** | HTTP 200; Greece 2024 assessment; manifest 2026-09-24 |
 | GSTC Destination Criteria v2.0 | GSTC | PDF download | none | **VERIFIED** | HTTP 200; 18-page PDF; sha256 recorded |
 | Copernicus CAMS | ECMWF/EU | API — CAMS Regional | registration | APP-DECLARED | app bundle 2026-09-21 |
 | Copernicus CMEMS | EU | Copernicus Marine Data Store | registration | APP-DECLARED | app bundle |
@@ -46,6 +48,8 @@
 - Tourism intensity (nights/1000 residents): 2022 = 80,912.16 · 2023 = 97,705.53
 - Tourism density (nights/km²): 2022 = 7,176.29 · 2023 = 8,588.79
 - Foreign tourist share: 2022 = 93.72 % · 2023 = 93.58 %
+- Monthly nights (Greece, 2023, Data29 seasonality): total 147,209,821 · peak Aug 31,687,354 (21.53 %) · Jul+Aug 41.54 % · Jun–Sep 71.95 %
+- Bathing water (Greece 2024, Data02/03): Excellent 1,677 / 1,729 (96.99 % of total · 99.00 % of classified) · Good 15 · Sufficient 1 · Poor 1 · Not classified 35
 
 ## Application inspection evidence (carried forward)
 
@@ -55,4 +59,4 @@
 
 ## Status
 
-`VERIFIED` Official tourism statistics and a weather/UV substitute now pull-tested. `BLOCKER` Credential-gated sources (OpenWeatherMap, CAMS/CMEMS download, Google Maps, MarineTraffic, FlightRadar24, Airbnb, review platforms) remain unverified pending keys/registration.
+`VERIFIED` Official tourism statistics (annual NUTS2 + monthly country) and a weather/UV substitute now pull-tested. `VERIFIED` EEA bathing-water assessment (Discodata SQL) at country level. `PARTIAL` Data29 seasonality: monthly nights verified at country level only (no NUTS2 monthly publication). `BLOCKER` Credential-gated sources (OpenWeatherMap, CAMS/CMEMS download, Google Maps, MarineTraffic, FlightRadar24, Airbnb, review platforms) remain unverified pending keys/registration.

@@ -66,40 +66,53 @@
       "name": "Excellent bathing waters (%)",
       "name_el": "Άριστα νερά κολύμβησης (%)",
       "category": "environmental_health_pollutants",
-      "status": "UNVERIFIED",
-      "source": "Copernicus CMEMS; EU Tourism Dashboard",
+      "status": "VERIFIED",
+      "source": "EEA WISE Bathing Water (Discodata SQL); CMEMS secondary",
       "access_type": "api",
-      "auth": "registration / none"
+      "auth": "none",
+      "note": "Country-level (Greece). NUTS2 (EL62) attribution requires a spatial join on bathingWaterIdentifier.",
+      "series": [
+        {
+          "source_key": "EEA_WISE_BWD_assessment",
+          "dims": { "countryCode": "EL", "season": 2024 },
+          "label": "% excellent",
+          "unit": "% of bathing waters",
+          "description": "Share of bathing waters classified 'Excellent' (Greece 2024: 1677/1729 = 96.99%)."
+        }
+      ]
     },
     {
       "indicator_id": "Data03",
       "name": "Clean beach water (reports)",
       "name_el": "Καθαρό νερό παραλίας (Reports)",
       "category": "environmental_health_pollutants",
-      "status": "UNVERIFIED",
-      "source": "Copernicus CMEMS; user reports",
+      "status": "VERIFIED",
+      "source": "EEA WISE BWD (derived); user reports",
       "access_type": "api / user_reports",
-      "auth": "registration / app"
+      "auth": "none / app",
+      "note": "ASSUMPTION: clean = classified Excellent/Good/Sufficient (Greece 2024: 99.94% of classified). Citizen reports are the app's own feed."
     },
     {
       "indicator_id": "Data04",
       "name": "Blue Flags",
       "name_el": "Γαλάζιες Σημαίες",
       "category": "environmental_health_pollutants",
-      "status": "UNVERIFIED",
-      "source": "EU Tourism Dashboard",
+      "status": "PARTIAL",
+      "source": "Blue Flag programme (FEE)",
       "access_type": "download",
-      "auth": "none"
+      "auth": "none",
+      "note": "blueflag.global confirmed (HTTP 200); interactive map only, no clean CSV/list exposed from the global site."
     },
     {
       "indicator_id": "Data05",
       "name": "EMAS / EU Ecolabel",
       "name_el": "EMAS / EU Ecolabel",
       "category": "environmental_health_pollutants",
-      "status": "UNVERIFIED",
-      "source": "EU Tourism Dashboard",
+      "status": "PARTIAL",
+      "source": "EMAS register + EU Ecolabel (EC)",
       "access_type": "download",
-      "auth": "none"
+      "auth": "none",
+      "note": "EMAS register URL confirmed (HTTP 200): green-forum.ec.europa.eu/green-business/emas/emas-register_en; export/download URL to confirm."
     },
     {
       "indicator_id": "Data06",
@@ -225,14 +238,14 @@
     },
     {
       "indicator_id": "Data15",
-      "name": "Air quality / AI indoor-activity proposal",
-      "name_el": null,
+      "name": "Air quality",
+      "name_el": "Ποιότητα Αέρα",
       "category": "climate_adaptation",
       "status": "UNVERIFIED",
-      "source": "CAMS (air quality); LLM output (indoor suggestion)",
-      "access_type": "api / internal",
-      "auth": "registration / local",
-      "note": "RISK duplicate label in the proposal: air quality and an AI indoor-activity suggestion. Treat as two concerns."
+      "source": "Copernicus CAMS; OpenWeatherMap / Meteo.gr",
+      "access_type": "api",
+      "auth": "registration / key",
+      "note": "DECISION D-008 (confirmed): the duplicate 'Data15 AI indoor-activity proposal' was removed in the corrected source. Data15 = ambient air quality (distinct from Data01 airport CO2)."
     },
     {
       "indicator_id": "Data16",
@@ -332,10 +345,11 @@
       "name": "Protected land (%)",
       "name_el": null,
       "category": "spatial_sustainability",
-      "status": "UNVERIFIED",
-      "source": "EU Tourism Dashboard maps",
+      "status": "PARTIAL",
+      "source": "EEA CDDA / Natura 2000",
       "access_type": "download",
-      "auth": "none"
+      "auth": "none",
+      "note": "Dataset pages confirmed (HTTP 200): Natura 2000 datahub 6fc8ad2d-195d-40f4-bdec-576e7d1268e4, CDDA f60cec02-6494-4d08-b12d-17a37012cb28. File download (GeoPackage/Shapefile) to confirm."
     },
     {
       "indicator_id": "Data25",
@@ -419,11 +433,20 @@
       "name": "Seasonality (%)",
       "name_el": null,
       "category": "tourism_performance",
-      "status": "UNVERIFIED",
-      "source": "Eurostat monthly series (to be identified)",
+      "status": "PARTIAL",
+      "source": "Eurostat tour_occ_nim (monthly nights)",
       "access_type": "api",
       "auth": "none",
-      "note": "Requires a monthly nights/arrivals series; the verified datasets are annual."
+      "note": "Monthly nights verified at COUNTRY level only (geo=EL); Eurostat publishes no NUTS2 monthly for tour_occ_nim. Seasonality is therefore country-level Greece as a proxy until a NUTS2 monthly source is identified.",
+      "series": [
+        {
+          "source_key": "Eurostat_tour_occ_nim",
+          "dims": { "freq": "M", "c_resid": "TOTAL", "unit": "NR", "nace_r2": "I551-I553", "geo": "EL" },
+          "label": "monthly nights",
+          "unit": "nights",
+          "description": "Monthly nights spent (Greece, country level). Peak-month share of annual total = seasonality (Aug 2023 = 21.53%)."
+        }
+      ]
     },
     {
       "indicator_id": "Data30",

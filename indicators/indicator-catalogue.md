@@ -41,8 +41,7 @@ Each indicator will carry at minimum: `indicator_id`, `name`, `category`, `strat
 |---|---|---|
 | Data13 | Weather conditions (temp, rain, …) | OpenWeatherMap, Meteo.gr |
 | Data14 | High UV and protection | OpenWeatherMap, Meteo.gr |
-| Data15 | Air quality — `RISK` duplicate label | (see note) |
-| Data15 | AI proposal for indoor activities — `RISK` duplicate label | (LLM output, not an external source) |
+| Data15 | Air quality | OpenWeatherMap, Meteo.gr, Copernicus CAMS (see note) |
 
 ### Social Pressure & Infrastructure (`Κοινωνική Πίεση & Υποδομές`)
 
@@ -99,7 +98,7 @@ Each indicator will carry at minimum: `indicator_id`, `name`, `category`, `strat
 |---|---|---|
 | A2 | Strategy & Action Plan | 7, 10, 19, 22, 27, 32, 33 |
 | A3 | Monitoring & Reporting | 1, 6, 9, 12, 26, 27, 28, 29 |
-| A5 & A6 | Resident & Visitor Engagement | 24, **35** |
+| A5 & A6 | Resident & Visitor Engagement | 24, 34 |
 | A8 | Volume & Pressure Management | 1, 2, 3, 4, 5, 6, 8, 9, 10, 16, 21, 22, 31 |
 | A10 & A11 | Climate Adaptation & Crises | 13, 14, 15, 16, 17, 23, 34 |
 | B1 | Economic Contribution | 30, 31, 32 |
@@ -112,8 +111,12 @@ Each indicator will carry at minimum: `indicator_id`, `name`, `category`, `strat
 | Δ10 | Climate Change Mitigation | 12 |
 | Δ11 | Low-impact Transport | 11, 12, 21, 22 |
 
-## Known inconsistencies (do not resolve silently)
+## Known inconsistencies (confirmed 2026-09-24 — see DECISIONS.md D-007/D-008)
 
-- `BLOCKER` **Data35** appears in GSTC A5 & A6 mapping but the catalogue ends at Data34.
-- `RISK` **Duplicate Data15** in Climate Adaptation: "Ποιότητα Αέρα" (air quality) and "Πρόταση AI για εσωτερικές δραστηριότητες" (AI indoor-activity suggestion). The latter is an LLM output, not an external data source.
-- `RISK` "Air quality" appears both as Data01 (airport CO2) under Environmental Health and as Data15 under Climate Adaptation — possible overlap.
+- `DECISION` (confirmed) **Data35** in the GSTC A5 & A6 mapping is a transcription error for **Data34** (user feedback). User confirmed "35" → "34" (2026-09-24). No new indicator is invented.
+- `DECISION` (confirmed) **Duplicate Data15** in Climate Adaptation: Data15 = "Air quality" (Ποιότητα Αέρα). The corrected source (2026-09-24) removed the second entry, "Πρόταση AI για εσωτερικές δραστηριότητες" — it survives only as prose (LLM visitor guidance), not as an indicator.
+- `RISK` "Air quality" appears both as Data01 (airport CO2, entry-gate) and Data15 (ambient air quality) — related but distinct in scope; kept as separate indicators.
+
+### LLM visitor guidance (not a DataNN indicator)
+
+- "Πρόταση AI για εσωτερικές δραστηριότητες" (AI proposal for indoor activities) — an LLM output/guidance derived from weather/UV/AQ inputs (Data13/14/15). Present only as prose in the corrected source; not a numbered indicator.

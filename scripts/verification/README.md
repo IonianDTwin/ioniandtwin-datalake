@@ -43,11 +43,12 @@ python3 scripts/verification/render_pull_reports.py \
 ## Export normalized observations (the publication data file)
 
 ```bash
-python3 scripts/verification/export_observations.py \
-  --manifest data/manifests/source-verification-2026-09-22.json
+python3 scripts/verification/build_dashboard.py \
+  --manifest data/manifests/source-verification-2026-09-22.json \
+  --manifest data/manifests/source-verification-2026-09-24.json
 ```
 
-Writes `data/curated/observations-<date>.json` (schema-aligned) + `.csv`, one record per verified data point.
+Writes `data/curated/observations-<date>.json` (schema-aligned, includes derived indicators) + `.csv`, and `data/curated/composite-<date>.json` (one transparent composite prototype). `export_observations.py` remains for the base-only path.
 
 This reads each `sample_path` (and its `url`, `status`, `content_type`, `checksum_sha256`, `accessed_at`, `source_id`) and regenerates the `.html` + `.summary.md` companions and the `INDEX.*`, so the visual view always matches the manifest evidence.
 
@@ -76,5 +77,5 @@ Checksum and access timestamp are auto-computed if omitted. `--source-key` selec
 
 ## Status
 
-- `VERIFIED` Eurostat tourism datasets, Open-Meteo weather/UV, Copernicus CDSE catalogue, GSTC PDF.
+- `VERIFIED` Eurostat tourism datasets (annual NUTS2 + monthly country), EEA bathing water (Discodata SQL), Open-Meteo weather/UV, Copernicus CDSE catalogue, GSTC PDF.
 - `INACCESSIBLE` OpenWeatherMap without a key (HTTP 401). Credential-gated sources remain unverified until a key is provided and authorized.

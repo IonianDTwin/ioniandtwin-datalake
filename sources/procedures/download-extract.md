@@ -49,7 +49,7 @@ GSTC Destination Criteria v2.0 PDF — the standards reference, not a time-serie
 | Source | Indicator | State |
 |---|---|---|
 | GSTC Destination Criteria v2.0 | (standards alignment) | `VERIFIED` — done |
-| EEA bathing-water status | Data02/03 | URL to confirm, then apply this procedure |
-| Blue Flag list (FEE) | Data04 | Interactive page; confirm an export/list URL first |
-| EMAS register / EU Ecolabel | Data05 | URL to confirm |
-| EEA CDDA / Natura 2000 | Data24 | URL to confirm |
+| EEA bathing-water status | Data02/03 | `VERIFIED` — resolves to the Discodata SQL API (`[WISE_BWD].[latest].[assessment_BathingWaterStatus]`), not a document download |
+| Blue Flag list (FEE) | Data04 | `PARTIAL` — `blueflag.global` confirmed (HTTP 200); interactive map only, no clean CSV/list exposed from the global site |
+| EMAS register / EU Ecolabel | Data05 | `PARTIAL` — register URL confirmed (HTTP 200); export/download URL to confirm |
+| EEA CDDA / Natura 2000 | Data24 | `PARTIAL` — dataset pages confirmed (datahub UUIDs + GeoNetwork API records); file download to confirm |

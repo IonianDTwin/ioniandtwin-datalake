@@ -23,31 +23,31 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 - ETL: CAMS netCDF/GRIB → extract value at airport POI → observation `Data01` (CO2/NO2/PM).
 
 ### Data02 · Excellent bathing waters (%) (Άριστα νερά κολύμβησης (%))
-- Status: `UNVERIFIED`
-- Source: Copernicus CMEMS + EU Tourism Dashboard (proposal); authoritative bathing-water status = EEA.
-- Online source: https://marine.copernicus.eu/ · https://tourism-dashboard.ec.europa.eu/ · https://www.eea.europa.eu/
-- Data access: `WF/01` (CMEMS, registration) or `PROC/download-extract.md` (EEA bathing-water status report/data).
-- ETL: status table/PDF → count "% excellent" per spatial unit → observation `Data02`.
+- Status: `VERIFIED` (country level)
+- Source: EEA WISE Bathing Water (Discodata SQL API) — authoritative; proposal also cites CMEMS/EU Tourism Dashboard.
+- Online source: https://discodata.eea.europa.eu/sql · dataset page https://www.eea.europa.eu/data-and-maps/data/bathing-water-directive-status-of-bathing-water (datahub item `c3858959-90da-4c1b-b9ca-492db0e514df`)
+- Data access: `API` — table `[WISE_BWD].[latest].[assessment_BathingWaterStatus]` (quality since 1990).
+- ETL: `SELECT quality, COUNT(*) ... WHERE countryCode='EL' AND season=<year>` → % Excellent. `VERIFIED` Greece 2024: Excellent 1677 / total 1729 (96.99 % of total; 99.00 % of classified).
 
 ### Data03 · Clean beach water (reports) (Καθαρό νερό παραλίας)
-- Status: `UNVERIFIED`
-- Source: Copernicus CMEMS + citizen reports.
-- Online source: https://marine.copernicus.eu/ (reports are the app's own feed).
-- Data access: `WF/01` (CMEMS) + internal user reports.
-- ETL: water-quality class → clean-beach flag; cross-verify reports vs CMEMS/IoT.
+- Status: `VERIFIED` (derived flag, country level)
+- Source: EEA WISE BWD (derived) + citizen reports (app's own feed).
+- Online source: https://discodata.eea.europa.eu/sql (reports are the app's own feed).
+- Data access: `API` + internal user reports.
+- ETL: water-quality class → clean-beach flag. `ASSUMPTION` "clean" = classified as Excellent/Good/Sufficient. Greece 2024: 99.94 % of classified waters meet this. Cross-verify reports vs EEA/CMEMS.
 
 ### Data04 · Blue Flags (Γαλάζιες Σημαίες)
-- Status: `UNVERIFIED`
+- Status: `PARTIAL`
 - Source: Blue Flag programme (FEE); proposal cites EU Tourism Dashboard.
-- Online source: https://www.blueflag.global/
-- Data access: `PROC/download-extract.md` — locate/export the certified-sites list (interactive page; no clean CSV confirmed).
+- Online source: https://www.blueflag.global/ (confirmed HTTP 200, 2026-09-24).
+- Data access: `PROC/download-extract.md` — the global site is an interactive map (Squarespace); no clean machine-readable CSV/list of certified sites is exposed from `blueflag.global` navigation. National-operator pages carry per-country lists. Recorded as an access constraint (no export confirmed), not "source does not exist".
 - ETL: list → count certified sites per spatial unit → observation `Data04`.
 
 ### Data05 · EMAS / EU Ecolabel (EMAS / EU Ecolabel)
-- Status: `UNVERIFIED`
+- Status: `PARTIAL` (register URL confirmed)
 - Source: EMAS register + EU Ecolabel catalogue (European Commission).
-- Online source: https://green-business.ec.europa.eu/eco-management-and-audit-scheme-emas_en · https://green-business.ec.europa.eu/eu-ecolabel_en
-- Data access: `PROC/download-extract.md` — download/export the register/catalogue.
+- Online source: EMAS register `https://green-forum.ec.europa.eu/green-business/emas/emas-register_en` (confirmed HTTP 200, 2026-09-24); EU Ecolabel catalogue `https://green-business.ec.europa.eu/eu-ecolabel_en`.
+- Data access: `PROC/download-extract.md` — download/export the register/catalogue (the register page exposes a search UI; the export/download URL to confirm on next pass).
 - ETL: register → count certified organisations per spatial unit → observation `Data05`.
 
 ## Dynamic Congestion — Δυναμική Συμφόρηση
@@ -119,12 +119,12 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 - Data access: `WF/04` + `API (pull-open-meteo.sh)`.
 - ETL: `daily.uv_index_max` → observation `Data14`.
 
-### Data15 · Air quality / AI indoor-activity proposal
-- Status: `UNVERIFIED` (duplicate label — treat as two concerns)
-- Source: CAMS (air quality) + local LLM output (indoor suggestion).
-- Online source: https://atmosphere.copernicus.eu/ (indoor suggestion is generated locally, not a source).
-- Data access: `WF/04` (CAMS) + local-first LLM.
-- ETL: air quality as Data01; indoor suggestion is an LLM output, not a pull.
+### Data15 · Air quality (Ποιότητα Αέρα)
+- Status: `UNVERIFIED` (credential-gated: CAMS token / weather key)
+- Source: Copernicus CAMS (ambient air quality) + OpenWeatherMap / Meteo.gr.
+- Online source: https://atmosphere.copernicus.eu/
+- Data access: `WF/04` (CAMS, registration token).
+- ETL: AQ pollutant value (NO2/PM/CO2) at a POI → observation `Data15`. `DECISION` D-008 (confirmed): the AI indoor-activity suggestion was removed in the corrected source.
 
 ## Social Pressure & Infrastructure — Κοινωνική Πίεση & Υποδομές
 
@@ -189,10 +189,10 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 - ETL: cultural-POI density per zone.
 
 ### Data24 · Protected land (%)
-- Status: `UNVERIFIED`
+- Status: `PARTIAL` (dataset URLs confirmed)
 - Source: EU Tourism Dashboard maps; Natura 2000 / EEA (authoritative).
-- Online source: https://natura2000.eea.europa.eu/ · https://www.eea.europa.eu/
-- Data access: `WF/07` + `PROC/download-extract.md` (CDDA / Natura 2000).
+- Online source: Natura 2000 EEA datahub item `https://www.eea.europa.eu/en/datahub/datahubitem-view/6fc8ad2d-195d-40f4-bdec-576e7d1268e4` (HTTP 200); CDDA "Nationally designated areas" `https://www.eea.europa.eu/en/datahub/datahubitem-view/f60cec02-6494-4d08-b12d-17a37012cb28` (HTTP 200). Both expose a GeoNetwork record via `https://sdi.eea.europa.eu/catalogue/datahub/api/records/<uuid>`.
+- Data access: `WF/07` + `PROC/download-extract.md` (CDDA / Natura 2000); the file download (GeoPackage/Shapefile) is behind the SDI download link — to confirm on the next pass.
 - ETL: protected-area geometry → % per spatial unit.
 
 ### Data25 · Accommodation in high-value areas
@@ -226,11 +226,11 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 - ETL: occupancy = stays/capacity (or platform feed once authorized).
 
 ### Data29 · Seasonality (%)
-- Status: `UNVERIFIED`
-- Source: Eurostat monthly nights (`tour_occ_nim`).
-- Online source: https://ec.europa.eu/eurostat · verified endpoint (country level): `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&time=2023`
-- Data access: `WF/08` + extend `pull-eurostat-tourism.sh` (NUTS2 monthly not published — use EL or annual distribution).
-- ETL: monthly distribution → peak-month share → seasonality %.
+- Status: `PARTIAL`
+- Source: Eurostat monthly nights (`tour_occ_nim`) — country level only.
+- Online source: https://ec.europa.eu/eurostat · verified endpoint (country level, monthly): `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01..2023-12`
+- Data access: `WF/08` + `API (pull-eurostat-tourism.sh)` — NUTS2 monthly (`geo=EL62`) returns an empty set; use country-level Greece as the documented proxy.
+- ETL: monthly distribution → peak-month share → seasonality %. `VERIFIED` 2023 (Greece): total 147,209,821 nights · peak Aug 31,687,354 (21.53 %) · Jul+Aug 41.54 % · Jun–Sep 71.95 %.
 
 ### Data30 · Average length of stay
 - Status: `PROPOSAL`

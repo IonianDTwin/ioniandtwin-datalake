@@ -10,25 +10,29 @@ Data01–Data34 grouped by category, with verified values and links to the sampl
 - Access: `api` · Auth: `registration / partner`
 - Note: Air pollutants (CO2/NO2/PM) around entry gates. CAMS download needs a registration token.
 
-### Data02 · Excellent bathing waters (%) (Άριστα νερά κολύμβησης (%)) — `UNVERIFIED`
+### Data02 · Excellent bathing waters (%) (Άριστα νερά κολύμβησης (%)) — `VERIFIED`
 
-- Source: Copernicus CMEMS; EU Tourism Dashboard
-- Access: `api` · Auth: `registration / none`
+- Source: EEA WISE Bathing Water (Discodata SQL); CMEMS secondary
+- Access: `api` · Auth: `none`
+- Note: Country-level (Greece). NUTS2 (EL62) attribution requires a spatial join on bathingWaterIdentifier.
 
-### Data03 · Clean beach water (reports) (Καθαρό νερό παραλίας (Reports)) — `UNVERIFIED`
+### Data03 · Clean beach water (reports) (Καθαρό νερό παραλίας (Reports)) — `VERIFIED`
 
-- Source: Copernicus CMEMS; user reports
-- Access: `api / user_reports` · Auth: `registration / app`
+- Source: EEA WISE BWD (derived); user reports
+- Access: `api / user_reports` · Auth: `none / app`
+- Note: ASSUMPTION: clean = classified Excellent/Good/Sufficient (Greece 2024: 99.94% of classified). Citizen reports are the app's own feed.
 
-### Data04 · Blue Flags (Γαλάζιες Σημαίες) — `UNVERIFIED`
+### Data04 · Blue Flags (Γαλάζιες Σημαίες) — `PARTIAL`
 
-- Source: EU Tourism Dashboard
+- Source: Blue Flag programme (FEE)
 - Access: `download` · Auth: `none`
+- Note: blueflag.global confirmed (HTTP 200); interactive map only, no clean CSV/list exposed from the global site.
 
-### Data05 · EMAS / EU Ecolabel (EMAS / EU Ecolabel) — `UNVERIFIED`
+### Data05 · EMAS / EU Ecolabel (EMAS / EU Ecolabel) — `PARTIAL`
 
-- Source: EU Tourism Dashboard
+- Source: EMAS register + EU Ecolabel (EC)
 - Access: `download` · Auth: `none`
+- Note: EMAS register URL confirmed (HTTP 200): green-forum.ec.europa.eu/green-business/emas/emas-register_en; export/download URL to confirm.
 
 ## Dynamic Congestion — Δυναμική Συμφόρηση
 
@@ -85,11 +89,11 @@ Data01–Data34 grouped by category, with verified values and links to the sampl
 - Access: `api` · Auth: `none (Open-Meteo) / API key (OpenWeatherMap)`
   - **max UV index**: `5.9` → [viewer](open-meteo-corfu-forecast-2026-09-22.html) · [md](open-meteo-corfu-forecast-2026-09-22.summary.md)
 
-### Data15 · Air quality / AI indoor-activity proposal — `UNVERIFIED`
+### Data15 · Air quality (Ποιότητα Αέρα) — `UNVERIFIED`
 
-- Source: CAMS (air quality); LLM output (indoor suggestion)
-- Access: `api / internal` · Auth: `registration / local`
-- Note: RISK duplicate label in the proposal: air quality and an AI indoor-activity suggestion. Treat as two concerns.
+- Source: Copernicus CAMS; OpenWeatherMap / Meteo.gr
+- Access: `api` · Auth: `registration / key`
+- Note: DECISION D-008 (confirmed): the duplicate 'Data15 AI indoor-activity proposal' was removed in the corrected source. Data15 = ambient air quality (distinct from Data01 airport CO2).
 
 ## Social Pressure & Infrastructure — Κοινωνική Πίεση & Υποδομές
 
@@ -138,10 +142,11 @@ Data01–Data34 grouped by category, with verified values and links to the sampl
 - Source: EU Tourism Dashboard maps
 - Access: `download` · Auth: `none`
 
-### Data24 · Protected land (%) — `UNVERIFIED`
+### Data24 · Protected land (%) — `PARTIAL`
 
-- Source: EU Tourism Dashboard maps
+- Source: EEA CDDA / Natura 2000
 - Access: `download` · Auth: `none`
+- Note: Dataset pages confirmed (HTTP 200): Natura 2000 datahub 6fc8ad2d-195d-40f4-bdec-576e7d1268e4, CDDA f60cec02-6494-4d08-b12d-17a37012cb28. File download (GeoPackage/Shapefile) to confirm.
 
 ### Data25 · Accommodation in high-value areas — `UNVERIFIED`
 
@@ -168,11 +173,11 @@ Data01–Data34 grouped by category, with verified values and links to the sampl
 - Source: social media & booking services
 - Access: `api` · Auth: `API key`
 
-### Data29 · Seasonality (%) — `UNVERIFIED`
+### Data29 · Seasonality (%) — `PARTIAL`
 
-- Source: Eurostat monthly series (to be identified)
+- Source: Eurostat tour_occ_nim (monthly nights)
 - Access: `api` · Auth: `none`
-- Note: Requires a monthly nights/arrivals series; the verified datasets are annual.
+- Note: Monthly nights verified at COUNTRY level only (geo=EL); Eurostat publishes no NUTS2 monthly for tour_occ_nim. Seasonality is therefore country-level Greece as a proxy until a NUTS2 monthly source is identified.
 
 ### Data30 · Average length of stay — `PROPOSAL`
 

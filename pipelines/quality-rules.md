@@ -20,4 +20,4 @@
 
 ## Status
 
-`BLOCKER` Rules are defined but not implemented; no data flows yet.
+`DECISION` Rules are defined (2026-09-24); they are not yet implemented by a pipeline. No data flows yet (D-002), so enforcement is deferred.

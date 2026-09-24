@@ -11,7 +11,7 @@
 | Data26 | Arrivals & overnight stays | EU Tourism Dashboard (Eurostat) | api | none | **VERIFIED** |
 | Data27 | Tourism capacity (beds) | EU Tourism Dashboard (Eurostat) | api | none | **VERIFIED** |
 | Data28 | Occupancy rate (%) | social media & booking services | api | API key | UNVERIFIED |
-| Data29 | Seasonality (%) | EU Tourism Dashboard (Eurostat) | api | none | UNVERIFIED (monthly series needed) |
+| Data29 | Seasonality (%) | EU Tourism Dashboard (Eurostat) | api | none | `PARTIAL` (country-level monthly verified; no NUTS2 monthly) |
 | Data30 | Average length of stay | EU Tourism Dashboard (Eurostat); booking services | api | none / API key | `PROPOSAL` derivable from Data26 |
 
 ## Pull process
@@ -45,8 +45,14 @@
 
 ### Data29 — Seasonality (%)
 
-1. **Source** — a monthly Eurostat nights/arrivals series (e.g. `tour_occ_nim` family). The annual NUTS2 datasets are verified, but the **monthly** series must be identified and pulled in the next round.
-2. **Transform** — monthly distribution / peak-month share → seasonality %.
+1. **Source** — Eurostat `tour_occ_nim` (monthly nights). `PARTIAL`: monthly data is published at **country level only** (`geo=EL`); the NUTS2 query (`geo=EL62`) returns an empty value set (no monthly NUTS2 publication).
+2. **Request** (verified 2026-09-24):
+   ```bash
+   curl -sS "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+   ```
+   Note: monthly `time` codes use `YYYY-MM` format (e.g. `2023-07`), not `YYYY-MMM`/`YYYYM01`.
+3. **Transform** — seasonality % = peak-month share of annual nights (or a Jul+Aug / Jun–Sep share).
+4. **Sample (verified, Greece 2023)** — total 147,209,821 nights; peak Aug 31,687,354 (21.53 %); Jul+Aug 41.54 %; Jun–Sep 71.95 %.
 
 ### Data30 — Average length of stay
 
@@ -57,5 +63,6 @@
 ## Notes & blockers
 
 - `VERIFIED` Data26 and Data27 are directly pullable today.
-- `BLOCKER` Data28 (booking APIs) and Data29 (monthly series) remain unverified.
+- `BLOCKER` Data28 (booking APIs) remains unverified.
+- `PARTIAL` Data29: monthly nights verified at country level (Greece); no NUTS2 monthly publication — use country level as a documented proxy.
 - `PROPOSAL` Data30 formula is a candidate derivation, not a proposal-defined formula.

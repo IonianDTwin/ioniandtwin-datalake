@@ -42,11 +42,11 @@
 
 `REQUIREMENT` The proposal presents **Data01–Data34** across: environmental health and pollutants, dynamic congestion, sustainable transport, climate adaptation, social pressure and infrastructure, digital infrastructure, spatial sustainability, tourism performance, density and typology, and participatory feedback. The normalised catalogue lives in `indicators/indicator-catalogue.md`.
 
-## Known requirements inconsistencies (carried forward)
+## Known requirements inconsistencies (resolved 2026-09-24)
 
-- `RISK`/`BLOCKER` The main catalogue ends at Data34, but one GSTC mapping references **Data35**.
-- `RISK` The Climate Adaptation category contains a duplicated `Data 15` label (`Ποιότητα Αέρα` and `Πρόταση AI για εσωτερικές δραστηριότητες`).
-- Neither is resolved here; neither is invented or silently remapped. See `RISKS_AND_ASSUMPTIONS.md`.
+- `DECISION` (confirmed, D-007) The main catalogue ends at Data34, but one GSTC mapping references **Data35** — a transcription error for **Data34** (user feedback); user confirmed "35" → "34".
+- `DECISION` (confirmed, D-008) The Climate Adaptation category's duplicated `Data 15` label (`Ποιότητα Αέρα` and `Πρόταση AI για εσωτερικές δραστηριότητες`) — Data15 = Air quality; the corrected source removed the indoor-activities entry.
+- Both resolved and documented; the original text is preserved as evidence. See `RISKS_AND_ASSUMPTIONS.md` and `DECISIONS.md` (D-007/D-008).
 
 ## Composite indicators (from proposal)
 

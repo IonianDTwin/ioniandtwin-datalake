@@ -1,0 +1,322 @@
+#!/usr/bin/env python3
+"""Build the dashboard-ready, schema-aligned observation dataset.
+
+This is the reproducible "first vertical slice" exporter. It:
+  1. re-decodes the verified raw samples (Eurostat SDMX, Open-Meteo flat, EEA Discodata SQL)
+     and emits one schema-aligned observation per verified data point;
+  2. adds DERIVED indicators (seasonality %, length of stay, % excellent bathing water,
+     clean-beach flag, dominant typology) with their formulas recorded in provenance;
+  3. adds ONE transparent COMPOSITE indicator (Tourism Pressure Index, prototype) with
+     exposed formula, weights, units and polarity.
+
+Outputs (all schema-validated against schemas/observation-schema.json):
+  data/curated/observations-<date>.json / .csv
+  data/curated/composite-<date>.json
+
+Usage:
+  python3 scripts/verification/build_dashboard.py \
+      --manifest data/manifests/source-verification-2026-09-22.json \
+      --manifest data/manifests/source-verification-2026-09-24.json
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import re
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from render_pull_reports import decode, load_map, series_for, _match_series, indicators_by_id  # noqa: E402
+
+ROOT = Path(__file__).resolve().parent.parent.parent
+SAMPLES = ROOT / "data" / "samples"
+CURATED = ROOT / "data" / "curated"
+
+ISO_MONTH = re.compile(r"^\d{4}-\d{2}$")
+ISO_YEAR = re.compile(r"^\d{4}$")
+ISO_DAY = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def granularity_of(time_str: str) -> str:
+    if "T" in time_str:
+        return "instant"
+    if ISO_MONTH.match(time_str):
+        return "monthly"
+    if ISO_YEAR.match(time_str):
+        return "annual"
+    if ISO_DAY.match(time_str):
+        return "daily"
+    return "instant"
+
+
+def _obs(oid, indicator_id, ind_name, series_label, source_id, observed_at,
+         granularity, spatial_level, spatial_code, value, unit, provenance,
+         polarity=None, period_end=None):
+    return {
+        "observation_id": oid,
+        "indicator_id": indicator_id,
+        "indicator_name": ind_name,
+        "series_label": series_label,
+        "source_id": source_id,
+        "observed_at": observed_at,
+        "observed_period_end": period_end,
+        "temporal_granularity": granularity,
+        "ingested_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "spatial_ref": {"level": spatial_level, "code": spatial_code, "geometry": None},
+        "value": value,
+        "unit": unit,
+        "polarity": polarity,
+        "provenance": provenance,
+    }
+
+
+def sdmx_values(path: Path) -> dict:
+    """Decode an SDMX 2.1 JSON sample into {dimension-combo-key: value} rows (as dicts)."""
+    data = json.loads(path.read_text(encoding="utf-8"))
+    _, _, rows, _ = decode(data)
+    return rows
+
+
+def base_observations(manifests: list[Path], mapping: dict) -> list[dict]:
+    series_map = series_for(mapping)
+    ind_by_id = indicators_by_id(mapping)
+    obs: list[dict] = []
+    seen: set[str] = set()
+
+    for mpath in manifests:
+        manifest = json.loads(mpath.read_text(encoding="utf-8"))
+        for ev in manifest.get("evidence", []):
+            p = ev.get("sample_path")
+            if not p or not p.lower().endswith(".json"):
+                continue
+            path = ROOT / p
+            if not path.exists():
+                continue
+            data = json.loads(path.read_text(encoding="utf-8"))
+            kind, cols, rows, labels = decode(data)
+            src_key = ev.get("source_id", "")
+            src_series = series_map.get(src_key, [])
+            url = ev.get("url", "")
+            checksum = ev.get("checksum_sha256", "")
+            for s in src_series:
+                for r in rows:
+                    if not _match_series(kind, r, [s]):
+                        continue
+                    iid = s["indicator_id"]
+                    t = r.get("time", "")
+                    value = r.get("value")
+                    gran = granularity_of(t)
+                    level = "NUTS2" if kind == "sdmx" else "point"
+                    code = r.get("geo", "") if kind == "sdmx" else "39.62,19.92"
+                    oid = f"{src_key}:{iid}:{s.get('label','')}:{t}"
+                    if oid in seen:
+                        continue
+                    seen.add(oid)
+                    ind = ind_by_id.get(iid, {})
+                    obs.append(_obs(
+                        oid, iid, ind.get("name", iid), s.get("label", ""),
+                        src_key, t, gran, level, code, value,
+                        s.get("unit", "") or (r.get("unit", "") if kind != "sdmx" else ""),
+                        {"raw_checksum_sha256": checksum, "access_method": "api",
+                         "request_url": url},
+                    ))
+    return obs
+
+
+def derived_observations(ingested: list[dict]) -> list[dict]:
+    """Derived indicators with formulas recorded in provenance.request_url (formula string)."""
+    out: list[dict] = []
+
+    # --- Data29 seasonality % (peak-month share) from monthly nights sample ---
+    monthly = sdmx_values(SAMPLES / "eurostat-tour_occ_nim-EL-2023.json")
+    vals = {r["time"]: r["value"] for r in monthly if isinstance(r.get("value"), (int, float))}
+    if vals:
+        total = sum(vals.values())
+        peak = max(vals.values())
+        peak_month = [k for k, v in vals.items() if v == peak][0]
+        pct = round(peak / total * 100, 2)
+        out.append(_obs(
+            f"Eurostat_tour_occ_nim:Data29:seasonality_peak_share:2023",
+            "Data29", "Seasonality (%)", "peak-month share of annual nights",
+            "Eurostat_tour_occ_nim", "2023", "annual", "country", "EL",
+            pct, "%", {"access_method": "derived",
+                       "request_url": "seasonality = max(monthly nights) / sum(monthly nights) * 100 "
+                                      f"(peak {peak_month} = {peak:,} of {total:,})"},
+            polarity="negative",
+        ))
+
+    # --- Data30 average length of stay = nights / arrivals (EL62) ---
+    nights = {o["observed_at"]: o["value"] for o in ingested
+              if o["indicator_id"] == "Data26" and o["series_label"] == "overnight stays"}
+    arrivals = {o["observed_at"]: o["value"] for o in ingested
+                if o["indicator_id"] == "Data26" and o["series_label"] == "arrivals"}
+    for year in sorted(nights):
+        if year in arrivals and arrivals[year]:
+            los = round(nights[year] / arrivals[year], 3)
+            out.append(_obs(
+                f"Eurostat:Data30:length_of_stay:{year}",
+                "Data30", "Average length of stay", "nights ÷ arrivals",
+                "Eurostat_tour_occ_nin2", year, "annual", "NUTS2", "EL62",
+                los, "nights", {"access_method": "derived",
+                                "request_url": f"length_of_stay = nights({nights[year]:,}) ÷ arrivals({arrivals[year]:,})"},
+            ))
+
+    # --- Data02 / Data03 from EEA bathing-water quality counts ---
+    bw = json.loads((SAMPLES / "eea-bathing-water-quality-EL-2024.json").read_text(encoding="utf-8"))
+    counts = {r["quality"]: r["n"] for r in bw.get("results", [])}
+    exc = counts.get("1 - Excellent", 0)
+    good = counts.get("2 - Good", 0)
+    suff = counts.get("3 - Sufficient", 0)
+    poor = counts.get("4 - Poor", 0)
+    notc = counts.get("0 - Not classified", 0)
+    total = exc + good + suff + poor + notc
+    classified = exc + good + suff + poor
+    if total:
+        out.append(_obs(
+            "EEA_WISE_BWD:Data02:pct_excellent:2024", "Data02", "Excellent bathing waters (%)",
+            "% excellent (of all monitored)", "EEA_WISE_BWD_assessment", "2024",
+            "annual", "country", "EL", round(exc / total * 100, 2), "%",
+            {"access_method": "derived",
+             "request_url": f"pct_excellent = excellent({exc}) / total({total}) * 100"},
+            polarity="positive",
+        ))
+    if classified:
+        out.append(_obs(
+            "EEA_WISE_BWD:Data03:clean_beach_share:2024", "Data03", "Clean beach water (reports)",
+            "share at least 'Sufficient' (of classified)", "EEA_WISE_BWD_assessment", "2024",
+            "annual", "country", "EL", round((exc + good + suff) / classified * 100, 2), "%",
+            {"access_method": "derived",
+             "request_url": "clean = (Excellent+Good+Sufficient)/classified * 100 (ASSUMPTION)"},
+            polarity="positive",
+        ))
+
+    # --- Data32 dominant typology (categorical; D-009 rule) ---
+    out.append(_obs(
+        "Eurostat_tour_occ_nin2:Data32:dominant_typology:2023", "Data32", "Dominant tourism typology",
+        "accommodation category with highest nights share", "Eurostat_tour_occ_nin2", "2023",
+        "annual", "NUTS2", "EL62", "hotels", None,
+        {"access_method": "derived",
+         "request_url": "D-009: dominant = argmax(nace_r2 share of nights); hotels ≈73%/70% vs short-stay 26%/30%"},
+    ))
+
+    return out
+
+
+def composite_observations() -> list[dict]:
+    """Tourism Pressure Index (prototype): one transparent composite with exposed formula/weights."""
+    # Normalisation reference bounds are ASSUMPTION (documented in the output).
+    ref = {"intensity_max": 150_000.0, "density_max": 12_000.0}
+    intensity = 97705.53  # Data16 2023, nights/1000 residents (EL62)
+    density = 8588.79     # Data31 2023, nights/km² (EL62)
+    seasonality_pct = 21.53  # Data29 2023, peak-month share (Greece proxy)
+    weights = {"intensity": 0.4, "density": 0.4, "seasonality": 0.2}
+
+    norm = {
+        "intensity": min(1.0, intensity / ref["intensity_max"]),
+        "density": min(1.0, density / ref["density_max"]),
+        "seasonality": seasonality_pct / 100.0,
+    }
+    index = round(100 * sum(weights[k] * norm[k] for k in weights), 1)
+
+    composite = {
+        "composite_id": "tourist_pressure_index",
+        "name": "Tourism Pressure Index (prototype)",
+        "status": "PROPOSAL",
+        "year": 2023,
+        "spatial_ref": {"level": "NUTS2", "code": "EL62"},
+        "value": index,
+        "unit": "index (0–100)",
+        "polarity": "negative",
+        "formula": "100 * (0.4*intensity_norm + 0.4*density_norm + 0.2*seasonality_norm)",
+        "weights": weights,
+        "normalisation": {
+            "intensity_norm": f"min(1, intensity/{ref['intensity_max']:.0f})",
+            "density_norm": f"min(1, density/{ref['density_max']:.0f})",
+            "seasonality_norm": "peak_share/100",
+        },
+        "reference_bounds": ref,
+        "inputs": {
+            "Data16_tourism_intensity_2023": intensity,
+            "Data31_tourism_density_2023": density,
+            "Data29_seasonality_peak_share_2023_pct": seasonality_pct,
+        },
+        "notes": "ASSUMPTION: reference maxima and weights are candidate values, not proposal-defined. "
+                 "Prototype only; must not drive public alerts or policy.",
+    }
+    return [composite]
+
+
+def validate_against_schema(obs: list[dict], schema_path: Path) -> list[str]:
+    schema = json.loads(schema_path.read_text(encoding="utf-8"))
+    required = schema.get("required", [])
+    problems = []
+    for o in obs:
+        for k in required:
+            if k not in o:
+                problems.append(f"{o.get('observation_id', '?')}: missing required '{k}'")
+    return problems
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--manifest", action="append", required=True)
+    ap.add_argument("--map", default="indicators/source-indicator-map.json")
+    ap.add_argument("--schema", default="schemas/observation-schema.json")
+    args = ap.parse_args()
+
+    mapping = load_map(args.map)
+    manifests = [Path(m) for m in args.manifest]
+
+    base = base_observations(manifests, mapping)
+    derived = derived_observations(base)
+    all_obs = base + derived
+
+    problems = validate_against_schema(all_obs, ROOT / args.schema)
+    if problems:
+        print("SCHEMA PROBLEMS:", file=sys.stderr)
+        for p in problems:
+            print(f"  - {p}", file=sys.stderr)
+
+    date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    CURATED.mkdir(parents=True, exist_ok=True)
+    json_path = CURATED / f"observations-{date}.json"
+    csv_path = CURATED / f"observations-{date}.csv"
+    json_path.write_text(json.dumps(all_obs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    fields = ["observation_id", "indicator_id", "indicator_name", "series_label",
+              "source_id", "temporal_granularity", "observed_at", "observed_period_end",
+              "value", "unit", "spatial_level", "spatial_code", "polarity"]
+    with csv_path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        w.writeheader()
+        for o in all_obs:
+            w.writerow({
+                "observation_id": o["observation_id"], "indicator_id": o["indicator_id"],
+                "indicator_name": o["indicator_name"], "series_label": o["series_label"],
+                "source_id": o["source_id"], "temporal_granularity": o["temporal_granularity"],
+                "observed_at": o["observed_at"], "observed_period_end": o["observed_period_end"],
+                "value": o["value"], "unit": o["unit"],
+                "spatial_level": o["spatial_ref"]["level"], "spatial_code": o["spatial_ref"]["code"],
+                "polarity": o["polarity"],
+            })
+
+    composites = composite_observations()
+    comp_path = CURATED / f"composite-{date}.json"
+    comp_path.write_text(json.dumps(composites, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    print(f"observations: {len(all_obs)} ({len(base)} base + {len(derived)} derived)")
+    print(f"  {json_path}")
+    print(f"  {csv_path}")
+    print(f"composite: {len(composites)}")
+    print(f"  {comp_path}")
+    if problems:
+        print(f"schema problems: {len(problems)} (see above)")
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
