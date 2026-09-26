@@ -53,25 +53,25 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 ## Dynamic Congestion — Δυναμική Συμφόρηση
 
 ### Data06 · Airport congestion
-- Status: `UNVERIFIED`
-- Source: MarineTraffic / FlightRadar24 (paid APIs).
-- Online source: https://www.marinetraffic.com/ · https://www.flightradar24.com/
-- Data access: `WF/02` — paid API key + ToS verification (feasibility track).
-- ETL: arrivals/flight positions → count per airport buffer per window → congestion.
+- Status: `PARTIAL` (free live-flight source confirmed 2026-09-26)
+- Source: OpenSky Network (free, no-key; D-011 substitute) · FlightRadar24 (paid, fallback).
+- Online source: `https://opensky-network.org/api/states/all` (HTTP 200, application/json) · https://www.flightradar24.com/ (paid).
+- Data access: `WF/02` — OpenSky anonymous REST (rate-limited, no key). Verified 2026-09-26: `GET …/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0` returned live aircraft states over the Ionian Islands (Aegean/Wizz callsigns, positions).
+- ETL: aircraft positions → count per airport buffer per window → congestion.
 
 ### Data07 · Port congestion
-- Status: `UNVERIFIED`
-- Source: MarineTraffic AIS.
-- Online source: https://www.marinetraffic.com/
-- Data access: `WF/02` — paid API.
-- ETL: vessel positions → count in port buffer → congestion.
+- Status: `PARTIAL` (free AIS candidates identified 2026-09-26)
+- Source: aisstream.io (free crowd-sourced AIS WebSocket) · EMODnet Human Activities (free authoritative vessel-density) · MarineTraffic AIS (paid). OpenSky (Data06) covers aircraft only, not vessels.
+- Online source: `https://aisstream.io/` (HTTP 200) · `https://emodnet.ec.europa.eu/en/human-activities` (HTTP 200) · https://www.marinetraffic.com/ (paid)
+- Data access: `WF/02` — aisstream live stream (public stream, no key) or EMODnet vessel-density download; both free. AISHub remains paid/limited-tier.
+- ETL: vessel positions/density → count in port buffer → congestion.
 
 ### Data08 · Road congestion
-- Status: `UNVERIFIED`
-- Source: Google Maps Platform.
-- Online source: https://mapsplatform.google.com/
-- Data access: `WF/02` — paid API.
-- ETL: travel-time/delay per segment → congestion level.
+- Status: `UNVERIFIED` (no free live-traffic source; routing-only fallback identified 2026-09-26)
+- Source: Google Maps Platform (paid, live traffic) · OpenRouteService (free tier, key — routing, not live congestion).
+- Online source: https://mapsplatform.google.com/ (paid) · `https://openrouteservice.org/dev/#/signup` (HTTP 200, free tier ~500 req/day)
+- Data access: `WF/02` — ORS free API key for routing/distance; no free live-traffic feed confirmed (TomTom/HERE/Google all paid).
+- ETL: travel-time/delay per segment → congestion level (live) or ORS static routing as fallback.
 
 ### Data09 · Beach congestion
 - Status: `UNVERIFIED`
@@ -150,20 +150,20 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 - ETL: outage reports → status flag.
 
 ### Data19 · Short-term rental share (Airbnb)
-- Status: `UNVERIFIED`
-- Source: EU Tourism Dashboard; Airbnb (feasibility).
-- Online source: https://tourism-dashboard.ec.europa.eu/ · https://www.airbnb.com/ (no public data API).
-- Data access: `WF/05` — dashboard export or Airbnb partner API (feasibility track).
+- Status: `PARTIAL` (free candidate identified, data path unconfirmed 2026-09-26)
+- Source: InsideAirbnb (free scrape-derived listings) · EU Tourism Dashboard; Airbnb has no public API.
+- Online source: `https://insideairbnb.com/get-the-data/` (HTTP 200) · `https://data.insideairbnb.com/greece/` (HTTP 200 but `content-length: 0`; Greece region/date keys still to resolve — a guessed Athens key returned HTTP 403).
+- Data access: `WF/05` — resolve InsideAirbnb Greece region keys (Ionian Islands coverage TBD) or dashboard export.
 - ETL: rental listings share → observation `Data19`.
 
 ## Digital Infrastructure — Ψηφιακή Υποδομή
 
 ### Data20 · Internet speed (>100 Mb/s)
-- Status: `UNVERIFIED`
-- Source: citizen reports (own app).
-- Online source: internal (mobile app).
-- Data access: `WF/06` — internal feed.
-- ETL: speed reports → aggregate per spatial unit.
+- Status: `PARTIAL` (free source confirmed 2026-09-26)
+- Source: Ookla Open Data (free, no key; D-011 substitute) · citizen reports (own app).
+- Online source: `https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip` (HTTP 200, application/zip) · registry `https://registry.opendata.aws/speedtest-global-performance/`.
+- Data access: `WF/06` — direct S3 shapefile download (fixed broadband tiles, quarterly, free).
+- ETL: speed tile → aggregate per spatial unit → observation `Data20`.
 
 ### Data21 · 4G/5G availability
 - Status: `UNVERIFIED`
@@ -219,11 +219,11 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 - ETL: `accomunit=BEDPL, unit=NR, nace_r2=I551-I553` → observation `Data27`.
 
 ### Data28 · Occupancy rate (%)
-- Status: `UNVERIFIED`
-- Source: booking/social services (paid, ToS-gated).
-- Online source: no public data API (booking platforms).
-- Data access: `WF/08` — feasibility track; no public pull.
-- ETL: occupancy = stays/capacity (or platform feed once authorized).
+- Status: `PARTIAL` (free source candidate reachable 2026-09-26)
+- Source: ELSTAT (Greek statistics, free) · booking/social services (paid, ToS-gated).
+- Online source: ELSTAT occupancy publication `https://www.statistics.gr/en/statistics/-/publication/STO12/` (HTTP 200) · no public booking API.
+- Data access: `WF/08` — confirm the ELSTAT occupancy dataset/export; fallback: derive occupancy = nights/bed-places from Data26/27.
+- ETL: occupancy = stays/capacity (ELSTAT table or Eurostat-derived).
 
 ### Data29 · Seasonality (%)
 - Status: `PARTIAL`
