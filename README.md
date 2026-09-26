@@ -41,4 +41,4 @@ Substantive statements are marked with exactly one of: `REQUIREMENT`, `PROPOSAL`
 
 ## Not included
 
-Workstation-internal operational material — agent operating rules, session logs, task tracking, and machine-specific paths — is intentionally excluded from this public repository.
+Workstation-internal operational material — agent operating rules, session logs, task tracking, and machine-specific paths — is intentionally excluded from this repository.
