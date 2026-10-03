@@ -1,9 +1,9 @@
 {
   "schema_version": "0.2",
   "title": "IonianDTwin source-indicator map",
-  "description": "Navigation and annotation map tying Data01–Data34 to their data sources, access methods, and — where verified — the exact dimension/filter that selects each indicator from a pulled sample. Derived from the technical proposal and the 2026-09-22 pull verification. Canonical indicator fields remain in indicators/indicator-metadata.yaml.",
+  "description": "Navigation and annotation map tying Data01-Data34 to their data sources, access methods, and - where verified - the exact dimension/filter that selects each indicator from a pulled sample. Derived from the technical proposal and the 2026-09-22 pull verification. Canonical indicator fields remain in indicators/indicator-metadata.yaml.",
   "generated_from": [
-    "technical proposal (Greek annex) Data01–Data34",
+    "technical proposal (Greek annex) Data01-Data34",
     "sources/source-verification-matrix.md (2026-09-22)",
     "data/manifests/source-verification-2026-09-22.json"
   ],
@@ -55,11 +55,12 @@
       "name": "Airport CO2 levels",
       "name_el": "Επίπεδα CO2 αεροδρομίων",
       "category": "environmental_health_pollutants",
-      "status": "UNVERIFIED",
+      "status": "PARTIAL",
       "source": "Copernicus CAMS; local IoT stations",
       "access_type": "api",
       "auth": "registration / partner",
-      "note": "Air pollutants (CO2/NO2/PM) around entry gates. CAMS download needs a registration token."
+      "note": "CAMS access verified 2026-10-01; CAMS regional has no CO2 variable -> NO2/CO/PM used as airport-emission proxies; CO2 deferred to CAMS global GHG or local sensors.",
+      "cadence": "paused"
     },
     {
       "indicator_id": "Data02",
@@ -70,16 +71,20 @@
       "source": "EEA WISE Bathing Water (Discodata SQL); CMEMS secondary",
       "access_type": "api",
       "auth": "none",
-      "note": "Country-level (Greece). NUTS2 (EL62) attribution requires a spatial join on bathingWaterIdentifier.",
+      "note": "EL62 = 98.82 % excellent bathing water (2023) - from EU Tourism Dashboard TOUR_ENV_05; EEA WISE Discodata SQL is the underlying source.",
       "series": [
         {
           "source_key": "EEA_WISE_BWD_assessment",
-          "dims": { "countryCode": "EL", "season": 2024 },
+          "dims": {
+            "countryCode": "EL",
+            "season": 2024
+          },
           "label": "% excellent",
           "unit": "% of bathing waters",
           "description": "Share of bathing waters classified 'Excellent' (Greece 2024: 1677/1729 = 96.99%)."
         }
-      ]
+      ],
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data03",
@@ -90,49 +95,56 @@
       "source": "EEA WISE BWD (derived); user reports",
       "access_type": "api / user_reports",
       "auth": "none / app",
-      "note": "ASSUMPTION: clean = classified Excellent/Good/Sufficient (Greece 2024: 99.94% of classified). Citizen reports are the app's own feed."
+      "note": "ASSUMPTION: clean = classified Excellent/Good/Sufficient (Greece 2024: 99.94% of classified). Citizen reports are the app's own feed.",
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data04",
       "name": "Blue Flags",
       "name_el": "Γαλάζιες Σημαίες",
       "category": "environmental_health_pollutants",
-      "status": "PARTIAL",
+      "status": "VERIFIED",
       "source": "Blue Flag programme (FEE)",
       "access_type": "download",
       "auth": "none",
-      "note": "blueflag.global confirmed (HTTP 200); interactive map only, no clean CSV/list exposed from the global site."
+      "note": "EL62 = 51 Blue Flag sites (2024) - from EU Tourism Dashboard TOUR_DES_10. blueflag.global has no machine-readable list; the dashboard count resolves it.",
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data05",
       "name": "EMAS / EU Ecolabel",
       "name_el": "EMAS / EU Ecolabel",
       "category": "environmental_health_pollutants",
-      "status": "PARTIAL",
-      "source": "EMAS register + EU Ecolabel (EC)",
-      "access_type": "download",
+      "status": "VERIFIED",
+      "source": "EMAS register (REST) + EU Ecolabel catalogue (CSV export)",
+      "access_type": "api + download (CSV)",
       "auth": "none",
-      "note": "EMAS register URL confirmed (HTTP 200): green-forum.ec.europa.eu/green-business/emas/emas-register_en; export/download URL to confirm."
+      "note": "VERIFIED 2026-10-02: EMAS register REST https://webgate.ec.europa.eu/emas2/public/rest/registration/list (4,523 records, 27 countries; Greece 37, EL62 0) and EU Ecolabel CSV export https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv (89,298 licences; Greece 450, tourist-accommodation group Greece 0). Evidence: data/manifests/source-verification-2026-10-02.json.",
+      "cadence": "on-change"
     },
     {
       "indicator_id": "Data06",
       "name": "Airport congestion",
       "name_el": null,
       "category": "dynamic_congestion",
-      "status": "UNVERIFIED",
+      "status": "PARTIAL",
       "source": "MarineTraffic / FlightRadar24",
       "access_type": "api",
-      "auth": "API key (paid)"
+      "auth": "API key (paid)",
+      "note": "OpenSky free REST verified 2026-09-26; live snapshot 2026-10-02 (17 aircraft, 0 in approach). Congestion score formula still PROPOSAL; live-only.",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data07",
       "name": "Port congestion",
       "name_el": null,
       "category": "dynamic_congestion",
-      "status": "UNVERIFIED",
+      "status": "PARTIAL",
       "source": "MarineTraffic",
       "access_type": "api",
-      "auth": "API key (paid)"
+      "auth": "API key (paid)",
+      "note": "aisstream.io + EMODnet Human Activities free AIS verified 2026-09-26; live snapshot 2026-10-02 (1 vessel, Corfu). Congestion score formula still PROPOSAL; live-only.",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data08",
@@ -142,7 +154,8 @@
       "status": "UNVERIFIED",
       "source": "Google Maps API",
       "access_type": "api",
-      "auth": "API key (paid)"
+      "auth": "API key (paid)",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data09",
@@ -152,7 +165,8 @@
       "status": "UNVERIFIED",
       "source": "user reports",
       "access_type": "user_reports",
-      "auth": "app"
+      "auth": "app",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data10",
@@ -162,7 +176,8 @@
       "status": "UNVERIFIED",
       "source": "Google Maps API; user reports",
       "access_type": "api / user_reports",
-      "auth": "API key (paid) / app"
+      "auth": "API key (paid) / app",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data11",
@@ -172,7 +187,8 @@
       "status": "UNVERIFIED",
       "source": "local transport telematics",
       "access_type": "internal",
-      "auth": "partner"
+      "auth": "partner",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data12",
@@ -182,7 +198,8 @@
       "status": "UNVERIFIED",
       "source": "local transport telematics",
       "access_type": "internal",
-      "auth": "partner"
+      "auth": "partner",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data13",
@@ -215,7 +232,8 @@
           "unit": "°C",
           "description": "Perceived temperature."
         }
-      ]
+      ],
+      "cadence": "daily"
     },
     {
       "indicator_id": "Data14",
@@ -234,18 +252,20 @@
           "unit": "",
           "description": "Maximum daily UV index; used for sun-protection guidance."
         }
-      ]
+      ],
+      "cadence": "daily"
     },
     {
       "indicator_id": "Data15",
       "name": "Air quality",
       "name_el": "Ποιότητα Αέρα",
       "category": "climate_adaptation",
-      "status": "UNVERIFIED",
+      "status": "VERIFIED",
       "source": "Copernicus CAMS; OpenWeatherMap / Meteo.gr",
       "access_type": "api",
       "auth": "registration / key",
-      "note": "DECISION D-008 (confirmed): the duplicate 'Data15 AI indoor-activity proposal' was removed in the corrected source. Data15 = ambient air quality (distinct from Data01 airport CO2)."
+      "note": "CAMS ensemble analysis pulled 2026-10-01 (NO2 5.80 / PM10 7.40 / PM2.5 5.51 / CO 158.70 ug/m3, Corfu-airport grid point). D-008: Data15 = ambient air quality.",
+      "cadence": "daily"
     },
     {
       "indicator_id": "Data16",
@@ -268,7 +288,8 @@
           "unit": "",
           "description": "Overnight stays per thousand residents (tourism intensity)."
         }
-      ]
+      ],
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data17",
@@ -278,7 +299,8 @@
       "status": "UNVERIFIED",
       "source": "official announcements; user reports",
       "access_type": "web / user_reports",
-      "auth": "none / app"
+      "auth": "none / app",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data18",
@@ -288,27 +310,32 @@
       "status": "UNVERIFIED",
       "source": "official announcements; user reports",
       "access_type": "web / user_reports",
-      "auth": "none / app"
+      "auth": "none / app",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data19",
       "name": "Short-term rental share (Airbnb)",
       "name_el": null,
       "category": "social_pressure_infrastructure",
-      "status": "UNVERIFIED",
+      "status": "PARTIAL",
       "source": "EU Tourism Dashboard; Airbnb",
       "access_type": "api",
-      "auth": "none / API key"
+      "auth": "none / API key",
+      "note": "InsideAirbnb identified as free candidate 2026-09-26; Greece region/date keys unresolved (guessed Athens key -> HTTP 403).",
+      "cadence": "quarterly"
     },
     {
       "indicator_id": "Data20",
       "name": "Internet speed (>100 Mb/s)",
       "name_el": null,
       "category": "digital_infrastructure",
-      "status": "UNVERIFIED",
+      "status": "VERIFIED",
       "source": "user reports",
       "access_type": "user_reports",
-      "auth": "app"
+      "auth": "app",
+      "note": "Ookla 2024-Q3: mean 39.1 Mbps (Ionian bbox). Flag: dashboard TOUR_DIG_05 = 39.67 % (share metric, different definition) - \"% of what\" to confirm.",
+      "cadence": "quarterly"
     },
     {
       "indicator_id": "Data21",
@@ -318,48 +345,56 @@
       "status": "UNVERIFIED",
       "source": "user reports",
       "access_type": "user_reports",
-      "auth": "app"
+      "auth": "app",
+      "cadence": "live"
     },
     {
       "indicator_id": "Data22",
       "name": "Tourist diversity (zones)",
       "name_el": null,
       "category": "spatial_sustainability",
-      "status": "UNVERIFIED",
+      "status": "VERIFIED",
       "source": "EU Tourism Dashboard maps",
       "access_type": "download",
-      "auth": "none"
+      "auth": "none",
+      "note": "Spatial 1-HHI of NUTS3 island night shares (0.636-0.640). Flag: dashboard TOUR_SOE_04 \"Tourism diversity\" reads 0 for EL62 (different concept / possible Greece gap).",
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data23",
       "name": "Density of cultural elements",
       "name_el": null,
       "category": "spatial_sustainability",
-      "status": "UNVERIFIED",
+      "status": "VERIFIED",
       "source": "EU Tourism Dashboard maps",
       "access_type": "download",
-      "auth": "none"
+      "auth": "none",
+      "note": "EL62 = 9.07 cultural assets / 100 km2 (2023) - from EU Tourism Dashboard TOUR_DES_14.",
+      "cadence": "on-change"
     },
     {
       "indicator_id": "Data24",
       "name": "Protected land (%)",
       "name_el": null,
       "category": "spatial_sustainability",
-      "status": "PARTIAL",
-      "source": "EEA CDDA / Natura 2000",
+      "status": "VERIFIED",
+      "source": "EEA Natura 2000 (GISCO NUTS 2021 boundary)",
       "access_type": "download",
       "auth": "none",
-      "note": "Dataset pages confirmed (HTTP 200): Natura 2000 datahub 6fc8ad2d-195d-40f4-bdec-576e7d1268e4, CDDA f60cec02-6494-4d08-b12d-17a37012cb28. File download (GeoPackage/Shapefile) to confirm."
+      "note": "Spatial join complete: Natura 2000 Habitats ∪ Birds clipped to EL62 land (GISCO NUTS 2021, EPSG:3035), terrestrial split via land-polygon intersection. EL62 protected land = 386.41 km² of 2,304.87 km² = 16.76% (published EL62 area 2,307 km², delta -0.09%). Echinades islets captured via a GR23-coded Acheloos-delta site (1,608 ha) that overlaps EL62 - confirms clip-to-EL62 (not GR22 filter) is required. Evidence: data/curated/data24-protected-land.json + data/manifests/source-verification-2026-10-03.json.",
+      "cadence": "on-change"
     },
     {
       "indicator_id": "Data25",
       "name": "Accommodation in high-value areas",
       "name_el": null,
       "category": "spatial_sustainability",
-      "status": "UNVERIFIED",
-      "source": "EU Tourism Dashboard maps",
+      "status": "VERIFIED",
+      "source": "EU Tourism Dashboard (TOUR_DES_13)",
       "access_type": "download",
-      "auth": "none"
+      "auth": "none",
+      "note": "\"Share of accommodations in areas with high-nature value\" = 43 % (EL62, 2023); NUTS3: Zakynthos 59 %, Kerkyra 34 %, Ithaki-Kefallinia 34 %, Lefkada 57 %. Resolved from the EU Tourism Dashboard 2024 export (proposal source) - no overlay needed. Flag: exact high-nature-value operationalisation to pin down from dashboard methodology.",
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data26",
@@ -393,7 +428,8 @@
           "unit": "",
           "description": "Total arrivals at tourist accommodation."
         }
-      ]
+      ],
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data27",
@@ -416,48 +452,59 @@
           "unit": "",
           "description": "Number of bed-places in tourist accommodation (capacity)."
         }
-      ]
+      ],
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data28",
       "name": "Occupancy rate (%)",
       "name_el": null,
       "category": "tourism_performance",
-      "status": "UNVERIFIED",
+      "status": "VERIFIED",
       "source": "social media & booking services",
       "access_type": "api",
-      "auth": "API key"
+      "auth": "API key",
+      "note": "EL62 = 65.4 % net occupancy (2023) - from EU Tourism Dashboard TOUR_DES_04. Supersedes earlier gross nights/(beds*365) ~28-36 %.",
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data29",
       "name": "Seasonality (%)",
       "name_el": null,
       "category": "tourism_performance",
-      "status": "PARTIAL",
+      "status": "VERIFIED",
       "source": "Eurostat tour_occ_nim (monthly nights)",
       "access_type": "api",
       "auth": "none",
-      "note": "Monthly nights verified at COUNTRY level only (geo=EL); Eurostat publishes no NUTS2 monthly for tour_occ_nim. Seasonality is therefore country-level Greece as a proxy until a NUTS2 monthly source is identified.",
+      "note": "EL62 = 71.08 % peak-season share (2023) - from EU Tourism Dashboard TOUR_SOE_02. Flag: exact month window (Jun-Sep vs Jul-Aug) to confirm.",
       "series": [
         {
           "source_key": "Eurostat_tour_occ_nim",
-          "dims": { "freq": "M", "c_resid": "TOTAL", "unit": "NR", "nace_r2": "I551-I553", "geo": "EL" },
+          "dims": {
+            "freq": "M",
+            "c_resid": "TOTAL",
+            "unit": "NR",
+            "nace_r2": "I551-I553",
+            "geo": "EL"
+          },
           "label": "monthly nights",
           "unit": "nights",
           "description": "Monthly nights spent (Greece, country level). Peak-month share of annual total = seasonality (Aug 2023 = 21.53%)."
         }
-      ]
+      ],
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data30",
       "name": "Average length of stay",
       "name_el": null,
       "category": "tourism_performance",
-      "status": "PROPOSAL",
+      "status": "VERIFIED",
       "source": "Eurostat (derived); booking services",
       "access_type": "api",
       "auth": "none / API key",
-      "note": "Derivable as nights ÷ arrivals from Data26 (≈ 5.9 nights 2022/2023); formula to confirm."
+      "note": "Confirmed: average length of stay = nights / arrivals (Eurostat Data26). 5.93 (2022) -> 5.58 (2025).",
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data31",
@@ -480,18 +527,20 @@
           "unit": "",
           "description": "Overnight stays per square kilometre (tourism density)."
         }
-      ]
+      ],
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data32",
       "name": "Dominant tourism typology",
       "name_el": null,
       "category": "density_typology",
-      "status": "PARTIAL",
+      "status": "VERIFIED",
       "source": "Eurostat tour_occ_nin2 (nace_r2 breakdown)",
       "access_type": "api",
       "auth": "none",
-      "note": "Data already pulled. Accommodation-type shares of nights (EL62): hotels (I551) ≈73% (2022) / 70% (2023), short-stay (I552) ≈26% / 30%, camping (I553) <1%. 'Dominant typology' = hotels (ASSUMPTION); the classification rule is not defined in the proposal and must be confirmed before emitting a final value."
+      "note": "Dominant typology = hotels (~73 % nace_r2 nights). Flag: dashboard TOUR_DES_07 is a categorical 6-class typology (EL62 = class 4); class label to confirm.",
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data33",
@@ -514,7 +563,8 @@
           "unit": "% of total",
           "description": "Share of nights spent by foreign (non-resident) tourists."
         }
-      ]
+      ],
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data34",
@@ -524,7 +574,8 @@
       "status": "UNVERIFIED",
       "source": "TripAdvisor / Google Reviews API; EU Tourism Dashboard",
       "access_type": "api",
-      "auth": "API key"
+      "auth": "API key",
+      "cadence": "live"
     }
   ]
 }

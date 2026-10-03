@@ -4,12 +4,12 @@
 
 ## Status legend
 
-- `UNVERIFIED` — listed but not tested.
-- `APP-DECLARED` — the deployed frontend names the source and access route (not pull-tested).
-- `VERIFIED` — pull-tested with recorded evidence (status, content-type, checksum).
-- `PARTIAL` — accessible but schema/terms not fully established (e.g. platform reachable, data download gated).
-- `INACCESSIBLE` — tested and blocked (recorded error), e.g. missing credentials.
-- `DEPRECATED` / `HYPOTHETICAL` — retired or speculative.
+- `UNVERIFIED` - listed but not tested.
+- `APP-DECLARED` - the deployed frontend names the source and access route (not pull-tested).
+- `VERIFIED` - pull-tested with recorded evidence (status, content-type, checksum).
+- `PARTIAL` - accessible but schema/terms not fully established (e.g. platform reachable, data download gated).
+- `INACCESSIBLE` - tested and blocked (recorded error), e.g. missing credentials.
+- `DEPRECATED` / `HYPOTHETICAL` - retired or speculative.
 
 ## Matrix
 
@@ -24,7 +24,10 @@
 | Copernicus CDSE catalogue | EU | HTTPS OData | none (catalogue) | **PARTIAL** | HTTP 200; download gated by token |
 | EEA WISE Bathing Water (Discodata SQL) | EEA | Discodata SQL API (JSON) | none | **VERIFIED** | HTTP 200; Greece 2024 assessment; manifest 2026-09-24 |
 | GSTC Destination Criteria v2.0 | GSTC | PDF download | none | **VERIFIED** | HTTP 200; 18-page PDF; sha256 recorded |
-| Copernicus CAMS | ECMWF/EU | API — CAMS Regional | registration | APP-DECLARED | app bundle 2026-09-21 |
+| EMAS register (REST) | European Commission | REST API (JSON) | none | **VERIFIED** | HTTP 200; 4,523 records, 27 countries; Greece 37, EL62 0; manifest 2026-10-02 |
+| EU Ecolabel catalogue (CSV) | European Commission | CSV export | none | **VERIFIED** | HTTP 200; 89,298 licences; Greece 450, tourist-accommodation group Greece 0; manifest 2026-10-02 |
+| EEA Natura 2000 (ArcGIS REST) | EEA | ArcGIS MapServer REST (JSON) | none | **VERIFIED** | HTTP 200; GR22 Ionian = 18 Habitats + 8 Birds sites; spatial join → EL62 16.76 % protected land; manifest 2026-10-03 |
+| Copernicus CAMS | ECMWF/EU | API - CAMS Regional | registration | APP-DECLARED | app bundle 2026-09-21 |
 | Copernicus CMEMS | EU | Copernicus Marine Data Store | registration | APP-DECLARED | app bundle |
 | Copernicus Sentinel-1/2 | EU | Copernicus Data Space | registration | APP-DECLARED | app bundle |
 | EU Tourism Dashboard | Eurostat/EC | Eurostat / CSV | none | APP-DECLARED | Eurostat API now `VERIFIED` (same backend) |
@@ -34,11 +37,11 @@
 | FlightRadar24 | FlightRadar24 | API | API key (paid) | APP-DECLARED | app bundle |
 | Citizen Reports | IonianDTwin (own) | Mobile app → backend | app | APP-DECLARED | app bundle |
 | Indoor IoT stations (10) | IonianDTwin (own) | MQTT / LoRaWAN → cloud | partner | APP-DECLARED | app bundle |
-| Meteo.gr | EMY | web/API | unknown | UNVERIFIED (proposal-only) | — |
-| Fraport | Fraport Greece | web/data | unknown | UNVERIFIED (proposal-only) | — |
-| Local transport telematics | KTEL/urban | internal | partner | UNVERIFIED (proposal-only) | — |
-| Airbnb | Airbnb | API | API key | UNVERIFIED (proposal-only) | — |
-| TripAdvisor / Google Reviews | respective | API | API key | UNVERIFIED (proposal-only) | — |
+| Meteo.gr | EMY | web/API | unknown | UNVERIFIED (proposal-only) | - |
+| Fraport | Fraport Greece | web/data | unknown | UNVERIFIED (proposal-only) | - |
+| Local transport telematics | KTEL/urban | internal | partner | UNVERIFIED (proposal-only) | - |
+| Airbnb | Airbnb | API | API key | UNVERIFIED (proposal-only) | - |
+| TripAdvisor / Google Reviews | respective | API | API key | UNVERIFIED (proposal-only) | - |
 
 ## Verified sample values (EL62 = Ionia Nisia)
 
@@ -48,7 +51,7 @@
 - Tourism intensity (nights/1000 residents): 2022 = 80,912.16 · 2023 = 97,705.53
 - Tourism density (nights/km²): 2022 = 7,176.29 · 2023 = 8,588.79
 - Foreign tourist share: 2022 = 93.72 % · 2023 = 93.58 %
-- Monthly nights (Greece, 2023, Data29 seasonality): total 147,209,821 · peak Aug 31,687,354 (21.53 %) · Jul+Aug 41.54 % · Jun–Sep 71.95 %
+- Monthly nights (Greece, 2023, Data29 seasonality): total 147,209,821 · peak Aug 31,687,354 (21.53 %) · Jul+Aug 41.54 % · Jun-Sep 71.95 %
 - Bathing water (Greece 2024, Data02/03): Excellent 1,677 / 1,729 (96.99 % of total · 99.00 % of classified) · Good 15 · Sufficient 1 · Poor 1 · Not classified 35
 
 ## Application inspection evidence (carried forward)

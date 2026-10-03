@@ -1,0 +1,14 @@
+{
+  "source": "EMODnet Human Activities - Vessel Density (WMS GetFeatureInfo)",
+  "layer": "vesseldensity_allavg",
+  "layer_title": "Vessel Density Annual Averages - All types",
+  "unit": "hours per square km per year",
+  "endpoint": "https://ows.emodnet-humanactivities.eu/wms",
+  "accessed_at": "2026-10-02T11:17Z",
+  "crs": "CRS:84",
+  "values": [
+    {"port": "Corfu", "lat": 39.620, "lon": 19.913, "GRAY_INDEX": 352.2798},
+    {"port": "Zakynthos", "lat": 37.789, "lon": 20.897, "GRAY_INDEX": 169.5954},
+    {"port": "Kefalonia (Argostoli)", "lat": 38.174, "lon": 20.489, "GRAY_INDEX": 226.9699}
+  ]
+}

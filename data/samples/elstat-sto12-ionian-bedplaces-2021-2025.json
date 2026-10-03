@@ -1,0 +1,37 @@
+{
+  "2021": {
+    "KERKYRA": 49444,
+    "ZAKYNTHOS": 36696,
+    "ITHAKI": 265,
+    "KEFALLINIA": 11449,
+    "LEFKADA": 5954
+  },
+  "2022": {
+    "KERKYRA": 49876,
+    "ZAKYNTHOS": 37664,
+    "ITHAKI": 265,
+    "KEFALLINIA": 11600,
+    "LEFKADA": 6091
+  },
+  "2023": {
+    "KERKYRA": 50844,
+    "ZAKYNTHOS": 37905,
+    "ITHAKI": 265,
+    "KEFALLINIA": 11802,
+    "LEFKADA": 6182
+  },
+  "2024": {
+    "KERKYRA": 50713,
+    "ZAKYNTHOS": 39138,
+    "ITHAKI": 265,
+    "KEFALLINIA": 11981,
+    "LEFKADA": 6209
+  },
+  "2025": {
+    "KERKYRA": 51413,
+    "ZAKYNTHOS": 39625,
+    "ITHAKI": 265,
+    "KEFALLINIA": 12041,
+    "LEFKADA": 6221
+  }
+}

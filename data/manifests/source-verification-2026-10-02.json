@@ -1,0 +1,58 @@
+{
+  "manifest_id": "source-verification-2026-10-02",
+  "created_at": "2026-10-01T22:12:00Z",
+  "scope": "Resolve Data05 (EMAS / EU Ecolabel) from PARTIAL to VERIFIED: locate and pull-test the machine-readable sources for the EU EMAS register and the EU Ecolabel catalogue, and count certified organisations in Greece and the Ionian Islands (EL62); and locate the machine-readable source for Data24 (protected land): the EEA ArcGIS REST MapServer for Natura 2000 / CDDA protected sites.",
+  "evidence": [
+    {
+      "source_id": "EMAS_register_REST",
+      "name": "EU EMAS register - public registration list (REST)",
+      "provider": "European Commission (webgate.ec.europa.eu, EMAS register)",
+      "url": "https://webgate.ec.europa.eu/emas2/public/rest/registration/list",
+      "method": "GET (discovered via green-forum.ec.europa.eu/green-business/emas/emas-register_en -> 'ACCESS THE EMAS REGISTER' -> webgate EMAS2 app; columnDefinition endpoint at .../rest/registration/columnDefinition)",
+      "access_type": "api",
+      "response_status": 200,
+      "content_type": "application/json",
+      "checksum_sha256": "c8546768319f2f35796698a729b29c1375995f556b146877dca61ff2678e3288",
+      "accessed_at": "2026-10-01T22:12:00Z",
+      "authentication": "none",
+      "sample_path": "data/samples/emas-register-greece-2026-10-02.json",
+      "schema_observation": "JSON array of registration records; fields include registrationNumber, organisationName, organisationCountryName, city, postalCode, sitesCount, nacesAsString, registrationDate, nextEnvStatementDate, organisationWebsite, email, phone. Full list 14,650,764 bytes.",
+      "note": "Full EU register: 4,523 records across 27 countries. Greece: 37 registered organisations (0 in the Ionian Islands EL62 by city/name keyword match). The register UI's 'download in Excel' is a client-side DataTables excelHtml5 button over this same REST list; the underlying data source is this JSON endpoint. NOT a PDF/download document.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "source_id": "EU_Ecolabel_catalogue_CSV",
+      "name": "EU Ecolabel catalogue - most-recent export (CSV)",
+      "provider": "European Commission (environmental-data.ec.europa.eu / publicstorage.data.env.service.ec.europa.eu)",
+      "url": "https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv",
+      "method": "GET (discovered via green-business.ec.europa.eu/eu-ecolabel_en -> EU Ecolabel catalogue -> environmental-data.ec.europa.eu/ecolabel/index.html -> most-recent-export.csv)",
+      "access_type": "download (CSV)",
+      "response_status": 200,
+      "content_type": "text/csv",
+      "checksum_sha256": "7a3d424d7d8b031b1516416e923b024cd47b83e3417308870b37334b9235592d",
+      "accessed_at": "2026-10-01T22:12:00Z",
+      "authentication": "none",
+      "sample_path": "data/samples/eu-ecolabel-catalogue-greece-2026-10-02.json",
+      "schema_observation": "Semicolon-delimited CSV; columns product_or_service, licence_number, group_name, code_type, code_value, product_or_service_name, decision, expiration_date, company_name, company_country, vat_number, extract_date. Full export 17,153,575 bytes, extract_date 2026-10-01.",
+      "note": "Full catalogue: 89,298 licences. Greece: 450 licences (mostly decorative paints 400, lubricants 32 - none in the 'Tourist accommodation' group). 'Tourist accommodation' group total 1,009 licences (France 382, Austria 262, Italy 86, ... Greece 0). Ionian Islands EL62: 0 tourist-accommodation licences.",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "source_id": "EEA_ArcGIS_ProtectedSites_Natura2000",
+      "name": "Natura 2000 sites - EEA ArcGIS REST MapServer (ProtectedSites)",
+      "provider": "European Environment Agency (bio.discomap.eea.europa.eu)",
+      "url": "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/Natura2000Sites/MapServer",
+      "method": "GET (ArcGIS REST query: layer 0 Habitats, layer 1 Birds; where=SITECODE LIKE 'GR22%')",
+      "access_type": "api",
+      "response_status": 200,
+      "content_type": "application/json",
+      "accessed_at": "2026-10-01T22:56:00Z",
+      "authentication": "none",
+      "checksum_sha256": "85e83f235b8035b588b06a7e5f2201be261c9b7b54a868f4b76a21d26f9347cf",
+      "sample_path": "data/samples/eea-natura2000-gr22-summary-2026-10-02.json",
+      "schema_observation": "ArcGIS MapServer with 3 polygon layers (0 Habitats pSCI/SCI/SAC, 1 Birds SPA, 2 union). Fields: SITECODE, SITENAME, MS, Area_ha, Area_km2, Shape_Area, geometry. Spatial reference WGS84 Web Mercator (wkid 3857).",
+      "note": "Ionian Islands (SITECODE GR22): 18 Habitats sites (311,935.9 ha total) + 8 Birds sites (67,391.9 ha total). Area_ha is full site area incl. marine component, so the protected-LAND % still needs a terrestrial/marine split + clip to EL62 (~2,300 km2) + union of Habitats & Birds. CDDA/NatDA services also reachable (NatDAv24_Dyna_WM, CDDAv21_Dyna_WM - HTTP 200).",
+      "verification_status": "VERIFIED"
+    }
+  ]
+}

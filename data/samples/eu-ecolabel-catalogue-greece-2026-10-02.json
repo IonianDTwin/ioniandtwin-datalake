@@ -1,0 +1,39 @@
+{
+  "source_id": "EU_Ecolabel_catalogue_CSV",
+  "url": "https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv",
+  "accessed_at": "2026-10-02T00:00:00Z",
+  "full_export": {
+    "total_licences": 89298,
+    "distinct_country_values": 49,
+    "checksum_sha256": "7a3d424d7d8b031b1516416e923b024cd47b83e3417308870b37334b9235592d",
+    "content_type": "text/csv",
+    "size_bytes": 17153575,
+    "extract_date": "2026-10-01"
+  },
+  "greece_licences": 450,
+  "greece_group_breakdown": {
+    "Decorative paints, varnishes, and related products (2014 criteria)": 400,
+    "Lubricants": 32,
+    "Hard Surface Cleaning Products": 8,
+    "Bed mattresses": 5,
+    "Textile products": 3,
+    "Hand dishwashing detergents": 2
+  },
+  "tourist_accommodation_group": {
+    "total": 1009,
+    "greece": 0,
+    "by_country": {
+      "France": 382,
+      "Austria": 262,
+      "Italy": 86,
+      "Slovenia": 78,
+      "Spain": 60,
+      "Germany": 45,
+      "Netherlands": 22,
+      "Croatia": 19,
+      "Romania": 9,
+      "Czech Republic": 8
+    }
+  },
+  "ionian_islands_el62_tourist_accommodation": 0
+}

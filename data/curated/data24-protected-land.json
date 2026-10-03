@@ -1,0 +1,510 @@
+{
+  "computed_at_utc": "2026-10-03T09:37:56.371570+00:00",
+  "indicator_id": "Data24",
+  "indicator_name": "Protected land (%)",
+  "spatial_ref": {
+    "level": "NUTS2",
+    "code": "EL62"
+  },
+  "el62_land_km2": 2304.87,
+  "el62_land_ha": 230486.97,
+  "published_el62_km2": 2307.0,
+  "el62_area_delta_pct": -0.092,
+  "habitats_protected_land_ha": 22049.2,
+  "birds_protected_land_ha": 29744.22,
+  "combined_protected_land_ha": 38640.51,
+  "combined_protected_land_km2": 386.41,
+  "protected_land_pct": 16.7647,
+  "nongr22_sites_with_land_overlap": [
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2310001",
+      "sitename": "DELTA ACHELOOU, LIMNOTHALASSA MESOLONGIOU - AITOLIKOU, EKVOLES EVINOU, NISOI ECHINADES, NISOS PETALAS",
+      "full_area_ha": 35619.97197090724,
+      "within_el62_ha": 1608.195,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2310015",
+      "sitename": "DELTA ACHELOOU, LIMNOTHALASSA MESOLONGIOU - AITOLIKOU KAI EKVOLES EVINOU, NISOI ECHINADES, NISOS PETALAS, DYTIKOS ARAKYNTHOS KAI STENA KLEISOURAS",
+      "full_area_ha": 44338.92837260213,
+      "within_el62_ha": 1608.195,
+      "is_gr22": false
+    }
+  ],
+  "audit": [
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2120002",
+      "sitename": "ELOS KALODIKI",
+      "full_area_ha": 822.3481275136518,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2120003",
+      "sitename": "LIMNI LIMNOPOULA",
+      "full_area_ha": 564.0859283261591,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2130007",
+      "sitename": "OROS LAKMOS (PERISTERI)",
+      "full_area_ha": 20330.523644290373,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR1310003",
+      "sitename": "ETHNIKOS DRYMOS PINDOU (VALIA KALNTA) - EVRΥTERI PERIOCHI",
+      "full_area_ha": 6719.983656975957,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2110001",
+      "sitename": "AMVRAKIKOS KOLPOS, DELTA LOUROU KAI ARACHTHOU (PETRA, MYTIKAS, EVRYTERI PERIOCHI, KATO POUS ARACHTHOU, KAMPI FILIPPIADAS)",
+      "full_area_ha": 60099.00405694551,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2140001",
+      "sitename": "EKVOLES ACHERONTA (APO GLOSSA EOS ALONAKI) KAI STENA ACHERONTA",
+      "full_area_ha": 4521.4756294927865,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2210001",
+      "sitename": "DYTIKES KAI VOREIOANATOLIKES AKTES ZAKYNTHOU",
+      "full_area_ha": 21437.023048327555,
+      "within_el62_ha": 4580.496,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2220003",
+      "sitename": "ESOTERIKO ARCHIPELAGOS IONIOU (MEGANISI, ARKOUDI, ATOKOS, VROMONAS)",
+      "full_area_ha": 88149.8332889596,
+      "within_el62_ha": 1915.147,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2220007",
+      "sitename": "THALASSIA ZONI APO ARGOSTOLI EOS ORMO MOUNTA",
+      "full_area_ha": 9391.14380724583,
+      "within_el62_ha": 25.517,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2120004",
+      "sitename": "STENA KALAMA",
+      "full_area_ha": 1831.4962030507206,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2130001",
+      "sitename": "ETHNIKOS DRYMOS VIKOU - AOOU",
+      "full_area_ha": 12950.74898066372,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2120001",
+      "sitename": "EKVOLES (DELTA) KALAMA",
+      "full_area_ha": 8615.81464115599,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2210003",
+      "sitename": "NISOI STROFADES",
+      "full_area_ha": 547.7466993777782,
+      "within_el62_ha": 138.702,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2230005",
+      "sitename": "PARAKTIA THALASSIA ZONI APO KANONI EOS MESONGI (KERKYRA)",
+      "full_area_ha": 865.3538533510277,
+      "within_el62_ha": 57.888,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2130004",
+      "sitename": "KENTRIKO TMIMA ZAGORIOU",
+      "full_area_ha": 32910.15239904681,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2230010",
+      "sitename": "THALASSIA PERIOCHI DIAPONTION NISON",
+      "full_area_ha": 15283.311239358221,
+      "within_el62_ha": 91.012,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2240002",
+      "sitename": "PERIOCHI CHORTATON (LEFKADA)",
+      "full_area_ha": 1247.6282128272662,
+      "within_el62_ha": 1247.628,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2220001",
+      "sitename": "KALON OROS KEFALONIAS",
+      "full_area_ha": 2539.32017358142,
+      "within_el62_ha": 2539.32,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2230001",
+      "sitename": "LIMNOTHALASSA ANTINIOTI (KERKYRA)",
+      "full_area_ha": 186.14774956653144,
+      "within_el62_ha": 156.961,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2230003",
+      "sitename": "ALYKI LEFKIMΜIS (KERKYRA)",
+      "full_area_ha": 212.29409813786702,
+      "within_el62_ha": 143.133,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2310001",
+      "sitename": "DELTA ACHELOOU, LIMNOTHALASSA MESOLONGIOU - AITOLIKOU, EKVOLES EVINOU, NISOI ECHINADES, NISOS PETALAS",
+      "full_area_ha": 35619.97197090724,
+      "within_el62_ha": 1608.195,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2310006",
+      "sitename": "LIMNES VOULKARIA KAI SALTINI",
+      "full_area_ha": 3121.9225127315053,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2110002",
+      "sitename": "ORI ATHAMANON (NERAIDA)",
+      "full_area_ha": 18900.141075946034,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2130005",
+      "sitename": "LIMNI IOANNINON",
+      "full_area_ha": 2613.205189522739,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2140003",
+      "sitename": "PARAKTIA THALASSIA ZONI APO PARGA EOS AKROTIRIO AGIOS THOMAS (PREVEZA), AKR. KELADIO - AG. THOMAS",
+      "full_area_ha": 1559.0568028201935,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2210002",
+      "sitename": "KOLPOS LAGANA ZAKYNTHOU (AKR. GERAKI - KERI) KAI NISIDES MARATHONISI KAI PELOUZO",
+      "full_area_ha": 6970.351972904973,
+      "within_el62_ha": 942.576,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2220004",
+      "sitename": "PARAKTIA THALASSIA ZONI APO ARGOSTOLI EOS VLACHATA (KEFALONIA) KAI ORMOS MOUNTA",
+      "full_area_ha": 3674.1221744218924,
+      "within_el62_ha": 99.024,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2230002",
+      "sitename": "LIMNOTHALASSA KORISSION (KERKYRA)",
+      "full_area_ha": 2311.6847148870856,
+      "within_el62_ha": 2252.474,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2240001",
+      "sitename": "LIMNOTHALASSES STENON LEFKADAS (PALIONIS - AVLIMON) KAI ALYKES LEFKADAS",
+      "full_area_ha": 2118.126763515467,
+      "within_el62_ha": 293.126,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2130008",
+      "sitename": "OROS MITSIKELI",
+      "full_area_ha": 8576.115555973205,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2220002",
+      "sitename": "ETHNIKOS DRYMOS AINOU",
+      "full_area_ha": 2899.297929216348,
+      "within_el62_ha": 2899.298,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2220005",
+      "sitename": "DYTIKES AKTES KEFALONIAS - STENO KEFALONIAS ITHAKIS - VOREIA ITHAKI (AKROTIRIA GERO GKOMPOS - DRAKOU PIDIMA - KENTRI - AG. IOANNIS)",
+      "full_area_ha": 18739.436402816118,
+      "within_el62_ha": 351.286,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2230004",
+      "sitename": "NISOI PAXOI KAI ANTIPAXOI KAI EVRYTERI THALASSIA PERIOCHI",
+      "full_area_ha": 135282.5770013497,
+      "within_el62_ha": 2626.892,
+      "is_gr22": true
+    },
+    {
+      "directive": "Habitats",
+      "sitecode": "GR2230009",
+      "sitename": "LIMNOTHALASSA ANTINIOTI KAI POTAMOS FONISSAS (KERKYRA)",
+      "full_area_ha": 80.52482664938493,
+      "within_el62_ha": 80.525,
+      "is_gr22": true
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2130007",
+      "sitename": "OROS LAKMOS (PERISTERI)",
+      "full_area_ha": 20330.523644290373,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2210001",
+      "sitename": "DYTIKES KAI VOREIOANATOLIKES AKTES ZAKYNTHOU",
+      "full_area_ha": 21437.023048327555,
+      "within_el62_ha": 4580.496,
+      "is_gr22": true
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2230001",
+      "sitename": "LIMNOTHALASSA ANTINIOTI (KERKYRA)",
+      "full_area_ha": 186.14774956653144,
+      "within_el62_ha": 156.961,
+      "is_gr22": true
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2230003",
+      "sitename": "ALYKI LEFKIMΜIS (KERKYRA)",
+      "full_area_ha": 212.29409813786702,
+      "within_el62_ha": 143.133,
+      "is_gr22": true
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2130005",
+      "sitename": "LIMNI IOANNINON",
+      "full_area_ha": 2613.205189522739,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2240001",
+      "sitename": "LIMNOTHALASSES STENON LEFKADAS (PALIONIS - AVLIMON) KAI ALYKES LEFKADAS",
+      "full_area_ha": 2118.126763515467,
+      "within_el62_ha": 293.126,
+      "is_gr22": true
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR1310002",
+      "sitename": "VALIA KALNTA KAI TECHNITI LIMNI AOOU",
+      "full_area_ha": 14449.817856944026,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2120008",
+      "sitename": "ORI PARAMYTHIAS, STENA KALAMA ΚΑΙ STENA ACHERONTA",
+      "full_area_ha": 11694.570020017281,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2110004",
+      "sitename": "AMVRAKIKOS KOLPOS, LIMNOTHALASSA KATAFOURKO KAI KORAKONISIA",
+      "full_area_ha": 23163.127200096154,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2120005",
+      "sitename": "YGROTOPOS EKVOLON KALAMA KAI NISOS PRASOUDI",
+      "full_area_ha": 8627.1588743182,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2120006",
+      "sitename": "ELI KALODIKI, MARGARITI, KARTERI KAI LIMNI PRONTANI",
+      "full_area_ha": 1795.541829553628,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2130011",
+      "sitename": "KENTRIKO ZAGORI KAI ANATOLIKO TMIMA OROUS MITSIKELI",
+      "full_area_ha": 53356.88671599412,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2230008",
+      "sitename": "DIAPONTIA NISIA (OTHONOI, EREIKOUSA, MATHRAKI KAI VRACHONISIDES)",
+      "full_area_ha": 10088.304769180944,
+      "within_el62_ha": 1133.254,
+      "is_gr22": true
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2310011",
+      "sitename": "OROS TSEREKAS (AKARNANIKA)",
+      "full_area_ha": 5117.2751344849685,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2310015",
+      "sitename": "DELTA ACHELOOU, LIMNOTHALASSA MESOLONGIOU - AITOLIKOU KAI EKVOLES EVINOU, NISOI ECHINADES, NISOS PETALAS, DYTIKOS ARAKYNTHOS KAI STENA KLEISOURAS",
+      "full_area_ha": 44338.92837260213,
+      "within_el62_ha": 1608.195,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2210004",
+      "sitename": "NISIDES STAMFANI KAI ARPYIA (STROFADES) KAI THALASSIA ZONI",
+      "full_area_ha": 11611.874028064753,
+      "within_el62_ha": 140.806,
+      "is_gr22": true
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2120009",
+      "sitename": "ORI TSAMANTA, FILIATON, FARMAKOVOUNI, MEGALI RACHI",
+      "full_area_ha": 19861.8516465988,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2120007",
+      "sitename": "STENA PARAKALAMOU",
+      "full_area_ha": 3530.6569283791932,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2130009",
+      "sitename": "OROS TYMFI (GKAMILA)",
+      "full_area_ha": 27734.748327729772,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2220006",
+      "sitename": "KEFALONIA: AINOS, AGIA DYNATI KAI KALON OROS",
+      "full_area_ha": 20655.930572439014,
+      "within_el62_ha": 20644.508,
+      "is_gr22": true
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2230007",
+      "sitename": "LIMNOTHALASSA KORISSION (KERKYRA) KAI NISOS LAGOUDIA",
+      "full_area_ha": 1082.2395364708016,
+      "within_el62_ha": 1043.736,
+      "is_gr22": true
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2310014",
+      "sitename": "LIMNI VOULKARIA",
+      "full_area_ha": 3266.456749587338,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2130012",
+      "sitename": "EVRYTERI PERIOCHI POLIS IOANNINON",
+      "full_area_ha": 22423.084387303286,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2130013",
+      "sitename": "EVRYTERI PERIOCHI ATHAMANIKON OREON",
+      "full_area_ha": 64558.90378987306,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    },
+    {
+      "directive": "Birds",
+      "sitecode": "GR2130010",
+      "sitename": "OROS DOUSKON, ORAIOKASTRO, DASOS MEROPIS, KOILADA GORMOU, LIMNI DELVINAKIOU",
+      "full_area_ha": 17315.367056147763,
+      "within_el62_ha": 0.0,
+      "is_gr22": false
+    }
+  ]
+}

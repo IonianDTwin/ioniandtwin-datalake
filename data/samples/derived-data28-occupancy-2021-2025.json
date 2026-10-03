@@ -1,0 +1,32 @@
+{
+  "2021": {
+    "Zakynthos": 23.1,
+    "Kerkyra": 24.9,
+    "Ithaki_Kefallinia": 19.9,
+    "Lefkada": 37.6
+  },
+  "2022": {
+    "Zakynthos": 37.4,
+    "Kerkyra": 43.5,
+    "Ithaki_Kefallinia": 40.7,
+    "Lefkada": 76.1
+  },
+  "2023": {
+    "Zakynthos": 42.9,
+    "Kerkyra": 54.3,
+    "Ithaki_Kefallinia": 50.0,
+    "Lefkada": 69.0
+  },
+  "2024": {
+    "Zakynthos": 45.1,
+    "Kerkyra": 55.9,
+    "Ithaki_Kefallinia": 46.3,
+    "Lefkada": 74.0
+  },
+  "2025": {
+    "Zakynthos": 47.1,
+    "Kerkyra": 52.2,
+    "Ithaki_Kefallinia": 41.9,
+    "Lefkada": 82.4
+  }
+}

@@ -1,0 +1,619 @@
+{
+  "source": "EU Tourism Dashboard - 2024 release (data.europa.eu dataset 9564824a-7f16-4efa-82fb-d4e176350026)",
+  "csv_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/TOURISM/2024/LATEST/2024_TourismDashboard_Indicators_Export.csv",
+  "indicator_count": 34,
+  "indicators": [
+    {
+      "indicator": "Air travel emission intensity",
+      "code": "TOUR_ENV_01",
+      "pillar": "Green pillar"
+    },
+    {
+      "indicator": "Arrivals",
+      "code": "TOUR_DES_02",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Average length of stay",
+      "code": "TOUR_DES_05",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Average tourism expenditure",
+      "code": "TOUR_SOE_06",
+      "pillar": "Socio-economic pillar"
+    },
+    {
+      "indicator": "Cultural assets density",
+      "code": "TOUR_DES_14",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Dependence on distant origins",
+      "code": "TOUR_ENV_06",
+      "pillar": "Green pillar"
+    },
+    {
+      "indicator": "Dependence on top 3 countries of origins",
+      "code": "TOUR_SOE_03",
+      "pillar": "Socio-economic pillar"
+    },
+    {
+      "indicator": "Direct economic contribution of tourism",
+      "code": "TOUR_SOE_07",
+      "pillar": "Socio-economic pillar"
+    },
+    {
+      "indicator": "Dominant tourism typology ",
+      "code": "TOUR_DES_07",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "E-commerce sales ",
+      "code": "TOUR_DIG_01",
+      "pillar": "Digital pillar"
+    },
+    {
+      "indicator": "Enterprise using social media",
+      "code": "TOUR_DIG_02",
+      "pillar": "Digital pillar"
+    },
+    {
+      "indicator": "Enterprises seeking ICT specialists",
+      "code": "TOUR_DIG_04",
+      "pillar": "Digital pillar"
+    },
+    {
+      "indicator": "Environmental labels and schemes",
+      "code": "TOUR_ENV_07",
+      "pillar": "Green pillar"
+    },
+    {
+      "indicator": "Excellent bathing water",
+      "code": "TOUR_ENV_05",
+      "pillar": "Green pillar"
+    },
+    {
+      "indicator": "Internet speed at tourism destinations ",
+      "code": "TOUR_DIG_05",
+      "pillar": "Digital pillar"
+    },
+    {
+      "indicator": "Nights spent",
+      "code": "TOUR_DES_01",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Occupancy rate ",
+      "code": "TOUR_DES_04",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Personnel training on digital skills",
+      "code": "TOUR_DIG_03",
+      "pillar": "Digital pillar"
+    },
+    {
+      "indicator": "Presence of Blue flag awarded sites",
+      "code": "TOUR_DES_10",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Progress of tourism demand recovery",
+      "code": "TOUR_DES_09",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Share of accommodations in areas with high-nature value",
+      "code": "TOUR_DES_13",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Share of employment in the tourism ecosystem",
+      "code": "TOUR_SOE_09",
+      "pillar": "Socio-economic pillar"
+    },
+    {
+      "indicator": "Share of foreign tourists",
+      "code": "TOUR_DES_08",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Share of protected/designated land",
+      "code": "TOUR_DES_12",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Share of trips by train",
+      "code": "TOUR_ENV_04",
+      "pillar": "Green pillar"
+    },
+    {
+      "indicator": "Tourism GHG intensity",
+      "code": "TOUR_ENV_02",
+      "pillar": "Green pillar"
+    },
+    {
+      "indicator": "Tourism capacity",
+      "code": "TOUR_DES_03",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Tourism density",
+      "code": "TOUR_DES_06",
+      "pillar": "Basic descriptors"
+    },
+    {
+      "indicator": "Tourism diversity",
+      "code": "TOUR_SOE_04",
+      "pillar": "Socio-economic pillar"
+    },
+    {
+      "indicator": "Tourism energy intensity",
+      "code": "TOUR_ENV_03",
+      "pillar": "Green pillar"
+    },
+    {
+      "indicator": "Tourism enterprises by size",
+      "code": "TOUR_SOE_11",
+      "pillar": "Socio-economic pillar"
+    },
+    {
+      "indicator": "Tourism intensity",
+      "code": "TOUR_SOE_01",
+      "pillar": "Socio-economic pillar"
+    },
+    {
+      "indicator": "Tourism seasonality",
+      "code": "TOUR_SOE_02",
+      "pillar": "Socio-economic pillar"
+    },
+    {
+      "indicator": "UNESCO and European heritage sites ",
+      "code": "TOUR_DES_15",
+      "pillar": "Basic descriptors"
+    }
+  ],
+  "data25_share_accommodation_high_nature_value": [
+    {
+      "nuts": "EL",
+      "year": "2023",
+      "unit": "%",
+      "value": "32"
+    },
+    {
+      "nuts": "EL30",
+      "year": "2023",
+      "unit": "%",
+      "value": "8"
+    },
+    {
+      "nuts": "EL41",
+      "year": "2023",
+      "unit": "%",
+      "value": "33"
+    },
+    {
+      "nuts": "EL42",
+      "year": "2023",
+      "unit": "%",
+      "value": "28"
+    },
+    {
+      "nuts": "EL43",
+      "year": "2023",
+      "unit": "%",
+      "value": "36"
+    },
+    {
+      "nuts": "EL51",
+      "year": "2023",
+      "unit": "%",
+      "value": "44"
+    },
+    {
+      "nuts": "EL52",
+      "year": "2023",
+      "unit": "%",
+      "value": "18"
+    },
+    {
+      "nuts": "EL53",
+      "year": "2023",
+      "unit": "%",
+      "value": "63"
+    },
+    {
+      "nuts": "EL54",
+      "year": "2023",
+      "unit": "%",
+      "value": "50"
+    },
+    {
+      "nuts": "EL61",
+      "year": "2023",
+      "unit": "%",
+      "value": "58"
+    },
+    {
+      "nuts": "EL62",
+      "year": "2023",
+      "unit": "%",
+      "value": "43"
+    },
+    {
+      "nuts": "EL63",
+      "year": "2023",
+      "unit": "%",
+      "value": "29"
+    },
+    {
+      "nuts": "EL64",
+      "year": "2023",
+      "unit": "%",
+      "value": "28"
+    },
+    {
+      "nuts": "EL65",
+      "year": "2023",
+      "unit": "%",
+      "value": "30"
+    },
+    {
+      "nuts": "EL301",
+      "year": "2023",
+      "unit": "%",
+      "value": "1"
+    },
+    {
+      "nuts": "EL302",
+      "year": "2023",
+      "unit": "%",
+      "value": "4"
+    },
+    {
+      "nuts": "EL304",
+      "year": "2023",
+      "unit": "%",
+      "value": "0"
+    },
+    {
+      "nuts": "EL305",
+      "year": "2023",
+      "unit": "%",
+      "value": "15"
+    },
+    {
+      "nuts": "EL306",
+      "year": "2023",
+      "unit": "%",
+      "value": "15"
+    },
+    {
+      "nuts": "EL307",
+      "year": "2023",
+      "unit": "%",
+      "value": "23"
+    },
+    {
+      "nuts": "EL411",
+      "year": "2023",
+      "unit": "%",
+      "value": "38"
+    },
+    {
+      "nuts": "EL412",
+      "year": "2023",
+      "unit": "%",
+      "value": "33"
+    },
+    {
+      "nuts": "EL413",
+      "year": "2023",
+      "unit": "%",
+      "value": "15"
+    },
+    {
+      "nuts": "EL421",
+      "year": "2023",
+      "unit": "%",
+      "value": "27"
+    },
+    {
+      "nuts": "EL422",
+      "year": "2023",
+      "unit": "%",
+      "value": "29"
+    },
+    {
+      "nuts": "EL431",
+      "year": "2023",
+      "unit": "%",
+      "value": "23"
+    },
+    {
+      "nuts": "EL432",
+      "year": "2023",
+      "unit": "%",
+      "value": "39"
+    },
+    {
+      "nuts": "EL433",
+      "year": "2023",
+      "unit": "%",
+      "value": "39"
+    },
+    {
+      "nuts": "EL434",
+      "year": "2023",
+      "unit": "%",
+      "value": "48"
+    },
+    {
+      "nuts": "EL511",
+      "year": "2023",
+      "unit": "%",
+      "value": "17"
+    },
+    {
+      "nuts": "EL512",
+      "year": "2023",
+      "unit": "%",
+      "value": "13"
+    },
+    {
+      "nuts": "EL513",
+      "year": "2023",
+      "unit": "%",
+      "value": "10"
+    },
+    {
+      "nuts": "EL514",
+      "year": "2023",
+      "unit": "%",
+      "value": "10"
+    },
+    {
+      "nuts": "EL515",
+      "year": "2023",
+      "unit": "%",
+      "value": "55"
+    },
+    {
+      "nuts": "EL521",
+      "year": "2023",
+      "unit": "%",
+      "value": "31"
+    },
+    {
+      "nuts": "EL522",
+      "year": "2023",
+      "unit": "%",
+      "value": "6"
+    },
+    {
+      "nuts": "EL523",
+      "year": "2023",
+      "unit": "%",
+      "value": "3"
+    },
+    {
+      "nuts": "EL524",
+      "year": "2023",
+      "unit": "%",
+      "value": "38"
+    },
+    {
+      "nuts": "EL525",
+      "year": "2023",
+      "unit": "%",
+      "value": "25"
+    },
+    {
+      "nuts": "EL526",
+      "year": "2023",
+      "unit": "%",
+      "value": "22"
+    },
+    {
+      "nuts": "EL527",
+      "year": "2023",
+      "unit": "%",
+      "value": "19"
+    },
+    {
+      "nuts": "EL531",
+      "year": "2023",
+      "unit": "%",
+      "value": "56"
+    },
+    {
+      "nuts": "EL532",
+      "year": "2023",
+      "unit": "%",
+      "value": "66"
+    },
+    {
+      "nuts": "EL533",
+      "year": "2023",
+      "unit": "%",
+      "value": "71"
+    },
+    {
+      "nuts": "EL541",
+      "year": "2023",
+      "unit": "%",
+      "value": "28"
+    },
+    {
+      "nuts": "EL542",
+      "year": "2023",
+      "unit": "%",
+      "value": "33"
+    },
+    {
+      "nuts": "EL543",
+      "year": "2023",
+      "unit": "%",
+      "value": "93"
+    },
+    {
+      "nuts": "EL611",
+      "year": "2023",
+      "unit": "%",
+      "value": "69"
+    },
+    {
+      "nuts": "EL612",
+      "year": "2023",
+      "unit": "%",
+      "value": "36"
+    },
+    {
+      "nuts": "EL613",
+      "year": "2023",
+      "unit": "%",
+      "value": "58"
+    },
+    {
+      "nuts": "EL621",
+      "year": "2023",
+      "unit": "%",
+      "value": "59"
+    },
+    {
+      "nuts": "EL622",
+      "year": "2023",
+      "unit": "%",
+      "value": "34"
+    },
+    {
+      "nuts": "EL623",
+      "year": "2023",
+      "unit": "%",
+      "value": "34"
+    },
+    {
+      "nuts": "EL624",
+      "year": "2023",
+      "unit": "%",
+      "value": "57"
+    },
+    {
+      "nuts": "EL631",
+      "year": "2023",
+      "unit": "%",
+      "value": "22"
+    },
+    {
+      "nuts": "EL632",
+      "year": "2023",
+      "unit": "%",
+      "value": "31"
+    },
+    {
+      "nuts": "EL633",
+      "year": "2023",
+      "unit": "%",
+      "value": "31"
+    },
+    {
+      "nuts": "EL641",
+      "year": "2023",
+      "unit": "%",
+      "value": "16"
+    },
+    {
+      "nuts": "EL642",
+      "year": "2023",
+      "unit": "%",
+      "value": "19"
+    },
+    {
+      "nuts": "EL643",
+      "year": "2023",
+      "unit": "%",
+      "value": "14"
+    },
+    {
+      "nuts": "EL644",
+      "year": "2023",
+      "unit": "%",
+      "value": "20"
+    },
+    {
+      "nuts": "EL645",
+      "year": "2023",
+      "unit": "%",
+      "value": "74"
+    },
+    {
+      "nuts": "EL651",
+      "year": "2023",
+      "unit": "%",
+      "value": "24"
+    },
+    {
+      "nuts": "EL652",
+      "year": "2023",
+      "unit": "%",
+      "value": "16"
+    },
+    {
+      "nuts": "EL653",
+      "year": "2023",
+      "unit": "%",
+      "value": "39"
+    }
+  ],
+  "data24_share_protected_designated_land": [
+    {
+      "nuts": "EL",
+      "year": "2019",
+      "unit": "%",
+      "value": "27.24"
+    },
+    {
+      "nuts": "EL",
+      "year": "2020",
+      "unit": "%",
+      "value": "27.24"
+    },
+    {
+      "nuts": "EL",
+      "year": "2021",
+      "unit": "%",
+      "value": "27.24"
+    },
+    {
+      "nuts": "EL",
+      "year": "2022",
+      "unit": "%",
+      "value": "27.24"
+    },
+    {
+      "nuts": "EL62",
+      "year": "2019",
+      "unit": "%",
+      "value": "16.57"
+    },
+    {
+      "nuts": "EL62",
+      "year": "2020",
+      "unit": "%",
+      "value": "16.57"
+    },
+    {
+      "nuts": "EL62",
+      "year": "2021",
+      "unit": "%",
+      "value": "16.57"
+    },
+    {
+      "nuts": "EL62",
+      "year": "2022",
+      "unit": "%",
+      "value": "16.57"
+    }
+  ]
+}

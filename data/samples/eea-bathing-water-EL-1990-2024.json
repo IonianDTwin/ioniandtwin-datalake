@@ -1,0 +1,217 @@
+{
+  "source": "EEA WISE Bathing Water (Discodata SQL)",
+  "accessed_at": "2026-10-03",
+  "country": "EL",
+  "series": [
+    {
+      "season": 1990,
+      "total": 613,
+      "excellent": 136,
+      "pct_excellent": 22.19
+    },
+    {
+      "season": 1991,
+      "total": 1024,
+      "excellent": 702,
+      "pct_excellent": 68.55
+    },
+    {
+      "season": 1992,
+      "total": 1179,
+      "excellent": 1059,
+      "pct_excellent": 89.82
+    },
+    {
+      "season": 1993,
+      "total": 1263,
+      "excellent": 1160,
+      "pct_excellent": 91.84
+    },
+    {
+      "season": 1994,
+      "total": 1289,
+      "excellent": 1152,
+      "pct_excellent": 89.37
+    },
+    {
+      "season": 1995,
+      "total": 1516,
+      "excellent": 1440,
+      "pct_excellent": 94.99
+    },
+    {
+      "season": 1996,
+      "total": 1669,
+      "excellent": 1595,
+      "pct_excellent": 95.57
+    },
+    {
+      "season": 1997,
+      "total": 1677,
+      "excellent": 1584,
+      "pct_excellent": 94.45
+    },
+    {
+      "season": 1998,
+      "total": 1714,
+      "excellent": 1643,
+      "pct_excellent": 95.86
+    },
+    {
+      "season": 1999,
+      "total": 1797,
+      "excellent": 1716,
+      "pct_excellent": 95.49
+    },
+    {
+      "season": 2000,
+      "total": 1837,
+      "excellent": 1744,
+      "pct_excellent": 94.94
+    },
+    {
+      "season": 2001,
+      "total": 1874,
+      "excellent": 1813,
+      "pct_excellent": 96.74
+    },
+    {
+      "season": 2002,
+      "total": 1905,
+      "excellent": 1855,
+      "pct_excellent": 97.38
+    },
+    {
+      "season": 2003,
+      "total": 1924,
+      "excellent": 1864,
+      "pct_excellent": 96.88
+    },
+    {
+      "season": 2004,
+      "total": 1956,
+      "excellent": 1907,
+      "pct_excellent": 97.49
+    },
+    {
+      "season": 2005,
+      "total": 1995,
+      "excellent": 1954,
+      "pct_excellent": 97.94
+    },
+    {
+      "season": 2006,
+      "total": 2039,
+      "excellent": 1973,
+      "pct_excellent": 96.76
+    },
+    {
+      "season": 2007,
+      "total": 2055,
+      "excellent": 1960,
+      "pct_excellent": 95.38
+    },
+    {
+      "season": 2008,
+      "total": 2107,
+      "excellent": 2046,
+      "pct_excellent": 97.1
+    },
+    {
+      "season": 2009,
+      "total": 2107,
+      "excellent": 1274,
+      "pct_excellent": 60.47
+    },
+    {
+      "season": 2010,
+      "total": 2155,
+      "excellent": 2029,
+      "pct_excellent": 94.15
+    },
+    {
+      "season": 2011,
+      "total": 2155,
+      "excellent": 2039,
+      "pct_excellent": 94.62
+    },
+    {
+      "season": 2012,
+      "total": 2155,
+      "excellent": 2010,
+      "pct_excellent": 93.27
+    },
+    {
+      "season": 2013,
+      "total": 2164,
+      "excellent": 2016,
+      "pct_excellent": 93.16
+    },
+    {
+      "season": 2014,
+      "total": 1540,
+      "excellent": 1494,
+      "pct_excellent": 97.01
+    },
+    {
+      "season": 2015,
+      "total": 1542,
+      "excellent": 1499,
+      "pct_excellent": 97.21
+    },
+    {
+      "season": 2016,
+      "total": 1542,
+      "excellent": 1496,
+      "pct_excellent": 97.02
+    },
+    {
+      "season": 2017,
+      "total": 1600,
+      "excellent": 1533,
+      "pct_excellent": 95.81
+    },
+    {
+      "season": 2018,
+      "total": 1599,
+      "excellent": 1550,
+      "pct_excellent": 96.94
+    },
+    {
+      "season": 2019,
+      "total": 1635,
+      "excellent": 1564,
+      "pct_excellent": 95.66
+    },
+    {
+      "season": 2020,
+      "total": 1635,
+      "excellent": 1586,
+      "pct_excellent": 97.0
+    },
+    {
+      "season": 2021,
+      "total": 1683,
+      "excellent": 1612,
+      "pct_excellent": 95.78
+    },
+    {
+      "season": 2022,
+      "total": 1682,
+      "excellent": 1624,
+      "pct_excellent": 96.55
+    },
+    {
+      "season": 2023,
+      "total": 1731,
+      "excellent": 1659,
+      "pct_excellent": 95.84
+    },
+    {
+      "season": 2024,
+      "total": 1729,
+      "excellent": 1677,
+      "pct_excellent": 96.99
+    }
+  ]
+}

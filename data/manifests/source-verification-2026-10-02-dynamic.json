@@ -1,0 +1,55 @@
+{
+  "manifest_id": "source-verification-2026-10-02-dynamic",
+  "created_at": "2026-10-02T11:40:00Z",
+  "scope": "Pull-test Data06 (airport congestion, OpenSky live) and Data07 (port congestion, EMODnet vessel-density baseline). Both are live-only indicators: these are snapshots/baselines, not historical backfill.",
+  "evidence": [
+    {
+      "source_id": "OpenSky_States_live",
+      "name": "OpenSky Network - live aircraft states (REST)",
+      "provider": "OpenSky Network",
+      "url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+      "method": "GET",
+      "access_type": "api",
+      "response_status": 200,
+      "content_type": "application/json",
+      "checksum_sha256": "707359b01db9e517d653bc10798de50682bb6ffeb465489c72d0683b734c5b16",
+      "accessed_at": "2026-10-02T11:33Z",
+      "authentication": "none (anonymous)",
+      "sample_path": "data/samples/opensky-ionian-states-20261002-113332.json",
+      "note": "17 aircraft over the Ionian bbox, all cruise-altitude overflights, 0 in airport approach at the snapshot instant. Live-only.",
+      "verification_status": "VERIFIED (live snapshot)"
+    },
+    {
+      "source_id": "EMODnet_HA_vesseldensity",
+      "name": "EMODnet Human Activities - Vessel Density (WMS GetFeatureInfo)",
+      "provider": "EMODnet",
+      "url": "https://ows.emodnet-humanactivities.eu/wms (layer vesseldensity_allavg)",
+      "method": "GET (WMS GetFeatureInfo, CRS:84)",
+      "access_type": "api",
+      "response_status": 200,
+      "content_type": "application/json",
+      "checksum_sha256": "f80c2142f56391cfab16c9ff6323b2895f96778f13ec64b4299a6c0ddee0c02a",
+      "accessed_at": "2026-10-02T11:17Z",
+      "authentication": "none",
+      "sample_path": "data/samples/emodnet-vesseldensity-ionian-ports-2026-10-02.json",
+      "note": "Annual-average vessel density (hours/km²/year), all types: Corfu 352.3, Zakynthos 169.6, Kefalonia 227.0. Baseline density, NOT live congestion; live AIS (aisstream) needs a free key.",
+      "verification_status": "VERIFIED (baseline)"
+    },
+    {
+      "source_id": "aisstream_live_AIS",
+      "name": "aisstream.io - live AIS WebSocket (PositionReport)",
+      "provider": "aisstream.io",
+      "url": "wss://stream.aisstream.io/v0/stream (SubscriptionMessage: APIKey + BoundingBoxes + FilterMessageTypes)",
+      "method": "WebSocket subscribe (Corfu port bbox [[39.55,19.85],[39.70,19.98]], 90s window)",
+      "access_type": "websocket",
+      "response_status": 101,
+      "content_type": "application/octet-stream (UTF-8 JSON frames)",
+      "checksum_sha256": "81c58ef2c1af70d299fe80f8b479faab9fa4818414783fae13dad8919b3bf117",
+      "accessed_at": "2026-10-02T08:58:47Z",
+      "authentication": "free API key (aisstream account)",
+      "sample_path": "data/samples/aisstream-corfu-positionreports-20261002-085847.json",
+      "note": "1 vessel observed (FANEROMENI.G, moored SOG 0 at 39.63N 19.90E) in 90s. Live-only; port quiet at that instant.",
+      "verification_status": "VERIFIED (live snapshot)"
+    }
+  ]
+}

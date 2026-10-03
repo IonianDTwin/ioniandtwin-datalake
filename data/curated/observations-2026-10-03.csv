@@ -1,0 +1,82 @@
+observation_id,indicator_id,indicator_name,series_label,source_id,temporal_granularity,observed_at,observed_period_end,value,unit,spatial_level,spatial_code,polarity
+Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2022,Data16,Tourism intensity (nights/residents),nights per 1000 residents,Eurostat_tour_occ_nin2,annual,2022,,80912.16,,NUTS2,EL62,
+Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2023,Data16,Tourism intensity (nights/residents),nights per 1000 residents,Eurostat_tour_occ_nin2,annual,2023,,97705.53,,NUTS2,EL62,
+Eurostat_tour_occ_nin2:Data26:overnight stays:2022,Data26,Arrivals & overnight stays,overnight stays,Eurostat_tour_occ_nin2,annual,2022,,16512634,nights,NUTS2,EL62,
+Eurostat_tour_occ_nin2:Data26:overnight stays:2023,Data26,Arrivals & overnight stays,overnight stays,Eurostat_tour_occ_nin2,annual,2023,,19762799,nights,NUTS2,EL62,
+Eurostat_tour_occ_nin2:Data31:nights per km²:2022,Data31,Tourism density (nights/km²),nights per km²,Eurostat_tour_occ_nin2,annual,2022,,7176.29,,NUTS2,EL62,
+Eurostat_tour_occ_nin2:Data31:nights per km²:2023,Data31,Tourism density (nights/km²),nights per km²,Eurostat_tour_occ_nin2,annual,2023,,8588.79,,NUTS2,EL62,
+Eurostat_tour_occ_nin2:Data33:foreign share:2022,Data33,Foreign tourist share (%),foreign share,Eurostat_tour_occ_nin2,annual,2022,,93.72,% of total,NUTS2,EL62,
+Eurostat_tour_occ_nin2:Data33:foreign share:2023,Data33,Foreign tourist share (%),foreign share,Eurostat_tour_occ_nin2,annual,2023,,93.58,% of total,NUTS2,EL62,
+Eurostat_tour_occ_arn2:Data26:arrivals:2022,Data26,Arrivals & overnight stays,arrivals,Eurostat_tour_occ_arn2,annual,2022,,2785360,,NUTS2,EL62,
+Eurostat_tour_occ_arn2:Data26:arrivals:2023,Data26,Arrivals & overnight stays,arrivals,Eurostat_tour_occ_arn2,annual,2023,,3332407,,NUTS2,EL62,
+Eurostat_tour_cap_nuts2:Data27:bed-places:2022,Data27,Tourism capacity (beds),bed-places,Eurostat_tour_cap_nuts2,annual,2022,,159790,,NUTS2,EL62,
+Eurostat_tour_cap_nuts2:Data27:bed-places:2023,Data27,Tourism capacity (beds),bed-places,Eurostat_tour_cap_nuts2,annual,2023,,155968,,NUTS2,EL62,
+OpenMeteo_forecast:Data13:air temperature:2026-09-22T14:15,Data13,"Weather conditions (temp, rain, …)",air temperature,OpenMeteo_forecast,instant,2026-09-22T14:15,,26.5,°C,point,"39.62,19.92",
+OpenMeteo_forecast:Data13:relative humidity:2026-09-22T14:15,Data13,"Weather conditions (temp, rain, …)",relative humidity,OpenMeteo_forecast,instant,2026-09-22T14:15,,57,%,point,"39.62,19.92",
+OpenMeteo_forecast:Data13:apparent (feels-like) temperature:2026-09-22T14:15,Data13,"Weather conditions (temp, rain, …)",apparent (feels-like) temperature,OpenMeteo_forecast,instant,2026-09-22T14:15,,28.8,°C,point,"39.62,19.92",
+OpenMeteo_forecast:Data14:max UV index:2026-09-22,Data14,High UV and protection,max UV index,OpenMeteo_forecast,daily,2026-09-22,,5.9,,point,"39.62,19.92",
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-01,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-01,,1591829,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-02,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-02,,1603094,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-03,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-03,,2450684,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-04,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-04,,6491390,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-05,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-05,,14349293,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-06,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-06,,22554193,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-07,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-07,,29461403,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-08,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-08,,31687354,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-09,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-09,,22215646,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-10,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-10,,10467410,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-11,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-11,,2201951,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:monthly nights:2023-12,Data29,Seasonality (%),monthly nights,Eurostat_tour_occ_nim,monthly,2023-12,,2135574,nights,country,EL,
+Eurostat_tour_occ_nim:Data29:seasonality_peak_share:2023,Data29,Seasonality (%),peak-month share of annual nights,Eurostat_tour_occ_nim,annual,2023,,21.53,%,country,EL,negative
+Eurostat:Data30:length_of_stay:2022,Data30,Average length of stay,nights ÷ arrivals,Eurostat_tour_occ_nin2,annual,2022,,5.928,nights,NUTS2,EL62,
+Eurostat:Data30:length_of_stay:2023,Data30,Average length of stay,nights ÷ arrivals,Eurostat_tour_occ_nin2,annual,2023,,5.93,nights,NUTS2,EL62,
+EEA_WISE_BWD:Data02:pct_excellent:1990,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1990,,22.19,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:1991,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1991,,68.55,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:1992,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1992,,89.82,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:1993,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1993,,91.84,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:1994,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1994,,89.37,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:1995,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1995,,94.99,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:1996,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1996,,95.57,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:1997,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1997,,94.45,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:1998,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1998,,95.86,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:1999,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,1999,,95.49,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2000,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2000,,94.94,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2001,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2001,,96.74,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2002,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2002,,97.38,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2003,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2003,,96.88,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2004,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2004,,97.49,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2005,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2005,,97.94,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2006,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2006,,96.76,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2007,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2007,,95.38,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2008,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2008,,97.1,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2009,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2009,,60.47,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2010,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2010,,94.15,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2011,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2011,,94.62,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2012,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2012,,93.27,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2013,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2013,,93.16,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2014,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2014,,97.01,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2015,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2015,,97.21,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2016,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2016,,97.02,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2017,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2017,,95.81,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2018,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2018,,96.94,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2019,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2019,,95.66,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2020,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2020,,97.0,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2021,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2021,,95.78,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2022,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2022,,96.55,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2023,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2023,,95.84,%,country,EL,positive
+EEA_WISE_BWD:Data02:pct_excellent:2024,Data02,Excellent bathing waters (%),% excellent (of all monitored),EEA_WISE_BWD_assessment,annual,2024,,96.99,%,country,EL,positive
+EEA_WISE_BWD:Data03:clean_beach_share:2024,Data03,Clean beach water (reports),share at least 'Sufficient' (of classified),EEA_WISE_BWD_assessment,annual,2024,,99.94,%,country,EL,positive
+Eurostat_tour_occ_nin2:Data32:dominant_typology:2023,Data32,Dominant tourism typology,accommodation category with highest nights share,Eurostat_tour_occ_nin2,annual,2023,,hotels,,NUTS2,EL62,
+Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2020,Data22,Tourist diversity (zones),1 − HHI of island nights shares,Eurostat_tour_occ_nin3,annual,2020,,0.663,index,NUTS2,EL62,
+Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2021,Data22,Tourist diversity (zones),1 − HHI of island nights shares,Eurostat_tour_occ_nin3,annual,2021,,0.636,index,NUTS2,EL62,
+Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2022,Data22,Tourist diversity (zones),1 − HHI of island nights shares,Eurostat_tour_occ_nin3,annual,2022,,0.651,index,NUTS2,EL62,
+Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2023,Data22,Tourist diversity (zones),1 − HHI of island nights shares,Eurostat_tour_occ_nin3,annual,2023,,0.632,index,NUTS2,EL62,
+Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2024,Data22,Tourist diversity (zones),1 − HHI of island nights shares,Eurostat_tour_occ_nin3,annual,2024,,0.631,index,NUTS2,EL62,
+Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2025,Data22,Tourist diversity (zones),1 − HHI of island nights shares,Eurostat_tour_occ_nin3,annual,2025,,0.64,index,NUTS2,EL62,
+EEA_Natura2000:Data24:protected_land_pct:2026,Data24,Protected land (%),"share of EL62 land under Natura 2000 (Habitats ∪ Birds, terrestrial)",EEA_ArcGIS_ProtectedSites_Natura2000,annual,2026,,16.76,%,NUTS2,EL62,positive
+EU_Tourism_Dashboard:Data02:excellent_bathing_water:2023,Data02,Excellent bathing waters (%),share of bathing waters rated excellent,EU_Tourism_Dashboard_2024,annual,2023,,98.82,%,NUTS2,EL62,positive
+EU_Tourism_Dashboard:Data04:blue_flag_sites:2024,Data04,Blue Flags,number of Blue Flag sites,EU_Tourism_Dashboard_2024,annual,2024,,51.0,number,NUTS2,EL62,positive
+EU_Tourism_Dashboard:Data23:cultural_assets_density:2023,Data23,Density of cultural elements,cultural assets per 100 km²,EU_Tourism_Dashboard_2024,annual,2023,,9.073,no. of cultural assets / 100 km²,NUTS2,EL62,
+EU_Tourism_Dashboard:Data25:high_nature_value_accommodation:2023,Data25,Accommodation in high-value areas,share of accommodations in high-nature-value areas,EU_Tourism_Dashboard_2024,annual,2023,,43.0,%,NUTS2,EL62,
+EU_Tourism_Dashboard:Data28:net_occupancy:2023,Data28,Occupancy rate (%),net occupancy of bed places,EU_Tourism_Dashboard_2024,annual,2023,,65.4,%,NUTS2,EL62,
+EU_Tourism_Dashboard:Data29:peak_season_share:2023,Data29,Seasonality (%),share of nights in peak season,EU_Tourism_Dashboard_2024,annual,2023,,71.08,%,NUTS2,EL62,negative

@@ -1,0 +1,19 @@
+{
+  "source_id": "EEA_ArcGIS_ProtectedSites_Natura2000",
+  "url_base": "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/Natura2000Sites/MapServer",
+  "accessed_at": "2026-10-01T22:56:00Z",
+  "auth": "none",
+  "layers": {
+    "0": "Habitats Directive Sites (pSCI, SCI or SAC)",
+    "1": "Birds Directive Sites (SPA)",
+    "2": "Habitats and Birds Directive Sites (union)"
+  },
+  "ionian_islands_gr22": {
+    "habitats_sites": 18,
+    "habitats_total_area_ha": 311935.9,
+    "birds_sites": 8,
+    "birds_total_area_ha": 67391.9
+  },
+  "caveat": "Area_ha is the FULL site area incl. marine component; protected LAND % needs terrestrial/marine split + clip to EL62 (land ~2,300 km2) + union of Habitats & Birds.",
+  "cdda_natda_services": "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/ (NatDAv24_Dyna_WM, CDDAv21_Dyna_WM - HTTP 200)"
+}

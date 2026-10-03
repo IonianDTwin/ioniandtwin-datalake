@@ -52,6 +52,22 @@ def granularity_of(time_str: str) -> str:
     return "instant"
 
 
+def _spatial_level(geo: str) -> str:
+    """Map a Eurostat geo code to observation-schema spatial_ref.level.
+
+    D-014: NUTS2 (EL62) is the analysis reference; country (EL) is a national
+    proxy; NUTS3 (EL621-624) is internal disaggregation only and is never
+    emitted as an observation (aggregate to NUTS2 first).
+    """
+    if len(geo) == 2:
+        return "country"   # ISO 3166 alpha-2, e.g. EL
+    if len(geo) == 4:
+        return "NUTS2"     # e.g. EL62
+    raise ValueError(
+        f"geo {geo!r} is finer than NUTS2; aggregate to NUTS2 before emitting (D-014)"
+    )
+
+
 def _obs(oid, indicator_id, ind_name, series_label, source_id, observed_at,
          granularity, spatial_level, spatial_code, value, unit, provenance,
          polarity=None, period_end=None):
@@ -78,6 +94,24 @@ def sdmx_values(path: Path) -> dict:
     data = json.loads(path.read_text(encoding="utf-8"))
     _, _, rows, _ = decode(data)
     return rows
+
+
+def _nuts3_nights_years(path: Path) -> dict:
+    """Load a wrapper {NUTS3_geo: SDMX dataset} and return {year: {geo: nights}}.
+
+    D-014: NUTS3 data is an internal disaggregation; callers must aggregate it to
+    NUTS2 (EL62) before emitting an observation.
+    """
+    wrapper = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, dict[str, float]] = {}
+    for geo, dataset in wrapper.items():
+        _, _, rows, _ = decode(dataset)
+        for r in rows:
+            year = r.get("time", "")
+            val = r.get("value")
+            if isinstance(val, (int, float)) and year:
+                out.setdefault(str(year), {})[geo] = val
+    return out
 
 
 def base_observations(manifests: list[Path], mapping: dict) -> list[dict]:
@@ -109,8 +143,8 @@ def base_observations(manifests: list[Path], mapping: dict) -> list[dict]:
                     t = r.get("time", "")
                     value = r.get("value")
                     gran = granularity_of(t)
-                    level = "NUTS2" if kind == "sdmx" else "point"
                     code = r.get("geo", "") if kind == "sdmx" else "39.62,19.92"
+                    level = _spatial_level(code) if kind == "sdmx" else "point"
                     oid = f"{src_key}:{iid}:{s.get('label','')}:{t}"
                     if oid in seen:
                         continue
@@ -175,14 +209,28 @@ def derived_observations(ingested: list[dict]) -> list[dict]:
     total = exc + good + suff + poor + notc
     classified = exc + good + suff + poor
     if total:
-        out.append(_obs(
-            "EEA_WISE_BWD:Data02:pct_excellent:2024", "Data02", "Excellent bathing waters (%)",
-            "% excellent (of all monitored)", "EEA_WISE_BWD_assessment", "2024",
-            "annual", "country", "EL", round(exc / total * 100, 2), "%",
-            {"access_method": "derived",
-             "request_url": f"pct_excellent = excellent({exc}) / total({total}) * 100"},
-            polarity="positive",
-        ))
+        # Emit the full Data02 time series (1990-2024) when the series sample exists.
+        bw_series = SAMPLES / "eea-bathing-water-EL-1990-2024.json"
+        if bw_series.exists():
+            for row in json.loads(bw_series.read_text(encoding="utf-8")).get("series", []):
+                out.append(_obs(
+                    f"EEA_WISE_BWD:Data02:pct_excellent:{row['season']}",
+                    "Data02", "Excellent bathing waters (%)", "% excellent (of all monitored)",
+                    "EEA_WISE_BWD_assessment", str(row["season"]), "annual", "country", "EL",
+                    row["pct_excellent"], "%",
+                    {"access_method": "derived",
+                     "request_url": f"pct_excellent = excellent({row['excellent']}) / total({row['total']}) * 100"},
+                    polarity="positive",
+                ))
+        else:
+            out.append(_obs(
+                "EEA_WISE_BWD:Data02:pct_excellent:2024", "Data02", "Excellent bathing waters (%)",
+                "% excellent (of all monitored)", "EEA_WISE_BWD_assessment", "2024",
+                "annual", "country", "EL", round(exc / total * 100, 2), "%",
+                {"access_method": "derived",
+                 "request_url": f"pct_excellent = excellent({exc}) / total({total}) * 100"},
+                polarity="positive",
+            ))
     if classified:
         out.append(_obs(
             "EEA_WISE_BWD:Data03:clean_beach_share:2024", "Data03", "Clean beach water (reports)",
@@ -202,6 +250,83 @@ def derived_observations(ingested: list[dict]) -> list[dict]:
          "request_url": "D-009: dominant = argmax(nace_r2 share of nights); hotels ≈73%/70% vs short-stay 26%/30%"},
     ))
 
+    # --- Data22 tourist diversity = 1 − HHI of NUTS3 island night shares (aggregated to NUTS2/EL62) ---
+    nin3 = SAMPLES / "eurostat-tour_occ_nin3-EL621-624-2021-2025.json"
+    if nin3.exists():
+        island_nights = _nuts3_nights_years(nin3)
+        for year in sorted(island_nights):
+            shares = island_nights[year]
+            total = sum(shares.values())
+            if total <= 0:
+                continue
+            hhi = sum((v / total) ** 2 for v in shares.values())
+            diversity = round(1 - hhi, 3)
+            out.append(_obs(
+                f"Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:{year}",
+                "Data22", "Tourist diversity (zones)", "1 − HHI of island nights shares",
+                "Eurostat_tour_occ_nin3", year, "annual", "NUTS2", "EL62",
+                diversity, "index",
+                {"access_method": "derived",
+                 "request_url": f"diversity = 1 − HHI over {len(shares)} island nights shares, aggregated to EL62"},
+            ))
+
+    # --- Data24 protected land % (Natura 2000 ∩ EL62 land, terrestrial) ---
+    # Computed by scripts/verification/compute-data24-protected-land.py; result JSON
+    # is the auditable provenance (per-site overlap table + Echinades completeness note).
+    d24 = CURATED / "data24-protected-land.json"
+    if d24.exists():
+        r = json.loads(d24.read_text(encoding="utf-8"))
+        pct = r.get("protected_land_pct")
+        if pct is not None:
+            out.append(_obs(
+                "EEA_Natura2000:Data24:protected_land_pct:2026",
+                "Data24", "Protected land (%)",
+                "share of EL62 land under Natura 2000 (Habitats ∪ Birds, terrestrial)",
+                "EEA_ArcGIS_ProtectedSites_Natura2000", "2026", "annual", "NUTS2", "EL62",
+                round(pct, 2), "%",
+                {"access_method": "derived",
+                 "request_url": (f"protected_land_pct = union(Natura2000 Habitats ∪ Birds ∩ EL62 land) "
+                                 f"÷ EL62 land area × 100 = {r.get('combined_protected_land_ha')} ha "
+                                 f"÷ {r.get('el62_land_ha')} ha (NUTS 2021, LAEA EPSG:3035)")},
+                polarity="positive",
+            ))
+
+    return out
+
+
+def dashboard_observations() -> list[dict]:
+    """Emit EU Tourism Dashboard-sourced indicators (reconciliation, 2026-10-03).
+
+    These are read directly from the dashboard export (the proposal's own source)
+    rather than derived; the sample data/samples/eutd-tourism-dashboard-2024-el62.json
+    carries the EL62 values.
+    """
+    src = SAMPLES / "eutd-tourism-dashboard-2024-el62.json"
+    if not src.exists():
+        return []
+    d = json.loads(src.read_text(encoding="utf-8"))
+    meta = {
+        "excellent_bathing_water": ("Data02", "Excellent bathing waters (%)", "share of bathing waters rated excellent", "%", "positive"),
+        "blue_flag_sites": ("Data04", "Blue Flags", "number of Blue Flag sites", "number", "positive"),
+        "cultural_assets_density": ("Data23", "Density of cultural elements", "cultural assets per 100 km²", "no. of cultural assets / 100 km²", None),
+        "high_nature_value_accommodation": ("Data25", "Accommodation in high-value areas", "share of accommodations in high-nature-value areas", "%", None),
+        "net_occupancy": ("Data28", "Occupancy rate (%)", "net occupancy of bed places", "%", None),
+        "peak_season_share": ("Data29", "Seasonality (%)", "share of nights in peak season", "%", "negative"),
+    }
+    out: list[dict] = []
+    for key, rec in d.get("el62", {}).items():
+        if key not in meta:
+            continue
+        iid, name, series, unit, pol = meta[key]
+        year = str(rec.get("year"))
+        out.append(_obs(
+            f"EU_Tourism_Dashboard:{iid}:{key}:{year}", iid, name, series,
+            "EU_Tourism_Dashboard_2024", year, "annual", "NUTS2", "EL62",
+            rec.get("value"), unit,
+            {"access_method": "download",
+             "request_url": f"EU Tourism Dashboard {rec.get('code')} (2024 export), EL62 {year}"},
+            polarity=pol,
+        ))
     return out
 
 
@@ -228,7 +353,7 @@ def composite_observations() -> list[dict]:
         "year": 2023,
         "spatial_ref": {"level": "NUTS2", "code": "EL62"},
         "value": index,
-        "unit": "index (0–100)",
+        "unit": "index (0-100)",
         "polarity": "negative",
         "formula": "100 * (0.4*intensity_norm + 0.4*density_norm + 0.2*seasonality_norm)",
         "weights": weights,
@@ -272,7 +397,8 @@ def main() -> int:
 
     base = base_observations(manifests, mapping)
     derived = derived_observations(base)
-    all_obs = base + derived
+    dashboard = dashboard_observations()
+    all_obs = base + derived + dashboard
 
     problems = validate_against_schema(all_obs, ROOT / args.schema)
     if problems:
@@ -307,7 +433,7 @@ def main() -> int:
     comp_path = CURATED / f"composite-{date}.json"
     comp_path.write_text(json.dumps(composites, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    print(f"observations: {len(all_obs)} ({len(base)} base + {len(derived)} derived)")
+    print(f"observations: {len(all_obs)} ({len(base)} base + {len(derived)} derived + {len(dashboard)} dashboard)")
     print(f"  {json_path}")
     print(f"  {csv_path}")
     print(f"composite: {len(composites)}")

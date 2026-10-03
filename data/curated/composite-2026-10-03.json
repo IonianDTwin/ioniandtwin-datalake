@@ -9,7 +9,7 @@
       "code": "EL62"
     },
     "value": 59.0,
-    "unit": "index (0–100)",
+    "unit": "index (0-100)",
     "polarity": "negative",
     "formula": "100 * (0.4*intensity_norm + 0.4*density_norm + 0.2*seasonality_norm)",
     "weights": {

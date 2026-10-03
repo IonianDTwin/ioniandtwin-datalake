@@ -1,0 +1,50 @@
+{
+  "source": "EU Tourism Dashboard - 2024 release",
+  "csv_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/TOURISM/2024/LATEST/2024_TourismDashboard_Indicators_Export.csv",
+  "dataset_id": "9564824a-7f16-4efa-82fb-d4e176350026",
+  "accessed_at": "2026-10-03",
+  "el62": {
+    "excellent_bathing_water": {
+      "data_id": "Data02",
+      "code": "TOUR_ENV_05",
+      "year": 2023,
+      "unit": "%",
+      "value": 98.82
+    },
+    "blue_flag_sites": {
+      "data_id": "Data04",
+      "code": "TOUR_DES_10",
+      "year": 2024,
+      "unit": "number",
+      "value": 51.0
+    },
+    "cultural_assets_density": {
+      "data_id": "Data23",
+      "code": "TOUR_DES_14",
+      "year": 2023,
+      "unit": "no. of cultural assets / 100km<sup>2</sup>",
+      "value": 9.073
+    },
+    "high_nature_value_accommodation": {
+      "data_id": "Data25",
+      "code": "TOUR_DES_13",
+      "year": 2023,
+      "unit": "%",
+      "value": 43.0
+    },
+    "net_occupancy": {
+      "data_id": "Data28",
+      "code": "TOUR_DES_04",
+      "year": 2023,
+      "unit": "%",
+      "value": 65.4
+    },
+    "peak_season_share": {
+      "data_id": "Data29",
+      "code": "TOUR_SOE_02",
+      "year": 2023,
+      "unit": "%",
+      "value": 71.08
+    }
+  }
+}

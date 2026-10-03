@@ -1,0 +1,85 @@
+{
+  "data22_tourist_diversity": {
+    "2021": {
+      "nights": {
+        "Zakynthos": 3093879,
+        "Kerkyra": 4495736,
+        "Ithaki_Kefallinia": 850030,
+        "Lefkada": 817965
+      },
+      "shares": {
+        "Zakynthos": 0.3342,
+        "Kerkyra": 0.4856,
+        "Ithaki_Kefallinia": 0.0918,
+        "Lefkada": 0.0884
+      },
+      "HHI": 0.3638,
+      "diversity_1_minus_HHI": 0.6362
+    },
+    "2022": {
+      "nights": {
+        "Zakynthos": 5138655,
+        "Kerkyra": 7918650,
+        "Ithaki_Kefallinia": 1763599,
+        "Lefkada": 1691730
+      },
+      "shares": {
+        "Zakynthos": 0.3112,
+        "Kerkyra": 0.4796,
+        "Ithaki_Kefallinia": 0.1068,
+        "Lefkada": 0.1025
+      },
+      "HHI": 0.3487,
+      "diversity_1_minus_HHI": 0.6513
+    },
+    "2023": {
+      "nights": {
+        "Zakynthos": 5930277,
+        "Kerkyra": 10071910,
+        "Ithaki_Kefallinia": 2204331,
+        "Lefkada": 1556281
+      },
+      "shares": {
+        "Zakynthos": 0.3001,
+        "Kerkyra": 0.5096,
+        "Ithaki_Kefallinia": 0.1115,
+        "Lefkada": 0.0787
+      },
+      "HHI": 0.3684,
+      "diversity_1_minus_HHI": 0.6316
+    },
+    "2024": {
+      "nights": {
+        "Zakynthos": 6438092,
+        "Kerkyra": 10338733,
+        "Ithaki_Kefallinia": 2070610,
+        "Lefkada": 1677265
+      },
+      "shares": {
+        "Zakynthos": 0.3137,
+        "Kerkyra": 0.5037,
+        "Ithaki_Kefallinia": 0.1009,
+        "Lefkada": 0.0817
+      },
+      "HHI": 0.369,
+      "diversity_1_minus_HHI": 0.631
+    },
+    "2025": {
+      "nights": {
+        "Zakynthos": 6806361,
+        "Kerkyra": 9801415,
+        "Ithaki_Kefallinia": 1884056,
+        "Lefkada": 1871997
+      },
+      "shares": {
+        "Zakynthos": 0.3342,
+        "Kerkyra": 0.4813,
+        "Ithaki_Kefallinia": 0.0925,
+        "Lefkada": 0.0919
+      },
+      "HHI": 0.3604,
+      "diversity_1_minus_HHI": 0.6396
+    }
+  },
+  "data25_bed_distribution": {}
+}

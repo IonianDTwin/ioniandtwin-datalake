@@ -1,0 +1,13 @@
+{
+  "source": "Ookla Open Data \u2014 fixed broadband performance tiles",
+  "period": "2024 Q3 (2024-07-01)",
+  "spatial": "Ionian Islands bbox (lon 19\u201322, lat 37\u201340.5)",
+  "tiles": 9209,
+  "avg_download_Mbps_mean": 39.1,
+  "avg_download_Mbps_median": 26.8,
+  "avg_download_Mbps_max": 926.6,
+  "tests": 123119,
+  "devices": 47113,
+  "note": "Extracted via geopandas bbox filter; raw zip retained with checksum.",
+  "zip_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e"
+}

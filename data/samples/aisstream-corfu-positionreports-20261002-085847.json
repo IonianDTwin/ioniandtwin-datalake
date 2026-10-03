@@ -1,0 +1,73 @@
+{
+  "source": "aisstream.io (live AIS WebSocket)",
+  "bbox": [
+    [
+      39.55,
+      19.85
+    ],
+    [
+      39.7,
+      19.98
+    ]
+  ],
+  "window_seconds": 90.6,
+  "captured_at_utc": "2026-10-02T08:58:47.206904+00:00",
+  "unique_vessels": 1,
+  "vessels": [
+    {
+      "mmsi": "237604000",
+      "name": "FANEROMENI.G"
+    }
+  ],
+  "sample_positions": [
+    {
+      "mmsi": 237604000,
+      "name": "FANEROMENI.G",
+      "lat": 39.63030833333333,
+      "lon": 19.899735,
+      "sog_kn": 0,
+      "cog": 248.4
+    }
+  ],
+  "frame_count": 2,
+  "raw_frames": [
+    {
+      "Message": {
+        "CompressionEnabled": false
+      },
+      "MessageType": "SubscriptionConfirmation"
+    },
+    {
+      "MetaData": {
+        "MMSI": 237604000,
+        "MMSI_String": 237604000,
+        "ShipName": "FANEROMENI.G",
+        "latitude": 39.63031,
+        "longitude": 19.89974,
+        "time_utc": "2026-10-02 08:57:21.161832525 +0000 UTC"
+      },
+      "MessageType": "PositionReport",
+      "Message": {
+        "PositionReport": {
+          "MessageID": 1,
+          "RepeatIndicator": 0,
+          "UserID": 237604000,
+          "Valid": true,
+          "NavigationalStatus": 0,
+          "RateOfTurn": -128,
+          "Sog": 0,
+          "PositionAccuracy": true,
+          "Longitude": 19.899735,
+          "Latitude": 39.63030833333333,
+          "Cog": 248.4,
+          "TrueHeading": 511,
+          "Timestamp": 21,
+          "SpecialManoeuvreIndicator": 0,
+          "Spare": 0,
+          "Raim": true,
+          "CommunicationState": 2249
+        }
+      }
+    }
+  ]
+}
