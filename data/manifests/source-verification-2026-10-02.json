@@ -13,11 +13,12 @@
       "response_status": 200,
       "content_type": "application/json",
       "checksum_sha256": "c8546768319f2f35796698a729b29c1375995f556b146877dca61ff2678e3288",
+      "sample_checksum_sha256": "93a97b63c7d8bc59addb9ee8b15c4f449e99acccad1f667d6c7cee66efd6f059",
       "accessed_at": "2026-10-01T22:12:00Z",
       "authentication": "none",
       "sample_path": "data/samples/emas-register-greece-2026-10-02.json",
-      "schema_observation": "JSON array of registration records; fields include registrationNumber, organisationName, organisationCountryName, city, postalCode, sitesCount, nacesAsString, registrationDate, nextEnvStatementDate, organisationWebsite, email, phone. Full list 14,650,764 bytes.",
-      "note": "Full EU register: 4,523 records across 27 countries. Greece: 37 registered organisations (0 in the Ionian Islands EL62 by city/name keyword match). The register UI's 'download in Excel' is a client-side DataTables excelHtml5 button over this same REST list; the underlying data source is this JSON endpoint. NOT a PDF/download document.",
+      "schema_observation": "JSON array of registration records; fields include registrationNumber, organisationName, organisationCountryName, city, postalCode, sitesCount, nacesAsString, registrationDate, nextEnvStatementDate, organisationWebsite. Full list 14,650,764 bytes.",
+      "note": "Full EU register: 4,523 records across 27 countries. Greece: 37 registered organisations (0 in the Ionian Islands EL62 by city/name keyword match). The register UI's 'download in Excel' is a client-side DataTables excelHtml5 button over this same REST list; the underlying data source is this JSON endpoint. NOT a PDF/download document. REDACTION (2026-10-14): email and phone contact fields removed from the Greece sample (personal data under GDPR; not needed for the Data05 count).",
       "verification_status": "VERIFIED"
     },
     {

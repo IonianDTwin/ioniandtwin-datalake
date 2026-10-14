@@ -11,6 +11,7 @@ dist/
 venv/
 env/
 .env
+.env.*
 *.env.local
 
 # Data — keep raw/sensitive data out of Git; curated observations are small,
@@ -38,3 +39,11 @@ Thumbs.db
 
 # Windows alternate-data-stream metadata (from WSL/Windows copies)
 *Zone.Identifier
+
+# Google / Gemini / ADK tool artifacts (project-local caches, skills, state)
+.gemini/
+.agents/
+
+# Scratch / experiments — gitignored placeholder for throwaway work. Promote
+# into scripts/, data/, docs/ only when it genuinely contributes to the project.
+scratch/
