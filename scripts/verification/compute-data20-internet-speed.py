@@ -124,7 +124,7 @@ def make_observations(audit: dict, now_iso: str, manifest_id: str) -> list[dict]
             "source_id": f"Ookla_OpenData_{net_type}",
             "observed_at": observed_at,
             "observed_period_end": observed_period_end,
-            "temporal_granularity": "monthly",
+            "temporal_granularity": "quarterly",
             "ingested_at": now_iso,
             "spatial_ref": {
                 "level": "NUTS2",
@@ -165,7 +165,7 @@ def make_observations(audit: dict, now_iso: str, manifest_id: str) -> list[dict]
             "source_id": f"Ookla_OpenData_{net_type}",
             "observed_at": observed_at,
             "observed_period_end": observed_period_end,
-            "temporal_granularity": "monthly",
+            "temporal_granularity": "quarterly",
             "ingested_at": now_iso,
             "spatial_ref": {
                 "level": "NUTS2",

@@ -47,7 +47,7 @@
     },
     "temporal_granularity": {
       "type": "string",
-      "enum": ["instant", "daily", "monthly", "annual", "forecast"],
+      "enum": ["instant", "daily", "monthly", "quarterly", "annual", "forecast"],
       "description": "Temporal resolution of the value. forecast = a projection, not a measurement."
     },
     "ingested_at": {

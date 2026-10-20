@@ -18,7 +18,7 @@
 - `data02-bathing-water-el62-2024.json` - the Data02/03 EL62 spatial-join audit (regional counts + NUTS3 island breakdown), produced by `scripts/verification/pull-data02-bathing-water-el62.py`.
 - `observations-data02-bathing-water-2024.json` / `.csv` - **2 schema-compliant EL62 Data02/Data03 observations** (2024; `annual`, `NUTS2/EL62`), merged into the master.
 
-The earlier snapshot `observations-2026-10-03.json`/`.csv` and `composite-2026-10-03.json` are **superseded** by the 2026-10-20 build and retained only for traceability. The older `observations-2026-09-22`, `observations-2026-09-24`, `observations-2026-10-01` snapshots were **removed** (2026-10-02/03): the 09-24 file mislabeled Data29 seasonality as `NUTS2` with a country code (`EL`), which violated D-014; the 10-01 file was superseded by the 10-03 build (adds Data24 protected land %).
+The earlier snapshot `observations-2026-10-03.json`/`.csv` and `composite-2026-10-03.json` were **removed** (2026-10-20) — the 2026-10-20 build is a strict superset. The older `observations-2026-09-22`, `observations-2026-09-24`, `observations-2026-10-01` snapshots were **removed** (2026-10-02/03): the 09-24 file mislabeled Data29 seasonality as `NUTS2` with a country code (`EL`), which violated D-014; the 10-01 file was superseded by the 10-03 build (adds Data24 protected land %).
 
 ## Spatial consistency (D-014)
 
@@ -56,5 +56,5 @@ python3 scripts/verification/compute-data07-anticipated-congestion.py  # Data07 
 - Covers the **verified** no-key sources: Eurostat tourism (Data16/22/26/27/29/31/32/33), EEA bathing water (Data02/03), EEA Natura 2000 protected land (Data24), Open-Meteo weather/UV (Data13/14), OpenSky live aircraft (Data06), Ookla Open Data (Data20), Eurostat platform rentals (Data19), and derived indicators (Data22/24/29/30/32, plus Data02/03 percentages).
 - `observed_at` is ISO 8601 with `temporal_granularity` (`annual`/`monthly`/`instant`); `ingested_at` is a UTC instant.
 - Official statistics for geo `EL62` (Ionia Nisia, NUTS 2021) and Corfu (Open-Meteo point). Data02 bathing water is published both as a country-level Greece series (1990-2024) and, since 2026-10-20, as an EL62 spatial join for 2024. Data29 seasonality is country-level Greece only (no NUTS2 monthly publication); marked `country/EL`.
-- Data20 is a 2024-Q3 quarterly aggregate; the observation schema has no `quarterly` granularity, so it is labeled `monthly` (period `2024-07-01` → `2024-09-30`). Open item: add `quarterly` to `temporal_granularity`.
+- Data20 is a 2024-Q3 quarterly aggregate (`temporal_granularity=quarterly`, period `2024-07-01` → `2024-09-30`).
 - Unverified indicators are intentionally absent - no value is invented.

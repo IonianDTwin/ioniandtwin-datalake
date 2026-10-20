@@ -7,7 +7,7 @@
     "source_id": "Ookla_OpenData_fixed",
     "observed_at": "2024-07-01",
     "observed_period_end": "2024-09-30",
-    "temporal_granularity": "monthly",
+    "temporal_granularity": "quarterly",
     "ingested_at": "2026-10-20T11:01:12Z",
     "spatial_ref": {
       "level": "NUTS2",
@@ -45,7 +45,7 @@
     "source_id": "Ookla_OpenData_fixed",
     "observed_at": "2024-07-01",
     "observed_period_end": "2024-09-30",
-    "temporal_granularity": "monthly",
+    "temporal_granularity": "quarterly",
     "ingested_at": "2026-10-20T11:01:12Z",
     "spatial_ref": {
       "level": "NUTS2",
@@ -81,7 +81,7 @@
     "source_id": "Ookla_OpenData_mobile",
     "observed_at": "2024-07-01",
     "observed_period_end": "2024-09-30",
-    "temporal_granularity": "monthly",
+    "temporal_granularity": "quarterly",
     "ingested_at": "2026-10-20T11:01:12Z",
     "spatial_ref": {
       "level": "NUTS2",
@@ -119,7 +119,7 @@
     "source_id": "Ookla_OpenData_mobile",
     "observed_at": "2024-07-01",
     "observed_period_end": "2024-09-30",
-    "temporal_granularity": "monthly",
+    "temporal_granularity": "quarterly",
     "ingested_at": "2026-10-20T11:01:12Z",
     "spatial_ref": {
       "level": "NUTS2",

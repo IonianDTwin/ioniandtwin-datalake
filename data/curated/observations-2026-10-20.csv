@@ -92,9 +92,9 @@ Eurostat_tour_ce_omn12:Data19:platform_rental_share:2022,Data19,Short-term renta
 Eurostat_tour_ce_omn12:Data19:platform_rental_share:2023,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2023,2023-12-31,23.5,%,NUTS2,EL62,
 Eurostat_tour_ce_omn12:Data19:platform_rental_share:2024,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2024,2024-12-31,17.65,%,NUTS2,EL62,
 Eurostat_tour_ce_omn12:Data19:platform_rental_share:2025,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2025,2025-12-31,29.8,%,NUTS2,EL62,
-Ookla_OpenData:Data20:fixed_download_mbps:2024-Q3,Data20,Internet speed,fixed_download_mbps,Ookla_OpenData_fixed,monthly,2024-07-01,2024-09-30,42.29,Mbps,NUTS2,EL62,positive
-Ookla_OpenData:Data20:fixed_upload_mbps:2024-Q3,Data20,Internet speed,fixed_upload_mbps,Ookla_OpenData_fixed,monthly,2024-07-01,2024-09-30,9.55,Mbps,NUTS2,EL62,positive
-Ookla_OpenData:Data20:mobile_download_mbps:2024-Q3,Data20,Internet speed,mobile_download_mbps,Ookla_OpenData_mobile,monthly,2024-07-01,2024-09-30,107.48,Mbps,NUTS2,EL62,positive
-Ookla_OpenData:Data20:mobile_upload_mbps:2024-Q3,Data20,Internet speed,mobile_upload_mbps,Ookla_OpenData_mobile,monthly,2024-07-01,2024-09-30,15.31,Mbps,NUTS2,EL62,positive
+Ookla_OpenData:Data20:fixed_download_mbps:2024-Q3,Data20,Internet speed,fixed_download_mbps,Ookla_OpenData_fixed,quarterly,2024-07-01,2024-09-30,42.29,Mbps,NUTS2,EL62,positive
+Ookla_OpenData:Data20:fixed_upload_mbps:2024-Q3,Data20,Internet speed,fixed_upload_mbps,Ookla_OpenData_fixed,quarterly,2024-07-01,2024-09-30,9.55,Mbps,NUTS2,EL62,positive
+Ookla_OpenData:Data20:mobile_download_mbps:2024-Q3,Data20,Internet speed,mobile_download_mbps,Ookla_OpenData_mobile,quarterly,2024-07-01,2024-09-30,107.48,Mbps,NUTS2,EL62,positive
+Ookla_OpenData:Data20:mobile_upload_mbps:2024-Q3,Data20,Internet speed,mobile_upload_mbps,Ookla_OpenData_mobile,quarterly,2024-07-01,2024-09-30,15.31,Mbps,NUTS2,EL62,positive
 EEA_BWD_Discomap_2024:Data02:pct_excellent:EL62:2024,Data02,Coastal water cleanliness,pct_excellent,EEA_BWD_Discomap_2024,annual,2024-01-01,2024-12-31,99.42,%,NUTS2,EL62,positive
 EEA_BWD_Discomap_2024:Data03:clean_share_classified:EL62:2024,Data03,Clean beach / water reports,clean_share_classified,EEA_BWD_Discomap_2024,annual,2024-01-01,2024-12-31,100.0,%,NUTS2,EL62,positive

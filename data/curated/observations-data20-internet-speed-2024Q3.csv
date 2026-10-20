@@ -1,5 +1,5 @@
 observation_id,indicator_id,indicator_name,series_label,source_id,observed_at,temporal_granularity,spatial_level,spatial_code,value,unit,polarity,tests_count,devices_count
-Ookla_OpenData:Data20:fixed_download_mbps:2024-Q3,Data20,Internet speed,fixed_download_mbps,Ookla_OpenData_fixed,2024-07-01,monthly,NUTS2,EL62,42.29,Mbps,positive,41552,18089
-Ookla_OpenData:Data20:fixed_upload_mbps:2024-Q3,Data20,Internet speed,fixed_upload_mbps,Ookla_OpenData_fixed,2024-07-01,monthly,NUTS2,EL62,9.55,Mbps,positive,41552,
-Ookla_OpenData:Data20:mobile_download_mbps:2024-Q3,Data20,Internet speed,mobile_download_mbps,Ookla_OpenData_mobile,2024-07-01,monthly,NUTS2,EL62,107.48,Mbps,positive,11296,6248
-Ookla_OpenData:Data20:mobile_upload_mbps:2024-Q3,Data20,Internet speed,mobile_upload_mbps,Ookla_OpenData_mobile,2024-07-01,monthly,NUTS2,EL62,15.31,Mbps,positive,11296,
+Ookla_OpenData:Data20:fixed_download_mbps:2024-Q3,Data20,Internet speed,fixed_download_mbps,Ookla_OpenData_fixed,2024-07-01,quarterly,NUTS2,EL62,42.29,Mbps,positive,41552,18089
+Ookla_OpenData:Data20:fixed_upload_mbps:2024-Q3,Data20,Internet speed,fixed_upload_mbps,Ookla_OpenData_fixed,2024-07-01,quarterly,NUTS2,EL62,9.55,Mbps,positive,41552,
+Ookla_OpenData:Data20:mobile_download_mbps:2024-Q3,Data20,Internet speed,mobile_download_mbps,Ookla_OpenData_mobile,2024-07-01,quarterly,NUTS2,EL62,107.48,Mbps,positive,11296,6248
+Ookla_OpenData:Data20:mobile_upload_mbps:2024-Q3,Data20,Internet speed,mobile_upload_mbps,Ookla_OpenData_mobile,2024-07-01,quarterly,NUTS2,EL62,15.31,Mbps,positive,11296,

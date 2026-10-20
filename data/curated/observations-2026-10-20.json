@@ -8,7 +8,7 @@
     "observed_at": "2022",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -32,7 +32,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -56,7 +56,7 @@
     "observed_at": "2022",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -80,7 +80,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -104,7 +104,7 @@
     "observed_at": "2022",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -128,7 +128,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -152,7 +152,7 @@
     "observed_at": "2022",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -176,7 +176,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -200,7 +200,7 @@
     "observed_at": "2022",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -224,7 +224,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -248,7 +248,7 @@
     "observed_at": "2022",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -272,7 +272,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -296,7 +296,7 @@
     "observed_at": "2026-09-22T14:15",
     "observed_period_end": null,
     "temporal_granularity": "instant",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "point",
       "code": "39.62,19.92",
@@ -320,7 +320,7 @@
     "observed_at": "2026-09-22T14:15",
     "observed_period_end": null,
     "temporal_granularity": "instant",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "point",
       "code": "39.62,19.92",
@@ -344,7 +344,7 @@
     "observed_at": "2026-09-22T14:15",
     "observed_period_end": null,
     "temporal_granularity": "instant",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "point",
       "code": "39.62,19.92",
@@ -368,7 +368,7 @@
     "observed_at": "2026-09-22",
     "observed_period_end": null,
     "temporal_granularity": "daily",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "point",
       "code": "39.62,19.92",
@@ -392,7 +392,7 @@
     "observed_at": "2023-01",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -416,7 +416,7 @@
     "observed_at": "2023-02",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -440,7 +440,7 @@
     "observed_at": "2023-03",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -464,7 +464,7 @@
     "observed_at": "2023-04",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -488,7 +488,7 @@
     "observed_at": "2023-05",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -512,7 +512,7 @@
     "observed_at": "2023-06",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -536,7 +536,7 @@
     "observed_at": "2023-07",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -560,7 +560,7 @@
     "observed_at": "2023-08",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -584,7 +584,7 @@
     "observed_at": "2023-09",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -608,7 +608,7 @@
     "observed_at": "2023-10",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -632,7 +632,7 @@
     "observed_at": "2023-11",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -656,7 +656,7 @@
     "observed_at": "2023-12",
     "observed_period_end": null,
     "temporal_granularity": "monthly",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -680,7 +680,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -703,7 +703,7 @@
     "observed_at": "2022",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -726,7 +726,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -749,7 +749,7 @@
     "observed_at": "1990",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -772,7 +772,7 @@
     "observed_at": "1991",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -795,7 +795,7 @@
     "observed_at": "1992",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -818,7 +818,7 @@
     "observed_at": "1993",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -841,7 +841,7 @@
     "observed_at": "1994",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -864,7 +864,7 @@
     "observed_at": "1995",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -887,7 +887,7 @@
     "observed_at": "1996",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -910,7 +910,7 @@
     "observed_at": "1997",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -933,7 +933,7 @@
     "observed_at": "1998",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -956,7 +956,7 @@
     "observed_at": "1999",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -979,7 +979,7 @@
     "observed_at": "2000",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1002,7 +1002,7 @@
     "observed_at": "2001",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1025,7 +1025,7 @@
     "observed_at": "2002",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1048,7 +1048,7 @@
     "observed_at": "2003",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1071,7 +1071,7 @@
     "observed_at": "2004",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1094,7 +1094,7 @@
     "observed_at": "2005",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1117,7 +1117,7 @@
     "observed_at": "2006",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1140,7 +1140,7 @@
     "observed_at": "2007",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1163,7 +1163,7 @@
     "observed_at": "2008",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1186,7 +1186,7 @@
     "observed_at": "2009",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1209,7 +1209,7 @@
     "observed_at": "2010",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1232,7 +1232,7 @@
     "observed_at": "2011",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1255,7 +1255,7 @@
     "observed_at": "2012",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1278,7 +1278,7 @@
     "observed_at": "2013",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1301,7 +1301,7 @@
     "observed_at": "2014",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1324,7 +1324,7 @@
     "observed_at": "2015",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1347,7 +1347,7 @@
     "observed_at": "2016",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1370,7 +1370,7 @@
     "observed_at": "2017",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1393,7 +1393,7 @@
     "observed_at": "2018",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1416,7 +1416,7 @@
     "observed_at": "2019",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1439,7 +1439,7 @@
     "observed_at": "2020",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1462,7 +1462,7 @@
     "observed_at": "2021",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1485,7 +1485,7 @@
     "observed_at": "2022",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1508,7 +1508,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1531,7 +1531,7 @@
     "observed_at": "2024",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1554,7 +1554,7 @@
     "observed_at": "2024",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "country",
       "code": "EL",
@@ -1577,7 +1577,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1600,7 +1600,7 @@
     "observed_at": "2020",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1623,7 +1623,7 @@
     "observed_at": "2021",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1646,7 +1646,7 @@
     "observed_at": "2022",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1669,7 +1669,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1692,7 +1692,7 @@
     "observed_at": "2024",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1715,7 +1715,7 @@
     "observed_at": "2025",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1738,7 +1738,7 @@
     "observed_at": "2026",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1761,7 +1761,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1784,7 +1784,7 @@
     "observed_at": "2024",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1807,7 +1807,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1830,7 +1830,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1853,7 +1853,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -1876,7 +1876,7 @@
     "observed_at": "2023",
     "observed_period_end": null,
     "temporal_granularity": "annual",
-    "ingested_at": "2026-10-20T11:57:14Z",
+    "ingested_at": "2026-10-20T12:25:17Z",
     "spatial_ref": {
       "level": "NUTS2",
       "code": "EL62",
@@ -2270,7 +2270,7 @@
     "source_id": "Ookla_OpenData_fixed",
     "observed_at": "2024-07-01",
     "observed_period_end": "2024-09-30",
-    "temporal_granularity": "monthly",
+    "temporal_granularity": "quarterly",
     "ingested_at": "2026-10-20T11:01:12Z",
     "spatial_ref": {
       "level": "NUTS2",
@@ -2308,7 +2308,7 @@
     "source_id": "Ookla_OpenData_fixed",
     "observed_at": "2024-07-01",
     "observed_period_end": "2024-09-30",
-    "temporal_granularity": "monthly",
+    "temporal_granularity": "quarterly",
     "ingested_at": "2026-10-20T11:01:12Z",
     "spatial_ref": {
       "level": "NUTS2",
@@ -2344,7 +2344,7 @@
     "source_id": "Ookla_OpenData_mobile",
     "observed_at": "2024-07-01",
     "observed_period_end": "2024-09-30",
-    "temporal_granularity": "monthly",
+    "temporal_granularity": "quarterly",
     "ingested_at": "2026-10-20T11:01:12Z",
     "spatial_ref": {
       "level": "NUTS2",
@@ -2382,7 +2382,7 @@
     "source_id": "Ookla_OpenData_mobile",
     "observed_at": "2024-07-01",
     "observed_period_end": "2024-09-30",
-    "temporal_granularity": "monthly",
+    "temporal_granularity": "quarterly",
     "ingested_at": "2026-10-20T11:01:12Z",
     "spatial_ref": {
       "level": "NUTS2",
