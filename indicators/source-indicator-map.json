@@ -71,7 +71,7 @@
       "source": "EEA WISE Bathing Water (Discodata SQL); CMEMS secondary",
       "access_type": "api",
       "auth": "none",
-      "note": "EL62 = 98.82 % excellent bathing water (2023) - from EU Tourism Dashboard TOUR_ENV_05; EEA WISE Discodata SQL is the underlying source.",
+      "note": "EL62 = 98.82 % excellent bathing water (2023, EU Tourism Dashboard TOUR_ENV_05). VERIFIED 2024 spatial join (2026-10-20): 170 / 171 classified sites rated Excellent (99.42% of classified, 98.27% of total 173 sites in EL62; Zakynthos 100%, Corfu 98.63%, Kefalonia/Ithaki 100%, Lefkada 100%) via scripts/verification/pull-data02-bathing-water-el62.py.",
       "series": [
         {
           "source_key": "EEA_WISE_BWD_assessment",
@@ -127,11 +127,19 @@
       "name": "Airport congestion",
       "name_el": null,
       "category": "dynamic_congestion",
-      "status": "PARTIAL",
-      "source": "MarineTraffic / FlightRadar24",
+      "status": "VERIFIED",
+      "source": "OpenSky Network REST (approach buffer scoring)",
       "access_type": "api",
-      "auth": "API key (paid)",
-      "note": "OpenSky free REST verified 2026-09-26; live snapshot 2026-10-02 (17 aircraft, 0 in approach). Congestion score formula still PROPOSAL; live-only.",
+      "auth": "none",
+      "note": "VERIFIED 2026-10-20: OpenSky free REST states/all filtered to 25km buffer, alt<=3000m for 4 Ionian airports (CFU, ZTH, EFL, PVK). Congestion score S=min(1, count/threshold) -> observations emitted via scripts/verification/pull-data06-airport-congestion.py. Evidence: data/manifests/source-verification-2026-10-20.json.",
+      "series": [
+        {
+          "source_key": "OpenSky_States_live",
+          "label": "airport congestion score",
+          "unit": "score (0-1)",
+          "description": "Normalized congestion score (0-1) based on aircraft count in terminal approach buffer."
+        }
+      ],
       "cadence": "live"
     },
     {
@@ -139,12 +147,12 @@
       "name": "Port congestion",
       "name_el": null,
       "category": "dynamic_congestion",
-      "status": "PARTIAL",
-      "source": "MarineTraffic",
-      "access_type": "api",
-      "auth": "API key (paid)",
-      "note": "aisstream.io + EMODnet Human Activities free AIS verified 2026-09-26; live snapshot 2026-10-02 (1 vessel, Corfu). Congestion score formula still PROPOSAL; live-only.",
-      "cadence": "live"
+      "status": "PROPOSAL",
+      "source": "CruiseMapper schedules + Greek NAP sailing traffic (anticipated model)",
+      "access_type": "download",
+      "auth": "none",
+      "note": "Anticipated schedule-based congestion (2026-10-14): cruise schedules (CruiseMapper one-time read) + Greek National Access Point ferry baseline -> scripts/verification/compute-data07-anticipated-congestion.py. Live AIS excluded (zero Corfu receiver coverage; snapshots only, no forecasting). Formula S=min(1, 0.4*N_ships/B_max + 0.4*(L_cruise+L_ferry_pax)/C_pax + 0.2*L_ferry_veh/C_veh); weights/capacities/per-call cruise PAX are PROPOSAL/ASSUMPTION defaults.",
+      "cadence": "daily"
     },
     {
       "indicator_id": "Data08",
@@ -318,12 +326,26 @@
       "name": "Short-term rental share (Airbnb)",
       "name_el": null,
       "category": "social_pressure_infrastructure",
-      "status": "PARTIAL",
-      "source": "EU Tourism Dashboard; Airbnb",
+      "status": "VERIFIED",
+      "source": "Eurostat tour_ce_omn12 (platform nights) ÷ (tour_occ_nin2 conventional nights)",
       "access_type": "api",
-      "auth": "none / API key",
-      "note": "InsideAirbnb identified as free candidate 2026-09-26; Greece region/date keys unresolved (guessed Athens key -> HTTP 403).",
-      "cadence": "quarterly"
+      "auth": "none",
+      "note": "VERIFIED 2026-10-15: platform nights from Eurostat tour_ce_omn12 (EC agreement with Airbnb/Booking/Expedia/Tripadvisor; NGT_SP, TOTAL, EL62). Share % = platform / (conventional + platform) * 100, 2018-2025: 14.50 / 15.88 / 22.08 / 23.02 / 24.02 / 23.50 / 17.65 / 29.80. InsideAirbnb superseded (no Ionian coverage; Athens key 403). FLAG: 2025 platform nights +96 % vs 2024 (coverage/onboarding change, treat cautiously). Evidence: data/manifests/source-verification-2026-10-15.json.",
+      "series": [
+        {
+          "source_key": "Eurostat_tour_ce_omn12",
+          "dims": {
+            "indic_to": "NGT_SP",
+            "c_resid": "TOTAL",
+            "month": "TOTAL",
+            "geo": "EL62"
+          },
+          "label": "platform rental share",
+          "unit": "%",
+          "description": "Platform-mediated guest nights as % of total tourism nights (platform + conventional tour_occ_nin2)."
+        }
+      ],
+      "cadence": "annual"
     },
     {
       "indicator_id": "Data20",
@@ -331,10 +353,24 @@
       "name_el": null,
       "category": "digital_infrastructure",
       "status": "VERIFIED",
-      "source": "user reports",
-      "access_type": "user_reports",
-      "auth": "app",
-      "note": "Ookla 2024-Q3: mean 39.1 Mbps (Ionian bbox). Flag: dashboard TOUR_DIG_05 = 39.67 % (share metric, different definition) - \"% of what\" to confirm.",
+      "source": "Ookla Open Data (fixed & mobile S3 shapefiles)",
+      "access_type": "download",
+      "auth": "none",
+      "note": "VERIFIED 2026-10-20: Ookla 2024-Q3 performance slippy-map tiles clipped to GISCO EL62 polygon via scripts/verification/compute-data20-internet-speed.py. EL62 test-weighted download: 42.29 Mbps (fixed, 41,552 tests) and 107.48 Mbps (mobile, 11,296 tests). Evidence: data/manifests/source-verification-2026-10-20.json.",
+      "series": [
+        {
+          "source_key": "Ookla_OpenData_fixed",
+          "label": "fixed download speed",
+          "unit": "Mbps",
+          "description": "Test-weighted average download speed for fixed broadband across EL62."
+        },
+        {
+          "source_key": "Ookla_OpenData_mobile",
+          "label": "mobile download speed",
+          "unit": "Mbps",
+          "description": "Test-weighted average download speed for mobile broadband across EL62."
+        }
+      ],
       "cadence": "quarterly"
     },
     {

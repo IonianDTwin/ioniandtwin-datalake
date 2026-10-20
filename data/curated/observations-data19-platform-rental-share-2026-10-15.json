@@ -1,0 +1,202 @@
+[
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2018",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2018",
+    "observed_period_end": "2018-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 14.5,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2018)/(tour_occ_nin2[NR,TOTAL](2018)+tour_ce_omn12[NGT_SP,TOTAL](2018))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2019",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2019",
+    "observed_period_end": "2019-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 15.88,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2019)/(tour_occ_nin2[NR,TOTAL](2019)+tour_ce_omn12[NGT_SP,TOTAL](2019))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2020",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2020",
+    "observed_period_end": "2020-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 22.08,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2020)/(tour_occ_nin2[NR,TOTAL](2020)+tour_ce_omn12[NGT_SP,TOTAL](2020))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2021",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2021",
+    "observed_period_end": "2021-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 23.02,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2021)/(tour_occ_nin2[NR,TOTAL](2021)+tour_ce_omn12[NGT_SP,TOTAL](2021))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2022",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2022",
+    "observed_period_end": "2022-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 24.02,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2022)/(tour_occ_nin2[NR,TOTAL](2022)+tour_ce_omn12[NGT_SP,TOTAL](2022))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2023",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2023",
+    "observed_period_end": "2023-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 23.5,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2023)/(tour_occ_nin2[NR,TOTAL](2023)+tour_ce_omn12[NGT_SP,TOTAL](2023))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2024",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2024",
+    "observed_period_end": "2024-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 17.65,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2024)/(tour_occ_nin2[NR,TOTAL](2024)+tour_ce_omn12[NGT_SP,TOTAL](2024))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2025",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2025",
+    "observed_period_end": "2025-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 29.8,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2025)/(tour_occ_nin2[NR,TOTAL](2025)+tour_ce_omn12[NGT_SP,TOTAL](2025))*100"
+    }
+  }
+]

@@ -1,0 +1,80 @@
+{
+  "observed_at": "2026-10-20T10:55:16+00:00",
+  "unix_epoch": 1792493716,
+  "total_aircraft_in_ionian_bbox": 26,
+  "valid_position_aircraft": 26,
+  "airports": {
+    "CFU": {
+      "airport_code": "CFU",
+      "icao": "LGKR",
+      "name": "Corfu International Airport (Ioannis Kapodistrias)",
+      "island": "Corfu (Kerkyra)",
+      "lat": 39.6019,
+      "lon": 19.9117,
+      "buffer_radius_km": 25.0,
+      "altitude_ceiling_m": 3000.0,
+      "aircraft_in_approach_count": 0,
+      "capacity_threshold": 4,
+      "congestion_score": 0.0,
+      "congestion_level": "low",
+      "aircraft": []
+    },
+    "ZTH": {
+      "airport_code": "ZTH",
+      "icao": "LGZA",
+      "name": "Zakynthos International Airport (Dionysios Solomos)",
+      "island": "Zakynthos",
+      "lat": 37.7508,
+      "lon": 20.8842,
+      "buffer_radius_km": 25.0,
+      "altitude_ceiling_m": 3000.0,
+      "aircraft_in_approach_count": 0,
+      "capacity_threshold": 3,
+      "congestion_score": 0.0,
+      "congestion_level": "low",
+      "aircraft": []
+    },
+    "EFL": {
+      "airport_code": "EFL",
+      "icao": "LGKF",
+      "name": "Kefalonia International Airport (Anna Pollatou)",
+      "island": "Kefalonia",
+      "lat": 38.12,
+      "lon": 20.5005,
+      "buffer_radius_km": 25.0,
+      "altitude_ceiling_m": 3000.0,
+      "aircraft_in_approach_count": 1,
+      "capacity_threshold": 3,
+      "congestion_score": 0.333,
+      "congestion_level": "low",
+      "aircraft": [
+        {
+          "icao24": "46d276",
+          "callsign": "SEH4EL",
+          "origin_country": "Greece",
+          "lon": 20.3835,
+          "lat": 38.2574,
+          "baro_altitude_m": 960.12,
+          "on_ground": false,
+          "velocity_ms": 92.32,
+          "dist_to_airport_km": 18.38
+        }
+      ]
+    },
+    "PVK": {
+      "airport_code": "PVK",
+      "icao": "LGPZ",
+      "name": "Aktion National Airport (Lefkada gateway)",
+      "island": "Lefkada",
+      "lat": 38.9256,
+      "lon": 20.7653,
+      "buffer_radius_km": 25.0,
+      "altitude_ceiling_m": 3000.0,
+      "aircraft_in_approach_count": 0,
+      "capacity_threshold": 3,
+      "congestion_score": 0.0,
+      "congestion_level": "low",
+      "aircraft": []
+    }
+  }
+}

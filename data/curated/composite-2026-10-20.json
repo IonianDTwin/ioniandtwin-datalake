@@ -1,0 +1,36 @@
+[
+  {
+    "composite_id": "tourist_pressure_index",
+    "name": "Tourism Pressure Index (prototype)",
+    "status": "PROPOSAL",
+    "year": 2023,
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62"
+    },
+    "value": 59.0,
+    "unit": "index (0-100)",
+    "polarity": "negative",
+    "formula": "100 * (0.4*intensity_norm + 0.4*density_norm + 0.2*seasonality_norm)",
+    "weights": {
+      "intensity": 0.4,
+      "density": 0.4,
+      "seasonality": 0.2
+    },
+    "normalisation": {
+      "intensity_norm": "min(1, intensity/150000)",
+      "density_norm": "min(1, density/12000)",
+      "seasonality_norm": "peak_share/100"
+    },
+    "reference_bounds": {
+      "intensity_max": 150000.0,
+      "density_max": 12000.0
+    },
+    "inputs": {
+      "Data16_tourism_intensity_2023": 97705.53,
+      "Data31_tourism_density_2023": 8588.79,
+      "Data29_seasonality_peak_share_2023_pct": 21.53
+    },
+    "notes": "ASSUMPTION: reference maxima and weights are candidate values, not proposal-defined. Prototype only; must not drive public alerts or policy."
+  }
+]

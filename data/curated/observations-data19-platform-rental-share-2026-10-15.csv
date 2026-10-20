@@ -1,0 +1,9 @@
+observation_id,indicator_id,indicator_name,series_label,source_id,temporal_granularity,observed_at,observed_period_end,value,unit,spatial_level,spatial_code,polarity
+Eurostat_tour_ce_omn12:Data19:platform_rental_share:2018,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2018,2018-12-31,14.5,%,NUTS2,EL62,
+Eurostat_tour_ce_omn12:Data19:platform_rental_share:2019,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2019,2019-12-31,15.88,%,NUTS2,EL62,
+Eurostat_tour_ce_omn12:Data19:platform_rental_share:2020,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2020,2020-12-31,22.08,%,NUTS2,EL62,
+Eurostat_tour_ce_omn12:Data19:platform_rental_share:2021,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2021,2021-12-31,23.02,%,NUTS2,EL62,
+Eurostat_tour_ce_omn12:Data19:platform_rental_share:2022,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2022,2022-12-31,24.02,%,NUTS2,EL62,
+Eurostat_tour_ce_omn12:Data19:platform_rental_share:2023,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2023,2023-12-31,23.5,%,NUTS2,EL62,
+Eurostat_tour_ce_omn12:Data19:platform_rental_share:2024,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2024,2024-12-31,17.65,%,NUTS2,EL62,
+Eurostat_tour_ce_omn12:Data19:platform_rental_share:2025,Data19,Short-term rental share (Airbnb),platform rental share,Eurostat_tour_ce_omn12,annual,2025,2025-12-31,29.8,%,NUTS2,EL62,

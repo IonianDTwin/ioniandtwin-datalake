@@ -1,0 +1,197 @@
+{
+  "title": "Data19 — Short-term rental (platform) share of tourism nights (EL62)",
+  "indicator_id": "Data19",
+  "indicator_name": "Short-term rental share (Airbnb)",
+  "status": "VERIFIED",
+  "computed_at_utc": "2026-10-15T12:43:51.485057+00:00",
+  "spatial_ref": {
+    "level": "NUTS2",
+    "code": "EL62"
+  },
+  "method": "Data19(Y) = NGT_SP_platform(EL62,Y) / (NGT_conventional(EL62,Y) + NGT_SP_platform(EL62,Y)) * 100; share of platform-mediated nights within total tourism nights (research-notes 2026-10-15 §7E).",
+  "sources": [
+    {
+      "source_id": "Eurostat_tour_ce_omn12",
+      "dataset": "tour_ce_omn12",
+      "dimensions": {
+        "indic_to": "NGT_SP",
+        "c_resid": "TOTAL",
+        "month": "TOTAL",
+        "geo": "EL62",
+        "time": [
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ]
+      },
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?geo=EL62&indic_to=NGT_SP&c_resid=TOTAL&month=TOTAL&time=2018&time=2019&time=2020&time=2021&time=2022&time=2023&time=2024&time=2025&lang=en",
+      "raw_path": "data/raw/eurostat-tour_ce_omn12-el62-ngtsp-annual-2018-2025.json",
+      "sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "updated": "2026-10-02T11:00:00+0200",
+      "note": "Nights spent in short-stay accommodation offered via online platforms (Airbnb, Booking.com, Expedia, Tripadvisor), under the EC platform data-sharing agreement."
+    },
+    {
+      "source_id": "Eurostat_tour_ce_omn12_monthly_2025",
+      "dataset": "tour_ce_omn12",
+      "dimensions": {
+        "indic_to": "NGT_SP",
+        "c_resid": "TOTAL",
+        "month": "M01..M12+TOTAL",
+        "geo": "EL62",
+        "time": "2025"
+      },
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?geo=EL62&indic_to=NGT_SP&c_resid=TOTAL&time=2025&lang=en",
+      "raw_path": "data/raw/eurostat-tour_ce_omn12-el62-ngtsp-2025-monthly.json",
+      "sha256": "51a26a3fcf7ebcb8745e577ab941980b232bf4caa8cb66fc6798488afc09220c",
+      "updated": "2026-10-02T11:00:00+0200",
+      "note": "2025 monthly breakdown (seasonality profile)."
+    },
+    {
+      "source_id": "Eurostat_tour_occ_nin2",
+      "dataset": "tour_occ_nin2",
+      "dimensions": {
+        "c_resid": "TOTAL",
+        "unit": "NR",
+        "nace_r2": "I551-I553",
+        "geo": "EL62",
+        "time": [
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ]
+      },
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?geo=EL62&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2018&time=2019&time=2020&time=2021&time=2022&time=2023&time=2024&time=2025&lang=en",
+      "raw_path": "data/raw/eurostat-tour_occ_nin2-el62-nr-annual-2018-2025.json",
+      "sha256": "474ba9c359e92830964e2ad4d1c83f11d841b2d1e2d8dda20bf66dea9e14f158",
+      "updated": "2026-10-12T23:00:00+0200",
+      "note": "Conventional accommodation nights (the denominator's conventional component, also used by Data16/26/31/33)."
+    }
+  ],
+  "series": [
+    {
+      "year": "2018",
+      "platform_nights": 3055815,
+      "conventional_nights": 18016737,
+      "total_tourism_nights": 21072552,
+      "share_pct": 14.5
+    },
+    {
+      "year": "2019",
+      "platform_nights": 3389027,
+      "conventional_nights": 17954520,
+      "total_tourism_nights": 21343547,
+      "share_pct": 15.88
+    },
+    {
+      "year": "2020",
+      "platform_nights": 1274758,
+      "conventional_nights": 4498381,
+      "total_tourism_nights": 5773139,
+      "share_pct": 22.08
+    },
+    {
+      "year": "2021",
+      "platform_nights": 2768197,
+      "conventional_nights": 9257610,
+      "total_tourism_nights": 12025807,
+      "share_pct": 23.02
+    },
+    {
+      "year": "2022",
+      "platform_nights": 5220869,
+      "conventional_nights": 16512634,
+      "total_tourism_nights": 21733503,
+      "share_pct": 24.02
+    },
+    {
+      "year": "2023",
+      "platform_nights": 6069273,
+      "conventional_nights": 19762799,
+      "total_tourism_nights": 25832072,
+      "share_pct": 23.5
+    },
+    {
+      "year": "2024",
+      "platform_nights": 4400084,
+      "conventional_nights": 20524700,
+      "total_tourism_nights": 24924784,
+      "share_pct": 17.65
+    },
+    {
+      "year": "2025",
+      "platform_nights": 8644420,
+      "conventional_nights": 20363829,
+      "total_tourism_nights": 29008249,
+      "share_pct": 29.8
+    }
+  ],
+  "seasonality_2025": [
+    {
+      "month": "TOTAL",
+      "platform_nights": 8644420
+    },
+    {
+      "month": "M01",
+      "platform_nights": 8342
+    },
+    {
+      "month": "M02",
+      "platform_nights": 11511
+    },
+    {
+      "month": "M03",
+      "platform_nights": 23938
+    },
+    {
+      "month": "M04",
+      "platform_nights": 266962
+    },
+    {
+      "month": "M05",
+      "platform_nights": 534823
+    },
+    {
+      "month": "M06",
+      "platform_nights": 1445193
+    },
+    {
+      "month": "M07",
+      "platform_nights": 2182817
+    },
+    {
+      "month": "M08",
+      "platform_nights": 2348265
+    },
+    {
+      "month": "M09",
+      "platform_nights": 1367852
+    },
+    {
+      "month": "M10",
+      "platform_nights": 419047
+    },
+    {
+      "month": "M11",
+      "platform_nights": 18824
+    },
+    {
+      "month": "M12",
+      "platform_nights": 16846
+    }
+  ],
+  "flags": [
+    "2025 step change: platform nights 8,644,420 vs 4,400,084 in 2024 (+96%). Likely a coverage/onboarding change in the EC platform agreement rather than true market growth; treat the 2025 share (29.80 %) with caution and re-verify against the next Eurostat release before policy use.",
+    "InsideAirbnb is superseded: it has no Ionian Islands coverage (Greece covers Athens/Crete only; guessed Athens key returned HTTP 403).",
+    "Polarity is left null: the proposal does not specify direction for Data19 (higher platform share is expected to signal more social/infrastructure pressure, but that mapping is not yet signed off)."
+  ]
+}

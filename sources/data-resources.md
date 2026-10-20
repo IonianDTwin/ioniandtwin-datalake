@@ -23,18 +23,18 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 - ETL: CAMS netCDF → extract pollutant at airport POI → observation `Data01`. Note: CAMS regional outputs CO/NO2/PM (µg/m³) at the surface, **not CO2**; CO2 is deferred to CAMS global GHG (coarse) or local IoT sensors. Use NO2/CO as airport-congestion/emissions proxies.
 
 ### Data02 · Excellent bathing waters (%) (Άριστα νερά κολύμβησης (%))
-- Status: `VERIFIED` (EL62 level via EU Tourism Dashboard)
-- Source: EEA WISE Bathing Water (Discodata SQL API) - authoritative; proposal also cites CMEMS/EU Tourism Dashboard.
-- Online source: https://discodata.eea.europa.eu/sql · dataset page https://www.eea.europa.eu/data-and-maps/data/bathing-water-directive-status-of-bathing-water (datahub item `c3858959-90da-4c1b-b9ca-492db0e514df`) · dashboard export `2024_TourismDashboard_Indicators_Export.csv` (`TOUR_ENV_05`).
-- Data access: `API` - table `[WISE_BWD].[latest].[assessment_BathingWaterStatus]` (quality since 1990).
-- ETL: `VERIFIED` Greece 2024: Excellent 1677 / 1729 (96.99 %). **EL62 2023 = 98.82 %** from the dashboard (`TOUR_ENV_05`), which resolves the NUTS2 attribution without a `bathingWaterIdentifier` spatial join.
+- Status: `VERIFIED` (EL62 spatial join complete 2026-10-20)
+- Source: EEA WISE Bathing Water (Discomap ArcGIS MapServer layer 3 & Discodata SQL API) - authoritative; proposal also cites CMEMS/EU Tourism Dashboard.
+- Online source: `https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3` · https://discodata.eea.europa.eu/sql · dashboard export `2024_TourismDashboard_Indicators_Export.csv` (`TOUR_ENV_05`).
+- Data access: `API` - ArcGIS REST GeoJSON query (`pull-data02-bathing-water-el62.py`).
+- ETL: `VERIFIED` Greece 2024: Excellent 1,677 / 1,729 (96.99 %). **EL62 2024 spatial join:** 173 monitoring points within 3km of EL62 coast, 171 classified, **170 Excellent = 99.42 % of classified (98.27 % of total)**. NUTS3 breakdown: Zakynthos 32/32 (100%), Kefalonia/Ithaki 45/45 (100%), Lefkada 21/21 (100%), Corfu 72/73 (98.63%). 2023 baseline from dashboard was 98.82%. Evidence: `data/manifests/source-verification-2026-10-20.json`, `data/curated/data02-bathing-water-el62-2024.json`.
 
 ### Data03 · Clean beach water (reports) (Καθαρό νερό παραλίας)
-- Status: `VERIFIED` (derived flag, country level)
+- Status: `VERIFIED` (EL62 spatial join complete 2026-10-20)
 - Source: EEA WISE BWD (derived) + citizen reports (app's own feed).
-- Online source: https://discodata.eea.europa.eu/sql (reports are the app's own feed).
+- Online source: `https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3` · Discodata SQL.
 - Data access: `API` + internal user reports.
-- ETL: water-quality class → clean-beach flag. `ASSUMPTION` "clean" = classified as Excellent/Good/Sufficient. Greece 2024: 99.94 % of classified waters meet this. Cross-verify reports vs EEA/CMEMS.
+- ETL: `VERIFIED` EL62 2024: 171 / 171 classified waters rated Excellent or Good = **100.0 %** clean waters (zero Poor or Sufficient waters). Evidence: `data/manifests/source-verification-2026-10-20.json`.
 
 ### Data04 · Blue Flags (Γαλάζιες Σημαίες)
 - Status: `VERIFIED` (via EU Tourism Dashboard, 2026-10-03)
@@ -54,18 +54,19 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 ## Dynamic Congestion - Δυναμική Συμφόρηση
 
 ### Data06 · Airport congestion
-- Status: `PARTIAL` (free live-flight source confirmed 2026-09-26)
+- Status: `VERIFIED` (approach-buffer scoring implemented 2026-10-20)
 - Source: OpenSky Network (free, no-key; D-011 substitute) · FlightRadar24 (paid, fallback).
 - Online source: `https://opensky-network.org/api/states/all` (HTTP 200, application/json) · https://www.flightradar24.com/ (paid).
-- Data access: `WF/02` - OpenSky anonymous REST (rate-limited, no key). Verified 2026-09-26: `GET …/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0` returned live aircraft states over the Ionian Islands (Aegean/Wizz callsigns, positions).
-- ETL: aircraft positions → count per airport buffer per window → congestion.
+- Data access: `WF/02` - OpenSky anonymous REST (rate-limited, no key). Live endpoint `GET …/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0`.
+- ETL: `scripts/verification/pull-data06-airport-congestion.py` — filter aircraft states to 25 km buffer around CFU, ZTH, EFL, PVK with altitude $\le 3,000$ m (or on ground); compute score $S = \min(1.0, \text{count} / \text{threshold})$. Emits `data/curated/data06-airport-congestion.json` and `observations-data06-airport-congestion-*.json` / `.csv`. Evidence: `data/manifests/source-verification-2026-10-20.json`.
 
 ### Data07 · Port congestion
-- Status: `PARTIAL` (free AIS candidates identified 2026-09-26)
-- Source: aisstream.io (free crowd-sourced AIS WebSocket) · EMODnet Human Activities (free authoritative vessel-density) · MarineTraffic AIS (paid). OpenSky (Data06) covers aircraft only, not vessels.
-- Online source: `https://aisstream.io/` (HTTP 200) · `https://emodnet.ec.europa.eu/en/human-activities` (HTTP 200) · https://www.marinetraffic.com/ (paid)
-- Data access: `WF/02` - aisstream live stream (public stream, no key) or EMODnet vessel-density download; both free. AISHub remains paid/limited-tier.
-- ETL: vessel positions/density → count in port buffer → congestion.
+- Status: `PROPOSAL` (anticipated schedule-based congestion, 2026-10-14; live AIS superseded)
+- Source (model): CruiseMapper cruise schedules (one-time read) + Greek National Access Point sailing-traffic export (`scratch/ais-routes/export_sailing_traffic.csv`, Mar–Nov 2025). Superseded live candidates: aisstream.io (crowd-sourced AIS), EMODnet Human Activities (vessel density), MarineTraffic AIS (paid).
+- Online source: CruiseMapper `https://www.cruisemapper.com/ports/<slug>?month=<yyyy-mm>` (browser-UA only, no API; one-time read) · Greek NAP sailing-traffic export.
+- Production feed (**unverified**): the Corfu Port Authority OLKE (`corfuport.gr`) berth-declaration feed is the intended replacement for the CruiseMapper read — verify its format, update cadence, port/vessel coverage, access terms and whether it carries per-call PAX + arrival/departure before use. Non-Corfu ferry operator timetables are likewise unverified. *(progress §3 "Source verification")*
+- Data access: `download` (NAP CSV) + one-time CruiseMapper schedule read (`scratch/cruise-pressure/schedules.json`). No auth.
+- ETL: `scripts/verification/compute-data07-anticipated-congestion.py` — aggregate inbound ferry legs by arrival port (month + day-of-week averages) + count planned cruise calls → `S(P,D)=min(1, 0.4·N_ships/B_max + 0.4·(L_cruise+L_ferry_pax)/C_pax + 0.2·L_ferry_veh/C_veh)` → low/medium/high. Outputs `data/curated/scheduled-port-traffic-el62.json` + `observations-data07-anticipated-congestion-*.json` / `.csv`.
 
 ### Data08 · Road congestion
 - Status: `UNVERIFIED` (no free live-traffic source; routing-only fallback identified 2026-09-26)
@@ -151,20 +152,23 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 - ETL: outage reports → status flag.
 
 ### Data19 · Short-term rental share (Airbnb)
-- Status: `PARTIAL` (free candidate identified, data path unconfirmed 2026-09-26)
-- Source: InsideAirbnb (free scrape-derived listings) · EU Tourism Dashboard; Airbnb has no public API.
-- Online source: `https://insideairbnb.com/get-the-data/` (HTTP 200) · `https://data.insideairbnb.com/greece/` (HTTP 200 but `content-length: 0`; Greece region/date keys still to resolve - a guessed Athens key returned HTTP 403).
-- Data access: `WF/05` - resolve InsideAirbnb Greece region keys (Ionian Islands coverage TBD) or dashboard export.
-- ETL: rental listings share → observation `Data19`.
+- Status: `VERIFIED` (2026-10-15, via Eurostat `tour_ce_omn12`; InsideAirbnb superseded)
+- Source: Eurostat `tour_ce_omn12` (short-stay accommodation offered via online platforms — EC data-sharing agreement with Airbnb, Booking.com, Expedia, Tripadvisor) ÷ Eurostat `tour_occ_nin2` (conventional nights). Airbnb has no public API; InsideAirbnb has no Ionian Islands coverage.
+- Online source: verified endpoint `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?geo=EL62&indic_to=NGT_SP&c_resid=TOTAL&month=TOTAL&time=2018&time=2019&time=2020&time=2021&time=2022&time=2023&time=2024&time=2025&lang=en` (HTTP 200, application/json, no key); denominator `…/tour_occ_nin2?geo=EL62&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2018&…&time=2025`.
+- Data access: `API (scripts/verification/pull-data19-platform-rentals.py)`. No auth.
+- ETL: `NGT_SP` (platform guest nights) ÷ (conventional `tour_occ_nin2` nights + platform nights) × 100 → observation `Data19`. `VERIFIED` 2018–2025 share %: **14.50 / 15.88 / 22.08 / 23.02 / 24.02 / 23.50 / 17.65 / 29.80**. 2025 monthly: Jul 2,182,817 · Aug 2,348,265 (Jul+Aug = 52.4 % of annual). FLAG: 2025 platform nights +96 % vs 2024 (likely platform-coverage/onboarding change; re-verify against the next release). Evidence: `data/manifests/source-verification-2026-10-15.json`, `data/curated/data19-platform-rental-share.json`.
 
 ## Digital Infrastructure - Ψηφιακή Υποδομή
 
 ### Data20 · Internet speed (>100 Mb/s)
-- Status: `VERIFIED` (pulled 2026-10-01)
+- Status: `VERIFIED` (spatial join to GISCO EL62 boundary 2026-10-20)
 - Source: Ookla Open Data (free, no key; D-011 substitute) · citizen reports (own app).
-- Online source: `https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip` (HTTP 200, ~251 MB) · registry `https://registry.opendata.aws/speedtest-global-performance/`.
-- Data access: `WF/06` - S3 shapefile download + geopandas bbox filter to the Ionian Islands.
-- ETL: `VERIFIED` 2024-Q3 fixed broadband, Ionian bbox (9,209 tiles): mean **39.1 Mbps** · median **26.8 Mbps** · max 926.6 Mbps (123,119 tests, 47,113 devices).
+- Online source: `https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip` (HTTP 200, ~251 MB) and `…/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip` (HTTP 200, ~138 MB).
+- Data access: `WF/06` - S3 shapefile downloads + `scripts/verification/compute-data20-internet-speed.py` spatial join to Eurostat GISCO NUTS2 EL62 polygon.
+- ETL: `VERIFIED` 2024-Q3 performance:
+  - **Fixed broadband (EL62):** test-weighted mean download **42.29 Mbps** · upload **9.55 Mbps** · latency **49.6 ms** (2,795 tiles, 41,552 tests, 18,089 devices). Island breakdown: Zakynthos 45.11 Mbps, Corfu 43.70 Mbps, Lefkada 45.91 Mbps, Kefalonia/Ithaki 32.34 Mbps.
+  - **Mobile broadband (EL62):** test-weighted mean download **107.48 Mbps** · upload **15.31 Mbps** · latency **59.1 ms** (1,880 tiles, 11,296 tests, 6,248 devices). Island breakdown: Corfu 114.19 Mbps, Lefkada 110.47 Mbps, Zakynthos 101.44 Mbps, Kefalonia/Ithaki 99.02 Mbps.
+  - Evidence: `data/manifests/source-verification-2026-10-20.json`, `data/curated/data20-internet-speed.json`.
 
 ### Data21 · 4G/5G availability
 - Status: `UNVERIFIED`

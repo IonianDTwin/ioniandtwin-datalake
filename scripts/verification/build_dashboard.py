@@ -7,7 +7,10 @@ This is the reproducible "first vertical slice" exporter. It:
   2. adds DERIVED indicators (seasonality %, length of stay, % excellent bathing water,
      clean-beach flag, dominant typology) with their formulas recorded in provenance;
   3. adds ONE transparent COMPOSITE indicator (Tourism Pressure Index, prototype) with
-     exposed formula, weights, units and polarity.
+     exposed formula, weights, units and polarity;
+  4. merges the standalone verified-series observations emitted by their dedicated
+     pullers (Data06 airport congestion, Data19 platform rentals, Data20 internet speed,
+     Data02/03 EL62 bathing water) into the single master snapshot.
 
 Outputs (all schema-validated against schemas/observation-schema.json):
   data/curated/observations-<date>.json / .csv
@@ -294,6 +297,30 @@ def derived_observations(ingested: list[dict]) -> list[dict]:
     return out
 
 
+def additional_series_observations() -> list[dict]:
+    """Merge the standalone verified-series observation files into the master dataset.
+
+    Data06 (airport congestion), Data19 (platform rental share), Data20 (internet
+    speed) and Data02/03 (EL62 bathing water) are produced by their own pullers
+    (live OpenSky, Ookla spatial join, EEA Discomap spatial join, Eurostat
+    ``tour_ce_omn12``) rather than from the base SDMX samples. Their already-
+    schema-validated observations are loaded here and deduplicated by
+    ``observation_id`` (latest date-stamped file wins).
+    """
+    patterns = [
+        "observations-data06-airport-congestion-*.json",
+        "observations-data19-platform-rental-share-*.json",
+        "observations-data20-internet-speed-*.json",
+        "observations-data02-bathing-water-*.json",
+    ]
+    merged: dict[str, dict] = {}
+    for pat in patterns:
+        for path in sorted(CURATED.glob(pat)):
+            for o in json.loads(path.read_text(encoding="utf-8")):
+                merged[o.get("observation_id")] = o
+    return list(merged.values())
+
+
 def dashboard_observations() -> list[dict]:
     """Emit EU Tourism Dashboard-sourced indicators (reconciliation, 2026-10-03).
 
@@ -376,12 +403,39 @@ def composite_observations() -> list[dict]:
 
 def validate_against_schema(obs: list[dict], schema_path: Path) -> list[str]:
     schema = json.loads(schema_path.read_text(encoding="utf-8"))
-    required = schema.get("required", [])
+    required = set(schema.get("required", []))
+    props = schema.get("properties", {})
+    top_allowed = set(props)
+    nested = {
+        "spatial_ref": set(props["spatial_ref"]["properties"]),
+        "quality": set(props["quality"]["properties"]),
+        "provenance": set(props["provenance"]["properties"]),
+    }
+    gran_enum = set(props["temporal_granularity"].get("enum", []))
+    level_enum = set(props["spatial_ref"]["properties"]["level"].get("enum", []))
+    pol_enum = set(props["polarity"].get("enum", [])) | {None}
     problems = []
     for o in obs:
+        oid = o.get("observation_id", "?")
         for k in required:
             if k not in o:
-                problems.append(f"{o.get('observation_id', '?')}: missing required '{k}'")
+                problems.append(f"{oid}: missing required '{k}'")
+        for k in o:
+            if k not in top_allowed:
+                problems.append(f"{oid}: unknown top-level key '{k}'")
+        if o.get("temporal_granularity") not in gran_enum:
+            problems.append(f"{oid}: invalid temporal_granularity {o.get('temporal_granularity')!r}")
+        if "polarity" in o and o["polarity"] not in pol_enum:
+            problems.append(f"{oid}: invalid polarity {o['polarity']!r}")
+        for key, allowed in nested.items():
+            obj = o.get(key)
+            if isinstance(obj, dict):
+                for k in obj:
+                    if k not in allowed:
+                        problems.append(f"{oid}: unknown {key} key '{k}'")
+        sr = o.get("spatial_ref")
+        if isinstance(sr, dict) and sr.get("level") not in level_enum:
+            problems.append(f"{oid}: invalid spatial_ref.level {sr.get('level')!r}")
     return problems
 
 
@@ -398,7 +452,8 @@ def main() -> int:
     base = base_observations(manifests, mapping)
     derived = derived_observations(base)
     dashboard = dashboard_observations()
-    all_obs = base + derived + dashboard
+    additional = additional_series_observations()
+    all_obs = base + derived + dashboard + additional
 
     problems = validate_against_schema(all_obs, ROOT / args.schema)
     if problems:
@@ -433,7 +488,7 @@ def main() -> int:
     comp_path = CURATED / f"composite-{date}.json"
     comp_path.write_text(json.dumps(composites, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    print(f"observations: {len(all_obs)} ({len(base)} base + {len(derived)} derived + {len(dashboard)} dashboard)")
+    print(f"observations: {len(all_obs)} ({len(base)} base + {len(derived)} derived + {len(dashboard)} dashboard + {len(additional)} additional)")
     print(f"  {json_path}")
     print(f"  {csv_path}")
     print(f"composite: {len(composites)}")

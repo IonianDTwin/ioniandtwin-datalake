@@ -1,0 +1,74 @@
+{
+  "generated_at_utc": "2026-10-20T11:16:08Z",
+  "season": 2024,
+  "source": "EEA WISE Bathing Water Directive 2024 (Discomap ArcGIS MapServer layer 3)",
+  "source_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+  "raw_geojson": "data/raw/eea-bwd-greece-2024.geojson",
+  "raw_sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+  "spatial_method": "Point-in-polygon spatial join with Eurostat GISCO EPSG:3035 EL62 land polygon buffered by 3000m seaward",
+  "greece_total": {
+    "total_bathing_waters": 1729
+  },
+  "el62_regional_nuts2": {
+    "total_sites": 173,
+    "classified_sites": 171,
+    "not_classified": 2,
+    "excellent": 170,
+    "good": 1,
+    "sufficient": 0,
+    "poor": 0,
+    "pct_excellent_classified": 99.42,
+    "pct_excellent_total": 98.27,
+    "pct_clean_water_classified": 100.0
+  },
+  "by_nuts3_island": {
+    "EL621": {
+      "nuts_id": "EL621",
+      "name": "Ζάκυνθος",
+      "total_sites": 32,
+      "classified_sites": 32,
+      "excellent": 32,
+      "good": 0,
+      "sufficient": 0,
+      "poor": 0,
+      "not_classified": 0,
+      "pct_excellent_classified": 100.0
+    },
+    "EL622": {
+      "nuts_id": "EL622",
+      "name": "Κέρκυρα",
+      "total_sites": 75,
+      "classified_sites": 73,
+      "excellent": 72,
+      "good": 1,
+      "sufficient": 0,
+      "poor": 0,
+      "not_classified": 2,
+      "pct_excellent_classified": 98.63
+    },
+    "EL623": {
+      "nuts_id": "EL623",
+      "name": "Ιθάκη, Κεφαλληνία",
+      "total_sites": 45,
+      "classified_sites": 45,
+      "excellent": 45,
+      "good": 0,
+      "sufficient": 0,
+      "poor": 0,
+      "not_classified": 0,
+      "pct_excellent_classified": 100.0
+    },
+    "EL624": {
+      "nuts_id": "EL624",
+      "name": "Λευκάδα",
+      "total_sites": 21,
+      "classified_sites": 21,
+      "excellent": 21,
+      "good": 0,
+      "sufficient": 0,
+      "poor": 0,
+      "not_classified": 0,
+      "pct_excellent_classified": 100.0
+    }
+  }
+}

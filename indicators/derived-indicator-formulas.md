@@ -10,15 +10,18 @@ supplies a different definition, we swap it (recorded in the internal decision l
 > now and cheap to change later. **Adoption status (2026-10-03):** Data22 and Data32
 > are **adopted (provisional)**; Data30 is **confirmed**. Data02, Data04, Data23, Data25,
 > Data28 and Data29 are now **read directly from the EU Tourism Dashboard**,
-> not derived. Open questions are recorded in `docs/data-preparation-progress.md`.
+> not derived. **Data07 (2026-10-14):** transitioned from live AIS to the
+> **Anticipated Schedule-Based Congestion** model (see below) — the live
+> count-in-buffer proxy is superseded. Open questions are recorded in
+> `docs/data-preparation-progress.md`.
 
 ## Formula register
 
 | Indicator | Default formula | Basis / borrowed from | Implementation plan |
 | --- | --- | --- | --- |
 | Data03 - Clean beach water | share of classified waters rated ≥ "Sufficient" | EEA WISE Bathing Water classes | compute from the Data02 pull (country-level) |
-| Data06 - Airport congestion | `min(1, aircraft-in-approach-buffer ÷ threshold)` → low/medium/high | EUROCONTROL ATFM delay / airport punctuality (standard air-congestion metric) - **proposal** 2026-10-03 | OpenSky live states, count-in-buffer; live-only |
-| Data07 - Port congestion | `min(1, vessels-in-port-buffer ÷ threshold)` → low/medium/high | World Bank CPPI / UNCTAD median-time-in-port (standard port metrics) - **proposal** 2026-10-03 | aisstream/EMODnet live AIS, count-in-buffer; live-only |
+| Data06 - Airport congestion | `min(1, aircraft-in-approach-buffer ÷ threshold)` → low/medium/high | EUROCONTROL ATFM delay / airport punctuality proxy - **verified & implemented** 2026-10-20 | `scripts/verification/pull-data06-airport-congestion.py` (OpenSky live states; 25km buffer, alt<=3000m) |
+| Data07 - Port congestion | `S = min(1, 0.4·N_ships/B_max + 0.4·(L_cruise+L_ferry_pax)/C_pax + 0.2·L_ferry_veh/C_veh)` → low (<0.50) / medium (<0.85) / high (≥0.85) | Anticipated schedule-based congestion (research-notes 2026-10-15 §4); replaces the live-AIS count-in-buffer proxy (World Bank CPPI / UNCTAD time-in-port are the underlying standard metrics) - **proposal** 2026-10-14 | `scripts/verification/compute-data07-anticipated-congestion.py` (cruise schedules + Greek NAP ferry baseline) |
 | Data22 - Tourist diversity (zones) | `1 − HHI` of NUTS3 nights shares | Herfindahl-Hirschman Index (standard concentration measure) - **adopted (provisional)** 2026-10-03 | `tour_occ_nin3` over EL621-EL624 → aggregate to NUTS2/EL62, emit one regional value |
 | Data24 - Protected land (%) | `area(union(Natura2000 Habitats ∪ Birds) ∩ EL62 land) ÷ area(EL62 land) × 100` | EEA Natura 2000 + Eurostat GISCO NUTS boundary (standard protected-area share) | `scripts/verification/compute-data24-protected-land.py` - clip to EL62 land polygon (terrestrial split), union, divide by EL62 area (EPSG:3035 equal-area) |
 | Data25 - Accommodation in high-value areas | *(no longer derived)* - "Share of accommodations in areas with high-nature value" read directly from the EU Tourism Dashboard (`TOUR_DES_13`) | EU Tourism Dashboard (proposal source) - 43 % EL62 (2023) | ingest the dashboard CSV value (no overlay needed); flag: exact "high-nature value" operationalisation to pin down |
@@ -26,6 +29,50 @@ supplies a different definition, we swap it (recorded in the internal decision l
 | Data30 - Length of stay | `nights ÷ arrivals` | standard tourism statistic - **confirmed** 2026-10-03 | derive from Data26 |
 | Data32 - Dominant typology | `nace_r2` category with highest nights share | Eurostat NACE Rev. 2 - **adopted (provisional)** 2026-10-03 | already pulled; emits "hotels" (≈73 %) |
 | Tourism Pressure Index (composite) | `0.4·intensity_norm + 0.4·density_norm + 0.2·seasonality_norm` | prototype (proposal names it, no weights) | `scripts/verification/build_dashboard.py` (bounds: intensity /150,000, density /12,000) |
+
+## Anticipated Port Congestion (Data07) — 2026-10-14
+
+`DECISION` **Data07 is now an anticipated (schedule-based) indicator, not a live-AIS
+feed.** Live crowdsourced AIS has zero receiver coverage in Corfu harbour (proven
+2026-10-14) and provides no forecasting; scheduled operational itineraries give a
+forward-looking load ($t+1$ day → $t+6$ months) with no daemon or scraper to maintain.
+
+### Formula (research-notes 2026-10-15 §4A)
+
+For port `P` and forecast date `D`:
+
+$$S(P,D) = \min\left(1.0,\; w_{berth}\!\cdot\!\tfrac{N_{ships}}{B_{max}} + w_{pax}\!\cdot\!\tfrac{L_{cruise}+L_{ferry\_pax}}{C_{pax}} + w_{veh}\!\cdot\!\tfrac{L_{ferry\_veh}}{C_{veh}}\right)$$
+
+- `N_ships` = planned cruise calls on `D`; `L_cruise = N_ships · 2,500` (per-call PAX, `ASSUMPTION`).
+- `L_ferry_pax` / `L_ferry_veh` = empirical inbound ferry throughput (Greek NAP, Mar–Nov 2025) averaged by `(month, day-of-week)` with month→overall fallback.
+- `B_max` (berths) follows research-notes §4A: Corfu 5, Kefalonia 3, Zakynthos 3, Lefkada 2, Paxos 1, Ithaki 1.
+- `C_pax` / `C_veh` (terminal handling capacity) and the weights `0.4/0.4/0.2` are `ASSUMPTION`/`PROPOSAL` defaults.
+
+Levels: **low** `S < 0.50` · **medium** `0.50 ≤ S < 0.85` · **high** `S ≥ 0.85`.
+
+### Ports & empirical ferry baselines (inbound arrivals/day, Mar–Nov 2025)
+
+| Port | B_max | ferry PAX/day | ferry VEH/day |
+| --- | --- | --- | --- |
+| Corfu | 5 | 3,558.5 | 1,030.3 |
+| Kefalonia | 3 | 1,475.6 | 508.2 |
+| Zakynthos | 3 | 1,893.9 | 578.7 |
+| Lefkada | 2 | 156.1 | 42.0 |
+| Paxos | 1 | 475.1 | 76.1 |
+| Ithaki | 1 | 307.9 | 107.6 |
+
+### Implementation & outputs
+
+- Script: `scripts/verification/compute-data07-anticipated-congestion.py` (stdlib only; deterministic — re-runs reproduce identical scores, only the `generated_at_utc`/`ingested_at` timestamps differ).
+- Master timetable: `data/curated/scheduled-port-traffic-el62.json` (cruise calls + ferry baselines + daily scores).
+- Observations: `data/curated/observations-data07-anticipated-congestion-<date>.json` / `.csv` (one schema-compliant `forecast` observation per port per day, `spatial_ref.level = transport_node`).
+- First run (2026-10-14): 366 observations over 2026-10-01 → 2026-11-30 (low 342 · medium 21 · high 3); peak days — Corfu 2026-10-08 (5 ships, S=0.983), Kefalonia 2026-10-01 (3 ships, S=0.945).
+
+### Switch-later hooks (Data07)
+
+- **Cruise PAX per call** — 2,500 is a flat default; swap for per-vessel capacity when the OLKE declaration feed carries `PAX_max` (research-notes §2B: 2,000–5,500 PAX/ship).
+- **Ferry seasonality** — the `(month, day-of-week)` averages already encode the 2025 rhythm; refresh with a newer NAP export to track year-on-year change.
+- **Capacities/weights** — `C_pax`, `C_veh`, `B_max` and the weights are all single-line edits in the port registry, not a re-architecture.
 
 ## Switch-later hooks
 

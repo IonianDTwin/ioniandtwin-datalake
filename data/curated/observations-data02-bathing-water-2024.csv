@@ -1,0 +1,3 @@
+observation_id,indicator_id,indicator_name,series_label,source_id,observed_at,temporal_granularity,spatial_level,spatial_code,value,unit,polarity,total_sites,classified_sites,excellent_count
+EEA_WISE_BWD:Data02:pct_excellent:2024,Data02,Coastal water cleanliness,pct_excellent,EEA_WISE_BWD_assessment,2024-01-01,annual,NUTS2,EL62,99.42,%,positive,173,171,170
+EEA_WISE_BWD:Data03:clean_share_classified:2024,Data03,Clean beach / water reports,clean_share_classified,EEA_WISE_BWD_assessment,2024-01-01,annual,NUTS2,EL62,100.0,%,positive,173,171,

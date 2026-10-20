@@ -1,0 +1,150 @@
+[
+  {
+    "observation_id": "Ookla_OpenData:Data20:fixed_download_mbps:2024-Q3",
+    "indicator_id": "Data20",
+    "indicator_name": "Internet speed",
+    "series_label": "fixed_download_mbps",
+    "source_id": "Ookla_OpenData_fixed",
+    "observed_at": "2024-07-01",
+    "observed_period_end": "2024-09-30",
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:01:12Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 42.29,
+    "unit": "Mbps",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "spatial_join_gisco_el62",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "download",
+      "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+      "request_params": {
+        "archive": "ookla-performance-fixed-2024Q3.zip",
+        "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+        "tests_count": 41552,
+        "devices_count": 18089,
+        "tiles_count": 2795
+      }
+    }
+  },
+  {
+    "observation_id": "Ookla_OpenData:Data20:fixed_upload_mbps:2024-Q3",
+    "indicator_id": "Data20",
+    "indicator_name": "Internet speed",
+    "series_label": "fixed_upload_mbps",
+    "source_id": "Ookla_OpenData_fixed",
+    "observed_at": "2024-07-01",
+    "observed_period_end": "2024-09-30",
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:01:12Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 9.55,
+    "unit": "Mbps",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "spatial_join_gisco_el62",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "download",
+      "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+      "request_params": {
+        "archive": "ookla-performance-fixed-2024Q3.zip",
+        "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+        "tests_count": 41552
+      }
+    }
+  },
+  {
+    "observation_id": "Ookla_OpenData:Data20:mobile_download_mbps:2024-Q3",
+    "indicator_id": "Data20",
+    "indicator_name": "Internet speed",
+    "series_label": "mobile_download_mbps",
+    "source_id": "Ookla_OpenData_mobile",
+    "observed_at": "2024-07-01",
+    "observed_period_end": "2024-09-30",
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:01:12Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 107.48,
+    "unit": "Mbps",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "spatial_join_gisco_el62",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "download",
+      "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+      "request_params": {
+        "archive": "ookla-performance-mobile-2024Q3.zip",
+        "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+        "tests_count": 11296,
+        "devices_count": 6248,
+        "tiles_count": 1880
+      }
+    }
+  },
+  {
+    "observation_id": "Ookla_OpenData:Data20:mobile_upload_mbps:2024-Q3",
+    "indicator_id": "Data20",
+    "indicator_name": "Internet speed",
+    "series_label": "mobile_upload_mbps",
+    "source_id": "Ookla_OpenData_mobile",
+    "observed_at": "2024-07-01",
+    "observed_period_end": "2024-09-30",
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:01:12Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 15.31,
+    "unit": "Mbps",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "spatial_join_gisco_el62",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "download",
+      "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+      "request_params": {
+        "archive": "ookla-performance-mobile-2024Q3.zip",
+        "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+        "tests_count": 11296
+      }
+    }
+  }
+]

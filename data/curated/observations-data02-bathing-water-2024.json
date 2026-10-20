@@ -1,0 +1,78 @@
+[
+  {
+    "observation_id": "EEA_BWD_Discomap_2024:Data02:pct_excellent:EL62:2024",
+    "indicator_id": "Data02",
+    "indicator_name": "Coastal water cleanliness",
+    "series_label": "pct_excellent",
+    "source_id": "EEA_BWD_Discomap_2024",
+    "observed_at": "2024-01-01",
+    "observed_period_end": "2024-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:16:08Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 99.42,
+    "unit": "%",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 0.9884,
+      "plausibility": "spatial_join_gisco_el62_eea_points",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "api",
+      "request_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+      "request_params": {
+        "raw_geojson": "data/raw/eea-bwd-greece-2024.geojson",
+        "method": "Spatial join of 1,729 Greece EEA bathing water points against GISCO EL62 with 3km coastal buffer",
+        "total_sites_el62": 173,
+        "classified_sites": 171,
+        "excellent_count": 170
+      }
+    }
+  },
+  {
+    "observation_id": "EEA_BWD_Discomap_2024:Data03:clean_share_classified:EL62:2024",
+    "indicator_id": "Data03",
+    "indicator_name": "Clean beach / water reports",
+    "series_label": "clean_share_classified",
+    "source_id": "EEA_BWD_Discomap_2024",
+    "observed_at": "2024-01-01",
+    "observed_period_end": "2024-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:16:08Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 100.0,
+    "unit": "%",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 0.9884,
+      "plausibility": "spatial_join_gisco_el62_eea_points",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "api",
+      "request_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+      "request_params": {
+        "raw_geojson": "data/raw/eea-bwd-greece-2024.geojson",
+        "method": "Share of classified bathing waters rated Sufficient, Good, or Excellent in EL62",
+        "total_sites_el62": 173,
+        "classified_sites": 171,
+        "clean_count": 171
+      }
+    }
+  }
+]

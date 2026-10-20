@@ -1,0 +1,40 @@
+{
+  "manifest_id": "source-verification-2026-10-14",
+  "created_at": "2026-10-14T17:16:00Z",
+  "scope": "Data07 (Port congestion) transition from live AIS to the Anticipated Schedule-Based Congestion model (research-notes 2026-10-15 §1). Record the two input sources consumed by scripts/verification/compute-data07-anticipated-congestion.py: the one-time CruiseMapper cruise schedule read (scratch/cruise-pressure/schedules.json) and the Greek National Access Point sailing-traffic export (scratch/ais-routes/export_sailing_traffic.csv).",
+  "evidence": [
+    {
+      "source_id": "CruiseMapper_schedules",
+      "name": "CruiseMapper Ionian port schedules (Oct-Nov 2026, one-time read)",
+      "provider": "CruiseMapper (cruisemapper.com; browser-UA only, no public API)",
+      "url": "https://www.cruisemapper.com/ports/<port-slug>?month=<yyyy-mm>#schedule",
+      "method": "GET with browser User-Agent (one-time bounded read of 7 port pages x 2 months), parsed by scratch/cruise-pressure/pull-cruise-schedules.py",
+      "access_type": "web",
+      "response_status": 200,
+      "content_type": "application/json (parsed and stored locally)",
+      "checksum_sha256": "1490dd5a7fabf8dc265fafa127cac6cfa77cfba59e15293c1b2c333ea496ae98",
+      "accessed_at": "2026-10-14T14:31:19Z",
+      "authentication": "none (but serves content only to browser user-agents)",
+      "sample_path": "scratch/cruise-pressure/schedules.json",
+      "schema_observation": "JSON object {source, captured_at_utc, ports[]}; each port {id, name, slug, threshold, calls[]}; call {date, ship, ship_slug, arrival, departure}. 117 cruise calls total: Corfu 91, Kefalonia 18, Zakynthos 3, Igoumenitsa 3, Lefkada 2, Paxos 0, Ithaki 0.",
+      "note": "Schedule = planned, not actual (arrivals drift; some calls have null arrival/departure times). PROPOSAL-grade source sample, NOT a production feed: substitute the Corfu Port Authority (OLKE) cruise-berth declaration feed for production. Igoumenitsa (mainland Epirus) is excluded from the EL62 model.",
+      "verification_status": "PARTIAL"
+    },
+    {
+      "source_id": "GreekNAP_sailing_traffic",
+      "name": "Greek National Access Point - sailing traffic export (Mar-Nov 2025)",
+      "provider": "Greek National Access Point (open data export of domestic ferry sailings)",
+      "url": "file:///home/scrublife/ionian-dtwin/scratch/ais-routes/export_sailing_traffic.csv",
+      "method": "download (CSV export, 184,436 leg rows)",
+      "access_type": "download",
+      "content_type": "text/csv",
+      "checksum_sha256": "b756f6eb2c4eac53f996983ee215e0289bfab6fe53827696806abe2393f5fa7b",
+      "accessed_at": "2026-10-14T16:36:00Z",
+      "authentication": "none",
+      "sample_path": "scratch/ais-routes/export_sailing_traffic.csv",
+      "schema_observation": "CSV columns: departureportname, vehiclecount, date, arrivalport, departureport, passengercount, routecode, routecodenames, arrivalportname. One row per ferry leg; passengercount/vehiclecount are the leg-level disembarking load at arrivalport. Dates 2025-03-17 .. 2025-11 (Mar-Nov 2025).",
+      "note": "Empirical ferry baseline for the anticipated-congestion model: aggregate inbound legs by arrivalport per monitored EL62 island port, normalise by operating days (month + day-of-week averages with fallback). EL62 port codes: CFU/LFK=Corfu, PKE/SAI/FIS=Kefalonia, ZTH=Zakynthos, VSS/LEV=Lefkada, PAX=Paxos, PIS=Ithaki. Mainland gateways IGO/KYL/GPA excluded. Per-port inbound daily averages: Corfu 3558.5 pax + 1030.3 veh; Kefalonia 1475.6 + 508.2; Zakynthos 1893.9 + 578.7; Lefkada 156.1 + 42.0; Paxos 475.1 + 76.1; Ithaki 307.9 + 107.6.",
+      "verification_status": "VERIFIED"
+    }
+  ]
+}

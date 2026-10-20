@@ -1,0 +1,5 @@
+observation_id,indicator_id,indicator_name,series_label,source_id,observed_at,temporal_granularity,spatial_level,spatial_code,value,unit,polarity,aircraft_count,congestion_level
+OpenSky:Data06:airport_congestion:CFU:2026-10-20T10:55:16+00:00,Data06,Airport congestion,congestion_score,OpenSky_States_live,2026-10-20T10:55:16+00:00,instant,transport_node,CFU,0.0,score (0-1),negative,0,low
+OpenSky:Data06:airport_congestion:ZTH:2026-10-20T10:55:16+00:00,Data06,Airport congestion,congestion_score,OpenSky_States_live,2026-10-20T10:55:16+00:00,instant,transport_node,ZTH,0.0,score (0-1),negative,0,low
+OpenSky:Data06:airport_congestion:EFL:2026-10-20T10:55:16+00:00,Data06,Airport congestion,congestion_score,OpenSky_States_live,2026-10-20T10:55:16+00:00,instant,transport_node,EFL,0.333,score (0-1),negative,1,low
+OpenSky:Data06:airport_congestion:PVK:2026-10-20T10:55:16+00:00,Data06,Airport congestion,congestion_score,OpenSky_States_live,2026-10-20T10:55:16+00:00,instant,transport_node,PVK,0.0,score (0-1),negative,0,low

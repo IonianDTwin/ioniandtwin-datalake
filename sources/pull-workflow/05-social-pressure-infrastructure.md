@@ -11,7 +11,7 @@
 | Data16 | Tourism intensity (nights/residents) | EU Tourism Dashboard (Eurostat) | api | none | **VERIFIED** |
 | Data17 | Hospital / infrastructure congestion | official announcements; user reports | web / user_reports | none / app | UNVERIFIED |
 | Data18 | Power / water outage | official announcements; user reports | web / user_reports | none / app | UNVERIFIED |
-| Data19 | Short-term rental share (Airbnb) | EU Tourism Dashboard; Airbnb | api | none / API key | UNVERIFIED |
+| Data19 | Short-term rental share (Airbnb) | Eurostat tour_ce_omn12 ÷ tour_occ_nin2 | api | none | **VERIFIED** |
 
 ## Pull process
 
@@ -32,12 +32,19 @@
 1. **Source** — official municipal/regional announcements plus citizen reports. No single public machine-readable endpoint is assumed.
 2. **Cross-verify** — citizen reports against official/announcement data before updating the twin.
 
-### Data19 — Short-term rental share
+### Data19 — Short-term rental share (Eurostat platform nights)
 
-1. **EU Tourism Dashboard** — locate the relevant Eurostat dataset (accommodation by type / short-term rentals); not yet identified.
-2. **Airbnb** — `UNVERIFIED` paid/partner API; separate feasibility track (`ROADMAP.md`).
+`VERIFIED` (2026-10-15) InsideAirbnb is non-viable for EL62 (no Ionian Islands coverage; Greece is Athens/Crete only). The authoritative source is Eurostat `tour_ce_omn12` (platform-mediated guest nights — the EC data-sharing agreement with Airbnb, Booking.com, Expedia, Tripadvisor), with `tour_occ_nin2` as the conventional-nights denominator.
+
+1. **Request**:
+   ```bash
+   curl -sS "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?geo=EL62&indic_to=NGT_SP&c_resid=TOTAL&month=TOTAL&time=2018&time=2019&time=2020&time=2021&time=2022&time=2023&time=2024&time=2025&lang=en"
+   ```
+2. **Compute** — `scripts/verification/pull-data19-platform-rentals.py`: share % = platform nights ÷ (conventional nights + platform nights) × 100.
+3. **Outputs** — `data/curated/data19-platform-rental-share.json` + `observations-data19-platform-rental-share-*.json` / `.csv`.
+4. **Cadence** — annual (Eurostat release).
 
 ## Notes & blockers
 
-- `VERIFIED` Data16 is directly pullable today; the rest of this category is candidate/internal.
+- `VERIFIED` Data16 (Eurostat intensity) and Data19 (Eurostat platform-nights share) are directly pullable today; Data17/18 remain candidate/internal.
 - `RISK` Hospital/utility data is operational and privacy-sensitive; obtain from official channels only.

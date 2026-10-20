@@ -1,0 +1,125 @@
+{
+  "generated_at_utc": "2026-10-20T11:01:12Z",
+  "period": "2024 Q3 (July - September 2024)",
+  "spatial_boundary": "Eurostat GISCO NUTS 2021 EL62 (Ionian Islands)",
+  "networks": {
+    "fixed": {
+      "network_type": "fixed",
+      "type_label": "fixed broadband",
+      "source_archive": "ookla-performance-fixed-2024Q3.zip",
+      "archive_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+      "source_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+      "period": "2024 Q3 (2024-07-01)",
+      "regional_nuts2_el62": {
+        "tiles_count": 2795,
+        "tests_count": 41552,
+        "devices_count": 18089,
+        "weighted_avg_download_mbps": 42.29,
+        "weighted_avg_upload_mbps": 9.55,
+        "weighted_avg_latency_ms": 49.6,
+        "unweighted_tile_mean_download_mbps": 39.14
+      },
+      "by_nuts3_island": {
+        "EL621": {
+          "nuts_id": "EL621",
+          "name": "Ζάκυνθος",
+          "tiles_count": 567,
+          "tests_count": 9386,
+          "devices_count": 4141,
+          "avg_download_mbps": 45.11,
+          "avg_upload_mbps": 11.43,
+          "avg_latency_ms": 39.5
+        },
+        "EL622": {
+          "nuts_id": "EL622",
+          "name": "Κέρκυρα",
+          "tiles_count": 1197,
+          "tests_count": 19575,
+          "devices_count": 8622,
+          "avg_download_mbps": 43.7,
+          "avg_upload_mbps": 9.85,
+          "avg_latency_ms": 52.8
+        },
+        "EL623": {
+          "nuts_id": "EL623",
+          "name": "Ιθάκη, Κεφαλληνία",
+          "tiles_count": 640,
+          "tests_count": 7342,
+          "devices_count": 2999,
+          "avg_download_mbps": 32.34,
+          "avg_upload_mbps": 7.11,
+          "avg_latency_ms": 49.2
+        },
+        "EL624": {
+          "nuts_id": "EL624",
+          "name": "Λευκάδα",
+          "tiles_count": 391,
+          "tests_count": 5249,
+          "devices_count": 2327,
+          "avg_download_mbps": 45.91,
+          "avg_upload_mbps": 8.44,
+          "avg_latency_ms": 55.9
+        }
+      }
+    },
+    "mobile": {
+      "network_type": "mobile",
+      "type_label": "mobile broadband",
+      "source_archive": "ookla-performance-mobile-2024Q3.zip",
+      "archive_sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+      "source_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+      "period": "2024 Q3 (2024-07-01)",
+      "regional_nuts2_el62": {
+        "tiles_count": 1880,
+        "tests_count": 11296,
+        "devices_count": 6248,
+        "weighted_avg_download_mbps": 107.48,
+        "weighted_avg_upload_mbps": 15.31,
+        "weighted_avg_latency_ms": 59.1,
+        "unweighted_tile_mean_download_mbps": 95.64
+      },
+      "by_nuts3_island": {
+        "EL621": {
+          "nuts_id": "EL621",
+          "name": "Ζάκυνθος",
+          "tiles_count": 394,
+          "tests_count": 2462,
+          "devices_count": 1328,
+          "avg_download_mbps": 101.44,
+          "avg_upload_mbps": 14.97,
+          "avg_latency_ms": 61.8
+        },
+        "EL622": {
+          "nuts_id": "EL622",
+          "name": "Κέρκυρα",
+          "tiles_count": 766,
+          "tests_count": 4515,
+          "devices_count": 2522,
+          "avg_download_mbps": 114.19,
+          "avg_upload_mbps": 14.86,
+          "avg_latency_ms": 60.7
+        },
+        "EL623": {
+          "nuts_id": "EL623",
+          "name": "Ιθάκη, Κεφαλληνία",
+          "tiles_count": 430,
+          "tests_count": 2472,
+          "devices_count": 1256,
+          "avg_download_mbps": 99.02,
+          "avg_upload_mbps": 15.18,
+          "avg_latency_ms": 53.8
+        },
+        "EL624": {
+          "nuts_id": "EL624",
+          "name": "Λευκάδα",
+          "tiles_count": 290,
+          "tests_count": 1847,
+          "devices_count": 1142,
+          "avg_download_mbps": 110.47,
+          "avg_upload_mbps": 17.07,
+          "avg_latency_ms": 58.6
+        }
+      }
+    }
+  }
+}

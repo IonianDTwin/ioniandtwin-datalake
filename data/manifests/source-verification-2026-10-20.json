@@ -1,0 +1,70 @@
+{
+  "manifest_id": "source-verification-2026-10-20",
+  "created_at": "2026-10-20T10:55:25Z",
+  "evidence": [
+    {
+      "source_id": "OpenSky_States_live",
+      "name": "OpenSky Network - live aircraft states (REST)",
+      "provider": "OpenSky Network",
+      "url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+      "method": "GET",
+      "access_type": "api",
+      "response_status": 200,
+      "content_type": "application/json",
+      "checksum_sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+      "accessed_at": "2026-10-20T10:55:25Z",
+      "authentication": "none (anonymous)",
+      "sample_path": "data/raw/opensky-ionian-states-20261020-105525.json",
+      "note": "Live approach-buffer scoring for 4 Ionian airports. Total aircraft in bbox: 26.",
+      "verification_status": "VERIFIED (live approach buffer scoring)"
+    },
+    {
+      "source_id": "Ookla_OpenData_fixed",
+      "name": "Ookla Open Data — fixed broadband (S3 Shapefile)",
+      "provider": "Ookla",
+      "url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+      "method": "GET (S3 zip download + spatial join)",
+      "access_type": "download",
+      "response_status": 200,
+      "content_type": "application/zip",
+      "checksum_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+      "accessed_at": "2026-10-20T11:01:12Z",
+      "authentication": "none (public open data)",
+      "sample_path": "data/raw/ookla-performance-fixed-2024Q3.zip",
+      "note": "Spatially clipped to GISCO EL62 polygon. Weighted download: 42.29 Mbps (41,552 tests, 18,089 devices).",
+      "verification_status": "VERIFIED (spatial join)"
+    },
+    {
+      "source_id": "Ookla_OpenData_mobile",
+      "name": "Ookla Open Data — mobile broadband (S3 Shapefile)",
+      "provider": "Ookla",
+      "url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+      "method": "GET (S3 zip download + spatial join)",
+      "access_type": "download",
+      "response_status": 200,
+      "content_type": "application/zip",
+      "checksum_sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+      "accessed_at": "2026-10-20T11:01:12Z",
+      "authentication": "none (public open data)",
+      "sample_path": "data/raw/ookla-performance-mobile-2024Q3.zip",
+      "note": "Spatially clipped to GISCO EL62 polygon. Weighted download: 107.48 Mbps (11,296 tests, 6,248 devices).",
+      "verification_status": "VERIFIED (spatial join)"
+    },
+    {
+      "source_id": "EEA_BWD_Discomap_2024",
+      "name": "EEA Water Discomap — Bathing Water Quality Points (2024 season)",
+      "provider": "European Environment Agency (EEA)",
+      "url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+      "method": "GET (ArcGIS REST GeoJSON query)",
+      "access_type": "api",
+      "response_status": 200,
+      "content_type": "application/json",
+      "checksum_sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+      "accessed_at": "2026-10-20T11:16:08Z",
+      "authentication": "none",
+      "sample_path": "data/raw/eea-bwd-greece-2024.geojson",
+      "note": "Official 2024 bathing water monitoring sites. EL62 spatial join (3km buffer): 173 sites, 170 Excellent (99.42% of classified).",
+      "verification_status": "VERIFIED (spatial join)"
+    }
+  ]
+}

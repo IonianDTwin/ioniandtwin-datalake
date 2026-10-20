@@ -1,0 +1,2489 @@
+[
+  {
+    "observation_id": "Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2022",
+    "indicator_id": "Data16",
+    "indicator_name": "Tourism intensity (nights/residents)",
+    "series_label": "nights per 1000 residents",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2022",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 80912.16,
+    "unit": "",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2023",
+    "indicator_id": "Data16",
+    "indicator_name": "Tourism intensity (nights/residents)",
+    "series_label": "nights per 1000 residents",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 97705.53,
+    "unit": "",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2:Data26:overnight stays:2022",
+    "indicator_id": "Data26",
+    "indicator_name": "Arrivals & overnight stays",
+    "series_label": "overnight stays",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2022",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 16512634,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2:Data26:overnight stays:2023",
+    "indicator_id": "Data26",
+    "indicator_name": "Arrivals & overnight stays",
+    "series_label": "overnight stays",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 19762799,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2:Data31:nights per km²:2022",
+    "indicator_id": "Data31",
+    "indicator_name": "Tourism density (nights/km²)",
+    "series_label": "nights per km²",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2022",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 7176.29,
+    "unit": "",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2:Data31:nights per km²:2023",
+    "indicator_id": "Data31",
+    "indicator_name": "Tourism density (nights/km²)",
+    "series_label": "nights per km²",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 8588.79,
+    "unit": "",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2:Data33:foreign share:2022",
+    "indicator_id": "Data33",
+    "indicator_name": "Foreign tourist share (%)",
+    "series_label": "foreign share",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2022",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 93.72,
+    "unit": "% of total",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2:Data33:foreign share:2023",
+    "indicator_id": "Data33",
+    "indicator_name": "Foreign tourist share (%)",
+    "series_label": "foreign share",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 93.58,
+    "unit": "% of total",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_arn2:Data26:arrivals:2022",
+    "indicator_id": "Data26",
+    "indicator_name": "Arrivals & overnight stays",
+    "series_label": "arrivals",
+    "source_id": "Eurostat_tour_occ_arn2",
+    "observed_at": "2022",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 2785360,
+    "unit": "",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "0855dc90f5b85a3f4251318da56456cec0585fe55843caf434f26c499f72b724",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_arn2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_arn2:Data26:arrivals:2023",
+    "indicator_id": "Data26",
+    "indicator_name": "Arrivals & overnight stays",
+    "series_label": "arrivals",
+    "source_id": "Eurostat_tour_occ_arn2",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 3332407,
+    "unit": "",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "0855dc90f5b85a3f4251318da56456cec0585fe55843caf434f26c499f72b724",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_arn2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_cap_nuts2:Data27:bed-places:2022",
+    "indicator_id": "Data27",
+    "indicator_name": "Tourism capacity (beds)",
+    "series_label": "bed-places",
+    "source_id": "Eurostat_tour_cap_nuts2",
+    "observed_at": "2022",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 159790,
+    "unit": "",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "90d5c376d69fad77a36e7d077cc63545a4ba0e68afc2e8017578418395495ae3",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_cap_nuts2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_cap_nuts2:Data27:bed-places:2023",
+    "indicator_id": "Data27",
+    "indicator_name": "Tourism capacity (beds)",
+    "series_label": "bed-places",
+    "source_id": "Eurostat_tour_cap_nuts2",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 155968,
+    "unit": "",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "90d5c376d69fad77a36e7d077cc63545a4ba0e68afc2e8017578418395495ae3",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_cap_nuts2?format=JSON&geo=EL62&time=2022&time=2023"
+    }
+  },
+  {
+    "observation_id": "OpenMeteo_forecast:Data13:air temperature:2026-09-22T14:15",
+    "indicator_id": "Data13",
+    "indicator_name": "Weather conditions (temp, rain, …)",
+    "series_label": "air temperature",
+    "source_id": "OpenMeteo_forecast",
+    "observed_at": "2026-09-22T14:15",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "point",
+      "code": "39.62,19.92",
+      "geometry": null
+    },
+    "value": 26.5,
+    "unit": "°C",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+      "access_method": "api",
+      "request_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1"
+    }
+  },
+  {
+    "observation_id": "OpenMeteo_forecast:Data13:relative humidity:2026-09-22T14:15",
+    "indicator_id": "Data13",
+    "indicator_name": "Weather conditions (temp, rain, …)",
+    "series_label": "relative humidity",
+    "source_id": "OpenMeteo_forecast",
+    "observed_at": "2026-09-22T14:15",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "point",
+      "code": "39.62,19.92",
+      "geometry": null
+    },
+    "value": 57,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+      "access_method": "api",
+      "request_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1"
+    }
+  },
+  {
+    "observation_id": "OpenMeteo_forecast:Data13:apparent (feels-like) temperature:2026-09-22T14:15",
+    "indicator_id": "Data13",
+    "indicator_name": "Weather conditions (temp, rain, …)",
+    "series_label": "apparent (feels-like) temperature",
+    "source_id": "OpenMeteo_forecast",
+    "observed_at": "2026-09-22T14:15",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "point",
+      "code": "39.62,19.92",
+      "geometry": null
+    },
+    "value": 28.8,
+    "unit": "°C",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+      "access_method": "api",
+      "request_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1"
+    }
+  },
+  {
+    "observation_id": "OpenMeteo_forecast:Data14:max UV index:2026-09-22",
+    "indicator_id": "Data14",
+    "indicator_name": "High UV and protection",
+    "series_label": "max UV index",
+    "source_id": "OpenMeteo_forecast",
+    "observed_at": "2026-09-22",
+    "observed_period_end": null,
+    "temporal_granularity": "daily",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "point",
+      "code": "39.62,19.92",
+      "geometry": null
+    },
+    "value": 5.9,
+    "unit": "",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+      "access_method": "api",
+      "request_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1591829,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1603094,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2450684,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 6491390,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 14349293,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 22554193,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 29461403,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 31687354,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 22215646,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 10467410,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2201951,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:monthly nights:2023-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2135574,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "e07a17f98f18f87f94e31d35993f34c9b44eda95c60632ce1c4e0b729955198b",
+      "access_method": "api",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&geo=EL&freq=M&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2023-01&time=2023-02&time=2023-03&time=2023-04&time=2023-05&time=2023-06&time=2023-07&time=2023-08&time=2023-09&time=2023-10&time=2023-11&time=2023-12"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nim:Data29:seasonality_peak_share:2023",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "peak-month share of annual nights",
+    "source_id": "Eurostat_tour_occ_nim",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 21.53,
+    "unit": "%",
+    "polarity": "negative",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "seasonality = max(monthly nights) / sum(monthly nights) * 100 (peak 2023-08 = 31,687,354 of 147,209,821)"
+    }
+  },
+  {
+    "observation_id": "Eurostat:Data30:length_of_stay:2022",
+    "indicator_id": "Data30",
+    "indicator_name": "Average length of stay",
+    "series_label": "nights ÷ arrivals",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2022",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 5.928,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "length_of_stay = nights(16,512,634) ÷ arrivals(2,785,360)"
+    }
+  },
+  {
+    "observation_id": "Eurostat:Data30:length_of_stay:2023",
+    "indicator_id": "Data30",
+    "indicator_name": "Average length of stay",
+    "series_label": "nights ÷ arrivals",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 5.93,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "length_of_stay = nights(19,762,799) ÷ arrivals(3,332,407)"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1990",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1990",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 22.19,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(136) / total(613) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1991",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1991",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 68.55,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(702) / total(1024) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1992",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1992",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 89.82,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1059) / total(1179) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1993",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1993",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 91.84,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1160) / total(1263) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1994",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1994",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 89.37,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1152) / total(1289) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1995",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1995",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 94.99,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1440) / total(1516) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1996",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1996",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 95.57,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1595) / total(1669) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1997",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1997",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 94.45,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1584) / total(1677) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1998",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1998",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 95.86,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1643) / total(1714) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1999",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "1999",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 95.49,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1716) / total(1797) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2000",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2000",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 94.94,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1744) / total(1837) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2001",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2001",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 96.74,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1813) / total(1874) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2002",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2002",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 97.38,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1855) / total(1905) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2003",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2003",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 96.88,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1864) / total(1924) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2004",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2004",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 97.49,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1907) / total(1956) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2005",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2005",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 97.94,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1954) / total(1995) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2006",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2006",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 96.76,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1973) / total(2039) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2007",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2007",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 95.38,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1960) / total(2055) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2008",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2008",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 97.1,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(2046) / total(2107) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2009",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2009",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 60.47,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1274) / total(2107) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2010",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2010",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 94.15,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(2029) / total(2155) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2011",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2011",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 94.62,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(2039) / total(2155) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2012",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2012",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 93.27,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(2010) / total(2155) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2013",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2013",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 93.16,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(2016) / total(2164) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2014",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2014",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 97.01,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1494) / total(1540) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2015",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2015",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 97.21,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1499) / total(1542) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2016",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2016",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 97.02,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1496) / total(1542) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2017",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2017",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 95.81,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1533) / total(1600) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2018",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2018",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 96.94,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1550) / total(1599) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2019",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2019",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 95.66,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1564) / total(1635) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2020",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2020",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 97.0,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1586) / total(1635) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2021",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2021",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 95.78,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1612) / total(1683) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2022",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2022",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 96.55,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1624) / total(1682) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2023",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 95.84,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1659) / total(1731) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2024",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "% excellent (of all monitored)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2024",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 96.99,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "pct_excellent = excellent(1677) / total(1729) * 100"
+    }
+  },
+  {
+    "observation_id": "EEA_WISE_BWD:Data03:clean_beach_share:2024",
+    "indicator_id": "Data03",
+    "indicator_name": "Clean beach water (reports)",
+    "series_label": "share at least 'Sufficient' (of classified)",
+    "source_id": "EEA_WISE_BWD_assessment",
+    "observed_at": "2024",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 99.94,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "clean = (Excellent+Good+Sufficient)/classified * 100 (ASSUMPTION)"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2:Data32:dominant_typology:2023",
+    "indicator_id": "Data32",
+    "indicator_name": "Dominant tourism typology",
+    "series_label": "accommodation category with highest nights share",
+    "source_id": "Eurostat_tour_occ_nin2",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": "hotels",
+    "unit": null,
+    "polarity": null,
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "D-009: dominant = argmax(nace_r2 share of nights); hotels ≈73%/70% vs short-stay 26%/30%"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2020",
+    "indicator_id": "Data22",
+    "indicator_name": "Tourist diversity (zones)",
+    "series_label": "1 − HHI of island nights shares",
+    "source_id": "Eurostat_tour_occ_nin3",
+    "observed_at": "2020",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 0.663,
+    "unit": "index",
+    "polarity": null,
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2021",
+    "indicator_id": "Data22",
+    "indicator_name": "Tourist diversity (zones)",
+    "series_label": "1 − HHI of island nights shares",
+    "source_id": "Eurostat_tour_occ_nin3",
+    "observed_at": "2021",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 0.636,
+    "unit": "index",
+    "polarity": null,
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2022",
+    "indicator_id": "Data22",
+    "indicator_name": "Tourist diversity (zones)",
+    "series_label": "1 − HHI of island nights shares",
+    "source_id": "Eurostat_tour_occ_nin3",
+    "observed_at": "2022",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 0.651,
+    "unit": "index",
+    "polarity": null,
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2023",
+    "indicator_id": "Data22",
+    "indicator_name": "Tourist diversity (zones)",
+    "series_label": "1 − HHI of island nights shares",
+    "source_id": "Eurostat_tour_occ_nin3",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 0.632,
+    "unit": "index",
+    "polarity": null,
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2024",
+    "indicator_id": "Data22",
+    "indicator_name": "Tourist diversity (zones)",
+    "series_label": "1 − HHI of island nights shares",
+    "source_id": "Eurostat_tour_occ_nin3",
+    "observed_at": "2024",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 0.631,
+    "unit": "index",
+    "polarity": null,
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2025",
+    "indicator_id": "Data22",
+    "indicator_name": "Tourist diversity (zones)",
+    "series_label": "1 − HHI of island nights shares",
+    "source_id": "Eurostat_tour_occ_nin3",
+    "observed_at": "2025",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 0.64,
+    "unit": "index",
+    "polarity": null,
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+    }
+  },
+  {
+    "observation_id": "EEA_Natura2000:Data24:protected_land_pct:2026",
+    "indicator_id": "Data24",
+    "indicator_name": "Protected land (%)",
+    "series_label": "share of EL62 land under Natura 2000 (Habitats ∪ Birds, terrestrial)",
+    "source_id": "EEA_ArcGIS_ProtectedSites_Natura2000",
+    "observed_at": "2026",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 16.76,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "derived",
+      "request_url": "protected_land_pct = union(Natura2000 Habitats ∪ Birds ∩ EL62 land) ÷ EL62 land area × 100 = 38640.51 ha ÷ 230486.97 ha (NUTS 2021, LAEA EPSG:3035)"
+    }
+  },
+  {
+    "observation_id": "EU_Tourism_Dashboard:Data02:excellent_bathing_water:2023",
+    "indicator_id": "Data02",
+    "indicator_name": "Excellent bathing waters (%)",
+    "series_label": "share of bathing waters rated excellent",
+    "source_id": "EU_Tourism_Dashboard_2024",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 98.82,
+    "unit": "%",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "download",
+      "request_url": "EU Tourism Dashboard TOUR_ENV_05 (2024 export), EL62 2023"
+    }
+  },
+  {
+    "observation_id": "EU_Tourism_Dashboard:Data04:blue_flag_sites:2024",
+    "indicator_id": "Data04",
+    "indicator_name": "Blue Flags",
+    "series_label": "number of Blue Flag sites",
+    "source_id": "EU_Tourism_Dashboard_2024",
+    "observed_at": "2024",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 51.0,
+    "unit": "number",
+    "polarity": "positive",
+    "provenance": {
+      "access_method": "download",
+      "request_url": "EU Tourism Dashboard TOUR_DES_10 (2024 export), EL62 2024"
+    }
+  },
+  {
+    "observation_id": "EU_Tourism_Dashboard:Data23:cultural_assets_density:2023",
+    "indicator_id": "Data23",
+    "indicator_name": "Density of cultural elements",
+    "series_label": "cultural assets per 100 km²",
+    "source_id": "EU_Tourism_Dashboard_2024",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 9.073,
+    "unit": "no. of cultural assets / 100 km²",
+    "polarity": null,
+    "provenance": {
+      "access_method": "download",
+      "request_url": "EU Tourism Dashboard TOUR_DES_14 (2024 export), EL62 2023"
+    }
+  },
+  {
+    "observation_id": "EU_Tourism_Dashboard:Data25:high_nature_value_accommodation:2023",
+    "indicator_id": "Data25",
+    "indicator_name": "Accommodation in high-value areas",
+    "series_label": "share of accommodations in high-nature-value areas",
+    "source_id": "EU_Tourism_Dashboard_2024",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 43.0,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "access_method": "download",
+      "request_url": "EU Tourism Dashboard TOUR_DES_13 (2024 export), EL62 2023"
+    }
+  },
+  {
+    "observation_id": "EU_Tourism_Dashboard:Data28:net_occupancy:2023",
+    "indicator_id": "Data28",
+    "indicator_name": "Occupancy rate (%)",
+    "series_label": "net occupancy of bed places",
+    "source_id": "EU_Tourism_Dashboard_2024",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 65.4,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "access_method": "download",
+      "request_url": "EU Tourism Dashboard TOUR_DES_04 (2024 export), EL62 2023"
+    }
+  },
+  {
+    "observation_id": "EU_Tourism_Dashboard:Data29:peak_season_share:2023",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "share of nights in peak season",
+    "source_id": "EU_Tourism_Dashboard_2024",
+    "observed_at": "2023",
+    "observed_period_end": null,
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:57:14Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 71.08,
+    "unit": "%",
+    "polarity": "negative",
+    "provenance": {
+      "access_method": "download",
+      "request_url": "EU Tourism Dashboard TOUR_SOE_02 (2024 export), EL62 2023"
+    }
+  },
+  {
+    "observation_id": "OpenSky:Data06:airport_congestion:CFU:2026-10-20T10:55:16+00:00",
+    "indicator_id": "Data06",
+    "indicator_name": "Airport congestion",
+    "series_label": "congestion_score",
+    "source_id": "OpenSky_States_live",
+    "observed_at": "2026-10-20T10:55:16+00:00",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-10-20T10:55:25Z",
+    "spatial_ref": {
+      "level": "transport_node",
+      "code": "CFU",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.9117,
+          39.6019
+        ]
+      }
+    },
+    "value": 0.0,
+    "unit": "score (0-1)",
+    "polarity": "negative",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "verified_live_states",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "api",
+      "request_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+      "request_params": {
+        "method": "min(1.0, count/4) within 25.0km buffer, alt<=3000.0m",
+        "aircraft_count": 0,
+        "congestion_level": "low",
+        "airport_icao": "LGKR"
+      }
+    }
+  },
+  {
+    "observation_id": "OpenSky:Data06:airport_congestion:ZTH:2026-10-20T10:55:16+00:00",
+    "indicator_id": "Data06",
+    "indicator_name": "Airport congestion",
+    "series_label": "congestion_score",
+    "source_id": "OpenSky_States_live",
+    "observed_at": "2026-10-20T10:55:16+00:00",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-10-20T10:55:25Z",
+    "spatial_ref": {
+      "level": "transport_node",
+      "code": "ZTH",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.8842,
+          37.7508
+        ]
+      }
+    },
+    "value": 0.0,
+    "unit": "score (0-1)",
+    "polarity": "negative",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "verified_live_states",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "api",
+      "request_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+      "request_params": {
+        "method": "min(1.0, count/3) within 25.0km buffer, alt<=3000.0m",
+        "aircraft_count": 0,
+        "congestion_level": "low",
+        "airport_icao": "LGZA"
+      }
+    }
+  },
+  {
+    "observation_id": "OpenSky:Data06:airport_congestion:EFL:2026-10-20T10:55:16+00:00",
+    "indicator_id": "Data06",
+    "indicator_name": "Airport congestion",
+    "series_label": "congestion_score",
+    "source_id": "OpenSky_States_live",
+    "observed_at": "2026-10-20T10:55:16+00:00",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-10-20T10:55:25Z",
+    "spatial_ref": {
+      "level": "transport_node",
+      "code": "EFL",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.5005,
+          38.12
+        ]
+      }
+    },
+    "value": 0.333,
+    "unit": "score (0-1)",
+    "polarity": "negative",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "verified_live_states",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "api",
+      "request_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+      "request_params": {
+        "method": "min(1.0, count/3) within 25.0km buffer, alt<=3000.0m",
+        "aircraft_count": 1,
+        "congestion_level": "low",
+        "airport_icao": "LGKF"
+      }
+    }
+  },
+  {
+    "observation_id": "OpenSky:Data06:airport_congestion:PVK:2026-10-20T10:55:16+00:00",
+    "indicator_id": "Data06",
+    "indicator_name": "Airport congestion",
+    "series_label": "congestion_score",
+    "source_id": "OpenSky_States_live",
+    "observed_at": "2026-10-20T10:55:16+00:00",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-10-20T10:55:25Z",
+    "spatial_ref": {
+      "level": "transport_node",
+      "code": "PVK",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.7653,
+          38.9256
+        ]
+      }
+    },
+    "value": 0.0,
+    "unit": "score (0-1)",
+    "polarity": "negative",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "verified_live_states",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "api",
+      "request_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+      "request_params": {
+        "method": "min(1.0, count/3) within 25.0km buffer, alt<=3000.0m",
+        "aircraft_count": 0,
+        "congestion_level": "low",
+        "airport_icao": "LGPZ"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2018",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2018",
+    "observed_period_end": "2018-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 14.5,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2018)/(tour_occ_nin2[NR,TOTAL](2018)+tour_ce_omn12[NGT_SP,TOTAL](2018))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2019",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2019",
+    "observed_period_end": "2019-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 15.88,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2019)/(tour_occ_nin2[NR,TOTAL](2019)+tour_ce_omn12[NGT_SP,TOTAL](2019))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2020",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2020",
+    "observed_period_end": "2020-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 22.08,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2020)/(tour_occ_nin2[NR,TOTAL](2020)+tour_ce_omn12[NGT_SP,TOTAL](2020))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2021",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2021",
+    "observed_period_end": "2021-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 23.02,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2021)/(tour_occ_nin2[NR,TOTAL](2021)+tour_ce_omn12[NGT_SP,TOTAL](2021))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2022",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2022",
+    "observed_period_end": "2022-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 24.02,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2022)/(tour_occ_nin2[NR,TOTAL](2022)+tour_ce_omn12[NGT_SP,TOTAL](2022))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2023",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2023",
+    "observed_period_end": "2023-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 23.5,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2023)/(tour_occ_nin2[NR,TOTAL](2023)+tour_ce_omn12[NGT_SP,TOTAL](2023))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2024",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2024",
+    "observed_period_end": "2024-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 17.65,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2024)/(tour_occ_nin2[NR,TOTAL](2024)+tour_ce_omn12[NGT_SP,TOTAL](2024))*100"
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_ce_omn12:Data19:platform_rental_share:2025",
+    "indicator_id": "Data19",
+    "indicator_name": "Short-term rental share (Airbnb)",
+    "series_label": "platform rental share",
+    "source_id": "Eurostat_tour_ce_omn12",
+    "observed_at": "2025",
+    "observed_period_end": "2025-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-15T12:43:51Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 29.8,
+    "unit": "%",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_manifest": "source-verification-2026-10-15",
+      "access_method": "derived",
+      "request_url": "Data19(Y)=tour_ce_omn12[NGT_SP,TOTAL](2025)/(tour_occ_nin2[NR,TOTAL](2025)+tour_ce_omn12[NGT_SP,TOTAL](2025))*100"
+    }
+  },
+  {
+    "observation_id": "Ookla_OpenData:Data20:fixed_download_mbps:2024-Q3",
+    "indicator_id": "Data20",
+    "indicator_name": "Internet speed",
+    "series_label": "fixed_download_mbps",
+    "source_id": "Ookla_OpenData_fixed",
+    "observed_at": "2024-07-01",
+    "observed_period_end": "2024-09-30",
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:01:12Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 42.29,
+    "unit": "Mbps",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "spatial_join_gisco_el62",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "download",
+      "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+      "request_params": {
+        "archive": "ookla-performance-fixed-2024Q3.zip",
+        "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+        "tests_count": 41552,
+        "devices_count": 18089,
+        "tiles_count": 2795
+      }
+    }
+  },
+  {
+    "observation_id": "Ookla_OpenData:Data20:fixed_upload_mbps:2024-Q3",
+    "indicator_id": "Data20",
+    "indicator_name": "Internet speed",
+    "series_label": "fixed_upload_mbps",
+    "source_id": "Ookla_OpenData_fixed",
+    "observed_at": "2024-07-01",
+    "observed_period_end": "2024-09-30",
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:01:12Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 9.55,
+    "unit": "Mbps",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "spatial_join_gisco_el62",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "download",
+      "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+      "request_params": {
+        "archive": "ookla-performance-fixed-2024Q3.zip",
+        "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+        "tests_count": 41552
+      }
+    }
+  },
+  {
+    "observation_id": "Ookla_OpenData:Data20:mobile_download_mbps:2024-Q3",
+    "indicator_id": "Data20",
+    "indicator_name": "Internet speed",
+    "series_label": "mobile_download_mbps",
+    "source_id": "Ookla_OpenData_mobile",
+    "observed_at": "2024-07-01",
+    "observed_period_end": "2024-09-30",
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:01:12Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 107.48,
+    "unit": "Mbps",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "spatial_join_gisco_el62",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "download",
+      "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+      "request_params": {
+        "archive": "ookla-performance-mobile-2024Q3.zip",
+        "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+        "tests_count": 11296,
+        "devices_count": 6248,
+        "tiles_count": 1880
+      }
+    }
+  },
+  {
+    "observation_id": "Ookla_OpenData:Data20:mobile_upload_mbps:2024-Q3",
+    "indicator_id": "Data20",
+    "indicator_name": "Internet speed",
+    "series_label": "mobile_upload_mbps",
+    "source_id": "Ookla_OpenData_mobile",
+    "observed_at": "2024-07-01",
+    "observed_period_end": "2024-09-30",
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-10-20T11:01:12Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 15.31,
+    "unit": "Mbps",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 1.0,
+      "plausibility": "spatial_join_gisco_el62",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "download",
+      "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+      "request_params": {
+        "archive": "ookla-performance-mobile-2024Q3.zip",
+        "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+        "tests_count": 11296
+      }
+    }
+  },
+  {
+    "observation_id": "EEA_BWD_Discomap_2024:Data02:pct_excellent:EL62:2024",
+    "indicator_id": "Data02",
+    "indicator_name": "Coastal water cleanliness",
+    "series_label": "pct_excellent",
+    "source_id": "EEA_BWD_Discomap_2024",
+    "observed_at": "2024-01-01",
+    "observed_period_end": "2024-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:16:08Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 99.42,
+    "unit": "%",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 0.9884,
+      "plausibility": "spatial_join_gisco_el62_eea_points",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "api",
+      "request_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+      "request_params": {
+        "raw_geojson": "data/raw/eea-bwd-greece-2024.geojson",
+        "method": "Spatial join of 1,729 Greece EEA bathing water points against GISCO EL62 with 3km coastal buffer",
+        "total_sites_el62": 173,
+        "classified_sites": 171,
+        "excellent_count": 170
+      }
+    }
+  },
+  {
+    "observation_id": "EEA_BWD_Discomap_2024:Data03:clean_share_classified:EL62:2024",
+    "indicator_id": "Data03",
+    "indicator_name": "Clean beach / water reports",
+    "series_label": "clean_share_classified",
+    "source_id": "EEA_BWD_Discomap_2024",
+    "observed_at": "2024-01-01",
+    "observed_period_end": "2024-12-31",
+    "temporal_granularity": "annual",
+    "ingested_at": "2026-10-20T11:16:08Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 100.0,
+    "unit": "%",
+    "polarity": "positive",
+    "quality": {
+      "coverage": 1.0,
+      "completeness": 0.9884,
+      "plausibility": "spatial_join_gisco_el62_eea_points",
+      "cross_verified": false
+    },
+    "provenance": {
+      "raw_checksum_sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+      "raw_manifest": "source-verification-2026-10-20",
+      "access_method": "api",
+      "request_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+      "request_params": {
+        "raw_geojson": "data/raw/eea-bwd-greece-2024.geojson",
+        "method": "Share of classified bathing waters rated Sufficient, Good, or Excellent in EL62",
+        "total_sites_el62": 173,
+        "classified_sites": 171,
+        "clean_count": 171
+      }
+    }
+  }
+]
