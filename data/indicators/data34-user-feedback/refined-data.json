@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data34",
+  "indicator_name": "User feedback",
+  "indicator_name_el": null,
+  "category": "participation",
+  "status": "UNVERIFIED",
+  "cadence": "live",
+  "source_citations": [],
+  "conversion_script": "None (UNVERIFIED source track — no synthetic data invented)",
+  "transformation_rule": "UNVERIFIED source track: Sentiment score and topic classification of visitor reviews (deferred on ToS/privacy governance). No values are invented.",
+  "feature_dictionary": {
+    "refined_data.status": {
+      "type": "string",
+      "unit": "enum",
+      "role": "quality_metric",
+      "description": "Verification status ('UNVERIFIED' - no synthetic data emitted)."
+    },
+    "refined_data.candidate_source": {
+      "type": "string",
+      "unit": "text",
+      "role": "context_metric",
+      "description": "Candidate provider: TripAdvisor / Google Reviews API + Mobile App feedback."
+    }
+  },
+  "refined_data": {
+    "status": "UNVERIFIED",
+    "candidate_source": "TripAdvisor / Google Reviews API + Mobile App feedback",
+    "note": "Intentionally empty until a free public substitute, partner feed, or mobile-app telemetry stream is verified."
+  },
+  "observations_count": 0,
+  "observations": []
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data03",
+  "indicator_name": "Clean beach water (reports)",
+  "indicator_name_el": "Καθαρό νερό παραλίας (Reports)",
+  "category": "environmental_health_pollutants",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/pull-data02-bathing-water-el62.py",
+  "raw_sources": [
+    {
+      "source_id": "EEA_BWD_Discomap_2024",
+      "provider": "European Environment Agency (EEA) — Water Discomap ArcGIS REST",
+      "upstream_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+      "access_method": "GET (ArcGIS REST GeoJSON query, no key)",
+      "raw_file_path": "data/raw/eea-bwd-greece-2024.geojson",
+      "raw_format": "application/geo+json (1,729 Point features across Greece)",
+      "manifest": "data/manifests/source-verification-2026-10-20.json",
+      "sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+      "raw_schema_description": {
+        "properties.countryCode": "ISO country code ('EL')",
+        "properties.bathingWaterIdentifier": "Unique WISE bathing water station ID",
+        "properties.quality2024": "2024 season classification ('1 - Excellent', '2 - Good', '3 - Sufficient', '4 - Poor', '0 - Not classified')",
+        "geometry": "WGS84 Point coordinates [lon, lat]"
+      },
+      "raw_variables_kept": [
+        "countryCode",
+        "bathingWaterIdentifier",
+        "quality2024",
+        "lat",
+        "lon",
+        "geometry"
+      ],
+      "raw_variables_dropped": [
+        "historical_quality_1990_2023_columns",
+        "management_links"
+      ],
+      "conversion_script": "scripts/verification/pull-data02-bathing-water-el62.py",
+      "conversion_command": "python3 scripts/verification/pull-data02-bathing-water-el62.py"
+    }
+  ]
+}

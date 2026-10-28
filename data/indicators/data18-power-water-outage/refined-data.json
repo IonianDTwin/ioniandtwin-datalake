@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data18",
+  "indicator_name": "Power / water outage",
+  "indicator_name_el": null,
+  "category": "social_pressure_infrastructure",
+  "status": "UNVERIFIED",
+  "cadence": "live",
+  "source_citations": [],
+  "conversion_script": "None (UNVERIFIED source track — no synthetic data invented)",
+  "transformation_rule": "UNVERIFIED source track: Geolocated utility outage incident counts and duration per municipality. No values are invented.",
+  "feature_dictionary": {
+    "refined_data.status": {
+      "type": "string",
+      "unit": "enum",
+      "role": "quality_metric",
+      "description": "Verification status ('UNVERIFIED' - no synthetic data emitted)."
+    },
+    "refined_data.candidate_source": {
+      "type": "string",
+      "unit": "text",
+      "role": "context_metric",
+      "description": "Candidate provider: Utility announcements (DEDDIE / municipal water boards) + Mobile App citizen reports."
+    }
+  },
+  "refined_data": {
+    "status": "UNVERIFIED",
+    "candidate_source": "Utility announcements (DEDDIE / municipal water boards) + Mobile App citizen reports",
+    "note": "Intentionally empty until a free public substitute, partner feed, or mobile-app telemetry stream is verified."
+  },
+  "observations_count": 0,
+  "observations": []
+}

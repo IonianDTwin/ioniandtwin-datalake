@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data31",
+  "indicator_name": "Tourism density (nights/km²)",
+  "indicator_name_el": null,
+  "category": "density_typology",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "Eurostat_tour_occ_nin2",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023",
+      "raw_file_path": "data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json",
+      "sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "conversion_script": "scripts/verification/build_dashboard.py (via render_pull_reports.decode)"
+    }
+  ],
+  "conversion_script": "scripts/verification/build_dashboard.py",
+  "transformation_rule": "Filter Eurostat SDMX dataset tour_occ_nin2 via `scripts/verification/build_dashboard.py` to geo='EL62', c_resid='TOTAL', nace_r2='I551-I553', and unit='P_KM2' (overnight stays per square kilometre).",
+  "feature_dictionary": {
+    "refined_data.filter_dims": {
+      "type": "object",
+      "unit": "SDMX codes",
+      "role": "filter_dimension",
+      "description": "Exact SDMX dimension filter: geo=EL62, c_resid=TOTAL, unit=P_KM2, nace_r2=I551-I553."
+    },
+    "refined_data.series[].value": {
+      "type": "number",
+      "unit": "nights per km²",
+      "role": "target_indicator",
+      "description": "Annual tourism density in EL62 (7,176.29 in 2022; 8,588.79 in 2023)."
+    }
+  },
+  "refined_data": {
+    "filter_dims": {
+      "geo": "EL62",
+      "c_resid": "TOTAL",
+      "unit": "P_KM2",
+      "nace_r2": "I551-I553"
+    },
+    "series": [
+      {
+        "observation_id": "Eurostat_tour_occ_nin2:Data31:nights per km²:2022",
+        "series_label": "nights per km²",
+        "observed_at": "2022",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 7176.29,
+        "unit": ""
+      },
+      {
+        "observation_id": "Eurostat_tour_occ_nin2:Data31:nights per km²:2023",
+        "series_label": "nights per km²",
+        "observed_at": "2023",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 8588.79,
+        "unit": ""
+      }
+    ]
+  },
+  "observations_count": 2,
+  "observations": [
+    {
+      "observation_id": "Eurostat_tour_occ_nin2:Data31:nights per km²:2022",
+      "indicator_id": "Data31",
+      "indicator_name": "Tourism density (nights/km²)",
+      "series_label": "nights per km²",
+      "source_id": "Eurostat_tour_occ_nin2",
+      "observed_at": "2022",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 7176.29,
+      "unit": "",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_nin2:Data31:nights per km²:2023",
+      "indicator_id": "Data31",
+      "indicator_name": "Tourism density (nights/km²)",
+      "series_label": "nights per km²",
+      "source_id": "Eurostat_tour_occ_nin2",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 8588.79,
+      "unit": "",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    }
+  ]
+}

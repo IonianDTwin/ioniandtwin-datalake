@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data25",
+  "indicator_name": "Accommodation in high-value areas",
+  "indicator_name_el": null,
+  "category": "spatial_sustainability",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "provider": "European Commission / Joint Research Centre (JRC) — EU Tourism Dashboard",
+      "upstream_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/TOURISM/2024/LATEST/2024_TourismDashboard_Indicators_Export.csv",
+      "raw_file_path": "data/raw/eutd-tourism-dashboard-2024-indicators.csv",
+      "sha256": "ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12",
+      "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py",
+  "transformation_rule": "Filter raw CSV `data/raw/eutd-tourism-dashboard-2024-indicators.csv` via `scripts/verification/extract-eutd-dashboard-csv.py` to `code == 'TOUR_DES_13'` ('Share of accommodations in areas with high-nature value') for NUTS2 region EL62 (43.0% in 2023) and NUTS3 disaggregation.",
+  "feature_dictionary": {
+    "refined_data.el62_regional.value": {
+      "type": "number",
+      "unit": "%",
+      "role": "target_indicator",
+      "description": "Share of tourist accommodations located in high-nature-value areas in EL62 (43.0%)."
+    },
+    "refined_data.by_nuts3_island": {
+      "type": "object",
+      "unit": "%",
+      "role": "internal_disaggregation",
+      "description": "NUTS3 island breakdown (Zakynthos 59%, Kerkyra 34%, Ithaki/Kefallinia 34%, Lefkada 57%)."
+    }
+  },
+  "refined_data": {
+    "el62_regional": {
+      "data_id": "Data25",
+      "code": "TOUR_DES_13",
+      "year": 2023,
+      "unit": "%",
+      "value": 43.0
+    },
+    "by_nuts3_island": {
+      "EL621_Zakynthos": 59.0,
+      "EL622_Kerkyra": 34.0,
+      "EL623_Ithaki_Kefallinia": 34.0,
+      "EL624_Lefkada": 57.0
+    }
+  },
+  "observations_count": 1,
+  "observations": [
+    {
+      "observation_id": "EU_Tourism_Dashboard:Data25:high_nature_value_accommodation:2023",
+      "indicator_id": "Data25",
+      "indicator_name": "Accommodation in high-value areas",
+      "series_label": "share of accommodations in high-nature-value areas",
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 43.0,
+      "unit": "%",
+      "polarity": null,
+      "provenance": {
+        "access_method": "download",
+        "request_url": "EU Tourism Dashboard TOUR_DES_13 (2024 export), EL62 2023"
+      }
+    }
+  ]
+}

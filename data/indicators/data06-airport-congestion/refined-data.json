@@ -1,0 +1,315 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data06",
+  "indicator_name": "Airport congestion",
+  "indicator_name_el": null,
+  "category": "dynamic_congestion",
+  "status": "VERIFIED",
+  "cadence": "live",
+  "source_citations": [
+    {
+      "source_id": "OpenSky_States_live",
+      "provider": "OpenSky Network",
+      "upstream_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+      "raw_file_path": "data/raw/opensky-ionian-states-20261020-105525.json",
+      "sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+      "conversion_script": "scripts/verification/pull-data06-airport-congestion.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/pull-data06-airport-congestion.py",
+  "transformation_rule": "Filter live OpenSky state vectors in the Ionian bounding box (37.0-40.5N, 19.0-22.0E) via `scripts/verification/pull-data06-airport-congestion.py` to aircraft within a 25 km approach radius and baro_altitude <= 3,000 m (or on_ground=true) of each gateway airport (CFU, ZTH, EFL, PVK). Compute congestion_score = min(1.0, aircraft_in_approach_count / capacity_threshold).",
+  "feature_dictionary": {
+    "refined_data.observed_at": {
+      "type": "string",
+      "unit": "ISO-8601 UTC",
+      "role": "temporal_dimension",
+      "description": "Timestamp of the OpenSky state-vector snapshot."
+    },
+    "refined_data.total_aircraft_in_ionian_bbox": {
+      "type": "integer",
+      "unit": "aircraft",
+      "role": "context_metric",
+      "description": "Total aircraft detected in the Ionian Sea bounding box (26)."
+    },
+    "refined_data.airports.<IATA>.aircraft_in_approach_count": {
+      "type": "integer",
+      "unit": "aircraft",
+      "role": "input_variable",
+      "description": "Aircraft within 25 km radius and <=3,000 m altitude of the airport."
+    },
+    "refined_data.airports.<IATA>.capacity_threshold": {
+      "type": "integer",
+      "unit": "aircraft",
+      "role": "input_variable",
+      "description": "Approach buffer saturation threshold (CFU=4, ZTH=3, EFL=3, PVK=3)."
+    },
+    "refined_data.airports.<IATA>.congestion_score": {
+      "type": "number",
+      "unit": "score (0-1)",
+      "role": "target_indicator",
+      "description": "Normalized airport approach congestion score S = min(1.0, count / threshold)."
+    },
+    "refined_data.airports.<IATA>.congestion_level": {
+      "type": "string",
+      "unit": "category",
+      "role": "context_metric",
+      "description": "Qualitative congestion band (low < 0.50, medium < 0.85, high >= 0.85)."
+    }
+  },
+  "refined_data": {
+    "observed_at": "2026-10-20T10:55:16+00:00",
+    "unix_epoch": 1792493716,
+    "total_aircraft_in_ionian_bbox": 26,
+    "valid_position_aircraft": 26,
+    "airports": {
+      "CFU": {
+        "airport_code": "CFU",
+        "icao": "LGKR",
+        "name": "Corfu International Airport (Ioannis Kapodistrias)",
+        "island": "Corfu (Kerkyra)",
+        "lat": 39.6019,
+        "lon": 19.9117,
+        "buffer_radius_km": 25.0,
+        "altitude_ceiling_m": 3000.0,
+        "aircraft_in_approach_count": 0,
+        "capacity_threshold": 4,
+        "congestion_score": 0.0,
+        "congestion_level": "low",
+        "aircraft": []
+      },
+      "ZTH": {
+        "airport_code": "ZTH",
+        "icao": "LGZA",
+        "name": "Zakynthos International Airport (Dionysios Solomos)",
+        "island": "Zakynthos",
+        "lat": 37.7508,
+        "lon": 20.8842,
+        "buffer_radius_km": 25.0,
+        "altitude_ceiling_m": 3000.0,
+        "aircraft_in_approach_count": 0,
+        "capacity_threshold": 3,
+        "congestion_score": 0.0,
+        "congestion_level": "low",
+        "aircraft": []
+      },
+      "EFL": {
+        "airport_code": "EFL",
+        "icao": "LGKF",
+        "name": "Kefalonia International Airport (Anna Pollatou)",
+        "island": "Kefalonia",
+        "lat": 38.12,
+        "lon": 20.5005,
+        "buffer_radius_km": 25.0,
+        "altitude_ceiling_m": 3000.0,
+        "aircraft_in_approach_count": 1,
+        "capacity_threshold": 3,
+        "congestion_score": 0.333,
+        "congestion_level": "low",
+        "aircraft": [
+          {
+            "icao24": "46d276",
+            "callsign": "SEH4EL",
+            "origin_country": "Greece",
+            "lon": 20.3835,
+            "lat": 38.2574,
+            "baro_altitude_m": 960.12,
+            "on_ground": false,
+            "velocity_ms": 92.32,
+            "dist_to_airport_km": 18.38
+          }
+        ]
+      },
+      "PVK": {
+        "airport_code": "PVK",
+        "icao": "LGPZ",
+        "name": "Aktion National Airport (Lefkada gateway)",
+        "island": "Lefkada",
+        "lat": 38.9256,
+        "lon": 20.7653,
+        "buffer_radius_km": 25.0,
+        "altitude_ceiling_m": 3000.0,
+        "aircraft_in_approach_count": 0,
+        "capacity_threshold": 3,
+        "congestion_score": 0.0,
+        "congestion_level": "low",
+        "aircraft": []
+      }
+    }
+  },
+  "observations_count": 4,
+  "observations": [
+    {
+      "observation_id": "OpenSky:Data06:airport_congestion:CFU:2026-10-20T10:55:16+00:00",
+      "indicator_id": "Data06",
+      "indicator_name": "Airport congestion",
+      "series_label": "congestion_score",
+      "source_id": "OpenSky_States_live",
+      "observed_at": "2026-10-20T10:55:16+00:00",
+      "observed_period_end": null,
+      "temporal_granularity": "instant",
+      "ingested_at": "2026-10-20T10:55:25Z",
+      "spatial_ref": {
+        "level": "transport_node",
+        "code": "CFU",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            19.9117,
+            39.6019
+          ]
+        }
+      },
+      "value": 0.0,
+      "unit": "score (0-1)",
+      "polarity": "negative",
+      "quality": {
+        "coverage": 1.0,
+        "completeness": 1.0,
+        "plausibility": "verified_live_states",
+        "cross_verified": false
+      },
+      "provenance": {
+        "raw_checksum_sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+        "raw_manifest": "source-verification-2026-10-20",
+        "access_method": "api",
+        "request_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+        "request_params": {
+          "method": "min(1.0, count/4) within 25.0km buffer, alt<=3000.0m",
+          "aircraft_count": 0,
+          "congestion_level": "low",
+          "airport_icao": "LGKR"
+        }
+      }
+    },
+    {
+      "observation_id": "OpenSky:Data06:airport_congestion:ZTH:2026-10-20T10:55:16+00:00",
+      "indicator_id": "Data06",
+      "indicator_name": "Airport congestion",
+      "series_label": "congestion_score",
+      "source_id": "OpenSky_States_live",
+      "observed_at": "2026-10-20T10:55:16+00:00",
+      "observed_period_end": null,
+      "temporal_granularity": "instant",
+      "ingested_at": "2026-10-20T10:55:25Z",
+      "spatial_ref": {
+        "level": "transport_node",
+        "code": "ZTH",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            20.8842,
+            37.7508
+          ]
+        }
+      },
+      "value": 0.0,
+      "unit": "score (0-1)",
+      "polarity": "negative",
+      "quality": {
+        "coverage": 1.0,
+        "completeness": 1.0,
+        "plausibility": "verified_live_states",
+        "cross_verified": false
+      },
+      "provenance": {
+        "raw_checksum_sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+        "raw_manifest": "source-verification-2026-10-20",
+        "access_method": "api",
+        "request_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+        "request_params": {
+          "method": "min(1.0, count/3) within 25.0km buffer, alt<=3000.0m",
+          "aircraft_count": 0,
+          "congestion_level": "low",
+          "airport_icao": "LGZA"
+        }
+      }
+    },
+    {
+      "observation_id": "OpenSky:Data06:airport_congestion:EFL:2026-10-20T10:55:16+00:00",
+      "indicator_id": "Data06",
+      "indicator_name": "Airport congestion",
+      "series_label": "congestion_score",
+      "source_id": "OpenSky_States_live",
+      "observed_at": "2026-10-20T10:55:16+00:00",
+      "observed_period_end": null,
+      "temporal_granularity": "instant",
+      "ingested_at": "2026-10-20T10:55:25Z",
+      "spatial_ref": {
+        "level": "transport_node",
+        "code": "EFL",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            20.5005,
+            38.12
+          ]
+        }
+      },
+      "value": 0.333,
+      "unit": "score (0-1)",
+      "polarity": "negative",
+      "quality": {
+        "coverage": 1.0,
+        "completeness": 1.0,
+        "plausibility": "verified_live_states",
+        "cross_verified": false
+      },
+      "provenance": {
+        "raw_checksum_sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+        "raw_manifest": "source-verification-2026-10-20",
+        "access_method": "api",
+        "request_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+        "request_params": {
+          "method": "min(1.0, count/3) within 25.0km buffer, alt<=3000.0m",
+          "aircraft_count": 1,
+          "congestion_level": "low",
+          "airport_icao": "LGKF"
+        }
+      }
+    },
+    {
+      "observation_id": "OpenSky:Data06:airport_congestion:PVK:2026-10-20T10:55:16+00:00",
+      "indicator_id": "Data06",
+      "indicator_name": "Airport congestion",
+      "series_label": "congestion_score",
+      "source_id": "OpenSky_States_live",
+      "observed_at": "2026-10-20T10:55:16+00:00",
+      "observed_period_end": null,
+      "temporal_granularity": "instant",
+      "ingested_at": "2026-10-20T10:55:25Z",
+      "spatial_ref": {
+        "level": "transport_node",
+        "code": "PVK",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            20.7653,
+            38.9256
+          ]
+        }
+      },
+      "value": 0.0,
+      "unit": "score (0-1)",
+      "polarity": "negative",
+      "quality": {
+        "coverage": 1.0,
+        "completeness": 1.0,
+        "plausibility": "verified_live_states",
+        "cross_verified": false
+      },
+      "provenance": {
+        "raw_checksum_sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+        "raw_manifest": "source-verification-2026-10-20",
+        "access_method": "api",
+        "request_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+        "request_params": {
+          "method": "min(1.0, count/3) within 25.0km buffer, alt<=3000.0m",
+          "aircraft_count": 0,
+          "congestion_level": "low",
+          "airport_icao": "LGPZ"
+        }
+      }
+    }
+  ]
+}

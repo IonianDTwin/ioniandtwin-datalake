@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data07",
+  "indicator_name": "Port congestion",
+  "indicator_name_el": null,
+  "category": "dynamic_congestion",
+  "status": "PROPOSAL",
+  "conversion_script": "scripts/verification/compute-data07-anticipated-congestion.py",
+  "raw_sources": [
+    {
+      "source_id": "CruiseMapper_schedules",
+      "provider": "CruiseMapper (one-time schedule capture; OLKE port authority candidate for production)",
+      "upstream_url": "https://www.cruisemapper.com/ports/<port-slug>?month=<yyyy-mm>#schedule",
+      "access_method": "One-time bounded read parsed to JSON",
+      "raw_file_path": "scratch/cruise-pressure/schedules.json",
+      "raw_format": "application/json (117 planned cruise calls across Ionian ports)",
+      "manifest": "data/manifests/source-verification-2026-10-14.json",
+      "sha256": "1490dd5a7fabf8dc265fafa127cac6cfa77cfba59e15293c1b2c333ea496ae98",
+      "raw_schema_description": {
+        "ports[].id": "Port identifier ('corfu', 'kefalonia', 'zakynthos', 'lefkada', 'paxos', 'ithaki')",
+        "ports[].calls[].date": "Planned call date (YYYY-MM-DD)",
+        "ports[].calls[].ship": "Vessel name",
+        "ports[].calls[].arrival / departure": "Scheduled berth arrival and departure window"
+      },
+      "raw_variables_kept": [
+        "port_id",
+        "date",
+        "ship",
+        "arrival",
+        "departure"
+      ],
+      "raw_variables_dropped": [
+        "igoumenitsa_mainland_calls (outside EL62)"
+      ],
+      "conversion_script": "scripts/verification/compute-data07-anticipated-congestion.py",
+      "conversion_command": "python3 scripts/verification/compute-data07-anticipated-congestion.py"
+    },
+    {
+      "source_id": "GreekNAP_sailing_traffic",
+      "provider": "Greek National Access Point (NAP) — Domestic Ferry Sailing Traffic",
+      "upstream_url": "file:///home/scrublife/ionian-dtwin/scratch/ais-routes/export_sailing_traffic.csv",
+      "access_method": "CSV bulk export (184,436 domestic ferry legs, Mar-Nov 2025)",
+      "raw_file_path": "scratch/ais-routes/export_sailing_traffic.csv",
+      "raw_format": "text/csv (184,436 rows)",
+      "manifest": "data/manifests/source-verification-2026-10-14.json",
+      "sha256": "b756f6eb2c4eac53f996983ee215e0289bfab6fe53827696806abe2393f5fa7b",
+      "raw_schema_description": {
+        "date": "Sailing date",
+        "arrivalport": "Destination port code (CFU/LFK, PKE/SAI/FIS, ZTH, VSS/LEV, PAX, PIS)",
+        "passengercount": "Disembarking passenger count on leg",
+        "vehiclecount": "Disembarking vehicle count on leg"
+      },
+      "raw_variables_kept": [
+        "date",
+        "arrivalport",
+        "passengercount",
+        "vehiclecount"
+      ],
+      "raw_variables_dropped": [
+        "routecode",
+        "routecodenames",
+        "mainland_arrival_ports (IGO, KYL, GPA)"
+      ],
+      "conversion_script": "scripts/verification/compute-data07-anticipated-congestion.py",
+      "conversion_command": "python3 scripts/verification/compute-data07-anticipated-congestion.py"
+    }
+  ]
+}

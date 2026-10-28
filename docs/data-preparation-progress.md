@@ -31,10 +31,11 @@ Status vocabulary (one taxonomy, consistent with `sources/data-resources.md`):
 
 ### Summary
 
-- **34 indicators** total.
+- **34 indicators** total (`data/indicators/data01-<slug>/` … `data34-<slug>/`).
 - **23 `VERIFIED`** (68 %) · **1 `PARTIAL`** (3 %) · **1 `PROPOSAL`** (3 %) · **9 `UNVERIFIED`** (26 %).
 - Data pipeline emits **99 schema-aligned observations** (28 base + 47 derived + 6 dashboard + 18 additional) as of 2026-10-20, plus 1 composite prototype (`Tourism Pressure Index`). Data07 keeps **366 anticipated-congestion forecast observations** as a separate series (2026-10-14).
-- Single source of truth: `data/curated/observations-2026-10-20.json` / `.csv`.
+- **Holistic per-indicator folders (`D-023`, 2026-10-28):** Every indicator has a dedicated folder `data/indicators/dataXX-<slug>/` containing `raw-source-description.json` (raw source URL, `sha256`, raw schema, variable whitelist, and conversion script), `refined-data.json` (feature dictionary, refined JSON payload, and strict `observation-schema.json` records), and a companion `README.md`.
+- Single master roll-up: `data/curated/observations-2026-10-20.json` / `.csv`.
 
 ```
 VERIFIED    ███████████████████████··········· 23/34

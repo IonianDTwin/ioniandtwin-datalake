@@ -1198,10 +1198,11 @@ surgical/reconciliation approaches.</p>
 <h2>1 · Current progress</h2>
 <h3>Summary</h3>
 <ul>
-<li><strong>34 indicators</strong> total.</li>
+<li><strong>34 indicators</strong> total (<code>data/indicators/data01-&lt;slug&gt;/</code> … <code>data34-&lt;slug&gt;/</code>).</li>
 <li><strong>23 <code class="badge verified">VERIFIED</code></strong> (68 %) · <strong>1 <code class="badge partial">PARTIAL</code></strong> (3 %) · <strong>1 <code class="badge proposal">PROPOSAL</code></strong> (3 %) · <strong>9 <code class="badge unverified">UNVERIFIED</code></strong> (26 %).</li>
 <li>Data pipeline emits <strong>99 schema-aligned observations</strong> (28 base + 47 derived + 6 dashboard + 18 additional) as of 2026-10-20, plus 1 composite prototype (<code>Tourism Pressure Index</code>). Data07 keeps <strong>366 anticipated-congestion forecast observations</strong> as a separate series (2026-10-14).</li>
-<li>Single source of truth: <code>data/curated/observations-2026-10-20.json</code> / <code>.csv</code>.</li>
+<li><strong>Holistic per-indicator folders (<code>D-023</code>, 2026-10-28):</strong> Every indicator has a dedicated folder <code>data/indicators/dataXX-&lt;slug&gt;/</code> containing <code>raw-source-description.json</code> (raw source URL, <code>sha256</code>, raw schema, variable whitelist, and conversion script), <code>refined-data.json</code> (feature dictionary, refined JSON payload, and strict <code>observation-schema.json</code> records), and a companion <code>README.md</code>.</li>
+<li>Single master roll-up: <code>data/curated/observations-2026-10-20.json</code> / <code>.csv</code>.</li>
 </ul>
 <pre><code>VERIFIED    ███████████████████████··········· 23/34
 PARTIAL     █·································  1/34

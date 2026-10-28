@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data05",
+  "indicator_name": "EMAS / EU Ecolabel",
+  "indicator_name_el": "EMAS / EU Ecolabel",
+  "category": "environmental_health_pollutants",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/build_indicator_folders.py",
+  "raw_sources": [
+    {
+      "source_id": "EMAS_register_REST",
+      "provider": "European Commission — EU EMAS Register",
+      "upstream_url": "https://webgate.ec.europa.eu/emas2/public/rest/registration/list",
+      "access_method": "GET (REST JSON list, no key)",
+      "raw_file_path": "data/samples/emas-register-greece-2026-10-02.json",
+      "raw_format": "application/json (4,523 EU records filtered to 37 Greece records)",
+      "manifest": "data/manifests/source-verification-2026-10-02.json",
+      "sha256": "c8546768319f2f35796698a729b29c1375995f556b146877dca61ff2678e3288",
+      "raw_schema_description": {
+        "registrationNumber": "EMAS registration code (e.g. 'EL-000120')",
+        "organisationName": "Registered legal entity name",
+        "organisationCountryName": "Country name (filtered to 'Greece')",
+        "city": "Municipality / city name (checked against Ionian Islands)",
+        "postalCode": "Postal code (checked against 49xxx/28xxx/29xxx/31xxx Ionian prefixes)",
+        "nacesAsString": "NACE economic activity classification string"
+      },
+      "raw_variables_kept": [
+        "registrationNumber",
+        "organisationName",
+        "organisationCountryName",
+        "city",
+        "postalCode",
+        "sitesCount",
+        "nacesAsString"
+      ],
+      "raw_variables_dropped": [
+        "contactPersonEmail (GDPR PII redacted)",
+        "contactPersonPhone (GDPR PII redacted)",
+        "streetAddress"
+      ],
+      "conversion_script": "scripts/verification/build_indicator_folders.py",
+      "conversion_command": "python3 scripts/verification/build_indicator_folders.py"
+    },
+    {
+      "source_id": "EU_Ecolabel_catalogue_CSV",
+      "provider": "European Commission — EU Ecolabel Catalogue",
+      "upstream_url": "https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv",
+      "access_method": "GET (semicolon-delimited CSV export, no key)",
+      "raw_file_path": "data/samples/eu-ecolabel-catalogue-greece-2026-10-02.json",
+      "raw_format": "text/csv (89,298 rows, semicolon-delimited) -> summarized to JSON",
+      "manifest": "data/manifests/source-verification-2026-10-02.json",
+      "sha256": "7a3d424d7d8b031b1516416e923b024cd47b83e3417308870b37334b9235592d",
+      "raw_schema_description": {
+        "group_name": "Product/service group (checked for 'Tourist accommodation')",
+        "company_country": "Country of licence holder ('Greece')",
+        "licence_number": "Unique EU Ecolabel licence identifier",
+        "extract_date": "Export snapshot date ('2026-10-01')"
+      },
+      "raw_variables_kept": [
+        "group_name",
+        "company_country",
+        "licence_number",
+        "extract_date"
+      ],
+      "raw_variables_dropped": [
+        "vat_number",
+        "company_contact_details"
+      ],
+      "conversion_script": "scripts/verification/build_indicator_folders.py",
+      "conversion_command": "python3 scripts/verification/build_indicator_folders.py"
+    }
+  ]
+}

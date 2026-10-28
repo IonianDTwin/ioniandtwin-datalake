@@ -1,13 +1,13 @@
 # Data resources - Data01-Data34
 
-`DECISION` One list, one row of truth per indicator: the online source link, the Markdown procedure to follow for data access, and the ETL path. Machine-readable twin: `indicators/source-indicator-map.json`. Pull recipes: `sources/pull-workflow/`. Document extraction: `sources/procedures/`.
+`DECISION` One list, one row of truth per indicator: the online source link, the access method, and the ETL path. Machine-readable twin: `indicators/source-indicator-map.json`. Per-indicator whitelisted raw variables, `_meta.feature_dictionary` JSON envelopes, and normalized observations live in `data/indicators/data01-<slug>/` … `data34-<slug>/`.
 
-Legend - access procedure files:
+Legend - shared references:
 
-- `WF/01` = `sources/pull-workflow/01-environmental-health.md` (and so on `WF/02`…`WF/10`)
-- `PROC/download-extract.md` = `sources/procedures/download-extract.md` (public webpage/PDF/file)
-- `API (script)` = `scripts/verification/pull-*.sh` (direct API pull)
-- ETL shared references: `pipelines/ingestion-contracts.md`, `pipelines/quality-rules.md`, `schemas/observation-schema.json`, `scripts/verification/export_observations.py`
+- `data/README.md` = global holistic data-handling contract (zero-duplication `data/raw/`, all-JSON edited rule, spatial rule `D-014`).
+- `data/indicators/dataXX-<slug>/README.md` = per-indicator raw variable whitelist, transformation formula, and JSON feature dictionary.
+- `scripts/verification/` = reproducible pullers, spatial joins, `build_dashboard.py`, and `build_indicator_folders.py`.
+- `pipelines/quality-rules.md`, `schemas/observation-schema.json` = quality checks and strict observation schema.
 
 Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially confirmed) · `UNVERIFIED` (source not yet reached) · `PROPOSAL` (derived / not yet a feed).
 

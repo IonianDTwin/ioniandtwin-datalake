@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data17",
+  "indicator_name": "Hospital / infrastructure congestion",
+  "indicator_name_el": null,
+  "category": "social_pressure_infrastructure",
+  "status": "UNVERIFIED",
+  "conversion_script": "None (UNVERIFIED source track — no synthetic data invented)",
+  "raw_sources": []
+}

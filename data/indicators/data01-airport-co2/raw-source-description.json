@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data01",
+  "indicator_name": "Airport CO2 levels",
+  "indicator_name_el": "Επίπεδα CO2 αεροδρομίων",
+  "category": "environmental_health_pollutants",
+  "status": "PARTIAL",
+  "conversion_script": "scripts/verification/build_indicator_folders.py (NetCDF sliced to data/samples/cams-ionian-20260930-summary.json)",
+  "raw_sources": [
+    {
+      "source_id": "CAMS_ADS_air_quality",
+      "provider": "Copernicus Atmosphere Monitoring Service (CAMS) — Atmosphere Data Store (ADS)",
+      "upstream_url": "https://ads.atmosphere.copernicus.eu/api/retrieve/v1/processes/cams-europe-air-quality-forecasts/execution",
+      "access_method": "POST via cads-api-client (CAMS_API_KEY in untracked .env)",
+      "raw_file_path": "data/samples/cams-europe-air-quality-forecasts-IONIAN-2026-09-30.zip",
+      "raw_format": "application/zip containing NetCDF classic (ENS_ANALYSIS.nc)",
+      "manifest": "data/manifests/source-verification-2026-10-01.json",
+      "sha256": "ecc26d470cdfa5c9ecd65b7dd6b1104e8692d23b998083a402951ddaa9d11574",
+      "raw_schema_description": {
+        "longitude": "1D float array (30 grid cells, 19.0E to 22.0E, 0.1 deg resolution)",
+        "latitude": "1D float array (35 grid cells, 37.0N to 40.5N, 0.1 deg resolution)",
+        "level": "Vertical altitude level in meters (filtered to surface 0 m)",
+        "time": "Analysis timestamp (2026-09-30T00:00:00Z)",
+        "no2_conc": "Surface nitrogen dioxide concentration (ug/m3)",
+        "co_conc": "Surface carbon monoxide concentration (ug/m3)",
+        "pm10_conc": "Surface PM10 concentration (ug/m3)",
+        "pm2p5_conc": "Surface PM2.5 concentration (ug/m3)"
+      },
+      "raw_variables_kept": [
+        "no2_conc",
+        "co_conc",
+        "pm10_conc",
+        "pm2p5_conc",
+        "latitude",
+        "longitude",
+        "level",
+        "time"
+      ],
+      "raw_variables_dropped": [
+        "upper_level_layers (filtered to surface level=0)"
+      ],
+      "conversion_script": "scripts/verification/build_indicator_folders.py",
+      "conversion_command": "python3 scripts/verification/build_indicator_folders.py"
+    }
+  ]
+}

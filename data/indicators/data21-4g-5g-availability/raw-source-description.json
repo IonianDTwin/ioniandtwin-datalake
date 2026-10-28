@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data21",
+  "indicator_name": "4G/5G availability",
+  "indicator_name_el": null,
+  "category": "digital_infrastructure",
+  "status": "UNVERIFIED",
+  "conversion_script": "None (UNVERIFIED source track — no synthetic data invented)",
+  "raw_sources": []
+}

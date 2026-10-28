@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data04",
+  "indicator_name": "Blue Flags",
+  "indicator_name_el": "Γαλάζιες Σημαίες",
+  "category": "environmental_health_pollutants",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "provider": "European Commission / Joint Research Centre (JRC) — EU Tourism Dashboard",
+      "upstream_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/TOURISM/2024/LATEST/2024_TourismDashboard_Indicators_Export.csv",
+      "raw_file_path": "data/raw/eutd-tourism-dashboard-2024-indicators.csv",
+      "sha256": "ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12",
+      "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py",
+  "transformation_rule": "Filter raw CSV `data/raw/eutd-tourism-dashboard-2024-indicators.csv` via `scripts/verification/extract-eutd-dashboard-csv.py` to `code == 'TOUR_DES_10'` ('Blue Flag sites') and `nuts_code_2021 == 'EL62'` (year 2024), then emit schema-validated observation via `scripts/verification/build_dashboard.py`.",
+  "feature_dictionary": {
+    "refined_data.blue_flag_sites.code": {
+      "type": "string",
+      "unit": "code",
+      "role": "filter_dimension",
+      "description": "EU Tourism Dashboard indicator code (TOUR_DES_10)."
+    },
+    "refined_data.blue_flag_sites.year": {
+      "type": "integer",
+      "unit": "year",
+      "role": "temporal_dimension",
+      "description": "Reference year of award count (2024)."
+    },
+    "refined_data.blue_flag_sites.value": {
+      "type": "number",
+      "unit": "number",
+      "role": "target_indicator",
+      "description": "Number of Blue Flag awarded beaches/marinas in EL62 (51.0)."
+    }
+  },
+  "refined_data": {
+    "blue_flag_sites": {
+      "data_id": "Data04",
+      "code": "TOUR_DES_10",
+      "year": 2024,
+      "unit": "number",
+      "value": 51.0
+    }
+  },
+  "observations_count": 1,
+  "observations": [
+    {
+      "observation_id": "EU_Tourism_Dashboard:Data04:blue_flag_sites:2024",
+      "indicator_id": "Data04",
+      "indicator_name": "Blue Flags",
+      "series_label": "number of Blue Flag sites",
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "observed_at": "2024",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 51.0,
+      "unit": "number",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "download",
+        "request_url": "EU Tourism Dashboard TOUR_DES_10 (2024 export), EL62 2024"
+      }
+    }
+  ]
+}

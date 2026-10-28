@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data14",
+  "indicator_name": "High UV and protection",
+  "indicator_name_el": null,
+  "category": "climate_adaptation",
+  "status": "VERIFIED",
+  "cadence": "daily",
+  "source_citations": [
+    {
+      "source_id": "OpenMeteo_forecast",
+      "provider": "Open-Meteo (open-meteo.com)",
+      "upstream_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1",
+      "raw_file_path": "data/samples/open-meteo-corfu-forecast-2026-09-22.json",
+      "sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+      "conversion_script": "scripts/verification/pull-open-meteo.sh -> scripts/verification/build_dashboard.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/pull-open-meteo.sh -> scripts/verification/build_dashboard.py",
+  "transformation_rule": "Extract daily.uv_index_max for the Corfu reference coordinate (39.62N, 19.92E) from Open-Meteo daily forecast array via `scripts/verification/build_dashboard.py`.",
+  "feature_dictionary": {
+    "refined_data.daily.time": {
+      "type": "array",
+      "unit": "ISO-8601 date",
+      "role": "temporal_dimension",
+      "description": "Forecast date array (['2026-09-22'])."
+    },
+    "refined_data.daily.uv_index_max": {
+      "type": "array",
+      "unit": "UV index",
+      "role": "target_indicator",
+      "description": "Daily maximum UV index ([5.9])."
+    }
+  },
+  "refined_data": {
+    "latitude": 39.625,
+    "longitude": 19.875,
+    "daily_units": {
+      "time": "iso8601",
+      "uv_index_max": ""
+    },
+    "daily": {
+      "time": [
+        "2026-09-22"
+      ],
+      "uv_index_max": [
+        5.9
+      ]
+    }
+  },
+  "observations_count": 1,
+  "observations": [
+    {
+      "observation_id": "OpenMeteo_forecast:Data14:max UV index:2026-09-22",
+      "indicator_id": "Data14",
+      "indicator_name": "High UV and protection",
+      "series_label": "max UV index",
+      "source_id": "OpenMeteo_forecast",
+      "observed_at": "2026-09-22",
+      "observed_period_end": null,
+      "temporal_granularity": "daily",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "point",
+        "code": "39.62,19.92",
+        "geometry": null
+      },
+      "value": 5.9,
+      "unit": "",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+        "access_method": "api",
+        "request_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1"
+      }
+    }
+  ]
+}

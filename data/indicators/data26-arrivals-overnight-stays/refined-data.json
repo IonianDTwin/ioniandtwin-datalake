@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data26",
+  "indicator_name": "Arrivals & overnight stays",
+  "indicator_name_el": null,
+  "category": "tourism_performance",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "Eurostat_tour_occ_nin2",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023",
+      "raw_file_path": "data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json",
+      "sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "conversion_script": "scripts/verification/build_dashboard.py (via render_pull_reports.decode)"
+    },
+    {
+      "source_id": "Eurostat_tour_occ_arn2",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_arn2?format=JSON&geo=EL62&time=2022&time=2023",
+      "raw_file_path": "data/samples/eurostat-tour_occ_arn2-EL62-2022-2023.json",
+      "sha256": "0855dc90f5b85a3f4251318da56456cec0585fe55843caf434f26c499f72b724",
+      "conversion_script": "scripts/verification/build_dashboard.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/build_dashboard.py",
+  "transformation_rule": "Extract total annual overnight stays (tour_occ_nin2) and arrivals (tour_occ_arn2) at tourist accommodation establishments in EL62 via `scripts/verification/build_dashboard.py` for c_resid='TOTAL', unit='NR', nace_r2='I551-I553'.",
+  "feature_dictionary": {
+    "refined_data.series[].series_label": {
+      "type": "string",
+      "unit": "label",
+      "role": "filter_dimension",
+      "description": "Distinguishes 'overnight stays' vs 'arrivals' and sub-series."
+    },
+    "refined_data.series[].observed_at": {
+      "type": "string",
+      "unit": "year",
+      "role": "temporal_dimension",
+      "description": "Reference year."
+    },
+    "refined_data.series[].value": {
+      "type": "number",
+      "unit": "nights or arrivals",
+      "role": "target_indicator",
+      "description": "Total EL62 nights (16.51M in 2022; 19.76M in 2023; 20.52M in 2024; 20.36M in 2025) and arrivals (2.79M in 2022; 3.33M in 2023)."
+    }
+  },
+  "refined_data": {
+    "annual_nights_2018_2025": {
+      "2018": 18016737,
+      "2019": 17954520,
+      "2020": 4498381,
+      "2021": 9257610,
+      "2022": 16512634,
+      "2023": 19762799,
+      "2024": 20524700,
+      "2025": 20363829
+    },
+    "series": [
+      {
+        "observation_id": "Eurostat_tour_occ_nin2:Data26:overnight stays:2022",
+        "series_label": "overnight stays",
+        "observed_at": "2022",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 16512634,
+        "unit": "nights"
+      },
+      {
+        "observation_id": "Eurostat_tour_occ_nin2:Data26:overnight stays:2023",
+        "series_label": "overnight stays",
+        "observed_at": "2023",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 19762799,
+        "unit": "nights"
+      },
+      {
+        "observation_id": "Eurostat_tour_occ_arn2:Data26:arrivals:2022",
+        "series_label": "arrivals",
+        "observed_at": "2022",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 2785360,
+        "unit": ""
+      },
+      {
+        "observation_id": "Eurostat_tour_occ_arn2:Data26:arrivals:2023",
+        "series_label": "arrivals",
+        "observed_at": "2023",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 3332407,
+        "unit": ""
+      }
+    ]
+  },
+  "observations_count": 4,
+  "observations": [
+    {
+      "observation_id": "Eurostat_tour_occ_nin2:Data26:overnight stays:2022",
+      "indicator_id": "Data26",
+      "indicator_name": "Arrivals & overnight stays",
+      "series_label": "overnight stays",
+      "source_id": "Eurostat_tour_occ_nin2",
+      "observed_at": "2022",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 16512634,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_nin2:Data26:overnight stays:2023",
+      "indicator_id": "Data26",
+      "indicator_name": "Arrivals & overnight stays",
+      "series_label": "overnight stays",
+      "source_id": "Eurostat_tour_occ_nin2",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 19762799,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_arn2:Data26:arrivals:2022",
+      "indicator_id": "Data26",
+      "indicator_name": "Arrivals & overnight stays",
+      "series_label": "arrivals",
+      "source_id": "Eurostat_tour_occ_arn2",
+      "observed_at": "2022",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 2785360,
+      "unit": "",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "0855dc90f5b85a3f4251318da56456cec0585fe55843caf434f26c499f72b724",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_arn2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_arn2:Data26:arrivals:2023",
+      "indicator_id": "Data26",
+      "indicator_name": "Arrivals & overnight stays",
+      "series_label": "arrivals",
+      "source_id": "Eurostat_tour_occ_arn2",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 3332407,
+      "unit": "",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "0855dc90f5b85a3f4251318da56456cec0585fe55843caf434f26c499f72b724",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_arn2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    }
+  ]
+}

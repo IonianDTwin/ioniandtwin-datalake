@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data28",
+  "indicator_name": "Occupancy rate (%)",
+  "indicator_name_el": null,
+  "category": "tourism_performance",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "provider": "European Commission / Joint Research Centre (JRC) — EU Tourism Dashboard",
+      "upstream_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/TOURISM/2024/LATEST/2024_TourismDashboard_Indicators_Export.csv",
+      "raw_file_path": "data/raw/eutd-tourism-dashboard-2024-indicators.csv",
+      "sha256": "ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12",
+      "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py",
+  "transformation_rule": "Adopt EU Tourism Dashboard indicator TOUR_DES_04 ('Net occupancy rate of bed-places') for NUTS2 EL62 (65.4% in 2023) via `scripts/verification/extract-eutd-dashboard-csv.py`, superseding gross annual nights/(beds*365) estimates.",
+  "feature_dictionary": {
+    "refined_data.net_occupancy_el62.value": {
+      "type": "number",
+      "unit": "%",
+      "role": "target_indicator",
+      "description": "Net occupancy rate of bed-places in EL62 (65.4% in 2023)."
+    },
+    "refined_data.gross_seasonal_island_proxy_2021_2025": {
+      "type": "object",
+      "unit": "%",
+      "role": "internal_disaggregation",
+      "description": "Supplementary 180-day operating-season gross occupancy proxy across NUTS3 islands."
+    }
+  },
+  "refined_data": {
+    "net_occupancy_el62": {
+      "data_id": "Data28",
+      "code": "TOUR_DES_04",
+      "year": 2023,
+      "unit": "%",
+      "value": 65.4
+    },
+    "gross_seasonal_island_proxy_2021_2025": {
+      "2021": {
+        "Zakynthos": 23.1,
+        "Kerkyra": 24.9,
+        "Ithaki_Kefallinia": 19.9,
+        "Lefkada": 37.6
+      },
+      "2022": {
+        "Zakynthos": 37.4,
+        "Kerkyra": 43.5,
+        "Ithaki_Kefallinia": 40.7,
+        "Lefkada": 76.1
+      },
+      "2023": {
+        "Zakynthos": 42.9,
+        "Kerkyra": 54.3,
+        "Ithaki_Kefallinia": 50.0,
+        "Lefkada": 69.0
+      },
+      "2024": {
+        "Zakynthos": 45.1,
+        "Kerkyra": 55.9,
+        "Ithaki_Kefallinia": 46.3,
+        "Lefkada": 74.0
+      },
+      "2025": {
+        "Zakynthos": 47.1,
+        "Kerkyra": 52.2,
+        "Ithaki_Kefallinia": 41.9,
+        "Lefkada": 82.4
+      }
+    }
+  },
+  "observations_count": 1,
+  "observations": [
+    {
+      "observation_id": "EU_Tourism_Dashboard:Data28:net_occupancy:2023",
+      "indicator_id": "Data28",
+      "indicator_name": "Occupancy rate (%)",
+      "series_label": "net occupancy of bed places",
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 65.4,
+      "unit": "%",
+      "polarity": null,
+      "provenance": {
+        "access_method": "download",
+        "request_url": "EU Tourism Dashboard TOUR_DES_04 (2024 export), EL62 2023"
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data16",
+  "indicator_name": "Tourism intensity (nights/residents)",
+  "indicator_name_el": null,
+  "category": "social_pressure_infrastructure",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/build_dashboard.py",
+  "raw_sources": [
+    {
+      "source_id": "Eurostat_tour_occ_nin2",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023",
+      "access_method": "GET (SDMX 2.1 / JSON-stat 2.0 REST API, no key)",
+      "raw_file_path": "data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json",
+      "raw_format": "application/json (SDMX 2.1 JSON-stat 2.0 cube)",
+      "manifest": "data/manifests/source-verification-2026-09-22.json",
+      "sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "raw_schema_description": {
+        "id": "Ordered array of cube dimensions: ['freq', 'c_resid', 'unit', 'nace_r2', 'geo', 'time']",
+        "size": "Array of dimension cardinalities used for flat-index decoding",
+        "dimension.c_resid": "Country of residence ('TOTAL', 'DOM', 'FOR')",
+        "dimension.unit": "Unit ('NR' nights, 'P_THAB' nights/1000 residents, 'P_KM2' nights/km2, 'PC_TOT' % share)",
+        "dimension.nace_r2": "Accommodation NACE Rev. 2 activity ('I551-I553' total, 'I551' hotels, 'I552' short-stay, 'I553' camping)",
+        "dimension.geo": "NUTS2 code ('EL62' = Ionia Nisia)",
+        "dimension.time": "Reference year ('2022', '2023')",
+        "value": "Sparse map {flat_index_string: numeric_value}"
+      },
+      "raw_variables_kept": [
+        "dimension.c_resid",
+        "dimension.unit",
+        "dimension.nace_r2",
+        "dimension.geo (EL62)",
+        "dimension.time",
+        "value"
+      ],
+      "raw_variables_dropped": [
+        "status_flags",
+        "PCH_PRE (year-on-year % change unit)"
+      ],
+      "conversion_script": "scripts/verification/build_dashboard.py (via render_pull_reports.decode)",
+      "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py"
+    }
+  ]
+}

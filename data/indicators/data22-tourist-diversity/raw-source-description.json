@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data22",
+  "indicator_name": "Tourist diversity (zones)",
+  "indicator_name_el": null,
+  "category": "spatial_sustainability",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/build_dashboard.py",
+  "raw_sources": [
+    {
+      "source_id": "Eurostat_tour_occ_nin3",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin3?format=JSON&geo=EL621..EL624&c_resid=TOTAL&unit=NR&nace_r2=I551-I553",
+      "access_method": "GET (SDMX 2.1 JSON-stat 2.0 REST API, no key)",
+      "raw_file_path": "data/samples/eurostat-tour_occ_nin3-EL621-624-2021-2025.json",
+      "raw_format": "application/json (wrapper of 4 NUTS3 SDMX cubes)",
+      "manifest": "data/manifests/source-verification-2026-10-01.json",
+      "sha256": "ee9c29ff4ecce9aabc23b1b9b360096c004213ed6e2a6b30c257f0934517e916",
+      "raw_schema_description": {
+        "EL621..EL624": "Top-level keys for Zakynthos (EL621), Kerkyra (EL622), Ithaki/Kefallinia (EL623), Lefkada (EL624)",
+        "dimension.time": "Reference years ('2021'..'2025')",
+        "value": "Annual overnight stays per NUTS3 island unit"
+      },
+      "raw_variables_kept": [
+        "geo (EL621, EL622, EL623, EL624)",
+        "c_resid (TOTAL)",
+        "unit (NR)",
+        "nace_r2 (I551-I553)",
+        "time (2021..2025)",
+        "value"
+      ],
+      "raw_variables_dropped": [
+        "foreign_vs_domestic_split"
+      ],
+      "conversion_script": "scripts/verification/build_dashboard.py",
+      "conversion_command": "python3 scripts/verification/build_dashboard.py --manifest data/manifests/source-verification-2026-10-01.json"
+    }
+  ]
+}

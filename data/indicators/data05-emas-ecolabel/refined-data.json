@@ -1,0 +1,123 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data05",
+  "indicator_name": "EMAS / EU Ecolabel",
+  "indicator_name_el": "EMAS / EU Ecolabel",
+  "category": "environmental_health_pollutants",
+  "status": "VERIFIED",
+  "cadence": "on-change",
+  "source_citations": [
+    {
+      "source_id": "EMAS_register_REST",
+      "provider": "European Commission — EU EMAS Register",
+      "upstream_url": "https://webgate.ec.europa.eu/emas2/public/rest/registration/list",
+      "raw_file_path": "data/samples/emas-register-greece-2026-10-02.json",
+      "sha256": "c8546768319f2f35796698a729b29c1375995f556b146877dca61ff2678e3288",
+      "conversion_script": "scripts/verification/build_indicator_folders.py"
+    },
+    {
+      "source_id": "EU_Ecolabel_catalogue_CSV",
+      "provider": "European Commission — EU Ecolabel Catalogue",
+      "upstream_url": "https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv",
+      "raw_file_path": "data/samples/eu-ecolabel-catalogue-greece-2026-10-02.json",
+      "sha256": "7a3d424d7d8b031b1516416e923b024cd47b83e3417308870b37334b9235592d",
+      "conversion_script": "scripts/verification/build_indicator_folders.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/build_indicator_folders.py",
+  "transformation_rule": "Filter EU EMAS REST registration list to organisationCountryName=='Greece' (37 records) and match city/postalCode against Ionian Islands (EL62 = 0 records). Filter EU Ecolabel CSV export (89,298 licences) to Greece (450 licences) and group_name=='Tourist accommodation' (0 in Greece / 0 in EL62). Contact PII (email/phone) stripped before storage.",
+  "feature_dictionary": {
+    "refined_data.emas.greece_records": {
+      "type": "integer",
+      "unit": "organisations",
+      "role": "context_metric",
+      "description": "Total EMAS-registered organisations in Greece (37)."
+    },
+    "refined_data.emas.ionian_islands_el62_records": {
+      "type": "integer",
+      "unit": "organisations",
+      "role": "target_indicator",
+      "description": "Verified EMAS-registered organisations in Ionian Islands EL62 (0)."
+    },
+    "refined_data.eu_ecolabel.greece_licences": {
+      "type": "integer",
+      "unit": "licences",
+      "role": "context_metric",
+      "description": "Total EU Ecolabel licences in Greece across all product groups (450)."
+    },
+    "refined_data.eu_ecolabel.ionian_islands_el62_tourist_accommodation": {
+      "type": "integer",
+      "unit": "licences",
+      "role": "target_indicator",
+      "description": "Verified EU Ecolabel tourist-accommodation licences in Ionian Islands EL62 (0)."
+    }
+  },
+  "refined_data": {
+    "emas": {
+      "source_id": "EMAS_register_REST",
+      "url": "https://webgate.ec.europa.eu/emas2/public/rest/registration/list",
+      "accessed_at": "2026-10-02T00:00:00Z",
+      "full_list": {
+        "total_records": 4523,
+        "distinct_countries": 27,
+        "checksum_sha256": "c8546768319f2f35796698a729b29c1375995f556b146877dca61ff2678e3288",
+        "content_type": "application/json",
+        "size_bytes": 14650764
+      },
+      "greece_records": 37,
+      "ionian_islands_el62_records": 0,
+      "redaction": {
+        "note": "email and phone contact fields removed from greece_sample records: personal data under GDPR, unnecessary for the Data05 count.",
+        "redacted_fields": [
+          "email",
+          "phone"
+        ],
+        "records_redacted": 37,
+        "redacted_at_utc": "2026-10-14T12:30:03.883323+00:00"
+      }
+    },
+    "emas_greece_sample_count": 37,
+    "eu_ecolabel": {
+      "source_id": "EU_Ecolabel_catalogue_CSV",
+      "url": "https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv",
+      "accessed_at": "2026-10-02T00:00:00Z",
+      "full_export": {
+        "total_licences": 89298,
+        "distinct_country_values": 49,
+        "checksum_sha256": "7a3d424d7d8b031b1516416e923b024cd47b83e3417308870b37334b9235592d",
+        "content_type": "text/csv",
+        "size_bytes": 17153575,
+        "extract_date": "2026-10-01"
+      },
+      "greece_licences": 450,
+      "greece_group_breakdown": {
+        "Decorative paints, varnishes, and related products (2014 criteria)": 400,
+        "Lubricants": 32,
+        "Hard Surface Cleaning Products": 8,
+        "Bed mattresses": 5,
+        "Textile products": 3,
+        "Hand dishwashing detergents": 2
+      },
+      "tourist_accommodation_group": {
+        "total": 1009,
+        "greece": 0,
+        "by_country": {
+          "France": 382,
+          "Austria": 262,
+          "Italy": 86,
+          "Slovenia": 78,
+          "Spain": 60,
+          "Germany": 45,
+          "Netherlands": 22,
+          "Croatia": 19,
+          "Romania": 9,
+          "Czech Republic": 8
+        }
+      },
+      "ionian_islands_el62_tourist_accommodation": 0
+    }
+  },
+  "observations_count": 0,
+  "observations": []
+}

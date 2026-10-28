@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data06",
+  "indicator_name": "Airport congestion",
+  "indicator_name_el": null,
+  "category": "dynamic_congestion",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/pull-data06-airport-congestion.py",
+  "raw_sources": [
+    {
+      "source_id": "OpenSky_States_live",
+      "provider": "OpenSky Network",
+      "upstream_url": "https://opensky-network.org/api/states/all?lamin=37.0&lomin=19.0&lamax=40.5&lomax=22.0",
+      "access_method": "GET (anonymous REST JSON API)",
+      "raw_file_path": "data/raw/opensky-ionian-states-20261020-105525.json",
+      "raw_format": "application/json (OpenSky state-vector array)",
+      "manifest": "data/manifests/source-verification-2026-10-20.json",
+      "sha256": "9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a",
+      "raw_schema_description": {
+        "time": "Unix epoch timestamp of state poll",
+        "states[][0] (icao24)": "24-bit ICAO transponder hex address",
+        "states[][1] (callsign)": "Flight callsign string",
+        "states[][2] (origin_country)": "Aircraft registration country",
+        "states[][5..6] (lon, lat)": "WGS84 longitude and latitude",
+        "states[][7] (baro_altitude)": "Barometric altitude in meters",
+        "states[][8] (on_ground)": "Boolean flag indicating surface status",
+        "states[][9] (velocity)": "Ground speed in m/s"
+      },
+      "raw_variables_kept": [
+        "icao24",
+        "callsign",
+        "origin_country",
+        "longitude",
+        "latitude",
+        "baro_altitude",
+        "on_ground",
+        "velocity"
+      ],
+      "raw_variables_dropped": [
+        "sensors",
+        "spi",
+        "position_source",
+        "squawk"
+      ],
+      "conversion_script": "scripts/verification/pull-data06-airport-congestion.py",
+      "conversion_command": "python3 scripts/verification/pull-data06-airport-congestion.py"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data28",
+  "indicator_name": "Occupancy rate (%)",
+  "indicator_name_el": null,
+  "category": "tourism_performance",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py",
+  "raw_sources": [
+    {
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "provider": "European Commission / Joint Research Centre (JRC) — EU Tourism Dashboard",
+      "upstream_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/TOURISM/2024/LATEST/2024_TourismDashboard_Indicators_Export.csv",
+      "access_method": "GET (public CSV bulk export)",
+      "raw_file_path": "data/raw/eutd-tourism-dashboard-2024-indicators.csv",
+      "raw_format": "text/csv (UTF-8, comma-delimited, 81,939 rows)",
+      "manifest": "data/manifests/source-verification-2026-10-03.json",
+      "sha256": "ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12",
+      "raw_schema_description": {
+        "pillar": "Dashboard sustainability pillar ('Green', 'Digital', 'Socio-economic', 'Basic descriptors')",
+        "code": "Indicator code (filtered to 'TOUR_DES_04')",
+        "indicator": "Human-readable indicator title in the JRC export",
+        "year": "Reference calendar year (filtered to 2023)",
+        "nuts_code_2021": "Eurostat NUTS 2021 code (filtered to 'EL62' Ionian Islands)",
+        "unit": "Unit of measure string",
+        "value": "Numeric indicator value"
+      },
+      "raw_variables_kept": [
+        "code ('TOUR_DES_04')",
+        "nuts_code_2021 ('EL62')",
+        "year (2023)",
+        "value",
+        "unit"
+      ],
+      "raw_variables_dropped": [
+        "pillar",
+        "component",
+        "non_EL62_rows",
+        "other_indicator_codes"
+      ],
+      "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py",
+      "conversion_command": "python3 scripts/verification/extract-eutd-dashboard-csv.py && python3 scripts/verification/build_indicator_folders.py"
+    }
+  ]
+}

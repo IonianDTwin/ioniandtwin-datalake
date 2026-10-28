@@ -1,0 +1,1246 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data02",
+  "indicator_name": "Excellent bathing waters (%)",
+  "indicator_name_el": "Άριστα νερά κολύμβησης (%)",
+  "category": "environmental_health_pollutants",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "EEA_BWD_Discomap_2024",
+      "provider": "European Environment Agency (EEA) — Water Discomap ArcGIS REST",
+      "upstream_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+      "raw_file_path": "data/raw/eea-bwd-greece-2024.geojson",
+      "sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+      "conversion_script": "scripts/verification/pull-data02-bathing-water-el62.py"
+    },
+    {
+      "source_id": "Eurostat_GISCO_NUTS_2021",
+      "provider": "Eurostat GISCO",
+      "upstream_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_3035_LEVL_2.geojson",
+      "raw_file_path": "data/raw/gisco-nuts-2021-3035-EL62.geojson",
+      "sha256": "6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d",
+      "conversion_script": "scripts/verification/pull-data02-bathing-water-el62.py"
+    },
+    {
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "provider": "European Commission / Joint Research Centre (JRC) — EU Tourism Dashboard",
+      "upstream_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/TOURISM/2024/LATEST/2024_TourismDashboard_Indicators_Export.csv",
+      "raw_file_path": "data/raw/eutd-tourism-dashboard-2024-indicators.csv",
+      "sha256": "ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12",
+      "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/pull-data02-bathing-water-el62.py",
+  "transformation_rule": "Spatial join of EEA 2024 Greece bathing water monitoring points with Eurostat GISCO EL62 land polygon buffered 3,000 m seaward (EPSG:3035) via scripts/verification/pull-data02-bathing-water-el62.py. Compute pct_excellent_classified = excellent / classified_sites * 100 (170 / 171 = 99.42%) and pct_excellent_total = excellent / total_sites * 100 (170 / 173 = 98.27%). Reconciled with EU Tourism Dashboard TOUR_ENV_05 (2023 EL62 = 98.82%) and national 1990-2024 Discodata SQL series.",
+  "feature_dictionary": {
+    "refined_data.el62_spatial_join_2024.el62_regional_nuts2.total_sites": {
+      "type": "integer",
+      "unit": "sites",
+      "role": "input_variable",
+      "description": "Total EEA bathing water monitoring points inside the 3 km EL62 coastal buffer (173)."
+    },
+    "refined_data.el62_spatial_join_2024.el62_regional_nuts2.classified_sites": {
+      "type": "integer",
+      "unit": "sites",
+      "role": "input_variable",
+      "description": "Classified bathing water sites in EL62 in 2024 (171)."
+    },
+    "refined_data.el62_spatial_join_2024.el62_regional_nuts2.excellent": {
+      "type": "integer",
+      "unit": "sites",
+      "role": "input_variable",
+      "description": "Sites rated '1 - Excellent' in EL62 in 2024 (170)."
+    },
+    "refined_data.el62_spatial_join_2024.el62_regional_nuts2.pct_excellent_classified": {
+      "type": "number",
+      "unit": "%",
+      "role": "target_indicator",
+      "description": "Share of classified bathing waters in EL62 rated Excellent (99.42%)."
+    },
+    "refined_data.el62_spatial_join_2024.by_nuts3_island": {
+      "type": "object",
+      "unit": "sites_and_pct",
+      "role": "internal_disaggregation",
+      "description": "NUTS3 island breakdown (EL621 Zakynthos, EL622 Kerkyra, EL623 Ithaki/Kefallinia, EL624 Lefkada)."
+    },
+    "refined_data.dashboard_benchmark_2023": {
+      "type": "object",
+      "unit": "%",
+      "role": "target_indicator",
+      "description": "EU Tourism Dashboard TOUR_ENV_05 2023 value for EL62 (98.82%)."
+    },
+    "refined_data.national_series_1990_2024": {
+      "type": "array",
+      "unit": "%",
+      "role": "target_indicator",
+      "description": "35-year national Greece bathing water series from EEA Discodata SQL."
+    }
+  },
+  "refined_data": {
+    "el62_spatial_join_2024": {
+      "generated_at_utc": "2026-10-20T11:16:08Z",
+      "season": 2024,
+      "source": "EEA WISE Bathing Water Directive 2024 (Discomap ArcGIS MapServer layer 3)",
+      "source_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+      "raw_geojson": "data/raw/eea-bwd-greece-2024.geojson",
+      "raw_sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+      "spatial_method": "Point-in-polygon spatial join with Eurostat GISCO EPSG:3035 EL62 land polygon buffered by 3000m seaward",
+      "greece_total": {
+        "total_bathing_waters": 1729
+      },
+      "el62_regional_nuts2": {
+        "total_sites": 173,
+        "classified_sites": 171,
+        "not_classified": 2,
+        "excellent": 170,
+        "good": 1,
+        "sufficient": 0,
+        "poor": 0,
+        "pct_excellent_classified": 99.42,
+        "pct_excellent_total": 98.27,
+        "pct_clean_water_classified": 100.0
+      },
+      "by_nuts3_island": {
+        "EL621": {
+          "nuts_id": "EL621",
+          "name": "Ζάκυνθος",
+          "total_sites": 32,
+          "classified_sites": 32,
+          "excellent": 32,
+          "good": 0,
+          "sufficient": 0,
+          "poor": 0,
+          "not_classified": 0,
+          "pct_excellent_classified": 100.0
+        },
+        "EL622": {
+          "nuts_id": "EL622",
+          "name": "Κέρκυρα",
+          "total_sites": 75,
+          "classified_sites": 73,
+          "excellent": 72,
+          "good": 1,
+          "sufficient": 0,
+          "poor": 0,
+          "not_classified": 2,
+          "pct_excellent_classified": 98.63
+        },
+        "EL623": {
+          "nuts_id": "EL623",
+          "name": "Ιθάκη, Κεφαλληνία",
+          "total_sites": 45,
+          "classified_sites": 45,
+          "excellent": 45,
+          "good": 0,
+          "sufficient": 0,
+          "poor": 0,
+          "not_classified": 0,
+          "pct_excellent_classified": 100.0
+        },
+        "EL624": {
+          "nuts_id": "EL624",
+          "name": "Λευκάδα",
+          "total_sites": 21,
+          "classified_sites": 21,
+          "excellent": 21,
+          "good": 0,
+          "sufficient": 0,
+          "poor": 0,
+          "not_classified": 0,
+          "pct_excellent_classified": 100.0
+        }
+      }
+    },
+    "dashboard_benchmark_2023": {
+      "data_id": "Data02",
+      "code": "TOUR_ENV_05",
+      "year": 2023,
+      "unit": "%",
+      "value": 98.82
+    },
+    "national_series_1990_2024": [
+      {
+        "season": 1990,
+        "total": 613,
+        "excellent": 136,
+        "pct_excellent": 22.19
+      },
+      {
+        "season": 1991,
+        "total": 1024,
+        "excellent": 702,
+        "pct_excellent": 68.55
+      },
+      {
+        "season": 1992,
+        "total": 1179,
+        "excellent": 1059,
+        "pct_excellent": 89.82
+      },
+      {
+        "season": 1993,
+        "total": 1263,
+        "excellent": 1160,
+        "pct_excellent": 91.84
+      },
+      {
+        "season": 1994,
+        "total": 1289,
+        "excellent": 1152,
+        "pct_excellent": 89.37
+      },
+      {
+        "season": 1995,
+        "total": 1516,
+        "excellent": 1440,
+        "pct_excellent": 94.99
+      },
+      {
+        "season": 1996,
+        "total": 1669,
+        "excellent": 1595,
+        "pct_excellent": 95.57
+      },
+      {
+        "season": 1997,
+        "total": 1677,
+        "excellent": 1584,
+        "pct_excellent": 94.45
+      },
+      {
+        "season": 1998,
+        "total": 1714,
+        "excellent": 1643,
+        "pct_excellent": 95.86
+      },
+      {
+        "season": 1999,
+        "total": 1797,
+        "excellent": 1716,
+        "pct_excellent": 95.49
+      },
+      {
+        "season": 2000,
+        "total": 1837,
+        "excellent": 1744,
+        "pct_excellent": 94.94
+      },
+      {
+        "season": 2001,
+        "total": 1874,
+        "excellent": 1813,
+        "pct_excellent": 96.74
+      },
+      {
+        "season": 2002,
+        "total": 1905,
+        "excellent": 1855,
+        "pct_excellent": 97.38
+      },
+      {
+        "season": 2003,
+        "total": 1924,
+        "excellent": 1864,
+        "pct_excellent": 96.88
+      },
+      {
+        "season": 2004,
+        "total": 1956,
+        "excellent": 1907,
+        "pct_excellent": 97.49
+      },
+      {
+        "season": 2005,
+        "total": 1995,
+        "excellent": 1954,
+        "pct_excellent": 97.94
+      },
+      {
+        "season": 2006,
+        "total": 2039,
+        "excellent": 1973,
+        "pct_excellent": 96.76
+      },
+      {
+        "season": 2007,
+        "total": 2055,
+        "excellent": 1960,
+        "pct_excellent": 95.38
+      },
+      {
+        "season": 2008,
+        "total": 2107,
+        "excellent": 2046,
+        "pct_excellent": 97.1
+      },
+      {
+        "season": 2009,
+        "total": 2107,
+        "excellent": 1274,
+        "pct_excellent": 60.47
+      },
+      {
+        "season": 2010,
+        "total": 2155,
+        "excellent": 2029,
+        "pct_excellent": 94.15
+      },
+      {
+        "season": 2011,
+        "total": 2155,
+        "excellent": 2039,
+        "pct_excellent": 94.62
+      },
+      {
+        "season": 2012,
+        "total": 2155,
+        "excellent": 2010,
+        "pct_excellent": 93.27
+      },
+      {
+        "season": 2013,
+        "total": 2164,
+        "excellent": 2016,
+        "pct_excellent": 93.16
+      },
+      {
+        "season": 2014,
+        "total": 1540,
+        "excellent": 1494,
+        "pct_excellent": 97.01
+      },
+      {
+        "season": 2015,
+        "total": 1542,
+        "excellent": 1499,
+        "pct_excellent": 97.21
+      },
+      {
+        "season": 2016,
+        "total": 1542,
+        "excellent": 1496,
+        "pct_excellent": 97.02
+      },
+      {
+        "season": 2017,
+        "total": 1600,
+        "excellent": 1533,
+        "pct_excellent": 95.81
+      },
+      {
+        "season": 2018,
+        "total": 1599,
+        "excellent": 1550,
+        "pct_excellent": 96.94
+      },
+      {
+        "season": 2019,
+        "total": 1635,
+        "excellent": 1564,
+        "pct_excellent": 95.66
+      },
+      {
+        "season": 2020,
+        "total": 1635,
+        "excellent": 1586,
+        "pct_excellent": 97.0
+      },
+      {
+        "season": 2021,
+        "total": 1683,
+        "excellent": 1612,
+        "pct_excellent": 95.78
+      },
+      {
+        "season": 2022,
+        "total": 1682,
+        "excellent": 1624,
+        "pct_excellent": 96.55
+      },
+      {
+        "season": 2023,
+        "total": 1731,
+        "excellent": 1659,
+        "pct_excellent": 95.84
+      },
+      {
+        "season": 2024,
+        "total": 1729,
+        "excellent": 1677,
+        "pct_excellent": 96.99
+      }
+    ]
+  },
+  "observations_count": 37,
+  "observations": [
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1990",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1990",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 22.19,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(136) / total(613) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1991",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1991",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 68.55,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(702) / total(1024) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1992",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1992",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 89.82,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1059) / total(1179) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1993",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1993",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 91.84,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1160) / total(1263) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1994",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1994",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 89.37,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1152) / total(1289) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1995",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1995",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 94.99,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1440) / total(1516) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1996",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1996",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 95.57,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1595) / total(1669) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1997",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1997",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 94.45,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1584) / total(1677) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1998",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1998",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 95.86,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1643) / total(1714) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:1999",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "1999",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 95.49,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1716) / total(1797) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2000",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2000",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 94.94,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1744) / total(1837) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2001",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2001",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 96.74,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1813) / total(1874) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2002",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2002",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 97.38,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1855) / total(1905) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2003",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2003",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 96.88,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1864) / total(1924) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2004",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2004",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 97.49,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1907) / total(1956) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2005",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2005",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 97.94,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1954) / total(1995) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2006",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2006",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 96.76,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1973) / total(2039) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2007",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2007",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 95.38,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1960) / total(2055) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2008",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2008",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 97.1,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(2046) / total(2107) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2009",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2009",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 60.47,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1274) / total(2107) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2010",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2010",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 94.15,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(2029) / total(2155) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2011",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2011",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 94.62,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(2039) / total(2155) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2012",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2012",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 93.27,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(2010) / total(2155) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2013",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2013",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 93.16,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(2016) / total(2164) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2014",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2014",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 97.01,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1494) / total(1540) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2015",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2015",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 97.21,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1499) / total(1542) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2016",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2016",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 97.02,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1496) / total(1542) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2017",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2017",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 95.81,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1533) / total(1600) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2018",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2018",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 96.94,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1550) / total(1599) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2019",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2019",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 95.66,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1564) / total(1635) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2020",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2020",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 97.0,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1586) / total(1635) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2021",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2021",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 95.78,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1612) / total(1683) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2022",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2022",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 96.55,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1624) / total(1682) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2023",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 95.84,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1659) / total(1731) * 100"
+      }
+    },
+    {
+      "observation_id": "EEA_WISE_BWD:Data02:pct_excellent:2024",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "% excellent (of all monitored)",
+      "source_id": "EEA_WISE_BWD_assessment",
+      "observed_at": "2024",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "country",
+        "code": "EL",
+        "geometry": null
+      },
+      "value": 96.99,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "pct_excellent = excellent(1677) / total(1729) * 100"
+      }
+    },
+    {
+      "observation_id": "EU_Tourism_Dashboard:Data02:excellent_bathing_water:2023",
+      "indicator_id": "Data02",
+      "indicator_name": "Excellent bathing waters (%)",
+      "series_label": "share of bathing waters rated excellent",
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 98.82,
+      "unit": "%",
+      "polarity": "positive",
+      "provenance": {
+        "access_method": "download",
+        "request_url": "EU Tourism Dashboard TOUR_ENV_05 (2024 export), EL62 2023"
+      }
+    },
+    {
+      "observation_id": "EEA_BWD_Discomap_2024:Data02:pct_excellent:EL62:2024",
+      "indicator_id": "Data02",
+      "indicator_name": "Coastal water cleanliness",
+      "series_label": "pct_excellent",
+      "source_id": "EEA_BWD_Discomap_2024",
+      "observed_at": "2024-01-01",
+      "observed_period_end": "2024-12-31",
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T11:16:08Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 99.42,
+      "unit": "%",
+      "polarity": "positive",
+      "quality": {
+        "coverage": 1.0,
+        "completeness": 0.9884,
+        "plausibility": "spatial_join_gisco_el62_eea_points",
+        "cross_verified": false
+      },
+      "provenance": {
+        "raw_checksum_sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+        "raw_manifest": "source-verification-2026-10-20",
+        "access_method": "api",
+        "request_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+        "request_params": {
+          "raw_geojson": "data/raw/eea-bwd-greece-2024.geojson",
+          "method": "Spatial join of 1,729 Greece EEA bathing water points against GISCO EL62 with 3km coastal buffer",
+          "total_sites_el62": 173,
+          "classified_sites": 171,
+          "excellent_count": 170
+        }
+      }
+    }
+  ]
+}

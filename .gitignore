@@ -14,12 +14,10 @@ env/
 .env.*
 *.env.local
 
-# Data — keep raw/sensitive data out of Git; curated observations are small,
-# public, non-sensitive aggregates and are intentionally tracked for publication.
+# Data — keep raw/sensitive data out of Git; curated observations and per-indicator
+# summaries are small, public, non-sensitive aggregates and are intentionally tracked.
 data/raw/*
-data/staging/*
 !data/raw/.gitkeep
-!data/staging/.gitkeep
 !data/samples/.gitkeep
 !data/manifests/.gitkeep
 

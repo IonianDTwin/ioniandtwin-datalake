@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data13",
+  "indicator_name": "Weather conditions (temp, rain, …)",
+  "indicator_name_el": null,
+  "category": "climate_adaptation",
+  "status": "VERIFIED",
+  "cadence": "daily",
+  "source_citations": [
+    {
+      "source_id": "OpenMeteo_forecast",
+      "provider": "Open-Meteo (open-meteo.com)",
+      "upstream_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1",
+      "raw_file_path": "data/samples/open-meteo-corfu-forecast-2026-09-22.json",
+      "sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+      "conversion_script": "scripts/verification/pull-open-meteo.sh -> scripts/verification/build_dashboard.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/pull-open-meteo.sh -> scripts/verification/build_dashboard.py",
+  "transformation_rule": "Extract current surface meteorological observations (temperature_2m, relative_humidity_2m, apparent_temperature) at the Corfu reference point (39.62N, 19.92E) via `scripts/verification/build_dashboard.py`.",
+  "feature_dictionary": {
+    "refined_data.current.time": {
+      "type": "string",
+      "unit": "ISO-8601",
+      "role": "temporal_dimension",
+      "description": "Observation timestamp in Europe/Athens timezone."
+    },
+    "refined_data.current.temperature_2m": {
+      "type": "number",
+      "unit": "°C",
+      "role": "target_indicator",
+      "description": "Air temperature at 2 meters above ground (26.5 °C)."
+    },
+    "refined_data.current.relative_humidity_2m": {
+      "type": "number",
+      "unit": "%",
+      "role": "target_indicator",
+      "description": "Relative humidity at 2 meters above ground (57%)."
+    },
+    "refined_data.current.apparent_temperature": {
+      "type": "number",
+      "unit": "°C",
+      "role": "target_indicator",
+      "description": "Apparent (feels-like) temperature combining wind and humidity (28.8 °C)."
+    }
+  },
+  "refined_data": {
+    "latitude": 39.625,
+    "longitude": 19.875,
+    "timezone": "Europe/Athens",
+    "current_units": {
+      "time": "iso8601",
+      "interval": "seconds",
+      "temperature_2m": "°C",
+      "relative_humidity_2m": "%",
+      "apparent_temperature": "°C"
+    },
+    "current": {
+      "time": "2026-09-22T14:15",
+      "interval": 900,
+      "temperature_2m": 26.5,
+      "relative_humidity_2m": 57,
+      "apparent_temperature": 28.8
+    }
+  },
+  "observations_count": 3,
+  "observations": [
+    {
+      "observation_id": "OpenMeteo_forecast:Data13:air temperature:2026-09-22T14:15",
+      "indicator_id": "Data13",
+      "indicator_name": "Weather conditions (temp, rain, …)",
+      "series_label": "air temperature",
+      "source_id": "OpenMeteo_forecast",
+      "observed_at": "2026-09-22T14:15",
+      "observed_period_end": null,
+      "temporal_granularity": "instant",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "point",
+        "code": "39.62,19.92",
+        "geometry": null
+      },
+      "value": 26.5,
+      "unit": "°C",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+        "access_method": "api",
+        "request_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1"
+      }
+    },
+    {
+      "observation_id": "OpenMeteo_forecast:Data13:relative humidity:2026-09-22T14:15",
+      "indicator_id": "Data13",
+      "indicator_name": "Weather conditions (temp, rain, …)",
+      "series_label": "relative humidity",
+      "source_id": "OpenMeteo_forecast",
+      "observed_at": "2026-09-22T14:15",
+      "observed_period_end": null,
+      "temporal_granularity": "instant",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "point",
+        "code": "39.62,19.92",
+        "geometry": null
+      },
+      "value": 57,
+      "unit": "%",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+        "access_method": "api",
+        "request_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1"
+      }
+    },
+    {
+      "observation_id": "OpenMeteo_forecast:Data13:apparent (feels-like) temperature:2026-09-22T14:15",
+      "indicator_id": "Data13",
+      "indicator_name": "Weather conditions (temp, rain, …)",
+      "series_label": "apparent (feels-like) temperature",
+      "source_id": "OpenMeteo_forecast",
+      "observed_at": "2026-09-22T14:15",
+      "observed_period_end": null,
+      "temporal_granularity": "instant",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "point",
+        "code": "39.62,19.92",
+        "geometry": null
+      },
+      "value": 28.8,
+      "unit": "°C",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+        "access_method": "api",
+        "request_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1"
+      }
+    }
+  ]
+}

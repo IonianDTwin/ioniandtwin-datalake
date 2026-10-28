@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data23",
+  "indicator_name": "Density of cultural elements",
+  "indicator_name_el": null,
+  "category": "spatial_sustainability",
+  "status": "VERIFIED",
+  "cadence": "on-change",
+  "source_citations": [
+    {
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "provider": "European Commission / Joint Research Centre (JRC) — EU Tourism Dashboard",
+      "upstream_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/TOURISM/2024/LATEST/2024_TourismDashboard_Indicators_Export.csv",
+      "raw_file_path": "data/raw/eutd-tourism-dashboard-2024-indicators.csv",
+      "sha256": "ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12",
+      "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py",
+  "transformation_rule": "Filter raw CSV `data/raw/eutd-tourism-dashboard-2024-indicators.csv` via `scripts/verification/extract-eutd-dashboard-csv.py` to `code == 'TOUR_DES_14'` ('Cultural assets density') and `nuts_code_2021 == 'EL62'` (year 2023).",
+  "feature_dictionary": {
+    "refined_data.cultural_assets_density.code": {
+      "type": "string",
+      "unit": "code",
+      "role": "filter_dimension",
+      "description": "EU Tourism Dashboard indicator code (TOUR_DES_14)."
+    },
+    "refined_data.cultural_assets_density.year": {
+      "type": "integer",
+      "unit": "year",
+      "role": "temporal_dimension",
+      "description": "Reference year (2023)."
+    },
+    "refined_data.cultural_assets_density.value": {
+      "type": "number",
+      "unit": "no. of cultural assets / 100 km²",
+      "role": "target_indicator",
+      "description": "Density of cultural assets in EL62 (9.073 per 100 km²)."
+    }
+  },
+  "refined_data": {
+    "cultural_assets_density": {
+      "data_id": "Data23",
+      "code": "TOUR_DES_14",
+      "year": 2023,
+      "unit": "no. of cultural assets / 100km<sup>2</sup>",
+      "value": 9.073
+    }
+  },
+  "observations_count": 1,
+  "observations": [
+    {
+      "observation_id": "EU_Tourism_Dashboard:Data23:cultural_assets_density:2023",
+      "indicator_id": "Data23",
+      "indicator_name": "Density of cultural elements",
+      "series_label": "cultural assets per 100 km²",
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 9.073,
+      "unit": "no. of cultural assets / 100 km²",
+      "polarity": null,
+      "provenance": {
+        "access_method": "download",
+        "request_url": "EU Tourism Dashboard TOUR_DES_14 (2024 export), EL62 2023"
+      }
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data20",
+  "indicator_name": "Internet speed (>100 Mb/s)",
+  "indicator_name_el": null,
+  "category": "digital_infrastructure",
+  "status": "VERIFIED",
+  "cadence": "quarterly",
+  "source_citations": [
+    {
+      "source_id": "Ookla_OpenData_fixed",
+      "provider": "Ookla (Speedtest Global Performance Open Data on AWS S3)",
+      "upstream_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+      "raw_file_path": "data/raw/ookla-performance-fixed-2024Q3.zip",
+      "sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+      "conversion_script": "scripts/verification/compute-data20-internet-speed.py"
+    },
+    {
+      "source_id": "Ookla_OpenData_mobile",
+      "provider": "Ookla (Speedtest Global Performance Open Data on AWS S3)",
+      "upstream_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+      "raw_file_path": "data/raw/ookla-performance-mobile-2024Q3.zip",
+      "sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+      "conversion_script": "scripts/verification/compute-data20-internet-speed.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/compute-data20-internet-speed.py",
+  "transformation_rule": "Spatially join Ookla 2024-Q3 zoom-16 slippy-map tile shapefiles (fixed and mobile) against the Eurostat GISCO NUTS2 EL62 polygon via `scripts/verification/compute-data20-internet-speed.py`. Compute test-weighted mean download/upload throughput in Mbps: sum(avg_d_kbps * tests) / sum(tests) / 1000.",
+  "feature_dictionary": {
+    "refined_data.networks.<type>.regional_nuts2_el62.tiles_count": {
+      "type": "integer",
+      "unit": "tiles",
+      "role": "quality_metric",
+      "description": "Number of Ookla zoom-16 tiles intersecting EL62 (fixed=2,795; mobile=1,880)."
+    },
+    "refined_data.networks.<type>.regional_nuts2_el62.tests_count": {
+      "type": "integer",
+      "unit": "tests",
+      "role": "input_variable",
+      "description": "Total Speedtest measurements inside EL62 tiles (fixed=41,552; mobile=11,296)."
+    },
+    "refined_data.networks.<type>.regional_nuts2_el62.weighted_avg_download_mbps": {
+      "type": "number",
+      "unit": "Mbps",
+      "role": "target_indicator",
+      "description": "Test-weighted mean download speed across EL62 (fixed=42.29 Mbps; mobile=107.48 Mbps)."
+    },
+    "refined_data.networks.<type>.regional_nuts2_el62.weighted_avg_upload_mbps": {
+      "type": "number",
+      "unit": "Mbps",
+      "role": "target_indicator",
+      "description": "Test-weighted mean upload speed across EL62 (fixed=9.55 Mbps; mobile=15.31 Mbps)."
+    },
+    "refined_data.networks.<type>.regional_nuts2_el62.weighted_avg_latency_ms": {
+      "type": "number",
+      "unit": "ms",
+      "role": "context_metric",
+      "description": "Test-weighted mean round-trip latency across EL62 (fixed=49.6 ms; mobile=59.1 ms)."
+    },
+    "refined_data.networks.<type>.by_nuts3_island": {
+      "type": "object",
+      "unit": "Mbps",
+      "role": "internal_disaggregation",
+      "description": "Per-island (EL621..EL624) download, upload, latency, and test counts."
+    }
+  },
+  "refined_data": {
+    "generated_at_utc": "2026-10-20T11:01:12Z",
+    "period": "2024 Q3 (July - September 2024)",
+    "spatial_boundary": "Eurostat GISCO NUTS 2021 EL62 (Ionian Islands)",
+    "networks": {
+      "fixed": {
+        "network_type": "fixed",
+        "type_label": "fixed broadband",
+        "source_archive": "ookla-performance-fixed-2024Q3.zip",
+        "archive_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+        "source_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+        "period": "2024 Q3 (2024-07-01)",
+        "regional_nuts2_el62": {
+          "tiles_count": 2795,
+          "tests_count": 41552,
+          "devices_count": 18089,
+          "weighted_avg_download_mbps": 42.29,
+          "weighted_avg_upload_mbps": 9.55,
+          "weighted_avg_latency_ms": 49.6,
+          "unweighted_tile_mean_download_mbps": 39.14
+        },
+        "by_nuts3_island": {
+          "EL621": {
+            "nuts_id": "EL621",
+            "name": "Ζάκυνθος",
+            "tiles_count": 567,
+            "tests_count": 9386,
+            "devices_count": 4141,
+            "avg_download_mbps": 45.11,
+            "avg_upload_mbps": 11.43,
+            "avg_latency_ms": 39.5
+          },
+          "EL622": {
+            "nuts_id": "EL622",
+            "name": "Κέρκυρα",
+            "tiles_count": 1197,
+            "tests_count": 19575,
+            "devices_count": 8622,
+            "avg_download_mbps": 43.7,
+            "avg_upload_mbps": 9.85,
+            "avg_latency_ms": 52.8
+          },
+          "EL623": {
+            "nuts_id": "EL623",
+            "name": "Ιθάκη, Κεφαλληνία",
+            "tiles_count": 640,
+            "tests_count": 7342,
+            "devices_count": 2999,
+            "avg_download_mbps": 32.34,
+            "avg_upload_mbps": 7.11,
+            "avg_latency_ms": 49.2
+          },
+          "EL624": {
+            "nuts_id": "EL624",
+            "name": "Λευκάδα",
+            "tiles_count": 391,
+            "tests_count": 5249,
+            "devices_count": 2327,
+            "avg_download_mbps": 45.91,
+            "avg_upload_mbps": 8.44,
+            "avg_latency_ms": 55.9
+          }
+        }
+      },
+      "mobile": {
+        "network_type": "mobile",
+        "type_label": "mobile broadband",
+        "source_archive": "ookla-performance-mobile-2024Q3.zip",
+        "archive_sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+        "source_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+        "period": "2024 Q3 (2024-07-01)",
+        "regional_nuts2_el62": {
+          "tiles_count": 1880,
+          "tests_count": 11296,
+          "devices_count": 6248,
+          "weighted_avg_download_mbps": 107.48,
+          "weighted_avg_upload_mbps": 15.31,
+          "weighted_avg_latency_ms": 59.1,
+          "unweighted_tile_mean_download_mbps": 95.64
+        },
+        "by_nuts3_island": {
+          "EL621": {
+            "nuts_id": "EL621",
+            "name": "Ζάκυνθος",
+            "tiles_count": 394,
+            "tests_count": 2462,
+            "devices_count": 1328,
+            "avg_download_mbps": 101.44,
+            "avg_upload_mbps": 14.97,
+            "avg_latency_ms": 61.8
+          },
+          "EL622": {
+            "nuts_id": "EL622",
+            "name": "Κέρκυρα",
+            "tiles_count": 766,
+            "tests_count": 4515,
+            "devices_count": 2522,
+            "avg_download_mbps": 114.19,
+            "avg_upload_mbps": 14.86,
+            "avg_latency_ms": 60.7
+          },
+          "EL623": {
+            "nuts_id": "EL623",
+            "name": "Ιθάκη, Κεφαλληνία",
+            "tiles_count": 430,
+            "tests_count": 2472,
+            "devices_count": 1256,
+            "avg_download_mbps": 99.02,
+            "avg_upload_mbps": 15.18,
+            "avg_latency_ms": 53.8
+          },
+          "EL624": {
+            "nuts_id": "EL624",
+            "name": "Λευκάδα",
+            "tiles_count": 290,
+            "tests_count": 1847,
+            "devices_count": 1142,
+            "avg_download_mbps": 110.47,
+            "avg_upload_mbps": 17.07,
+            "avg_latency_ms": 58.6
+          }
+        }
+      }
+    }
+  },
+  "observations_count": 4,
+  "observations": [
+    {
+      "observation_id": "Ookla_OpenData:Data20:fixed_download_mbps:2024-Q3",
+      "indicator_id": "Data20",
+      "indicator_name": "Internet speed",
+      "series_label": "fixed_download_mbps",
+      "source_id": "Ookla_OpenData_fixed",
+      "observed_at": "2024-07-01",
+      "observed_period_end": "2024-09-30",
+      "temporal_granularity": "quarterly",
+      "ingested_at": "2026-10-20T11:01:12Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 42.29,
+      "unit": "Mbps",
+      "polarity": "positive",
+      "quality": {
+        "coverage": 1.0,
+        "completeness": 1.0,
+        "plausibility": "spatial_join_gisco_el62",
+        "cross_verified": false
+      },
+      "provenance": {
+        "raw_checksum_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+        "raw_manifest": "source-verification-2026-10-20",
+        "access_method": "download",
+        "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+        "request_params": {
+          "archive": "ookla-performance-fixed-2024Q3.zip",
+          "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+          "tests_count": 41552,
+          "devices_count": 18089,
+          "tiles_count": 2795
+        }
+      }
+    },
+    {
+      "observation_id": "Ookla_OpenData:Data20:fixed_upload_mbps:2024-Q3",
+      "indicator_id": "Data20",
+      "indicator_name": "Internet speed",
+      "series_label": "fixed_upload_mbps",
+      "source_id": "Ookla_OpenData_fixed",
+      "observed_at": "2024-07-01",
+      "observed_period_end": "2024-09-30",
+      "temporal_granularity": "quarterly",
+      "ingested_at": "2026-10-20T11:01:12Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 9.55,
+      "unit": "Mbps",
+      "polarity": "positive",
+      "quality": {
+        "coverage": 1.0,
+        "completeness": 1.0,
+        "plausibility": "spatial_join_gisco_el62",
+        "cross_verified": false
+      },
+      "provenance": {
+        "raw_checksum_sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+        "raw_manifest": "source-verification-2026-10-20",
+        "access_method": "download",
+        "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+        "request_params": {
+          "archive": "ookla-performance-fixed-2024Q3.zip",
+          "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+          "tests_count": 41552
+        }
+      }
+    },
+    {
+      "observation_id": "Ookla_OpenData:Data20:mobile_download_mbps:2024-Q3",
+      "indicator_id": "Data20",
+      "indicator_name": "Internet speed",
+      "series_label": "mobile_download_mbps",
+      "source_id": "Ookla_OpenData_mobile",
+      "observed_at": "2024-07-01",
+      "observed_period_end": "2024-09-30",
+      "temporal_granularity": "quarterly",
+      "ingested_at": "2026-10-20T11:01:12Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 107.48,
+      "unit": "Mbps",
+      "polarity": "positive",
+      "quality": {
+        "coverage": 1.0,
+        "completeness": 1.0,
+        "plausibility": "spatial_join_gisco_el62",
+        "cross_verified": false
+      },
+      "provenance": {
+        "raw_checksum_sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+        "raw_manifest": "source-verification-2026-10-20",
+        "access_method": "download",
+        "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+        "request_params": {
+          "archive": "ookla-performance-mobile-2024Q3.zip",
+          "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+          "tests_count": 11296,
+          "devices_count": 6248,
+          "tiles_count": 1880
+        }
+      }
+    },
+    {
+      "observation_id": "Ookla_OpenData:Data20:mobile_upload_mbps:2024-Q3",
+      "indicator_id": "Data20",
+      "indicator_name": "Internet speed",
+      "series_label": "mobile_upload_mbps",
+      "source_id": "Ookla_OpenData_mobile",
+      "observed_at": "2024-07-01",
+      "observed_period_end": "2024-09-30",
+      "temporal_granularity": "quarterly",
+      "ingested_at": "2026-10-20T11:01:12Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 15.31,
+      "unit": "Mbps",
+      "polarity": "positive",
+      "quality": {
+        "coverage": 1.0,
+        "completeness": 1.0,
+        "plausibility": "spatial_join_gisco_el62",
+        "cross_verified": false
+      },
+      "provenance": {
+        "raw_checksum_sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+        "raw_manifest": "source-verification-2026-10-20",
+        "access_method": "download",
+        "request_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+        "request_params": {
+          "archive": "ookla-performance-mobile-2024Q3.zip",
+          "method": "Test-weighted average over tiles intersecting GISCO EPSG:3035 EL62 land polygon",
+          "tests_count": 11296
+        }
+      }
+    }
+  ]
+}

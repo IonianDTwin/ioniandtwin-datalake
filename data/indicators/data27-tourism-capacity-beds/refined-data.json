@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data27",
+  "indicator_name": "Tourism capacity (beds)",
+  "indicator_name_el": null,
+  "category": "tourism_performance",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "Eurostat_tour_cap_nuts2",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_cap_nuts2?format=JSON&geo=EL62&time=2022&time=2023",
+      "raw_file_path": "data/samples/eurostat-tour_cap_nuts2-EL62-2022-2023.json",
+      "sha256": "90d5c376d69fad77a36e7d077cc63545a4ba0e68afc2e8017578418395495ae3",
+      "conversion_script": "scripts/verification/build_dashboard.py"
+    },
+    {
+      "source_id": "ELSTAT_STO12_capacity",
+      "provider": "Hellenic Statistical Authority (ELSTAT) — Table STO12",
+      "upstream_url": "https://www.statistics.gr/en/statistics/-/publication/STO12/",
+      "raw_file_path": "data/samples/elstat-sto12-ionian-bedplaces-2021-2025.json",
+      "sha256": "68e1a44e39df1698f46b66c6ae32d054febb1d6e813c5e7e554153e5b59d81be",
+      "conversion_script": "scripts/verification/build_indicator_folders.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/build_dashboard.py",
+  "transformation_rule": "Extract total tourist accommodation bed-places (accomunit='BEDPL', unit='NR', nace_r2='I551-I553') for NUTS2 EL62 from Eurostat tour_cap_nuts2 via `scripts/verification/build_dashboard.py`, supplemented by ELSTAT STO12 regional-unit hotel bed capacity (2021-2025).",
+  "feature_dictionary": {
+    "refined_data.series[].series_label": {
+      "type": "string",
+      "unit": "label",
+      "role": "filter_dimension",
+      "description": "Capacity metric label ('bed-places', 'establishments', 'bedrooms')."
+    },
+    "refined_data.series[].value": {
+      "type": "number",
+      "unit": "count",
+      "role": "target_indicator",
+      "description": "Total bed-places in EL62 (159,790 in 2022; 155,968 in 2023)."
+    },
+    "refined_data.elstat_hotels_by_island_2021_2025": {
+      "type": "object",
+      "unit": "bed-places",
+      "role": "internal_disaggregation",
+      "description": "ELSTAT STO12 hotel bed-places by regional unit (Kerkyra, Zakynthos, Kefallinia, Lefkada, Ithaki)."
+    }
+  },
+  "refined_data": {
+    "series": [
+      {
+        "observation_id": "Eurostat_tour_cap_nuts2:Data27:bed-places:2022",
+        "series_label": "bed-places",
+        "observed_at": "2022",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 159790,
+        "unit": ""
+      },
+      {
+        "observation_id": "Eurostat_tour_cap_nuts2:Data27:bed-places:2023",
+        "series_label": "bed-places",
+        "observed_at": "2023",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 155968,
+        "unit": ""
+      }
+    ],
+    "elstat_hotels_by_island_2021_2025": {
+      "2021": {
+        "KERKYRA": 49444,
+        "ZAKYNTHOS": 36696,
+        "ITHAKI": 265,
+        "KEFALLINIA": 11449,
+        "LEFKADA": 5954
+      },
+      "2022": {
+        "KERKYRA": 49876,
+        "ZAKYNTHOS": 37664,
+        "ITHAKI": 265,
+        "KEFALLINIA": 11600,
+        "LEFKADA": 6091
+      },
+      "2023": {
+        "KERKYRA": 50844,
+        "ZAKYNTHOS": 37905,
+        "ITHAKI": 265,
+        "KEFALLINIA": 11802,
+        "LEFKADA": 6182
+      },
+      "2024": {
+        "KERKYRA": 50713,
+        "ZAKYNTHOS": 39138,
+        "ITHAKI": 265,
+        "KEFALLINIA": 11981,
+        "LEFKADA": 6209
+      },
+      "2025": {
+        "KERKYRA": 51413,
+        "ZAKYNTHOS": 39625,
+        "ITHAKI": 265,
+        "KEFALLINIA": 12041,
+        "LEFKADA": 6221
+      }
+    }
+  },
+  "observations_count": 2,
+  "observations": [
+    {
+      "observation_id": "Eurostat_tour_cap_nuts2:Data27:bed-places:2022",
+      "indicator_id": "Data27",
+      "indicator_name": "Tourism capacity (beds)",
+      "series_label": "bed-places",
+      "source_id": "Eurostat_tour_cap_nuts2",
+      "observed_at": "2022",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 159790,
+      "unit": "",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "90d5c376d69fad77a36e7d077cc63545a4ba0e68afc2e8017578418395495ae3",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_cap_nuts2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_cap_nuts2:Data27:bed-places:2023",
+      "indicator_id": "Data27",
+      "indicator_name": "Tourism capacity (beds)",
+      "series_label": "bed-places",
+      "source_id": "Eurostat_tour_cap_nuts2",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 155968,
+      "unit": "",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "90d5c376d69fad77a36e7d077cc63545a4ba0e68afc2e8017578418395495ae3",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_cap_nuts2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    }
+  ]
+}

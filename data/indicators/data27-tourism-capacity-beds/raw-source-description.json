@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data27",
+  "indicator_name": "Tourism capacity (beds)",
+  "indicator_name_el": null,
+  "category": "tourism_performance",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/build_dashboard.py",
+  "raw_sources": [
+    {
+      "source_id": "Eurostat_tour_cap_nuts2",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_cap_nuts2?format=JSON&geo=EL62&time=2022&time=2023",
+      "access_method": "GET (SDMX 2.1 JSON-stat 2.0 REST API, no key)",
+      "raw_file_path": "data/samples/eurostat-tour_cap_nuts2-EL62-2022-2023.json",
+      "raw_format": "application/json (SDMX 2.1 JSON-stat 2.0 cube)",
+      "manifest": "data/manifests/source-verification-2026-09-22.json",
+      "sha256": "90d5c376d69fad77a36e7d077cc63545a4ba0e68afc2e8017578418395495ae3",
+      "raw_schema_description": {
+        "dimension.accomunit": "Capacity unit ('BEDPL' bed-places, 'ESTBL' establishments, 'BEDRM' bedrooms)",
+        "dimension.unit": "'NR' (count)",
+        "dimension.nace_r2": "'I551-I553'",
+        "dimension.geo": "'EL62'",
+        "dimension.time": "'2022', '2023'",
+        "value": "Sparse map of capacity counts"
+      },
+      "raw_variables_kept": [
+        "dimension.accomunit (BEDPL, ESTBL, BEDRM)",
+        "dimension.unit (NR)",
+        "dimension.nace_r2",
+        "dimension.geo (EL62)",
+        "dimension.time",
+        "value"
+      ],
+      "raw_variables_dropped": [
+        "PCH_PRE"
+      ],
+      "conversion_script": "scripts/verification/build_dashboard.py",
+      "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py"
+    },
+    {
+      "source_id": "ELSTAT_STO12_capacity",
+      "provider": "Hellenic Statistical Authority (ELSTAT) — Table STO12",
+      "upstream_url": "https://www.statistics.gr/en/statistics/-/publication/STO12/",
+      "access_method": "GET (annual XLSX editions 2021-2025)",
+      "raw_file_path": "data/samples/elstat-sto12-ionian-bedplaces-2021-2025.json",
+      "raw_format": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet (elstat-sto12-2021..2025-capacity.xlsx) -> JSON",
+      "manifest": "data/manifests/source-verification-2026-10-01.json",
+      "sha256": "68e1a44e39df1698f46b66c6ae32d054febb1d6e813c5e7e554153e5b59d81be",
+      "raw_schema_description": {
+        "year": "Edition year ('2021'..'2025')",
+        "KERKYRA / ZAKYNTHOS / KEFALLINIA / LEFKADA / ITHAKI": "Hotel & similar establishment bed-places by regional unit"
+      },
+      "raw_variables_kept": [
+        "year",
+        "regional_unit",
+        "bed_places_hotels_and_similar"
+      ],
+      "raw_variables_dropped": [
+        "non_Ionian_regional_units"
+      ],
+      "conversion_script": "scripts/verification/build_indicator_folders.py",
+      "conversion_command": "python3 scripts/verification/build_indicator_folders.py"
+    }
+  ]
+}

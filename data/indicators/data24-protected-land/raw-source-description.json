@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data24",
+  "indicator_name": "Protected land (%)",
+  "indicator_name_el": null,
+  "category": "spatial_sustainability",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/compute-data24-protected-land.py",
+  "raw_sources": [
+    {
+      "source_id": "Eurostat_GISCO_NUTS_2021",
+      "provider": "Eurostat GISCO",
+      "upstream_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_3035_LEVL_2.geojson",
+      "access_method": "GET (GeoJSON boundary download)",
+      "raw_file_path": "data/raw/gisco-nuts-2021-3035-EL62.geojson",
+      "raw_format": "application/geo+json (EPSG:3035 equal-area MultiPolygon)",
+      "manifest": "data/manifests/source-verification-2026-10-03.json",
+      "sha256": "6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d",
+      "raw_schema_description": {
+        "properties.NUTS_ID": "NUTS2 code ('EL62')",
+        "properties.NAME_LATN": "Region name ('Ionia Nisia')",
+        "geometry": "MultiPolygon in EPSG:3035 LAEA projection"
+      },
+      "raw_variables_kept": [
+        "NUTS_ID",
+        "NAME_LATN",
+        "geometry"
+      ],
+      "raw_variables_dropped": [
+        "CNTR_CODE",
+        "MOUNT_TYPE",
+        "URBN_TYPE",
+        "COAST_TYPE"
+      ],
+      "conversion_script": "scripts/verification/pull-data02-bathing-water-el62.py",
+      "conversion_command": "python3 scripts/verification/pull-data02-bathing-water-el62.py"
+    },
+    {
+      "source_id": "EEA_ArcGIS_ProtectedSites_Natura2000_Habitats",
+      "provider": "European Environment Agency (EEA) — Natura 2000 Discomap ArcGIS REST",
+      "upstream_url": "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/Natura2000Sites/MapServer/0/query",
+      "access_method": "GET (ArcGIS REST GeoJSON query via scripts/verification/pull-data24-protected-land.py)",
+      "raw_file_path": "data/raw/eea-natura2000-el62-envelope-habitats-4326.geojson",
+      "raw_format": "application/geo+json (34 polygon features in EPSG:4326)",
+      "manifest": "data/manifests/source-verification-2026-10-03.json",
+      "sha256": "f3ea28641afac9d75171d7799febc6c902071137cd23fb4422bb8c8a8aa2d756",
+      "raw_schema_description": {
+        "properties.SITECODE": "Natura 2000 site identifier (e.g. 'GR2210001', 'GR2310001')",
+        "properties.SITENAME": "Official site name",
+        "properties.Area_ha": "Total site area including marine waters (hectares)",
+        "geometry": "Polygon/MultiPolygon site boundary"
+      },
+      "raw_variables_kept": [
+        "SITECODE",
+        "SITENAME",
+        "Area_ha",
+        "geometry"
+      ],
+      "raw_variables_dropped": [
+        "marine_portion_outside_EL62_land_polygon"
+      ],
+      "conversion_script": "scripts/verification/compute-data24-protected-land.py",
+      "conversion_command": "python3 scripts/verification/compute-data24-protected-land.py"
+    },
+    {
+      "source_id": "EEA_ArcGIS_ProtectedSites_Natura2000_Birds",
+      "provider": "European Environment Agency (EEA) — Natura 2000 Discomap ArcGIS REST",
+      "upstream_url": "https://bio.discomap.eea.europa.eu/arcgis/rest/services/ProtectedSites/Natura2000Sites/MapServer/1/query",
+      "access_method": "GET (ArcGIS REST GeoJSON query via scripts/verification/pull-data24-protected-land.py)",
+      "raw_file_path": "data/raw/eea-natura2000-el62-envelope-birds-4326.geojson",
+      "raw_format": "application/geo+json (25 polygon features in EPSG:4326)",
+      "manifest": "data/manifests/source-verification-2026-10-03.json",
+      "sha256": "1f4966760df6cabcec4f49101b6685be02a9023d714828e30069f5aad6fe212d",
+      "raw_schema_description": {
+        "properties.SITECODE": "Natura 2000 SPA site identifier",
+        "properties.SITENAME": "Official site name",
+        "properties.Area_ha": "Total SPA area including marine waters (hectares)",
+        "geometry": "Polygon/MultiPolygon site boundary"
+      },
+      "raw_variables_kept": [
+        "SITECODE",
+        "SITENAME",
+        "Area_ha",
+        "geometry"
+      ],
+      "raw_variables_dropped": [
+        "marine_portion_outside_EL62_land_polygon"
+      ],
+      "conversion_script": "scripts/verification/compute-data24-protected-land.py",
+      "conversion_command": "python3 scripts/verification/compute-data24-protected-land.py"
+    }
+  ]
+}

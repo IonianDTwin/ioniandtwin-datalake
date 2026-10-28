@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data19",
+  "indicator_name": "Short-term rental share (Airbnb)",
+  "indicator_name_el": null,
+  "category": "social_pressure_infrastructure",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/pull-data19-platform-rentals.py",
+  "raw_sources": [
+    {
+      "source_id": "Eurostat_tour_ce_omn12",
+      "provider": "Eurostat — Short-stay accommodation offered via online platforms (EC agreement with Airbnb, Booking, Expedia, Tripadvisor)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?geo=EL62&indic_to=NGT_SP&c_resid=TOTAL&month=TOTAL&time=2018&time=2019&time=2020&time=2021&time=2022&time=2023&time=2024&time=2025&lang=en",
+      "access_method": "GET (JSON-stat 2.0 REST API, no key)",
+      "raw_file_path": "data/raw/eurostat-tour_ce_omn12-el62-ngtsp-annual-2018-2025.json",
+      "raw_format": "application/json (JSON-stat 2.0 cube)",
+      "manifest": "data/manifests/source-verification-2026-10-15.json",
+      "sha256": "421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd",
+      "raw_schema_description": {
+        "dimension.indic_to": "Tourism indicator ('NGT_SP' = Guest nights spent)",
+        "dimension.c_resid": "Guest residence ('TOTAL')",
+        "dimension.month": "Month ('TOTAL' annual or 'M01'..'M12')",
+        "dimension.geo": "NUTS2 code ('EL62')",
+        "dimension.time": "Reference years ('2018'..'2025')",
+        "value": "Sparse map of platform guest nights"
+      },
+      "raw_variables_kept": [
+        "indic_to (NGT_SP)",
+        "c_resid (TOTAL)",
+        "month (TOTAL)",
+        "geo (EL62)",
+        "time (2018..2025)",
+        "value"
+      ],
+      "raw_variables_dropped": [
+        "STAY (stays count)",
+        "guest_nights_by_origin_breakdown"
+      ],
+      "conversion_script": "scripts/verification/pull-data19-platform-rentals.py",
+      "conversion_command": "python3 scripts/verification/pull-data19-platform-rentals.py"
+    },
+    {
+      "source_id": "Eurostat_tour_occ_nin2_2018_2025",
+      "provider": "Eurostat — Conventional tourist accommodation nights",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?geo=EL62&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&time=2018&time=2019&time=2020&time=2021&time=2022&time=2023&time=2024&time=2025&lang=en",
+      "access_method": "GET (JSON-stat 2.0 REST API, no key)",
+      "raw_file_path": "data/raw/eurostat-tour_occ_nin2-el62-nr-annual-2018-2025.json",
+      "raw_format": "application/json (JSON-stat 2.0 cube)",
+      "manifest": "data/manifests/source-verification-2026-10-15.json",
+      "sha256": "474ba9c359e92830964e2ad4d1c83f11d841b2d1e2d8dda20bf66dea9e14f158",
+      "raw_schema_description": {
+        "dimension.c_resid": "'TOTAL'",
+        "dimension.unit": "'NR' (number of nights)",
+        "dimension.nace_r2": "'I551-I553'",
+        "dimension.geo": "'EL62'",
+        "dimension.time": "'2018'..'2025'",
+        "value": "Sparse map of conventional accommodation nights"
+      },
+      "raw_variables_kept": [
+        "c_resid (TOTAL)",
+        "unit (NR)",
+        "nace_r2 (I551-I553)",
+        "geo (EL62)",
+        "time (2018..2025)",
+        "value"
+      ],
+      "raw_variables_dropped": [
+        "sub_nace_breakdowns"
+      ],
+      "conversion_script": "scripts/verification/pull-data19-platform-rentals.py",
+      "conversion_command": "python3 scripts/verification/pull-data19-platform-rentals.py"
+    }
+  ]
+}

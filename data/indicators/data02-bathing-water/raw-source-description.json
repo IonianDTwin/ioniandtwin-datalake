@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data02",
+  "indicator_name": "Excellent bathing waters (%)",
+  "indicator_name_el": "Άριστα νερά κολύμβησης (%)",
+  "category": "environmental_health_pollutants",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/pull-data02-bathing-water-el62.py",
+  "raw_sources": [
+    {
+      "source_id": "EEA_BWD_Discomap_2024",
+      "provider": "European Environment Agency (EEA) — Water Discomap ArcGIS REST",
+      "upstream_url": "https://water.discomap.eea.europa.eu/arcgis/rest/services/BathingWater/BathingWater_Dyna_WM_2024/MapServer/3/query?where=countryCode%3D%27EL%27&outFields=*&f=geojson",
+      "access_method": "GET (ArcGIS REST GeoJSON query, no key)",
+      "raw_file_path": "data/raw/eea-bwd-greece-2024.geojson",
+      "raw_format": "application/geo+json (1,729 Point features across Greece)",
+      "manifest": "data/manifests/source-verification-2026-10-20.json",
+      "sha256": "ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf",
+      "raw_schema_description": {
+        "properties.countryCode": "ISO country code ('EL')",
+        "properties.bathingWaterIdentifier": "Unique WISE bathing water station ID",
+        "properties.quality2024": "2024 season classification ('1 - Excellent', '2 - Good', '3 - Sufficient', '4 - Poor', '0 - Not classified')",
+        "geometry": "WGS84 Point coordinates [lon, lat]"
+      },
+      "raw_variables_kept": [
+        "countryCode",
+        "bathingWaterIdentifier",
+        "quality2024",
+        "lat",
+        "lon",
+        "geometry"
+      ],
+      "raw_variables_dropped": [
+        "historical_quality_1990_2023_columns",
+        "management_links"
+      ],
+      "conversion_script": "scripts/verification/pull-data02-bathing-water-el62.py",
+      "conversion_command": "python3 scripts/verification/pull-data02-bathing-water-el62.py"
+    },
+    {
+      "source_id": "Eurostat_GISCO_NUTS_2021",
+      "provider": "Eurostat GISCO",
+      "upstream_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_3035_LEVL_2.geojson",
+      "access_method": "GET (GeoJSON boundary download)",
+      "raw_file_path": "data/raw/gisco-nuts-2021-3035-EL62.geojson",
+      "raw_format": "application/geo+json (EPSG:3035 equal-area MultiPolygon)",
+      "manifest": "data/manifests/source-verification-2026-10-03.json",
+      "sha256": "6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d",
+      "raw_schema_description": {
+        "properties.NUTS_ID": "NUTS2 code ('EL62')",
+        "properties.NAME_LATN": "Region name ('Ionia Nisia')",
+        "geometry": "MultiPolygon in EPSG:3035 LAEA projection"
+      },
+      "raw_variables_kept": [
+        "NUTS_ID",
+        "NAME_LATN",
+        "geometry"
+      ],
+      "raw_variables_dropped": [
+        "CNTR_CODE",
+        "MOUNT_TYPE",
+        "URBN_TYPE",
+        "COAST_TYPE"
+      ],
+      "conversion_script": "scripts/verification/pull-data02-bathing-water-el62.py",
+      "conversion_command": "python3 scripts/verification/pull-data02-bathing-water-el62.py"
+    },
+    {
+      "source_id": "EU_Tourism_Dashboard_2024",
+      "provider": "European Commission / Joint Research Centre (JRC) — EU Tourism Dashboard",
+      "upstream_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/TOURISM/2024/LATEST/2024_TourismDashboard_Indicators_Export.csv",
+      "access_method": "GET (public CSV bulk export)",
+      "raw_file_path": "data/raw/eutd-tourism-dashboard-2024-indicators.csv",
+      "raw_format": "text/csv (UTF-8, comma-delimited, 81,939 rows)",
+      "manifest": "data/manifests/source-verification-2026-10-03.json",
+      "sha256": "ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12",
+      "raw_schema_description": {
+        "pillar": "Dashboard sustainability pillar ('Green', 'Digital', 'Socio-economic', 'Basic descriptors')",
+        "code": "Indicator code (filtered to 'TOUR_ENV_05')",
+        "indicator": "Human-readable indicator title in the JRC export",
+        "year": "Reference calendar year (filtered to 2023)",
+        "nuts_code_2021": "Eurostat NUTS 2021 code (filtered to 'EL62' Ionian Islands)",
+        "unit": "Unit of measure string",
+        "value": "Numeric indicator value"
+      },
+      "raw_variables_kept": [
+        "code ('TOUR_ENV_05')",
+        "nuts_code_2021 ('EL62')",
+        "year (2023)",
+        "value",
+        "unit"
+      ],
+      "raw_variables_dropped": [
+        "pillar",
+        "component",
+        "non_EL62_rows",
+        "other_indicator_codes"
+      ],
+      "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py",
+      "conversion_command": "python3 scripts/verification/extract-eutd-dashboard-csv.py && python3 scripts/verification/build_indicator_folders.py"
+    }
+  ]
+}

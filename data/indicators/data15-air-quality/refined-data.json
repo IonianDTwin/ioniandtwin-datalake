@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data15",
+  "indicator_name": "Air quality",
+  "indicator_name_el": "Ποιότητα Αέρα",
+  "category": "climate_adaptation",
+  "status": "VERIFIED",
+  "cadence": "daily",
+  "source_citations": [
+    {
+      "source_id": "CAMS_ADS_air_quality",
+      "provider": "Copernicus Atmosphere Monitoring Service (CAMS) — Atmosphere Data Store (ADS)",
+      "upstream_url": "https://ads.atmosphere.copernicus.eu/api/retrieve/v1/processes/cams-europe-air-quality-forecasts/execution",
+      "raw_file_path": "data/samples/cams-europe-air-quality-forecasts-IONIAN-2026-09-30.zip",
+      "sha256": "ecc26d470cdfa5c9ecd65b7dd6b1104e8692d23b998083a402951ddaa9d11574",
+      "conversion_script": "scripts/verification/build_indicator_folders.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/build_indicator_folders.py",
+  "transformation_rule": "Extract ambient surface air pollutant concentrations (NO2, PM10, PM2.5, CO in ug/m3) over the Ionian Islands bounding box (37.0-40.5N, 19.0-22.0E) from CAMS European air quality ensemble analysis (D-008 confirmed Data15 = Ambient Air Quality).",
+  "feature_dictionary": {
+    "refined_data.values_ug_m3.NO2.region_mean": {
+      "type": "number",
+      "unit": "ug/m3",
+      "role": "target_indicator",
+      "description": "Regional mean surface NO2 across the Ionian bounding box (1.96 ug/m3)."
+    },
+    "refined_data.values_ug_m3.PM10.region_mean": {
+      "type": "number",
+      "unit": "ug/m3",
+      "role": "target_indicator",
+      "description": "Regional mean surface PM10 across the Ionian bounding box (8.99 ug/m3)."
+    },
+    "refined_data.values_ug_m3.PM2.5.region_mean": {
+      "type": "number",
+      "unit": "ug/m3",
+      "role": "target_indicator",
+      "description": "Regional mean surface PM2.5 across the Ionian bounding box (5.76 ug/m3)."
+    },
+    "refined_data.values_ug_m3.CO.region_mean": {
+      "type": "number",
+      "unit": "ug/m3",
+      "role": "target_indicator",
+      "description": "Regional mean surface CO across the Ionian bounding box (158.14 ug/m3)."
+    }
+  },
+  "refined_data": {
+    "source": "CAMS European air quality forecasts (ADS), ensemble analysis",
+    "date": "2026-09-30T00:00:00Z",
+    "level": "surface (0 m)",
+    "bbox": {
+      "north": 40.5,
+      "west": 19.0,
+      "south": 37.0,
+      "east": 22.0
+    },
+    "corfu_airport": {
+      "lat": 39.650001525878906,
+      "lon": 19.950000762939453
+    },
+    "values_ug_m3": {
+      "NO2": {
+        "at_corfu_airport": 5.8,
+        "region_max": 8.07,
+        "region_mean": 1.96
+      },
+      "PM10": {
+        "at_corfu_airport": 7.4,
+        "region_max": 16.82,
+        "region_mean": 8.99
+      },
+      "PM2.5": {
+        "at_corfu_airport": 5.51,
+        "region_max": 10.11,
+        "region_mean": 5.76
+      },
+      "CO": {
+        "at_corfu_airport": 158.7,
+        "region_max": 182.74,
+        "region_mean": 158.14
+      }
+    },
+    "note": "CO2 is NOT a CAMS regional variable; nearest airport-level pollutants are NO2/PM10/PM2.5/CO."
+  },
+  "observations_count": 0,
+  "observations": []
+}

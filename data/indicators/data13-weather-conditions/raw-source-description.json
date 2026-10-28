@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data13",
+  "indicator_name": "Weather conditions (temp, rain, …)",
+  "indicator_name_el": null,
+  "category": "climate_adaptation",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/pull-open-meteo.sh -> scripts/verification/build_dashboard.py",
+  "raw_sources": [
+    {
+      "source_id": "OpenMeteo_forecast",
+      "provider": "Open-Meteo (open-meteo.com)",
+      "upstream_url": "https://api.open-meteo.com/v1/forecast?latitude=39.62&longitude=19.92&current=temperature_2m,relative_humidity_2m,apparent_temperature&daily=uv_index_max&timezone=Europe%2FAthens&forecast_days=1",
+      "access_method": "GET (public REST JSON API, no key)",
+      "raw_file_path": "data/samples/open-meteo-corfu-forecast-2026-09-22.json",
+      "raw_format": "application/json",
+      "manifest": "data/manifests/source-verification-2026-09-22.json",
+      "sha256": "e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23",
+      "raw_schema_description": {
+        "latitude / longitude": "WGS84 grid coordinate (39.625N, 19.875E for Corfu)",
+        "current.time": "ISO-8601 current observation timestamp in Europe/Athens timezone",
+        "current.temperature_2m": "Air temperature at 2 meters (°C)",
+        "current.relative_humidity_2m": "Relative humidity at 2 meters (%)",
+        "current.apparent_temperature": "Feels-like apparent temperature (°C)",
+        "daily.uv_index_max": "Daily maximum UV index array"
+      },
+      "raw_variables_kept": [
+        "latitude",
+        "longitude",
+        "current.time",
+        "current.temperature_2m",
+        "current.relative_humidity_2m",
+        "current.apparent_temperature",
+        "daily.uv_index_max"
+      ],
+      "raw_variables_dropped": [
+        "generationtime_ms",
+        "utc_offset_seconds",
+        "elevation"
+      ],
+      "conversion_script": "scripts/verification/pull-open-meteo.sh -> scripts/verification/build_dashboard.py",
+      "conversion_command": "bash scripts/verification/pull-open-meteo.sh && python3 scripts/verification/build_indicator_folders.py"
+    }
+  ]
+}

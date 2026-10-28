@@ -1,81 +1,41 @@
-# Verification scripts
+# Verification & Dataset Build Scripts
 
-`DECISION` Reproducible, public, read-only, bounded pull tests. Each script writes a bounded sample into `data/samples/` or `data/raw/`, prints the response status and `sha256`, and — for JSON — renders a **self-contained visual report** (HTML + Markdown summary) next to the raw JSON.
+`DECISION` Reproducible, public, read-only, bounded pull tests and dataset builders. Raw pulls land in `data/raw/` (untracked, shared across indicators) or `data/samples/` (small tracked baseline samples), provenance is recorded in `data/manifests/`, per-indicator self-describing JSONs + Markdown dictionaries are built in `data/indicators/data01..data34/`, and the master roll-up is built in `data/curated/`.
 
-## Run
+## Core Build & Verification Commands
 
-```bash
-scripts/verification/pull-eurostat-tourism.sh   # official tourism statistics (EL62 = Ionia Nisia)
-scripts/verification/pull-open-meteo.sh         # weather + UV (no-key substitute)
-scripts/verification/pull-gstc-pdf.sh           # GSTC Destination Criteria v2.0 PDF (no JSON report)
-```
-
-Each JSON pull produces three files side by side:
-
-- `data/samples/<name>.json` — immutable raw response.
-- `data/samples/<name>.html` — open in a browser: resource link at the top, decoded data table where every row is annotated with its **Data01–Data34 indicator + plain-English meaning**, and embedded raw JSON. No network/CORS needed.
-- `data/samples/<name>.summary.md` — terminal/agent-friendly Markdown with the same annotated table.
-
-The **per-indicator navigation index** lives at `data/samples/INDEX.html` (browser) and `data/samples/INDEX.md` (Markdown): Data01–Data34 grouped by category, each verified indicator showing its values and links to the sample reports.
-
-## The indicator annotation map
-
-The Data01–Data34 annotation and the index are driven by one authoritative file:
-
-- `indicators/source-indicator-map.json` — for every indicator: name, category, status, source, access/auth, and (where verified) the exact dimension/filter (`series[].match`) that selects it from a sample.
-
-To change how a data point is labelled, edit that file and re-render.
-
-## Re-render existing samples from a manifest
+### 1. Build & Verify All 34 Per-Indicator Folders (`data/indicators/data01..data34`)
+Generates `extracted-summary.json` (with `_meta.feature_dictionary`), `observations.json`, and `README.md` for every indicator `Data01`–`Data34`, and executes two-tier verification (strict schema + domain bounds + `D-014` spatial consistency):
 
 ```bash
-python3 scripts/verification/render_pull_reports.py \
-  --manifest data/manifests/source-verification-2026-09-22.json
+python3 scripts/verification/build_indicator_folders.py
 ```
 
-## Build / refresh the per-indicator index
-
-```bash
-python3 scripts/verification/render_pull_reports.py \
-  --index --manifest data/manifests/source-verification-2026-09-22.json
-```
-
-## Export normalized observations (the publication data file)
+### 2. Build Master Observations & Composite Roll-up (`data/curated/`)
+Merges base, derived, dashboard, and standalone verified series into `data/curated/observations-<date>.json` / `.csv` and `composite-<date>.json`:
 
 ```bash
 python3 scripts/verification/build_dashboard.py \
   --manifest data/manifests/source-verification-2026-09-22.json \
-  --manifest data/manifests/source-verification-2026-09-24.json
+  --manifest data/manifests/source-verification-2026-09-24.json \
+  --manifest data/manifests/source-verification-2026-10-01.json \
+  --manifest data/manifests/source-verification-2026-10-02.json \
+  --manifest data/manifests/source-verification-2026-10-03.json
 ```
 
-Writes `data/curated/observations-<date>.json` (schema-aligned, includes derived indicators) + `.csv`, and `data/curated/composite-<date>.json` (one transparent composite prototype). `export_observations.py` remains for the base-only path.
-
-This reads each `sample_path` (and its `url`, `status`, `content_type`, `checksum_sha256`, `accessed_at`, `source_id`) and regenerates the `.html` + `.summary.md` companions and the `INDEX.*`, so the visual view always matches the manifest evidence.
-
-## Render a single file manually
+### 3. Render Master Progress HTML (`docs/data-preparation-progress.html`)
+Renders `docs/data-preparation-progress.md` to a standalone GitHub-styled HTML report:
 
 ```bash
-python3 scripts/verification/render_pull_reports.py \
-  --json data/samples/foo.json --source-key OpenMeteo_forecast \
-  --name "Foo" --url "https://..." --status 200
+python3 scripts/verification/render_progress_html.py
 ```
 
-Checksum and access timestamp are auto-computed if omitted. `--source-key` selects the annotation set (must match a `series[].source_key` in the map).
+## Individual Indicator Pull & Compute Scripts
 
-## Why this beats a plain JSON viewer
-
-- Eurostat returns SDMX-JSON whose `value` map keys are numeric indices into the dimension arrays; the renderer decodes them into readable `freq / c_resid / unit / nace_r2 / geo / time` rows with labels, and maps each row to its `DataNN` indicator.
-- The HTML is fully self-contained (data embedded), so it opens reliably from the filesystem with no CORS/network dependency and no external CDN.
-- The resource link and provenance (status, content-type, sha256, timestamp) sit at the top of every report.
-- The index answers "which DataNN does this number belong to?" in one place, with the verified value and a link back to the full sample.
-
-## Rules
-
-- Read-only, bounded requests only. No credentials, no access-control bypass, no scraping.
-- A non-200 response is recorded as an access constraint, never as "the source does not exist".
-- Real API keys (OpenWeatherMap, Google Maps, Copernicus data download, MarineTraffic, FlightRadar24) go in an untracked `.env`; these scripts never read or write secrets.
-
-## Status
-
-- `VERIFIED` Eurostat tourism datasets (annual NUTS2 + monthly country), EEA bathing water (Discodata SQL), Open-Meteo weather/UV, Copernicus CDSE catalogue, GSTC PDF.
-- `INACCESSIBLE` OpenWeatherMap without a key (HTTP 401). Credential-gated sources remain unverified until a key is provided and authorized.
+- `pull-data02-bathing-water-el62.py` — EEA Discomap 2024 Greece bathing-water GeoJSON pull + 3 km coastal spatial join to GISCO `EL62` (`Data02`, `Data03`).
+- `pull-data06-airport-congestion.py` — OpenSky Network live state-vector pull + 25 km approach-buffer scoring across `CFU`, `ZTH`, `EFL`, `PVK` (`Data06`).
+- `compute-data07-anticipated-congestion.py` — Anticipated port-congestion model fusing CruiseMapper calls with Greek NAP ferry baselines (`Data07`, `PROPOSAL`).
+- `pull-data19-platform-rentals.py` — Eurostat `tour_ce_omn12` + `tour_occ_nin2` pull and platform share calculation for `EL62` 2018–2025 (`Data19`).
+- `compute-data20-internet-speed.py` — Ookla Open Data 2024-Q3 fixed & mobile tile spatial join to GISCO `EL62` (`Data20`).
+- `pull-data24-protected-land.py` & `compute-data24-protected-land.py` & `viz-data24-protected-land.py` — EEA Natura 2000 Habitats & Birds spatial clip to GISCO `EL62` land polygon (`Data24`).
+- `pull-eurostat-tourism.sh`, `pull-open-meteo.sh`, `pull-gstc-pdf.sh` — Initial vertical-slice shell pullers (`Data13`, `Data14`, `Data16`, `Data26`, `Data27`, `Data31`, `Data33`).

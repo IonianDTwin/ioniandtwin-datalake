@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data16",
+  "indicator_name": "Tourism intensity (nights/residents)",
+  "indicator_name_el": null,
+  "category": "social_pressure_infrastructure",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "Eurostat_tour_occ_nin2",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023",
+      "raw_file_path": "data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json",
+      "sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "conversion_script": "scripts/verification/build_dashboard.py (via render_pull_reports.decode)"
+    }
+  ],
+  "conversion_script": "scripts/verification/build_dashboard.py",
+  "transformation_rule": "Filter Eurostat SDMX dataset tour_occ_nin2 via `scripts/verification/build_dashboard.py` to geo='EL62', c_resid='TOTAL', nace_r2='I551-I553', and unit='P_THAB' (nights spent per thousand inhabitants).",
+  "feature_dictionary": {
+    "refined_data.filter_dims": {
+      "type": "object",
+      "unit": "SDMX codes",
+      "role": "filter_dimension",
+      "description": "Exact SDMX dimension filter: geo=EL62, c_resid=TOTAL, unit=P_THAB, nace_r2=I551-I553."
+    },
+    "refined_data.series[].observed_at": {
+      "type": "string",
+      "unit": "year",
+      "role": "temporal_dimension",
+      "description": "Reference calendar year."
+    },
+    "refined_data.series[].value": {
+      "type": "number",
+      "unit": "nights per 1000 residents",
+      "role": "target_indicator",
+      "description": "Annual tourism intensity in EL62 (80,912.16 in 2022; 97,705.53 in 2023)."
+    }
+  },
+  "refined_data": {
+    "filter_dims": {
+      "geo": "EL62",
+      "c_resid": "TOTAL",
+      "unit": "P_THAB",
+      "nace_r2": "I551-I553"
+    },
+    "extended_2024_2025_note": "Peaked at 103,440 in 2024 and eased to 102,629 in 2025 (D-012).",
+    "series": [
+      {
+        "observation_id": "Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2022",
+        "series_label": "nights per 1000 residents",
+        "observed_at": "2022",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 80912.16,
+        "unit": ""
+      },
+      {
+        "observation_id": "Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2023",
+        "series_label": "nights per 1000 residents",
+        "observed_at": "2023",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": 97705.53,
+        "unit": ""
+      }
+    ]
+  },
+  "observations_count": 2,
+  "observations": [
+    {
+      "observation_id": "Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2022",
+      "indicator_id": "Data16",
+      "indicator_name": "Tourism intensity (nights/residents)",
+      "series_label": "nights per 1000 residents",
+      "source_id": "Eurostat_tour_occ_nin2",
+      "observed_at": "2022",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 80912.16,
+      "unit": "",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_nin2:Data16:nights per 1000 residents:2023",
+      "indicator_id": "Data16",
+      "indicator_name": "Tourism intensity (nights/residents)",
+      "series_label": "nights per 1000 residents",
+      "source_id": "Eurostat_tour_occ_nin2",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 97705.53,
+      "unit": "",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+        "access_method": "api",
+        "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023"
+      }
+    }
+  ]
+}

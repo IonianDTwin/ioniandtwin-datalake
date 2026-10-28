@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data22",
+  "indicator_name": "Tourist diversity (zones)",
+  "indicator_name_el": null,
+  "category": "spatial_sustainability",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "Eurostat_tour_occ_nin3",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin3?format=JSON&geo=EL621..EL624&c_resid=TOTAL&unit=NR&nace_r2=I551-I553",
+      "raw_file_path": "data/samples/eurostat-tour_occ_nin3-EL621-624-2021-2025.json",
+      "sha256": "ee9c29ff4ecce9aabc23b1b9b360096c004213ed6e2a6b30c257f0934517e916",
+      "conversion_script": "scripts/verification/build_dashboard.py"
+    }
+  ],
+  "conversion_script": "scripts/verification/build_dashboard.py",
+  "transformation_rule": "D-014 & D-016: Compute NUTS3 island shares s_i = nights_i / sum(nights) across the 4 Ionian NUTS3 units (EL621 Zakynthos, EL622 Kerkyra, EL623 Ithaki/Kefallinia, EL624 Lefkada) via `scripts/verification/build_dashboard.py`, then aggregate to a single NUTS2 EL62 diversity index: Diversity = 1 - sum(s_i^2) (1 - Herfindahl-Hirschman Index).",
+  "feature_dictionary": {
+    "refined_data.data22_tourist_diversity.<year>.nights": {
+      "type": "object",
+      "unit": "nights",
+      "role": "input_variable",
+      "description": "Total annual overnight stays per NUTS3 island unit."
+    },
+    "refined_data.data22_tourist_diversity.<year>.shares": {
+      "type": "object",
+      "unit": "ratio (0-1)",
+      "role": "input_variable",
+      "description": "Fraction of EL62 regional nights hosted by each NUTS3 unit."
+    },
+    "refined_data.data22_tourist_diversity.<year>.HHI": {
+      "type": "number",
+      "unit": "index (0-1)",
+      "role": "input_variable",
+      "description": "Herfindahl-Hirschman concentration index sum(s_i^2)."
+    },
+    "refined_data.data22_tourist_diversity.<year>.diversity_1_minus_HHI": {
+      "type": "number",
+      "unit": "index (0-1)",
+      "role": "target_indicator",
+      "description": "Regional spatial diversity index 1 - HHI emitted for NUTS2/EL62 (0.631 to 0.651)."
+    }
+  },
+  "refined_data": {
+    "data22_tourist_diversity": {
+      "2021": {
+        "nights": {
+          "Zakynthos": 3093879,
+          "Kerkyra": 4495736,
+          "Ithaki_Kefallinia": 850030,
+          "Lefkada": 817965
+        },
+        "shares": {
+          "Zakynthos": 0.3342,
+          "Kerkyra": 0.4856,
+          "Ithaki_Kefallinia": 0.0918,
+          "Lefkada": 0.0884
+        },
+        "HHI": 0.3638,
+        "diversity_1_minus_HHI": 0.6362
+      },
+      "2022": {
+        "nights": {
+          "Zakynthos": 5138655,
+          "Kerkyra": 7918650,
+          "Ithaki_Kefallinia": 1763599,
+          "Lefkada": 1691730
+        },
+        "shares": {
+          "Zakynthos": 0.3112,
+          "Kerkyra": 0.4796,
+          "Ithaki_Kefallinia": 0.1068,
+          "Lefkada": 0.1025
+        },
+        "HHI": 0.3487,
+        "diversity_1_minus_HHI": 0.6513
+      },
+      "2023": {
+        "nights": {
+          "Zakynthos": 5930277,
+          "Kerkyra": 10071910,
+          "Ithaki_Kefallinia": 2204331,
+          "Lefkada": 1556281
+        },
+        "shares": {
+          "Zakynthos": 0.3001,
+          "Kerkyra": 0.5096,
+          "Ithaki_Kefallinia": 0.1115,
+          "Lefkada": 0.0787
+        },
+        "HHI": 0.3684,
+        "diversity_1_minus_HHI": 0.6316
+      },
+      "2024": {
+        "nights": {
+          "Zakynthos": 6438092,
+          "Kerkyra": 10338733,
+          "Ithaki_Kefallinia": 2070610,
+          "Lefkada": 1677265
+        },
+        "shares": {
+          "Zakynthos": 0.3137,
+          "Kerkyra": 0.5037,
+          "Ithaki_Kefallinia": 0.1009,
+          "Lefkada": 0.0817
+        },
+        "HHI": 0.369,
+        "diversity_1_minus_HHI": 0.631
+      },
+      "2025": {
+        "nights": {
+          "Zakynthos": 6806361,
+          "Kerkyra": 9801415,
+          "Ithaki_Kefallinia": 1884056,
+          "Lefkada": 1871997
+        },
+        "shares": {
+          "Zakynthos": 0.3342,
+          "Kerkyra": 0.4813,
+          "Ithaki_Kefallinia": 0.0925,
+          "Lefkada": 0.0919
+        },
+        "HHI": 0.3604,
+        "diversity_1_minus_HHI": 0.6396
+      }
+    }
+  },
+  "observations_count": 6,
+  "observations": [
+    {
+      "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2020",
+      "indicator_id": "Data22",
+      "indicator_name": "Tourist diversity (zones)",
+      "series_label": "1 − HHI of island nights shares",
+      "source_id": "Eurostat_tour_occ_nin3",
+      "observed_at": "2020",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 0.663,
+      "unit": "index",
+      "polarity": null,
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2021",
+      "indicator_id": "Data22",
+      "indicator_name": "Tourist diversity (zones)",
+      "series_label": "1 − HHI of island nights shares",
+      "source_id": "Eurostat_tour_occ_nin3",
+      "observed_at": "2021",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 0.636,
+      "unit": "index",
+      "polarity": null,
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2022",
+      "indicator_id": "Data22",
+      "indicator_name": "Tourist diversity (zones)",
+      "series_label": "1 − HHI of island nights shares",
+      "source_id": "Eurostat_tour_occ_nin3",
+      "observed_at": "2022",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 0.651,
+      "unit": "index",
+      "polarity": null,
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2023",
+      "indicator_id": "Data22",
+      "indicator_name": "Tourist diversity (zones)",
+      "series_label": "1 − HHI of island nights shares",
+      "source_id": "Eurostat_tour_occ_nin3",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 0.632,
+      "unit": "index",
+      "polarity": null,
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2024",
+      "indicator_id": "Data22",
+      "indicator_name": "Tourist diversity (zones)",
+      "series_label": "1 − HHI of island nights shares",
+      "source_id": "Eurostat_tour_occ_nin3",
+      "observed_at": "2024",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 0.631,
+      "unit": "index",
+      "polarity": null,
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+      }
+    },
+    {
+      "observation_id": "Eurostat_tour_occ_nin3:Data22:diversity_1_hhi:2025",
+      "indicator_id": "Data22",
+      "indicator_name": "Tourist diversity (zones)",
+      "series_label": "1 − HHI of island nights shares",
+      "source_id": "Eurostat_tour_occ_nin3",
+      "observed_at": "2025",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 0.64,
+      "unit": "index",
+      "polarity": null,
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "diversity = 1 − HHI over 4 island nights shares, aggregated to EL62"
+      }
+    }
+  ]
+}

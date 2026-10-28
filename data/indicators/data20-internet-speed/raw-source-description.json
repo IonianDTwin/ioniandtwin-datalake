@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data20",
+  "indicator_name": "Internet speed (>100 Mb/s)",
+  "indicator_name_el": null,
+  "category": "digital_infrastructure",
+  "status": "VERIFIED",
+  "conversion_script": "scripts/verification/compute-data20-internet-speed.py",
+  "raw_sources": [
+    {
+      "source_id": "Ookla_OpenData_fixed",
+      "provider": "Ookla (Speedtest Global Performance Open Data on AWS S3)",
+      "upstream_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=fixed/year=2024/quarter=3/2024-07-01_performance_fixed_tiles.zip",
+      "access_method": "GET (AWS S3 public shapefile ZIP archive)",
+      "raw_file_path": "data/raw/ookla-performance-fixed-2024Q3.zip",
+      "raw_format": "application/zip containing ESRI Shapefile (gps_fixed_tiles.shp, 240 MB)",
+      "manifest": "data/manifests/source-verification-2026-10-20.json",
+      "sha256": "00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e",
+      "raw_schema_description": {
+        "quadkey": "Zoom-16 Bing Maps slippy-map tile identifier",
+        "avg_d_kbps": "Mean download throughput in tile (kilobits/sec)",
+        "avg_u_kbps": "Mean upload throughput in tile (kilobits/sec)",
+        "avg_lat_ms": "Mean round-trip latency in tile (milliseconds)",
+        "tests": "Number of Speedtest measurements taken in tile",
+        "devices": "Unique testing devices in tile",
+        "geometry": "WGS84 tile polygon"
+      },
+      "raw_variables_kept": [
+        "avg_d_kbps",
+        "avg_u_kbps",
+        "avg_lat_ms",
+        "tests",
+        "devices",
+        "geometry"
+      ],
+      "raw_variables_dropped": [
+        "quadkey",
+        "tiles_outside_EL62"
+      ],
+      "conversion_script": "scripts/verification/compute-data20-internet-speed.py",
+      "conversion_command": "python3 scripts/verification/compute-data20-internet-speed.py"
+    },
+    {
+      "source_id": "Ookla_OpenData_mobile",
+      "provider": "Ookla (Speedtest Global Performance Open Data on AWS S3)",
+      "upstream_url": "https://ookla-open-data.s3.amazonaws.com/shapefiles/performance/type=mobile/year=2024/quarter=3/2024-07-01_performance_mobile_tiles.zip",
+      "access_method": "GET (AWS S3 public shapefile ZIP archive)",
+      "raw_file_path": "data/raw/ookla-performance-mobile-2024Q3.zip",
+      "raw_format": "application/zip containing ESRI Shapefile (gps_mobile_tiles.shp, 138 MB)",
+      "manifest": "data/manifests/source-verification-2026-10-20.json",
+      "sha256": "08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5",
+      "raw_schema_description": {
+        "quadkey": "Zoom-16 Bing Maps slippy-map tile identifier",
+        "avg_d_kbps": "Mean mobile download throughput in tile (kilobits/sec)",
+        "avg_u_kbps": "Mean mobile upload throughput in tile (kilobits/sec)",
+        "avg_lat_ms": "Mean mobile round-trip latency in tile (milliseconds)",
+        "tests": "Number of mobile Speedtest measurements in tile",
+        "devices": "Unique mobile testing devices in tile",
+        "geometry": "WGS84 tile polygon"
+      },
+      "raw_variables_kept": [
+        "avg_d_kbps",
+        "avg_u_kbps",
+        "avg_lat_ms",
+        "tests",
+        "devices",
+        "geometry"
+      ],
+      "raw_variables_dropped": [
+        "quadkey",
+        "tiles_outside_EL62"
+      ],
+      "conversion_script": "scripts/verification/compute-data20-internet-speed.py",
+      "conversion_command": "python3 scripts/verification/compute-data20-internet-speed.py"
+    }
+  ]
+}

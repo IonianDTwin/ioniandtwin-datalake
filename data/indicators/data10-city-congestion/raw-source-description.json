@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "file_role": "raw_source_description",
+  "indicator_id": "Data10",
+  "indicator_name": "City congestion",
+  "indicator_name_el": null,
+  "category": "dynamic_congestion",
+  "status": "UNVERIFIED",
+  "conversion_script": "None (UNVERIFIED source track — no synthetic data invented)",
+  "raw_sources": []
+}

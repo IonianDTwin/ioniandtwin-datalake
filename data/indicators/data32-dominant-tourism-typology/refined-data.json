@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "file_role": "refined_indicator_data",
+  "indicator_id": "Data32",
+  "indicator_name": "Dominant tourism typology",
+  "indicator_name_el": null,
+  "category": "density_typology",
+  "status": "VERIFIED",
+  "cadence": "annual",
+  "source_citations": [
+    {
+      "source_id": "Eurostat_tour_occ_nin2",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&geo=EL62&time=2022&time=2023",
+      "raw_file_path": "data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json",
+      "sha256": "46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d",
+      "conversion_script": "scripts/verification/build_dashboard.py (via render_pull_reports.decode)"
+    }
+  ],
+  "conversion_script": "scripts/verification/build_dashboard.py",
+  "transformation_rule": "D-009 & D-016: Compare overnight stays across NACE Rev. 2 accommodation categories in EL62 via `scripts/verification/build_dashboard.py` (I551 hotels ~70-73%, I552 short-stay ~26-30%, I553 camping <1%) and assign the argmax category ('hotels') as the dominant tourism typology.",
+  "feature_dictionary": {
+    "refined_data.nace_r2_shares_el62": {
+      "type": "object",
+      "unit": "%",
+      "role": "input_variable",
+      "description": "Share of EL62 overnight stays by NACE Rev. 2 category."
+    },
+    "refined_data.series[].value": {
+      "type": "string",
+      "unit": "category",
+      "role": "target_indicator",
+      "description": "Dominant accommodation typology in EL62 ('hotels')."
+    }
+  },
+  "refined_data": {
+    "nace_r2_shares_el62": {
+      "2022": {
+        "I551_hotels": 73.1,
+        "I552_holiday_short_stay": 26.0,
+        "I553_camping": 0.9
+      },
+      "2023": {
+        "I551_hotels": 69.8,
+        "I552_holiday_short_stay": 29.3,
+        "I553_camping": 0.9
+      }
+    },
+    "series": [
+      {
+        "observation_id": "Eurostat_tour_occ_nin2:Data32:dominant_typology:2023",
+        "series_label": "accommodation category with highest nights share",
+        "observed_at": "2023",
+        "spatial_level": "NUTS2",
+        "spatial_code": "EL62",
+        "value": "hotels",
+        "unit": null
+      }
+    ]
+  },
+  "observations_count": 1,
+  "observations": [
+    {
+      "observation_id": "Eurostat_tour_occ_nin2:Data32:dominant_typology:2023",
+      "indicator_id": "Data32",
+      "indicator_name": "Dominant tourism typology",
+      "series_label": "accommodation category with highest nights share",
+      "source_id": "Eurostat_tour_occ_nin2",
+      "observed_at": "2023",
+      "observed_period_end": null,
+      "temporal_granularity": "annual",
+      "ingested_at": "2026-10-20T12:25:17Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": "hotels",
+      "unit": null,
+      "polarity": null,
+      "provenance": {
+        "access_method": "derived",
+        "request_url": "D-009: dominant = argmax(nace_r2 share of nights); hotels ≈73%/70% vs short-stay 26%/30%"
+      }
+    }
+  ]
+}
