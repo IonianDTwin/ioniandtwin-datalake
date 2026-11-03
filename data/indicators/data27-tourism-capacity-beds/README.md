@@ -4,7 +4,7 @@
 
 ```text
   data/samples/eurostat-tour_cap_nuts2-EL62-2022-2023.json [.json]  ──( scripts/verification/build_dashboard.py )──>  refined-data.json [.json]
-  data/samples/elstat-sto12-ionian-bedplaces-2021-2025.json [.json]  ──( scripts/verification/build_indicator_folders.py )──>  refined-data.json [.json]
+  data/samples/elstat-sto12-ionian-bedplaces-2021-2025.json [.json]  ──( scripts/verification/reproduce-derived-samples.py )──>  refined-data.json [.json]
 ```
 
 ## Quick Navigation (Option A Folder Layout)
@@ -35,9 +35,10 @@
 - **Access Method:** `GET (SDMX 2.1 JSON-stat 2.0 REST API, no key)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/samples/eurostat-tour_cap_nuts2-EL62-2022-2023.json`
 - **Raw File Extension & Format:** `.json` — `application/json (SDMX 2.1 JSON-stat 2.0 cube)`
-- **SHA-256 Checksum:** `90d5c376d69fad77a36e7d077cc63545a4ba0e68afc2e8017578418395495ae3` (verified in `data/manifests/source-verification-2026-09-22.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `90d5c376d69fad77a36e7d077cc63545a4ba0e68afc2e8017578418395495ae3`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-09-22.json`
 - **Conversion Script (`.json` -> `.json`):** `scripts/verification/build_dashboard.py`
-- **Conversion Command:** `bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py`
+- **Conversion Command:** `bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `dimension.accomunit (BEDPL, ESTBL, BEDRM)`, `dimension.unit (NR)`, `dimension.nace_r2`, `dimension.geo (EL62)`, `dimension.time`, `value`
 - **Dropped / Redacted Fields:** `PCH_PRE`
 
@@ -55,9 +56,11 @@
 - **Access Method:** `GET (annual XLSX editions 2021-2025)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/samples/elstat-sto12-ionian-bedplaces-2021-2025.json`
 - **Raw File Extension & Format:** `.json` — `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet (elstat-sto12-2021..2025-capacity.xlsx) -> JSON`
-- **SHA-256 Checksum:** `68e1a44e39df1698f46b66c6ae32d054febb1d6e813c5e7e554153e5b59d81be` (verified in `data/manifests/source-verification-2026-10-01.json`)
-- **Conversion Script (`.json` -> `.json`):** `scripts/verification/build_indicator_folders.py`
-- **Conversion Command:** `python3 scripts/verification/build_indicator_folders.py`
+- **SHA-256 Checksum (of the local file, recomputed at build):** `68e1a44e39df1698f46b66c6ae32d054febb1d6e813c5e7e554153e5b59d81be`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-01.json`
+- **Lineage Note:** The JSON was extracted ad hoc on 2026-10-01 from data/samples/elstat-sto12-{2021..2025}-capacity.xlsx (sheet ENG, 'REGIONAL UNIT OF ...' rows, hotels-and-similar bed-places column). scripts/verification/reproduce-derived-samples.py (2026-11-03) reproduces all 25 values from the retained workbooks.
+- **Conversion Script (`.json` -> `.json`):** `scripts/verification/reproduce-derived-samples.py`
+- **Conversion Command:** `python3 scripts/verification/reproduce-derived-samples.py --check && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `year`, `regional_unit`, `bed_places_hotels_and_similar`
 - **Dropped / Redacted Fields:** `non_Ionian_regional_units`
 

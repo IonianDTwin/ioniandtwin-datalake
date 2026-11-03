@@ -3,7 +3,8 @@
 ## Pipeline Lineage (Raw Extension -> Conversion Script -> Refined JSON)
 
 ```text
-  data/samples/cams-europe-air-quality-forecasts-IONIAN-2026-09-30.zip [.zip (NetCDF .nc)]  ──( scripts/verification/build_indicator_folders.py )──>  refined-data.json [.json]
+  data/samples/cams-europe-air-quality-forecasts-IONIAN-2026-09-30.zip [.zip (NetCDF .nc)]  ──( scripts/verification/extract-cams-summary.py )──>  refined-data.json [.json]
+  data/raw/gisco-nuts-2021-3035-EL62.geojson [.geojson]  ──( scripts/verification/compute-data15-air-quality.py )──>  refined-data.json [.json]
 ```
 
 ## Quick Navigation (Option A Folder Layout)
@@ -18,14 +19,14 @@
 - **Greek Proposal Name:** Ποιότητα Αέρα
 - **Category:** `climate_adaptation`
 - **Refresh Cadence:** `daily`
-- **Raw Input File Extension(s):** `.zip (NetCDF .nc)`
-- **Primary Conversion / Builder Script:** `scripts/verification/build_indicator_folders.py`
+- **Raw Input File Extension(s):** `.geojson` + `.zip (NetCDF .nc)`
+- **Primary Conversion / Builder Script:** `scripts/verification/compute-data15-air-quality.py (observations); scripts/verification/extract-cams-summary.py (summary)`
 - **Refined Output Format:** `.json` (`refined-data.json`)
-- **Observations Emitted:** `0`
+- **Observations Emitted:** `8`
 
 ## 1. Overview & Key Note
 
-CAMS ensemble analysis pulled 2026-10-01 (NO2 5.80 / PM10 7.40 / PM2.5 5.51 / CO 158.70 ug/m3, Corfu-airport grid point). D-008: Data15 = ambient air quality.
+CAMS ensemble analysis pulled 2026-10-01 (NO2 5.80 / PM10 7.40 / PM2.5 5.51 / CO 158.70 ug/m3, Corfu-airport grid point). D-008: Data15 = ambient air quality. Observations (2026-11-03): NO2/PM10/PM2.5/CO area-weighted over EL62 land and at the Corfu airport cell, CAMS analysis 2026-09-30T00Z, from scripts/verification/compute-data15-air-quality.py. Single snapshot; daily feed is a scheduler item.
 
 ## 2. Raw Source Provenance & Conversion (`raw-source-description.json`)
 
@@ -34,9 +35,11 @@ CAMS ensemble analysis pulled 2026-10-01 (NO2 5.80 / PM10 7.40 / PM2.5 5.51 / CO
 - **Access Method:** `POST via cads-api-client (CAMS_API_KEY in untracked .env)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/samples/cams-europe-air-quality-forecasts-IONIAN-2026-09-30.zip`
 - **Raw File Extension & Format:** `.zip (NetCDF .nc)` — `application/zip containing NetCDF classic (ENS_ANALYSIS.nc)`
-- **SHA-256 Checksum:** `ecc26d470cdfa5c9ecd65b7dd6b1104e8692d23b998083a402951ddaa9d11574` (verified in `data/manifests/source-verification-2026-10-01.json`)
-- **Conversion Script (`.zip (NetCDF .nc)` -> `.json`):** `scripts/verification/build_indicator_folders.py`
-- **Conversion Command:** `python3 scripts/verification/build_indicator_folders.py`
+- **SHA-256 Checksum (of the local file, recomputed at build):** `ecc26d470cdfa5c9ecd65b7dd6b1104e8692d23b998083a402951ddaa9d11574`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-01.json`
+- **Lineage Note:** The summary JSON was first produced ad hoc on 2026-10-01 without a retained script. scripts/verification/extract-cams-summary.py (2026-11-03) reproduces all 12 summary values from the retained zip.
+- **Conversion Script (`.zip (NetCDF .nc)` -> `.json`):** `scripts/verification/extract-cams-summary.py`
+- **Conversion Command:** `python3 scripts/verification/extract-cams-summary.py --check && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `no2_conc`, `co_conc`, `pm10_conc`, `pm2p5_conc`, `latitude`, `longitude`, `level`, `time`
 - **Dropped / Redacted Fields:** `upper_level_layers (filtered to surface level=0)`
 
@@ -51,9 +54,28 @@ CAMS ensemble analysis pulled 2026-10-01 (NO2 5.80 / PM10 7.40 / PM2.5 5.51 / CO
 | `pm10_conc` | Surface PM10 concentration (ug/m3) |
 | `pm2p5_conc` | Surface PM2.5 concentration (ug/m3) |
 
+### Source 2: `Eurostat_GISCO_NUTS_2021` (Eurostat GISCO)
+- **Upstream URL:** `https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_3035_LEVL_2.geojson`
+- **Access Method:** `GET (GeoJSON boundary download)`
+- **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/gisco-nuts-2021-3035-EL62.geojson`
+- **Raw File Extension & Format:** `.geojson` — `application/geo+json (EPSG:3035 equal-area MultiPolygon)`
+- **SHA-256 Checksum (of the local file, recomputed at build):** `6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-03.json`
+- **Lineage Note:** EL62 land polygon used to area-weight the CAMS 0.1-degree cells (86 cells, 2,304.80 km2 intersected).
+- **Conversion Script (`.geojson` -> `.json`):** `scripts/verification/compute-data15-air-quality.py`
+- **Conversion Command:** `python3 scripts/verification/compute-data15-air-quality.py && python3 scripts/verification/build_dashboard.py <manifests>`
+- **Whitelisted Raw Variables (`kept`):** `NUTS_ID`, `NAME_LATN`, `geometry`
+- **Dropped / Redacted Fields:** `CNTR_CODE`, `MOUNT_TYPE`, `URBN_TYPE`, `COAST_TYPE`
+
+| Raw Field / Column | Raw Source Description |
+| :--- | :--- |
+| `properties.NUTS_ID` | NUTS2 code ('EL62') |
+| `properties.NAME_LATN` | Region name ('Ionia Nisia') |
+| `geometry` | MultiPolygon in EPSG:3035 LAEA projection |
+
 ## 3. Transformation & Refined Data Dictionary (`refined-data.json`)
 
-**Transformation Rule:** Extract ambient surface air pollutant concentrations (NO2, PM10, PM2.5, CO in ug/m3) over the Ionian Islands bounding box (37.0-40.5N, 19.0-22.0E) from CAMS European air quality ensemble analysis (D-008 confirmed Data15 = Ambient Air Quality).
+**Transformation Rule:** Surface NO2, PM10, PM2.5, CO (ug/m3) from the CAMS European ensemble analysis, 2026-09-30T00Z (D-008: Data15 = ambient air quality). Observations (scripts/verification/compute-data15-air-quality.py): EL62 value = mean over 0.1-degree cells weighted by each cell's intersection area with EL62 land (EPSG:3035); point value = cell nearest Corfu airport. refined_data keeps the bounding-box summary (37.0-40.5N, 19.0-22.0E), which includes mainland and sea and is not the EL62 value. Caveat: a CAMS cell holds one concentration for land and sea together; land-area weighting assumes the land part equals the cell value, so for NO2 (cleaner over sea) the EL62 mean may slightly understate land concentrations (unweighted cell mean 2.39 vs weighted 2.67).
 
 | Refined JSONPath | Type | Unit | Role | Description |
 | :--- | :--- | :--- | :--- | :--- |
@@ -66,4 +88,13 @@ CAMS ensemble analysis pulled 2026-10-01 (NO2 5.80 / PM10 7.40 / PM2.5 5.51 / CO
 
 All records in `refined-data.json -> observations` strictly conform to `schemas/observation-schema.json`.
 
-_No observations emitted for this indicator yet._
+| `observation_id` | `observed_at` | `spatial_ref` | `value` | `unit` | `temporal_granularity` |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `CAMS_ADS:Data15:NO2:EL62_mean:2026-09-30T00Z` | `2026-09-30T00:00:00+00:00` | `NUTS2/EL62` | **2.67** | `ug/m3` | `instant` |
+| `CAMS_ADS:Data15:NO2:corfu_airport_cell:2026-09-30T00Z` | `2026-09-30T00:00:00+00:00` | `point/39.65,19.95` | **5.8** | `ug/m3` | `instant` |
+| `CAMS_ADS:Data15:PM10:EL62_mean:2026-09-30T00Z` | `2026-09-30T00:00:00+00:00` | `NUTS2/EL62` | **8.28** | `ug/m3` | `instant` |
+| `CAMS_ADS:Data15:PM10:corfu_airport_cell:2026-09-30T00Z` | `2026-09-30T00:00:00+00:00` | `point/39.65,19.95` | **7.4** | `ug/m3` | `instant` |
+| `CAMS_ADS:Data15:PM2.5:EL62_mean:2026-09-30T00Z` | `2026-09-30T00:00:00+00:00` | `NUTS2/EL62` | **5.29** | `ug/m3` | `instant` |
+| `CAMS_ADS:Data15:PM2.5:corfu_airport_cell:2026-09-30T00Z` | `2026-09-30T00:00:00+00:00` | `point/39.65,19.95` | **5.51** | `ug/m3` | `instant` |
+| `CAMS_ADS:Data15:CO:EL62_mean:2026-09-30T00Z` | `2026-09-30T00:00:00+00:00` | `NUTS2/EL62` | **159.65** | `ug/m3` | `instant` |
+| `CAMS_ADS:Data15:CO:corfu_airport_cell:2026-09-30T00Z` | `2026-09-30T00:00:00+00:00` | `point/39.65,19.95` | **158.7** | `ug/m3` | `instant` |

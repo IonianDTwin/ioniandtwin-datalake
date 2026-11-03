@@ -40,7 +40,7 @@
         "PCH_PRE (year-on-year % change unit)"
       ],
       "conversion_script": "scripts/verification/build_dashboard.py (via render_pull_reports.decode)",
-      "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py"
+      "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py"
     },
     {
       "source_id": "Eurostat_tour_occ_arn2",
@@ -71,7 +71,7 @@
         "PCH_PRE (percentage change)"
       ],
       "conversion_script": "scripts/verification/build_dashboard.py",
-      "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py"
+      "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py"
     }
   ]
 }

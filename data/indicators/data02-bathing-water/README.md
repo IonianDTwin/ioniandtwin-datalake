@@ -36,7 +36,8 @@ EL62 = 98.82 % excellent bathing water (2023, EU Tourism Dashboard TOUR_ENV_05).
 - **Access Method:** `GET (ArcGIS REST GeoJSON query, no key)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/eea-bwd-greece-2024.geojson`
 - **Raw File Extension & Format:** `.geojson` — `application/geo+json (1,729 Point features across Greece)`
-- **SHA-256 Checksum:** `ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf` (verified in `data/manifests/source-verification-2026-10-20.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-20.json`
 - **Conversion Script (`.geojson` -> `.json`):** `scripts/verification/pull-data02-bathing-water-el62.py`
 - **Conversion Command:** `python3 scripts/verification/pull-data02-bathing-water-el62.py`
 - **Whitelisted Raw Variables (`kept`):** `countryCode`, `bathingWaterIdentifier`, `quality2024`, `lat`, `lon`, `geometry`
@@ -54,7 +55,8 @@ EL62 = 98.82 % excellent bathing water (2023, EU Tourism Dashboard TOUR_ENV_05).
 - **Access Method:** `GET (GeoJSON boundary download)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/gisco-nuts-2021-3035-EL62.geojson`
 - **Raw File Extension & Format:** `.geojson` — `application/geo+json (EPSG:3035 equal-area MultiPolygon)`
-- **SHA-256 Checksum:** `6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d` (verified in `data/manifests/source-verification-2026-10-03.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-03.json`
 - **Conversion Script (`.geojson` -> `.json`):** `scripts/verification/pull-data02-bathing-water-el62.py`
 - **Conversion Command:** `python3 scripts/verification/pull-data02-bathing-water-el62.py`
 - **Whitelisted Raw Variables (`kept`):** `NUTS_ID`, `NAME_LATN`, `geometry`
@@ -71,7 +73,8 @@ EL62 = 98.82 % excellent bathing water (2023, EU Tourism Dashboard TOUR_ENV_05).
 - **Access Method:** `GET (public CSV bulk export)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/eutd-tourism-dashboard-2024-indicators.csv`
 - **Raw File Extension & Format:** `.csv` — `text/csv (UTF-8, comma-delimited, 81,939 rows)`
-- **SHA-256 Checksum:** `ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12` (verified in `data/manifests/source-verification-2026-10-03.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-03.json`
 - **Conversion Script (`.csv` -> `.json`):** `scripts/verification/extract-eutd-dashboard-csv.py`
 - **Conversion Command:** `python3 scripts/verification/extract-eutd-dashboard-csv.py && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `code ('TOUR_ENV_05')`, `nuts_code_2021 ('EL62')`, `year (2023)`, `value`, `unit`

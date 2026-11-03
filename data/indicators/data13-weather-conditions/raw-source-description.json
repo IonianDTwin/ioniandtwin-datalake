@@ -40,7 +40,7 @@
         "elevation"
       ],
       "conversion_script": "scripts/verification/pull-open-meteo.sh -> scripts/verification/build_dashboard.py",
-      "conversion_command": "bash scripts/verification/pull-open-meteo.sh && python3 scripts/verification/build_indicator_folders.py"
+      "conversion_command": "bash scripts/verification/pull-open-meteo.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py"
     }
   ]
 }

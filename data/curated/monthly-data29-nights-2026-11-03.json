@@ -1,0 +1,4034 @@
+[
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 39075,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 31744,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 12632,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 979,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 1453,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 42599,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 904838,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 1829323,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 1145742,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 470480,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 8525,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2020-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 10991,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 5945,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 4768,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 8427,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 10442,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 119486,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 882586,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 2360891,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 2928672,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 2256727,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 643597,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 22124,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2021-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 13945,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 10865,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 15978,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 25257,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 363688,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 1649672,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 2797962,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 3715283,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 4031458,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 2995652,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 817400,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 46586,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2022-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 42833,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 19164,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 27636,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 37014,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 518558,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 1975245,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 3411642,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 4386318,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 4707007,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 3516683,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 1045691,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 58571,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2023-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 59270,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 20748,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 37723,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 43846,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 565495,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 2123557,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 3402431,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 4662212,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 4971842,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 3499191,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 1085936,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 55487,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2024-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 56232,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 24042,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 45683,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 63571,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 535673,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 2162208,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 3400994,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 4721071,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 4892165,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 3369809,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 1036988,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 58085,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL62:2025-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 53540,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1741391,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1808607,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 701600,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 66553,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 94550,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 902492,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 6908326,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 12335085,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 7722629,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 5250308,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 569759,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2020-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2020-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 373716,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 380183,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 408460,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 509539,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 591166,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1883756,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 7273925,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 16705834,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 20317996,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 14995441,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 8147055,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1574631,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2021-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2021-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1098827,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 890680,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1012437,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1684839,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 5002313,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 12694208,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 19739970,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 27445185,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 29824098,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 20688693,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 9858886,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1967281,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2022-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2022-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1937314,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1591829,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1603094,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2450684,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 6491390,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 14349293,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 22554193,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 29461403,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 31687354,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 22215646,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 10467410,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2201951,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2023-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2023-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2135574,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1590600,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1669445,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2666674,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 6647713,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 15061894,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 23239692,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 30500850,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 33001001,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 23097441,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 10949434,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2286095,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2024-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2024-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2233823,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-01",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-01",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1642944,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-02",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-02",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 1737100,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-03",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-03",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2772721,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-04",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-04",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 6888807,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-05",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-05",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 15409192,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-06",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-06",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 23719868,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-07",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-07",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 31077447,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-08",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-08",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 33962689,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-09",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-09",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 23318358,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-10",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-10",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 11165196,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-11",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-11",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2390613,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  },
+  {
+    "observation_id": "Eurostat_tour_occ_nin2m:Data29:monthly_nights:EL:2025-12",
+    "indicator_id": "Data29",
+    "indicator_name": "Seasonality (%)",
+    "series_label": "monthly nights (all accommodation)",
+    "source_id": "Eurostat_tour_occ_nin2m",
+    "observed_at": "2025-12",
+    "observed_period_end": null,
+    "temporal_granularity": "monthly",
+    "ingested_at": "2026-11-03T11:53:00Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 2262348,
+    "unit": "nights",
+    "polarity": null,
+    "provenance": {
+      "raw_checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "request_params": {
+        "formula": "as published"
+      }
+    }
+  }
+]

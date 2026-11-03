@@ -167,23 +167,9 @@ def derived_observations(ingested: list[dict]) -> list[dict]:
     """Derived indicators with formulas recorded in provenance.request_url (formula string)."""
     out: list[dict] = []
 
-    # --- Data29 seasonality % (peak-month share) from monthly nights sample ---
-    monthly = sdmx_values(SAMPLES / "eurostat-tour_occ_nim-EL-2023.json")
-    vals = {r["time"]: r["value"] for r in monthly if isinstance(r.get("value"), (int, float))}
-    if vals:
-        total = sum(vals.values())
-        peak = max(vals.values())
-        peak_month = [k for k, v in vals.items() if v == peak][0]
-        pct = round(peak / total * 100, 2)
-        out.append(_obs(
-            f"Eurostat_tour_occ_nim:Data29:seasonality_peak_share:2023",
-            "Data29", "Seasonality (%)", "peak-month share of annual nights",
-            "Eurostat_tour_occ_nim", "2023", "annual", "country", "EL",
-            pct, "%", {"access_method": "derived",
-                       "request_url": "seasonality = max(monthly nights) / sum(monthly nights) * 100 "
-                                      f"(peak {peak_month} = {peak:,} of {total:,})"},
-            polarity="negative",
-        ))
+    # --- Data29 seasonality: computed by scripts/verification/compute-data29-seasonality.py (D-026)
+    # from Eurostat tour_occ_nin2m (EL62 + EL, 2020-2025) and merged in additional_series_observations().
+    # The former single EL 2023 peak-month observation is superseded by that series.
 
     # --- Data30 average length of stay = nights / arrivals (EL62) ---
     nights = {o["observed_at"]: o["value"] for o in ingested
@@ -312,6 +298,9 @@ def additional_series_observations() -> list[dict]:
         "observations-data19-platform-rental-share-*.json",
         "observations-data20-internet-speed-*.json",
         "observations-data02-bathing-water-*.json",
+        "observations-data29-seasonality-*.json",
+        "observations-data05-certifications-*.json",
+        "observations-data15-air-quality-*.json",
     ]
     merged: dict[str, dict] = {}
     for pat in patterns:
@@ -338,7 +327,8 @@ def dashboard_observations() -> list[dict]:
         "cultural_assets_density": ("Data23", "Density of cultural elements", "cultural assets per 100 km²", "no. of cultural assets / 100 km²", None),
         "high_nature_value_accommodation": ("Data25", "Accommodation in high-value areas", "share of accommodations in high-nature-value areas", "%", None),
         "net_occupancy": ("Data28", "Occupancy rate (%)", "net occupancy of bed places", "%", None),
-        "peak_season_share": ("Data29", "Seasonality (%)", "share of nights in peak season", "%", "negative"),
+        # TOUR_SOE_02 for EL62 is computed from online-platform nights only (D-026 finding, 2026-11-03).
+        "peak_season_share": ("Data29", "Seasonality (%)", "share of annual nights in the 3 busiest months (online platforms only; EU Tourism Dashboard TOUR_SOE_02)", "%", "negative"),
     }
     out: list[dict] = []
     for key, rec in d.get("el62", {}).items():

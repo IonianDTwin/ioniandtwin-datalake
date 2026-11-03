@@ -20,9 +20,9 @@ data/
 │   ├── ... (data01 through data34)
 └── curated/                              # TRACKED master roll-ups built by scripts/verification/build_dashboard.py
     ├── README.md
-    ├── observations-2026-10-20.json      # Canonical master snapshot (99 schema-valid observations)
-    ├── observations-2026-10-20.csv
-    └── composite-2026-10-20.json         # Composite indicator prototype (Tourism Pressure Index)
+    ├── observations-2026-11-03.json      # Canonical master snapshot (146 schema-valid observations)
+    ├── observations-2026-11-03.csv
+    └── composite-2026-11-03.json         # Composite indicator prototype (Tourism Pressure Index)
 ```
 
 ### Why `data/raw/` and `data/indicators/` are separated:
@@ -55,8 +55,11 @@ Every indicator folder `data/indicators/dataXX-<slug>/` follows the industry-sta
 Regenerate and verify all 34 indicator folders after any data update:
 
 ```bash
-python3 scripts/verification/build_indicator_folders.py
+python3 scripts/verification/build_indicator_folders.py           # rebuild, then check
+python3 scripts/verification/build_indicator_folders.py --check   # check only, writes nothing
 ```
+
+The check recomputes every raw file's sha256 against the manifests, validates every observation against the schema, and compares each folder with the master snapshot and the separate series files (Data07 forecasts, Data29 monthly nights).
 
 ---
 
@@ -65,10 +68,10 @@ python3 scripts/verification/build_indicator_folders.py
 ### A. Spatial Reference & Aggregation Rule (`D-014`)
 - **NUTS 2 (`EL62` = Ionian Islands)** is the strict regional analysis reference.
 - **Operational micro levels:** `municipality`, `tourism_zone`, `beach`, `transport_node`, `poi`, `point`.
-- **Country proxy (`EL`):** Used only when NUTS2 is not published upstream (e.g., `Data29` monthly Eurostat `tour_occ_nim` series).
-- **NUTS 3 (`EL621` Zakynthos, `EL622` Kerkyra, `EL623` Ithaki/Kefallinia, `EL624` Lefkada) is an internal disaggregation only:** NUTS3 breakdowns may be stored inside `extracted-summary.json` (`role: internal_disaggregation`), but must be aggregated to `NUTS2/EL62` before emitting canonical observations in `observations.json`. No observation may carry `spatial_ref.level = "NUTS3"`.
+- **Country (`EL`):** Used as national context, or as a proxy only when NUTS2 is not published upstream. (Data29 no longer needs the proxy: Eurostat `tour_occ_nin2m` publishes EL62 monthly nights from 2020.)
+- **NUTS 3 (`EL621` Zakynthos, `EL622` Kerkyra, `EL623` Ithaki/Kefallinia, `EL624` Lefkada) is an internal disaggregation only:** NUTS3 breakdowns may be stored inside `refined-data.json` → `refined_data` (`role: internal_disaggregation`), but must be aggregated to `NUTS2/EL62` before emitting canonical observations (`refined-data.json` → `observations`). No observation may carry `spatial_ref.level = "NUTS3"`.
 
 ### B. Provenance & Checksum Discipline
 - Every raw fetch in `data/raw/` or `data/samples/` must have a recorded entry in `data/manifests/source-verification-YYYY-MM-DD.json` with `url`, `accessed_at`, `response_status`, and `checksum_sha256`.
-- Every observation in `observations.json` must carry a valid `provenance` object (`access_method`, `request_url`, and `raw_checksum_sha256` / `raw_manifest` where applicable) conforming to `schemas/observation-schema.json` (`additionalProperties: false`).
+- Every observation must carry a valid `provenance` object (`access_method`, `request_url`, and `raw_checksum_sha256` / `raw_manifest` where applicable) conforming to `schemas/observation-schema.json` (`additionalProperties: false`).
 - **GDPR / PII Redaction:** Personal contact fields (emails, phone numbers, exact personal identifiers) in public registers (such as `Data05` EMAS) must be stripped before writing to `data/samples/` or `data/indicators/` and listed under `raw_variables_dropped`.

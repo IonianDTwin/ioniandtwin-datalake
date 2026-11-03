@@ -35,9 +35,10 @@ Confirmed: average length of stay = nights / arrivals (Eurostat Data26). 5.93 (2
 - **Access Method:** `GET (SDMX 2.1 / JSON-stat 2.0 REST API, no key)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json`
 - **Raw File Extension & Format:** `.json` — `application/json (SDMX 2.1 JSON-stat 2.0 cube)`
-- **SHA-256 Checksum:** `46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d` (verified in `data/manifests/source-verification-2026-09-22.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `46821a04c9061b605a1e324f9af55e87dba73856fd190dcb7e78ae8bc75f860d`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-09-22.json`
 - **Conversion Script (`.json` -> `.json`):** `scripts/verification/build_dashboard.py (via render_pull_reports.decode)`
-- **Conversion Command:** `bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py`
+- **Conversion Command:** `bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `dimension.c_resid`, `dimension.unit`, `dimension.nace_r2`, `dimension.geo (EL62)`, `dimension.time`, `value`
 - **Dropped / Redacted Fields:** `status_flags`, `PCH_PRE (year-on-year % change unit)`
 
@@ -57,9 +58,10 @@ Confirmed: average length of stay = nights / arrivals (Eurostat Data26). 5.93 (2
 - **Access Method:** `GET (SDMX 2.1 / JSON-stat 2.0 REST API, no key)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/samples/eurostat-tour_occ_arn2-EL62-2022-2023.json`
 - **Raw File Extension & Format:** `.json` — `application/json (SDMX 2.1 JSON-stat 2.0 cube)`
-- **SHA-256 Checksum:** `0855dc90f5b85a3f4251318da56456cec0585fe55843caf434f26c499f72b724` (verified in `data/manifests/source-verification-2026-09-22.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `0855dc90f5b85a3f4251318da56456cec0585fe55843caf434f26c499f72b724`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-09-22.json`
 - **Conversion Script (`.json` -> `.json`):** `scripts/verification/build_dashboard.py`
-- **Conversion Command:** `bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py`
+- **Conversion Command:** `bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `dimension.c_resid`, `dimension.unit (NR)`, `dimension.nace_r2 (I551-I553)`, `dimension.geo (EL62)`, `dimension.time`, `value`
 - **Dropped / Redacted Fields:** `PCH_PRE (percentage change)`
 

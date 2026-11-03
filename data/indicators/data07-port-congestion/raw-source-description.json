@@ -39,7 +39,7 @@
     {
       "source_id": "GreekNAP_sailing_traffic",
       "provider": "Greek National Access Point (NAP) — Domestic Ferry Sailing Traffic",
-      "upstream_url": "file:///home/scrublife/ionian-dtwin/scratch/ais-routes/export_sailing_traffic.csv",
+      "upstream_url": "UNDOCUMENTED: Greek National Access Point (NAP) sailing-traffic CSV export; the download address is still to be recorded (open item). Local copy: scratch/ais-routes/export_sailing_traffic.csv",
       "access_method": "CSV bulk export (184,436 domestic ferry legs, Mar-Nov 2025)",
       "raw_file_path": "scratch/ais-routes/export_sailing_traffic.csv",
       "raw_format": "text/csv (184,436 rows)",

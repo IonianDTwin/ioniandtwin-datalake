@@ -1,0 +1,5 @@
+observation_id,spatial_code,value,unit
+EMAS_register_REST:Data05:emas_registrations:EL62:2026-10-01,EL62,0,organisations
+EMAS_register_REST:Data05:emas_registrations:EL:2026-10-01,EL,37,organisations
+EU_Ecolabel_catalogue_CSV:Data05:ecolabel_tourist_accommodation:EL62:2026-10-01,EL62,0,licences
+EU_Ecolabel_catalogue_CSV:Data05:ecolabel_tourist_accommodation:EL:2026-10-01,EL,0,licences

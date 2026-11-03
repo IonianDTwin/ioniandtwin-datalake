@@ -1,0 +1,168 @@
+{
+  "_about": "Refresh jobs for scripts/refresh/run.py (design: pipelines/refresh-scheduler.md). A job is enabled only when its indicator definition is locked. Every job ends at a CANDIDATE check; promoting new data into data/curated is a reviewed, manual step.",
+  "jobs": [
+    {
+      "id": "eurostat_tour_occ_nin2m",
+      "enabled": true,
+      "indicators": [
+        "Data29"
+      ],
+      "cadence": "weekly",
+      "source_id": "Eurostat_tour_occ_nin2m",
+      "detect": {
+        "type": "eurostat_updated",
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&unit=NR&c_resid=TOTAL&month=TOTAL&lastTimePeriod=1"
+      },
+      "pull": {
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+        "file_prefix": "eurostat-tour_occ_nin2m-EL62-EL"
+      },
+      "candidate": [
+        [
+          "scripts/verification/compute-data29-seasonality.py",
+          "--check",
+          "--nin2m",
+          "{raw}"
+        ],
+        [
+          "scripts/verification/compute-data29-provisional.py",
+          "--check",
+          "--nin2m",
+          "{raw}"
+        ]
+      ],
+      "verified_raw": "data/raw/eurostat-tour_occ_nin2m-EL62-EL-2020-2025.json"
+    },
+    {
+      "id": "eurostat_tour_occ_nim_EL",
+      "enabled": true,
+      "indicators": [
+        "Data29"
+      ],
+      "cadence": "weekly",
+      "source_id": "Eurostat_tour_occ_nim_EL_2020_2026",
+      "detect": {
+        "type": "eurostat_updated",
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&lang=EN&geo=EL&unit=NR&c_resid=TOTAL&nace_r2=I551-I553&lastTimePeriod=1"
+      },
+      "pull": {
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&lang=EN&geo=EL&unit=NR&c_resid=TOTAL&nace_r2=I551-I553&sinceTimePeriod=2020-01",
+        "file_prefix": "eurostat-tour_occ_nim-EL"
+      },
+      "candidate": [
+        [
+          "scripts/verification/compute-data29-provisional.py",
+          "--check",
+          "--nim",
+          "{raw}"
+        ]
+      ],
+      "verified_raw": "data/raw/eurostat-tour_occ_nim-EL-2020-01-2026-08.json"
+    },
+    {
+      "id": "eurostat_tour_ce_omn12",
+      "enabled": true,
+      "indicators": [
+        "Data29"
+      ],
+      "cadence": "weekly",
+      "source_id": "Eurostat_tour_ce_omn12_monthly",
+      "detect": {
+        "type": "eurostat_updated",
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?format=JSON&lang=EN&geo=EL62&indic_to=NGT_SP&c_resid=TOTAL&month=TOTAL&lastTimePeriod=1"
+      },
+      "pull": {
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?format=JSON&lang=EN&geo=EL62&geo=EL&indic_to=NGT_SP&c_resid=TOTAL&time=2020&time=2021&time=2022&time=2023",
+        "file_prefix": "eurostat-tour_ce_omn12-EL62-EL-monthly"
+      },
+      "candidate": [
+        [
+          "scripts/verification/compute-data29-seasonality.py",
+          "--check",
+          "--omn12",
+          "{raw}"
+        ]
+      ],
+      "verified_raw": "data/raw/eurostat-tour_ce_omn12-EL62-EL-monthly-2020-2023.json",
+      "window_note": "Years 2020-2023 are fixed by design: this file only reconciles the 2024 EU Tourism Dashboard edition (TOUR_SOE_02 platform basis). Widen the window when a new dashboard edition is adopted (review F7)."
+    },
+    {
+      "id": "eurostat_tour_ce_omn12_annual",
+      "enabled": false,
+      "indicators": [
+        "Data19"
+      ],
+      "cadence": "weekly",
+      "reason_disabled": "Data19 uses the annual tour_ce_omn12 file; pull-data19-platform-rentals.py has no --check candidate mode yet (review F7)."
+    },
+    {
+      "id": "cams_daily",
+      "enabled": false,
+      "indicators": [
+        "Data15",
+        "Data01"
+      ],
+      "cadence": "daily",
+      "reason_disabled": "Pull needs the ADS credential flow and a parameterised CAMS pull script; Data15 definition to be locked first."
+    },
+    {
+      "id": "open_meteo",
+      "enabled": false,
+      "indicators": [
+        "Data13",
+        "Data14"
+      ],
+      "cadence": "30min",
+      "reason_disabled": "Point location and aggregation for EL62 not yet decided (current value is one Corfu point)."
+    },
+    {
+      "id": "opensky",
+      "enabled": false,
+      "indicators": [
+        "Data06"
+      ],
+      "cadence": "30min",
+      "reason_disabled": "Congestion thresholds still to confirm; anonymous rate limits to respect."
+    },
+    {
+      "id": "eea_bathing_water",
+      "enabled": false,
+      "indicators": [
+        "Data02",
+        "Data03"
+      ],
+      "cadence": "monthly",
+      "reason_disabled": "Season layer name changes per year; pull script not yet parameterised."
+    },
+    {
+      "id": "eu_tourism_dashboard",
+      "enabled": false,
+      "indicators": [
+        "Data04",
+        "Data23",
+        "Data25",
+        "Data28"
+      ],
+      "cadence": "monthly",
+      "reason_disabled": "Release URL is per edition; detection method to be defined."
+    },
+    {
+      "id": "emas_ecolabel",
+      "enabled": false,
+      "indicators": [
+        "Data05"
+      ],
+      "cadence": "monthly",
+      "reason_disabled": "Full registers are large (14-17 MB); extraction script to be written (none retained)."
+    },
+    {
+      "id": "fraport_monthly",
+      "enabled": false,
+      "indicators": [
+        "Data29 island proxy (PROPOSAL)"
+      ],
+      "cadence": "monthly",
+      "reason_disabled": "Island-level proxy is a PROPOSAL; PDF parser not yet written."
+    }
+  ]
+}

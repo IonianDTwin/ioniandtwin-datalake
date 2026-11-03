@@ -6,7 +6,7 @@
   "indicator_name_el": "Επίπεδα CO2 αεροδρομίων",
   "category": "environmental_health_pollutants",
   "status": "PARTIAL",
-  "conversion_script": "scripts/verification/build_indicator_folders.py (NetCDF sliced to data/samples/cams-ionian-20260930-summary.json)",
+  "conversion_script": "scripts/verification/extract-cams-summary.py (NetCDF zip -> data/samples/cams-ionian-20260930-summary.json)",
   "raw_sources": [
     {
       "source_id": "CAMS_ADS_air_quality",
@@ -40,8 +40,9 @@
       "raw_variables_dropped": [
         "upper_level_layers (filtered to surface level=0)"
       ],
-      "conversion_script": "scripts/verification/build_indicator_folders.py",
-      "conversion_command": "python3 scripts/verification/build_indicator_folders.py"
+      "conversion_script": "scripts/verification/extract-cams-summary.py",
+      "conversion_command": "python3 scripts/verification/extract-cams-summary.py --check && python3 scripts/verification/build_indicator_folders.py",
+      "lineage_note": "The summary JSON was first produced ad hoc on 2026-10-01 without a retained script. scripts/verification/extract-cams-summary.py (2026-11-03) reproduces all 12 summary values from the retained zip."
     }
   ]
 }

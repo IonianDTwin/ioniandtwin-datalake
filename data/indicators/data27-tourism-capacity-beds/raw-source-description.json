@@ -37,7 +37,7 @@
         "PCH_PRE"
       ],
       "conversion_script": "scripts/verification/build_dashboard.py",
-      "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py"
+      "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py"
     },
     {
       "source_id": "ELSTAT_STO12_capacity",
@@ -60,8 +60,9 @@
       "raw_variables_dropped": [
         "non_Ionian_regional_units"
       ],
-      "conversion_script": "scripts/verification/build_indicator_folders.py",
-      "conversion_command": "python3 scripts/verification/build_indicator_folders.py"
+      "conversion_script": "scripts/verification/reproduce-derived-samples.py",
+      "conversion_command": "python3 scripts/verification/reproduce-derived-samples.py --check && python3 scripts/verification/build_indicator_folders.py",
+      "lineage_note": "The JSON was extracted ad hoc on 2026-10-01 from data/samples/elstat-sto12-{2021..2025}-capacity.xlsx (sheet ENG, 'REGIONAL UNIT OF ...' rows, hotels-and-similar bed-places column). scripts/verification/reproduce-derived-samples.py (2026-11-03) reproduces all 25 values from the retained workbooks."
     }
   ]
 }

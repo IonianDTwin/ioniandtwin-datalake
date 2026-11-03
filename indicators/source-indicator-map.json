@@ -119,7 +119,7 @@
       "source": "EMAS register (REST) + EU Ecolabel catalogue (CSV export)",
       "access_type": "api + download (CSV)",
       "auth": "none",
-      "note": "VERIFIED 2026-10-02: EMAS register REST https://webgate.ec.europa.eu/emas2/public/rest/registration/list (4,523 records, 27 countries; Greece 37, EL62 0) and EU Ecolabel CSV export https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv (89,298 licences; Greece 450, tourist-accommodation group Greece 0). Evidence: data/manifests/source-verification-2026-10-02.json.",
+      "note": "VERIFIED 2026-10-02: EMAS register REST https://webgate.ec.europa.eu/emas2/public/rest/registration/list (4,523 records, 27 countries; Greece 37, EL62 0) and EU Ecolabel CSV export https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv (89,298 licences; Greece 450, tourist-accommodation group Greece 0). Evidence: data/manifests/source-verification-2026-10-02.json. Observations (2026-11-03): EL62 EMAS registrations = 0, EL62 EU Ecolabel tourist-accommodation licences = 0, with Greece context (37 / 0), from scripts/verification/compute-data05-certifications.py.",
       "cadence": "on-change"
     },
     {
@@ -272,7 +272,7 @@
       "source": "Copernicus CAMS; OpenWeatherMap / Meteo.gr",
       "access_type": "api",
       "auth": "registration / key",
-      "note": "CAMS ensemble analysis pulled 2026-10-01 (NO2 5.80 / PM10 7.40 / PM2.5 5.51 / CO 158.70 ug/m3, Corfu-airport grid point). D-008: Data15 = ambient air quality.",
+      "note": "CAMS ensemble analysis pulled 2026-10-01 (NO2 5.80 / PM10 7.40 / PM2.5 5.51 / CO 158.70 ug/m3, Corfu-airport grid point). D-008: Data15 = ambient air quality. Observations (2026-11-03): NO2/PM10/PM2.5/CO area-weighted over EL62 land and at the Corfu airport cell, CAMS analysis 2026-09-30T00Z, from scripts/verification/compute-data15-air-quality.py. Single snapshot; daily feed is a scheduler item.",
       "cadence": "daily"
     },
     {
@@ -509,25 +509,11 @@
       "name_el": null,
       "category": "tourism_performance",
       "status": "VERIFIED",
-      "source": "Eurostat tour_occ_nim (monthly nights)",
+      "source": "Eurostat tour_occ_nin2m (monthly nights by NUTS 2, all accommodation); definition from EU Tourism Dashboard TOUR_SOE_02",
       "access_type": "api",
       "auth": "none",
-      "note": "EL62 = 71.08 % peak-season share (2023) - from EU Tourism Dashboard TOUR_SOE_02. Flag: exact month window (Jun-Sep vs Jul-Aug) to confirm.",
-      "series": [
-        {
-          "source_key": "Eurostat_tour_occ_nim",
-          "dims": {
-            "freq": "M",
-            "c_resid": "TOTAL",
-            "unit": "NR",
-            "nace_r2": "I551-I553",
-            "geo": "EL"
-          },
-          "label": "monthly nights",
-          "unit": "nights",
-          "description": "Monthly nights spent (Greece, country level). Peak-month share of annual total = seasonality (Aug 2023 = 21.53%)."
-        }
-      ],
+      "note": "D-026 (2026-11-03): headline = share of annual nights in the 3 busiest months, all accommodation (EL62 2023 = 63.81 %, 2025 = 63.91 %); Seasonality Index = Gini of 12 monthly nights (EL62 2023 = 0.5827). TOUR_SOE_02 is a top-3-month share; its EL62 value (71.08 %, 2023) covers online-platform nights only and is kept as a separate series. Computed by scripts/verification/compute-data29-seasonality.py. Island-level monthly data: not published by Eurostat (PROPOSAL: Fraport monthly airport passengers). Monthly nights (EL62 + EL, 2020-2025) are kept outside the master snapshot in data/curated/monthly-data29-nights-*.json (owner decision 2026-11-03); the former tour_occ_nim EL 2023 base series was removed from the map (identical values are in that file).",
+      "series": [],
       "cadence": "annual"
     },
     {

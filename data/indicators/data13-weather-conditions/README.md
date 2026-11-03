@@ -34,9 +34,10 @@
 - **Access Method:** `GET (public REST JSON API, no key)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/samples/open-meteo-corfu-forecast-2026-09-22.json`
 - **Raw File Extension & Format:** `.json` — `application/json`
-- **SHA-256 Checksum:** `e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23` (verified in `data/manifests/source-verification-2026-09-22.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `e16e6108febd130fbab834a943df510a3d982714d4d7e18a7f01ac5e50f93e23`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-09-22.json`
 - **Conversion Script (`.json` -> `.json`):** `scripts/verification/pull-open-meteo.sh -> scripts/verification/build_dashboard.py`
-- **Conversion Command:** `bash scripts/verification/pull-open-meteo.sh && python3 scripts/verification/build_indicator_folders.py`
+- **Conversion Command:** `bash scripts/verification/pull-open-meteo.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `latitude`, `longitude`, `current.time`, `current.temperature_2m`, `current.relative_humidity_2m`, `current.apparent_temperature`, `daily.uv_index_max`
 - **Dropped / Redacted Fields:** `generationtime_ms`, `utc_offset_seconds`, `elevation`
 

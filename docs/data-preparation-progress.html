@@ -1200,9 +1200,9 @@ surgical/reconciliation approaches.</p>
 <ul>
 <li><strong>34 indicators</strong> total (<code>data/indicators/data01-&lt;slug&gt;/</code> … <code>data34-&lt;slug&gt;/</code>).</li>
 <li><strong>23 <code class="badge verified">VERIFIED</code></strong> (68 %) · <strong>1 <code class="badge partial">PARTIAL</code></strong> (3 %) · <strong>1 <code class="badge proposal">PROPOSAL</code></strong> (3 %) · <strong>9 <code class="badge unverified">UNVERIFIED</code></strong> (26 %).</li>
-<li>Data pipeline emits <strong>99 schema-aligned observations</strong> (28 base + 47 derived + 6 dashboard + 18 additional) as of 2026-10-20, plus 1 composite prototype (<code>Tourism Pressure Index</code>). Data07 keeps <strong>366 anticipated-congestion forecast observations</strong> as a separate series (2026-10-14).</li>
-<li><strong>Holistic per-indicator folders (<code>D-023</code>, 2026-10-28):</strong> Every indicator has a dedicated folder <code>data/indicators/dataXX-&lt;slug&gt;/</code> containing <code>raw-source-description.json</code> (raw source URL, <code>sha256</code>, raw schema, variable whitelist, and conversion script), <code>refined-data.json</code> (feature dictionary, refined JSON payload, and strict <code>observation-schema.json</code> records), and a companion <code>README.md</code>.</li>
-<li>Single master roll-up: <code>data/curated/observations-2026-10-20.json</code> / <code>.csv</code>.</li>
+<li>The master dataset holds <strong>146 schema-aligned observations</strong> (2026-11-03), plus 1 composite prototype (<code>Tourism Pressure Index</code>, under redesign). Two series are kept in separate files and merged only into their indicator folder: <strong>Data07</strong> (366 anticipated-congestion forecasts) and <strong>Data29</strong> (144 monthly nights, Ionian Islands and Greece, 2020-2025).</li>
+<li><strong>Per-indicator folders (since 2026-10-28):</strong> Every indicator has a dedicated folder <code>data/indicators/dataXX-&lt;slug&gt;/</code> containing <code>raw-source-description.json</code> (raw source URL, <code>sha256</code>, raw schema, variable whitelist, and conversion script), <code>refined-data.json</code> (feature dictionary, refined JSON payload, and strict <code>observation-schema.json</code> records), and a companion <code>README.md</code>.</li>
+<li>Single master roll-up: <code>data/curated/observations-2026-11-03.json</code> / <code>.csv</code>.</li>
 </ul>
 <pre><code>VERIFIED    ███████████████████████··········· 23/34
 PARTIAL     █·································  1/34
@@ -1210,6 +1210,40 @@ PROPOSAL    █································�
 UNVERIFIED  █████████·························  9/34
 
 </code></pre>
+<h3>Changes since the technical meeting of 23 October 2026</h3>
+<p>Dated record of what changed in the data work, newest first. Per-indicator detail is in each indicator's <strong>Historical Log</strong> in Section 2.</p>
+<p><strong>2026-11-03: independent re-check, seasonality redefined, gaps closed</strong>
+- <strong>Independent re-check of all 34 folders.</strong> The 28 October check had only confirmed that the files were well-formed. A new check (<code>python3 scripts/verification/build_indicator_folders.py --check</code>) now re-reads everything from disk and requires four things:
+  - each raw file's fingerprint (sha256) is recomputed and must match the recorded evidence;
+  - every observation passes a real schema validation;
+  - every folder matches the master dataset;
+  - values fall within their allowed ranges.</p>
+<p>An independent second reviewer reproduced every number and checksum. No value had been altered.
+- <strong>Corrections found by the re-check:</strong>
+  - Data05 had the fingerprint of the full download instead of the stored extract;
+  - Data01/15/27 named the wrong conversion script;
+  - Data28's island "occupancy" file was not an occupancy rate (all-accommodation nights ÷ hotel-only beds) and was relabelled <code>nights_per_hotel_bed_index</code>.</p>
+<p>Three intermediate files that had been made by hand are now rebuilt by scripts: the CAMS summary, the ELSTAT bed-places table and the derived Data22/28 files.
+- <strong>Data29 Seasonality redefined.</strong>
+  - The EU Tourism Dashboard's "Tourism seasonality" (71.08 % for the Ionian Islands, 2023) is the share of nights in the <strong>3 busiest months</strong>, and for regions it counts <strong>online-platform (Airbnb/Booking/Expedia) nights only</strong>.
+  - The headline is now the same formula over <strong>all accommodation</strong> from Eurostat's monthly regional data: <strong>63.81 % (2023), 63.99 % (2024), 63.91 % (2025)</strong>.
+  - Added a <strong>Gini seasonality index</strong> (0.583 for the Ionian Islands vs 0.489 for Greece).
+  - 71.08 % is kept as a separate platform-only series.
+- <strong>Data05 and Data15 now produce values.</strong> Both were verified sources with no value in the dataset:
+  - Data05: 0 EMAS and 0 EU Ecolabel tourist-accommodation certifications in the Ionian Islands.
+  - Data15: CAMS pollutants averaged over the region's actual land area, plus the Corfu airport cell.
+- <strong>Monthly data in separate files.</strong> Monthly inputs (Data29 nights) sit outside the master dataset, like the Data07 forecasts, so the master stays one row per indicator value.
+- <strong>Data availability measured.</strong> Eurostat publishes regional monthly nights <strong>once a year</strong> (2025 appeared in Oct 2026), Greek national monthly nights about 2 months behind (to Aug 2026), and regional platform nights quarterly (to Mar 2026). This sets what a continuous feed can deliver (scheduler design: <code>pipelines/refresh-scheduler.md</code>).
+- <strong>Continuous feed: first pipeline built (proposal).</strong> A refresh runner (<code>scripts/refresh/run.py</code>) checks each source's "last updated" stamp, downloads only when the publisher changed something, keeps every download under a new name with its fingerprint, and re-tests the indicator calculations. New official data is reviewed before it replaces published values. Three Eurostat sources are switched on and were tested end to end; the others wait until their definitions are final. Design: <code>pipelines/refresh-scheduler.md</code>.
+- <strong>Provisional current-year estimates (proposal).</strong> Official regional monthly nights arrive a year late, so recent months are estimated as Greece's monthly nights × the Ionian share of Greece for that month (average of earlier normal years). Backtest on past years: annual error −8.6 % (2023), −4.3 % (2024), <strong>−0.02 % (2025)</strong>; seasonality within 0.3 points every year. With only 1–3 reference years these errors are indicative, and the negative 2023–24 errors show the method lags a rising Ionian share. Each estimate carries a band (the range of past shares). The estimates (Jan–Aug 2026) are labelled provisional, kept outside the dataset, and replaced by the official figures on release.
+- <strong>In progress:</strong> redesign of the Tourism Pressure Index prototype. A 2018 European Parliament study lists the Ionian Islands among 15 EU regions at high risk of overtourism, and its EU-wide scoring method is the proposed basis.</p>
+<p><strong>2026-10-28: workstation restructured around the 34 indicators</strong>
+- One folder per indicator (<code>data/indicators/data01-…</code> to <code>data34-…</code>), each with three files:
+  - <code>raw-source-description.json</code>: where the raw data comes from, its fingerprint, every raw field explained, which fields we <strong>keep</strong> and which we <strong>drop</strong> (for example personal contact data), and the script that converts it;
+  - <code>refined-data.json</code>: the cleaned project data, a dictionary of every field (type, unit, role), the formula, and the final observations;
+  - <code>README.md</code>: the same in readable tables.
+- Large raw downloads are stored once in <code>data/raw/</code> and never copied into indicator folders. All project-made files are JSON. Global rules (what we keep, the spatial level, privacy, provenance) are in <code>data/README.md</code>.
+- 39 superseded early-bootstrap documents were removed.</p>
 <h3>By category</h3>
 <table>
 <thead>
@@ -1340,7 +1374,7 @@ UNVERIFIED  █████████····················�
 <td>Data05</td>
 <td>EMAS / EU Ecolabel</td>
 <td><code class="badge verified">VERIFIED</code></td>
-<td>EL62: 0 EMAS · 0 ecolabel accommodation</td>
+<td>EL62: 0 EMAS registrations · 0 EU Ecolabel tourist-accommodation licences (Greece: 37 / 0); emitted as observations since 2026-11-03</td>
 </tr>
 <tr>
 <td>Data06</td>
@@ -1400,7 +1434,7 @@ UNVERIFIED  █████████····················�
 <td>Data15</td>
 <td>Air quality</td>
 <td><code class="badge verified">VERIFIED</code></td>
-<td>CAMS 2026-09-30: NO₂ 5.80 · PM10 7.40 · PM2.5 5.51 µg/m³</td>
+<td>CAMS 2026-09-30, Ionian land average: NO₂ 2.67 · PM10 8.28 · PM2.5 5.29 µg/m³ (Corfu airport cell: NO₂ 5.80)</td>
 </tr>
 <tr>
 <td>Data16</td>
@@ -1484,7 +1518,7 @@ UNVERIFIED  █████████····················�
 <td>Data29</td>
 <td>Seasonality (%)</td>
 <td><code class="badge verified">VERIFIED</code></td>
-<td>EL62 2023: 71.08 % peak-season share (dashboard)</td>
+<td>EL62 2023: 63.81 % of nights in the 3 busiest months (all accommodation) · Gini 0.5827 · platform-only 71.08 % (dashboard)</td>
 </tr>
 <tr>
 <td>Data30</td>
@@ -1567,10 +1601,10 @@ UNVERIFIED  █████████····················�
 <li><strong>EEA bathing water:</strong> full series <strong>1990-2024</strong> (Greece 96.99 % excellent in 2024) and the EL62 2024 spatial join (<strong>99.42 % excellent</strong>, 100 % clean).</li>
 <li><strong>Ookla Open Data:</strong> 2024-Q3 EL62 (fixed 42.29 Mbps · mobile 107.48 Mbps download).</li>
 <li><strong>Live/daily:</strong> Data06 (2026-10-20 snapshot) · Data07 (anticipated forecast, 2026-10-14) · Data13/14 (current forecast) · Data15 (2026-09-30) · Data05 (current registers).</li>
-<li><strong>Dashboard-sourced (frozen at the 2024 release → 2023):</strong> Data02 (EL62), Data23, Data25, Data28, Data29 (EL62). Data04 = 2024 (Blue Flag). These lag because the dashboard is an annual snapshot.</li>
+<li><strong>Dashboard-sourced (frozen at the 2024 release → 2023):</strong> Data02 (EL62), Data23, Data25, Data28. Data29 is now computed from Eurostat monthly data to <strong>2025</strong>; its dashboard value is kept as a platform-only series. Data04 = 2024 (Blue Flag). These lag because the dashboard is an annual snapshot.</li>
 <li><strong>Static:</strong> Data24 (NUTS 2021 / current Natura 2000).</li>
 </ul>
-<p><strong>Gap to close (next pulls):</strong> re-pull Data28/29 underlying Eurostat monthly data to 2024/25. Data22/23/25/32 are JRC dashboard computations - fresher values need the dashboard's next release or its underlying source.</p>
+<p><strong>Gap to close (next pulls):</strong> Data28 occupancy beyond 2023 (Data29 closed 2026-11-03). Data22/23/25/32 are JRC dashboard computations - fresher values need the dashboard's next release or its underlying source.</p>
 <h3>Master Data Access &amp; Artifact Matrix (Team Quick-Navigation)</h3>
 <table>
 <thead>
@@ -1613,7 +1647,7 @@ UNVERIFIED  █████████····················�
 <td>Blue Flags (<code>Γαλάζιες Σημαίες</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eutd-tourism-dashboard-2024-el62.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (1 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (1 obs)</td>
 <td>CSV Export → Structured JSON</td>
 </tr>
 <tr>
@@ -1621,7 +1655,7 @@ UNVERIFIED  █████████····················�
 <td>EMAS / EU Ecolabel (<code>EMAS / EU Ecolabel</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/emas-register-greece-2026-10-02.json</code> · <code>data/samples/eu-ecolabel-catalogue-greece-2026-10-02.json</code></td>
-<td><code>data/manifests/source-verification-2026-10-02.json</code></td>
+<td><code>data/curated/observations-data05-certifications-2026-10-01.json</code> (4 obs: EL62 EMAS 0, EL62 Ecolabel tourist accommodation 0, Greece 37 / 0) · <code>data/manifests/source-verification-2026-10-02.json</code></td>
 <td>REST JSON + CSV→JSON</td>
 </tr>
 <tr>
@@ -1685,7 +1719,7 @@ UNVERIFIED  █████████····················�
 <td>Weather conditions (<code>Καιρικές συνθήκες</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/open-meteo-corfu-forecast-2026-09-22.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (3 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (3 obs)</td>
 <td>Flat Forecast JSON (REST)</td>
 </tr>
 <tr>
@@ -1693,7 +1727,7 @@ UNVERIFIED  █████████····················�
 <td>High UV &amp; protection (<code>Υψηλή UV &amp; προστασία</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/open-meteo-corfu-forecast-2026-09-22.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (1 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (1 obs)</td>
 <td>Flat Forecast JSON (REST)</td>
 </tr>
 <tr>
@@ -1701,7 +1735,7 @@ UNVERIFIED  █████████····················�
 <td>Air quality (<code>Ποιότητα Αέρα</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/cams-ionian-20260930-summary.json</code></td>
-<td><code>data/manifests/source-verification-2026-10-01.json</code></td>
+<td><code>data/curated/observations-data15-air-quality-2026-09-30.json</code> (8 obs: NO2/PM10/PM2.5/CO, EL62 area-weighted mean + Corfu airport cell) · <code>data/manifests/source-verification-2026-10-01.json</code></td>
 <td>CAMS NetCDF → Summary JSON</td>
 </tr>
 <tr>
@@ -1709,7 +1743,7 @@ UNVERIFIED  █████████····················�
 <td>Tourism intensity (<code>Τουριστική ένταση</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (2 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (2 obs)</td>
 <td>Eurostat JSON-stat 2.0 (REST)</td>
 </tr>
 <tr>
@@ -1757,7 +1791,7 @@ UNVERIFIED  █████████····················�
 <td>Tourist diversity (<code>Τουριστική ποικιλομορφία</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eurostat-tour_occ_nin3-EL621-624-2021-2025.json</code> · <code>data/samples/derived-data22-data25-2021-2025.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (6 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (6 obs)</td>
 <td>JSON-stat 2.0 → Derived HHI JSON</td>
 </tr>
 <tr>
@@ -1765,7 +1799,7 @@ UNVERIFIED  █████████····················�
 <td>Density of cultural elements (<code>Πυκνότητα πολιτιστικών στοιχείων</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eutd-tourism-dashboard-2024-el62.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (1 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (1 obs)</td>
 <td>CSV Export → Structured JSON</td>
 </tr>
 <tr>
@@ -1773,7 +1807,7 @@ UNVERIFIED  █████████····················�
 <td>Protected land (%) (<code>Προστατευόμενη γη (%)</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/raw/eea-natura2000-el62-envelope-habitats-4326.geojson</code> · <code>data/raw/gisco-nuts-2021-3035-EL62.geojson</code></td>
-<td><code>data/curated/data24-protected-land.json</code> · <code>data/curated/observations-2026-10-20.json</code> (1 obs)</td>
+<td><code>data/curated/data24-protected-land.json</code> · <code>data/curated/observations-2026-11-03.json</code> (1 obs)</td>
 <td>ArcGIS GeoJSON → Spatial Join JSON</td>
 </tr>
 <tr>
@@ -1781,7 +1815,7 @@ UNVERIFIED  █████████····················�
 <td>Accommodation in high-value areas (<code>Καταλύματα σε περιοχές υψηλής αξίας</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eutd-tourism-dashboard-2024-ionian.json</code> · <code>data/samples/elstat-sto12-ionian-bedplaces-2021-2025.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (1 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (1 obs)</td>
 <td>CSV/XLSX → Structured JSON</td>
 </tr>
 <tr>
@@ -1789,7 +1823,7 @@ UNVERIFIED  █████████····················�
 <td>Arrivals &amp; overnight stays (<code>Αφίξεις &amp; διανυκτερεύσεις</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code> · <code>data/samples/eurostat-tour_occ_arn2-EL62-2022-2023.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (4 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (4 obs)</td>
 <td>Eurostat JSON-stat 2.0 (REST)</td>
 </tr>
 <tr>
@@ -1797,31 +1831,31 @@ UNVERIFIED  █████████····················�
 <td>Tourism capacity (beds) (<code>Τουριστική δυναμικότητα - κλίνες</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eurostat-tour_cap_nuts2-EL62-2022-2023.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (2 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (2 obs)</td>
 <td>Eurostat JSON-stat 2.0 (REST)</td>
 </tr>
 <tr>
 <td><strong>Data28</strong></td>
 <td>Occupancy rate (%) (<code>Ποσοστό πληρότητας (%)</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
-<td><code>data/samples/eutd-tourism-dashboard-2024-el62.json</code> · <code>data/samples/derived-data28-occupancy-2021-2025.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (1 obs)</td>
+<td><code>data/samples/eutd-tourism-dashboard-2024-el62.json</code> · <code>data/samples/derived-data28-nights-per-hotel-bed-index-2021-2025.json</code></td>
+<td><code>data/curated/observations-2026-11-03.json</code> (1 obs)</td>
 <td>CSV Export → Structured JSON</td>
 </tr>
 <tr>
 <td><strong>Data29</strong></td>
 <td>Seasonality (%) (<code>Εποχικότητα (%)</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
-<td><code>data/samples/eutd-tourism-dashboard-2024-el62.json</code> · <code>data/samples/eurostat-tour_occ_nim-EL-2023.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (14 obs)</td>
-<td>JSON-stat 2.0 + Dashboard JSON</td>
+<td><code>data/raw/eurostat-tour_occ_nin2m-EL62-EL-2020-2025.json</code> · <code>data/raw/eutd-tourism-dashboard-2024-indicators.csv</code></td>
+<td><code>data/curated/data29-seasonality.json</code> · <code>data/curated/observations-2026-11-03.json</code> (49 obs) · <code>data/curated/monthly-data29-nights-2026-11-03.json</code> (144 monthly)</td>
+<td>JSON-stat 2.0 + Dashboard CSV</td>
 </tr>
 <tr>
 <td><strong>Data30</strong></td>
 <td>Average length of stay (<code>Μέση διάρκεια παραμονής</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code> · <code>data/samples/eurostat-tour_occ_arn2-EL62-2022-2023.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (2 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (2 obs)</td>
 <td>Derived JSON (from JSON-stat 2.0)</td>
 </tr>
 <tr>
@@ -1829,7 +1863,7 @@ UNVERIFIED  █████████····················�
 <td>Tourism density (nights/km²) (<code>Τουριστική πυκνότητα</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (2 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (2 obs)</td>
 <td>Eurostat JSON-stat 2.0 (REST)</td>
 </tr>
 <tr>
@@ -1837,7 +1871,7 @@ UNVERIFIED  █████████····················�
 <td>Dominant tourism typology (<code>Κυρίαρχη τυπολογία τουρισμού</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (1 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (1 obs)</td>
 <td>Derived Categorical JSON</td>
 </tr>
 <tr>
@@ -1845,7 +1879,7 @@ UNVERIFIED  █████████····················�
 <td>Foreign tourist share (%) (<code>Μερίδιο αλλοδαπών τουριστών</code>)</td>
 <td><code class="badge verified">VERIFIED</code></td>
 <td><code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code></td>
-<td><code>data/curated/observations-2026-10-20.json</code> (2 obs)</td>
+<td><code>data/curated/observations-2026-11-03.json</code> (2 obs)</td>
 <td>Eurostat JSON-stat 2.0 (REST)</td>
 </tr>
 <tr>
@@ -1921,7 +1955,7 @@ CO     (Airport: 158.70 | Region Mean: 158.14 | Max: 182.74)  ██████
 <li><code>Raw Sample (Multi-year SQL JSON)</code>: <code>data/samples/eea-bathing-water-EL-1990-2024.json</code></li>
 <li><code>Raw Sample (2024 Breakdown)</code>: <code>data/samples/eea-bathing-water-quality-EL-2024.json</code></li>
 <li><code>Raw Sample (Dashboard EL62)</code>: <code>data/samples/eutd-tourism-dashboard-2024-el62.json</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (35 annual EL observations 1990–2024 + 1 EL62 dashboard obs 2023 + 1 EL62 spatial-join obs 2024) · <code>data/curated/observations-data02-bathing-water-2024.json</code> (EL62 2024 spatial join)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (35 annual EL observations 1990–2024 + 1 EL62 dashboard obs 2023 + 1 EL62 spatial-join obs 2024) · <code>data/curated/observations-data02-bathing-water-2024.json</code> (EL62 2024 spatial join)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-24.json</code> · <code>data/manifests/source-verification-2026-10-03.json</code> · <code>data/manifests/source-verification-2026-10-20.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code> · <code>scripts/verification/pull-data02-bathing-water-el62.py</code></li>
 </ul>
@@ -2049,7 +2083,7 @@ CO     (Airport: 158.70 | Region Mean: 158.14 | Max: 182.74)  ██████
 <li><strong>Source:</strong> EEA WISE BWD (derived) · citizen reports (app's own feed).</li>
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample</code>: <code>data/samples/eea-bathing-water-quality-EL-2024.json</code> · <code>data/raw/eea-bwd-greece-2024.geojson</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (2 observations: <code>EEA_WISE_BWD:Data03:clean_beach_share:2024</code> country · <code>EEA_BWD_Discomap_2024:Data03:clean_share_classified:EL62:2024</code>) · <code>data/curated/observations-data02-bathing-water-2024.json</code></li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (2 observations: <code>EEA_WISE_BWD:Data03:clean_beach_share:2024</code> country · <code>EEA_BWD_Discomap_2024:Data03:clean_share_classified:EL62:2024</code>) · <code>data/curated/observations-data02-bathing-water-2024.json</code></li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-24.json</code> · <code>data/manifests/source-verification-2026-10-20.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code> · <code>scripts/verification/pull-data02-bathing-water-el62.py</code></li>
 </ul>
@@ -2094,7 +2128,7 @@ CO     (Airport: 158.70 | Region Mean: 158.14 | Max: 182.74)  ██████
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample (EL62 Summary)</code>: <code>data/samples/eutd-tourism-dashboard-2024-el62.json</code></li>
 <li><code>Raw Sample (Ionian Breakdown)</code>: <code>data/samples/eutd-tourism-dashboard-2024-ionian.json</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (1 observation: <code>51.0</code> sites in <code>EL62</code>, 2024)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (1 observation: <code>51.0</code> sites in <code>EL62</code>, 2024)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-10-03.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -2512,7 +2546,7 @@ Ithaki     (Ferry baseline only, 0 cruise calls)               S = 0.198  ██
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample</code>: <code>data/samples/open-meteo-corfu-forecast-2026-09-22.json</code></li>
 <li><code>Annotated Report</code>: <code>data/samples/open-meteo-corfu-forecast-2026-09-22.summary.md</code> · <code>.html</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (3 observations: air temperature, relative humidity, apparent temperature)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (3 observations: air temperature, relative humidity, apparent temperature)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-22.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/pull-open-meteo.sh</code> · <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -2569,7 +2603,7 @@ Relative Humidity (2m)    : 57.0 %   ███████████▍···�
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample</code>: <code>data/samples/open-meteo-corfu-forecast-2026-09-22.json</code></li>
 <li><code>Annotated Report</code>: <code>data/samples/open-meteo-corfu-forecast-2026-09-22.summary.md</code> · <code>.html</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (1 observation: <code>uv_index_max = 5.9</code>)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (1 observation: <code>uv_index_max = 5.9</code>)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-22.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/pull-open-meteo.sh</code> · <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -2665,7 +2699,7 @@ CO    : 158.7 µg/m³ (WHO 24h limit: 4000 µg/m³)▊·············
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code></li>
 <li><code>Annotated Report</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.summary.md</code> · <code>.html</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (2 base observations: 2022 &amp; 2023; extended series verified to 2025)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (2 base observations: 2022 &amp; 2023; extended series verified to 2025)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-22.json</code> · <code>data/manifests/source-verification-2026-10-01.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/pull-eurostat-tourism.sh</code> · <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3030,7 +3064,7 @@ Dashboard TOUR_DIG_05 :  39.67 %    (EL62 2023 share metric)
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample (Eurostat NUTS3 Nights)</code>: <code>data/samples/eurostat-tour_occ_nin3-EL621-624-2021-2025.json</code></li>
 <li><code>Derived Audit JSON</code>: <code>data/samples/derived-data22-data25-2021-2025.json</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (6 annual observations, 2020–2025)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (6 annual observations, 2020–2025)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-10-01.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3162,7 +3196,7 @@ Lefkada (EL624)           : 10.25 %  ██·················· 
 <li><strong>Source:</strong> EU Tourism Dashboard "Cultural assets density" (<code>TOUR_DES_14</code>) - <code>tourism-dashboard.ec.europa.eu</code>.</li>
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample</code>: <code>data/samples/eutd-tourism-dashboard-2024-el62.json</code> · <code>data/samples/eutd-tourism-dashboard-2024-ionian.json</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (1 observation: <code>9.073</code> cultural assets / 100 km² in <code>EL62</code>, 2023)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (1 observation: <code>9.073</code> cultural assets / 100 km² in <code>EL62</code>, 2023)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-10-03.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3208,7 +3242,7 @@ Ionian Islands (EL62) : 9.073 assets / 100 km²  ██████████�
 <li><code>Raw Natura 2000 GeoJSONs</code>: <code>data/raw/eea-natura2000-el62-envelope-habitats-4326.geojson</code> · <code>data/raw/eea-natura2000-el62-envelope-birds-4326.geojson</code></li>
 <li><code>Initial REST Summary</code>: <code>data/samples/eea-natura2000-gr22-summary-2026-10-02.json</code></li>
 <li><code>Curated Spatial Join Audit JSON</code>: <code>data/curated/data24-protected-land.json</code> · <code>data/curated/data24-protected-land.geojson</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (1 observation: <code>16.76 %</code> in <code>EL62</code>)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (1 observation: <code>16.76 %</code> in <code>EL62</code>)</li>
 <li><code>Visual Map Artifact</code>: <code>data/samples/data24-protected-land-map-2026-10-03.png</code></li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-10-03.json</code></li>
 <li><code>ETL &amp; Viz Scripts</code>: <code>scripts/verification/pull-data24-protected-land.py</code> · <code>scripts/verification/compute-data24-protected-land.py</code> · <code>scripts/verification/viz-data24-protected-land.py</code></li>
@@ -3319,7 +3353,7 @@ EU Tourism Dashboard Cross-Check      :  TOUR_DES_12 ( 16.57 %)  ███▎·�
 <li><code>Raw Sample (EL62 Summary)</code>: <code>data/samples/eutd-tourism-dashboard-2024-el62.json</code></li>
 <li><code>Raw Sample (Ionian NUTS3 Breakdown)</code>: <code>data/samples/eutd-tourism-dashboard-2024-ionian.json</code></li>
 <li><code>Supplementary Capacity Sample (ELSTAT)</code>: <code>data/samples/elstat-sto12-ionian-bedplaces-2021-2025.json</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (1 observation: <code>43.0 %</code> in <code>EL62</code>, 2023)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (1 observation: <code>43.0 %</code> in <code>EL62</code>, 2023)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-10-03.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3381,7 +3415,7 @@ Greece National (EL)      : 32.0 %  ██████▍···········�
 <li><code>Raw Sample (Arrivals 2022–2023)</code>: <code>data/samples/eurostat-tour_occ_arn2-EL62-2022-2023.json</code></li>
 <li><code>Raw Pull (Nights 2018–2025)</code>: <code>data/raw/eurostat-tour_occ_nin2-el62-nr-annual-2018-2025.json</code></li>
 <li><code>Annotated Reports</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.summary.md</code> · <code>data/samples/eurostat-tour_occ_arn2-EL62-2022-2023.summary.md</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (4 base observations: nights &amp; arrivals for 2022–2023; full 2018–2025 nights audited in <code>data/curated/data19-platform-rental-share.json</code>)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (4 base observations: nights &amp; arrivals for 2022–2023; full 2018–2025 nights audited in <code>data/curated/data19-platform-rental-share.json</code>)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-22.json</code> · <code>data/manifests/source-verification-2026-10-15.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/pull-eurostat-tourism.sh</code> · <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3512,7 +3546,7 @@ Greece National (EL)      : 32.0 %  ██████▍···········�
 <li><code>Raw Sample (Eurostat NUTS2)</code>: <code>data/samples/eurostat-tour_cap_nuts2-EL62-2022-2023.json</code></li>
 <li><code>Annotated Report</code>: <code>data/samples/eurostat-tour_cap_nuts2-EL62-2022-2023.summary.md</code> · <code>.html</code></li>
 <li><code>Supplementary Sample (ELSTAT NUTS3)</code>: <code>data/samples/elstat-sto12-ionian-bedplaces-2021-2025.json</code> · <code>data/samples/elstat-sto12-2021..2025-capacity.xlsx</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (2 observations: <code>159,790</code> in 2022, <code>155,968</code> in 2023)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (2 observations: <code>159,790</code> in 2022, <code>155,968</code> in 2023)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-22.json</code> · <code>data/manifests/source-verification-2026-10-01.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/pull-eurostat-tourism.sh</code> · <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3568,8 +3602,8 @@ Ithaki      :    265 (2021) →    265 (2025) [ 0.00 %]  ▏··········
 <li><strong>Source:</strong> EU Tourism Dashboard "Occupancy rate" (<code>TOUR_DES_04</code>) - <code>tourism-dashboard.ec.europa.eu</code> · Eurostat (underlying).</li>
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample (Dashboard Net Occupancy)</code>: <code>data/samples/eutd-tourism-dashboard-2024-el62.json</code> · <code>data/samples/eutd-tourism-dashboard-2024-ionian.json</code></li>
-<li><code>Superseded Sample (Gross Proxy)</code>: <code>data/samples/derived-data28-occupancy-2021-2025.json</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (1 observation: <code>65.4 %</code> net occupancy in <code>EL62</code>, 2023)</li>
+<li><code>Superseded Sample (Gross Proxy)</code>: <code>data/samples/derived-data28-nights-per-hotel-bed-index-2021-2025.json</code></li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (1 observation: <code>65.4 %</code> net occupancy in <code>EL62</code>, 2023)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-10-03.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3611,63 +3645,134 @@ Superseded Gross Proxy (nights ÷ [beds × 365 days])         : 34.72 %  ██�
 </ul>
 <h4>Data29 · Seasonality (%) (<code>Εποχικότητα (%)</code>) - <code class="badge verified">VERIFIED</code></h4>
 <ul>
-<li><strong>Source:</strong> EU Tourism Dashboard "Tourism seasonality" (<code>TOUR_SOE_02</code>) - <code>tourism-dashboard.ec.europa.eu</code> · Eurostat <code>tour_occ_nim</code> (monthly country curve).</li>
+<li><strong>Source:</strong> Eurostat <code>tour_occ_nin2m</code>: monthly nights by NUTS 2 region, all tourist accommodation, from 2020. Definition from EU Tourism Dashboard "Tourism seasonality" (<code>TOUR_SOE_02</code>). Adopted 2026-11-03.</li>
+<li><strong>Definition (adopted 2026-11-03):</strong><ul>
+<li><strong>Headline:</strong> share of annual nights in the 3 busiest months, over all accommodation: <code>sum(3 largest monthly nights) / sum(12 monthly nights) × 100</code>. This is the dashboard's own definition, confirmed by recomputation.</li>
+<li><strong>Seasonality Index:</strong> Gini coefficient of the 12 monthly nights. 0 = even all year; 0.917 = every night in one month.</li>
+<li><strong>Context:</strong> peak-month share; share of nights outside June–September; EL62 monthly nights.</li>
+</ul>
+</li>
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
-<li><code>Raw Sample (EL62 Dashboard)</code>: <code>data/samples/eutd-tourism-dashboard-2024-el62.json</code></li>
-<li><code>Raw Sample (National Monthly Curve)</code>: <code>data/samples/eurostat-tour_occ_nim-EL-2023.json</code></li>
-<li><code>Annotated Report</code>: <code>data/samples/eurostat-tour_occ_nim-EL-2023.summary.md</code> · <code>.html</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (14 observations: 1 <code>EL62</code> peak-season share <code>71.08 %</code>, 1 <code>EL</code> peak-month share <code>21.53 %</code>, and 12 monthly <code>EL</code> values <code>2023-01</code>..<code>2023-12</code>)</li>
-<li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-24.json</code> · <code>data/manifests/source-verification-2026-10-03.json</code></li>
-<li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code></li>
+<li><code>Raw (monthly, all accommodation)</code>: <code>data/raw/eurostat-tour_occ_nin2m-EL62-EL-2020-2025.json</code></li>
+<li><code>Raw (monthly, online platforms; reconciliation only)</code>: <code>data/raw/eurostat-tour_ce_omn12-EL62-EL-monthly-2020-2023.json</code></li>
+<li><code>Raw (dashboard)</code>: <code>data/raw/eutd-tourism-dashboard-2024-indicators.csv</code> (<code>TOUR_SOE_02</code>)</li>
+<li><code>Audit</code>: <code>data/curated/data29-seasonality.json</code></li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> holds 49 Data29 observations: 48 annual (EL62 and EL, 2020–2025; 4 measures each) + 1 dashboard EL62 value (platform-only).</li>
+<li><code>Monthly Inputs (separate file, owner decision 2026-11-03)</code>: <code>data/curated/monthly-data29-nights-2026-11-03.json</code>: 144 monthly nights, EL62 and EL, 2020–2025. Merged into the Data29 folder, not into the master.</li>
+<li><code>Manifest</code>: <code>data/manifests/source-verification-2026-11-03.json</code></li>
+<li><code>ETL Script</code>: <code>scripts/verification/compute-data29-seasonality.py</code> → <code>scripts/verification/build_dashboard.py</code></li>
 </ul>
 </li>
-<li><strong>Raw Payload &amp; Feature Extraction:</strong><ul>
-<li><code>Payload Structure</code>: Dashboard JSON (<code>TOUR_SOE_02</code> for <code>EL62</code>) paired with Eurostat JSON-stat 2.0 (<code>tour_occ_nim</code>, <code>freq="M"</code>, <code>geo="EL"</code>, <code>time="2023-01..2023-12"</code>).</li>
-<li><code>Target Features</code>: <code>TOUR_SOE_02.value</code> (<code>71.08 %</code> for <code>EL62</code>), and <code>tour_occ_nim</code> monthly <code>value["0".."11"]</code> (<code>c_resid="TOTAL"</code>, <code>unit="NR"</code>, <code>nace_r2="I551-I553"</code>).</li>
-<li><code>Handling &amp; Transformation</code>: Adopts <code>71.08 %</code> from <code>TOUR_SOE_02</code> as the headline <code>NUTS2/EL62</code> peak-season share, while retaining the 12-month <code>tour_occ_nim</code> curve (<code>147,209,821</code> total Greece nights in 2023; Jun–Sep = <code>71.95 %</code>; Aug peak = <code>21.53 %</code>) to visualize the annual bell curve.</li>
+<li><strong>Dashboard reconciliation (<code class="badge verified">VERIFIED</code> 2026-11-03):</strong><ul>
+<li><strong>Greece:</strong> <code>TOUR_SOE_02</code> = top-3 share of all accommodation (2021–2023 exact: 70.40 / 58.73 / 56.86).</li>
+<li><strong>EL62:</strong> the dashboard uses <strong>online-platform nights only</strong> (2020–2023 exact: 87.70 / 82.71 / 72.06 / 71.08). EL62 71.08 % (2023) is therefore kept as a separate, platform-only series.</li>
+<li>The script refuses to write if this check fails.</li>
 </ul>
 </li>
-</ul>
-<details>
-<summary>Raw Sample Payload / JSON Structure (<code>eutd-tourism-dashboard-2024-el62.json</code> &amp; <code>eurostat-tour_occ_nim-EL-2023.json</code>)</summary>
-<pre><code class="language-json">{
-    &quot;el62_peak_season_share&quot;: {
-      &quot;data_id&quot;: &quot;Data29&quot;,
-      &quot;code&quot;: &quot;TOUR_SOE_02&quot;,
-      &quot;year&quot;: 2023,
-      &quot;unit&quot;: &quot;%&quot;,
-      &quot;value&quot;: 71.08
-    },
-    &quot;el_monthly_nights_2023&quot;: {
-      &quot;2023-01&quot;: 1591829,  &quot;2023-02&quot;: 1603094,  &quot;2023-03&quot;: 2450684,  &quot;2023-04&quot;: 6491390,
-      &quot;2023-05&quot;: 14349293, &quot;2023-06&quot;: 22554193, &quot;2023-07&quot;: 29461403, &quot;2023-08&quot;: 31687354,
-      &quot;2023-09&quot;: 22215646, &quot;2023-10&quot;: 10467410, &quot;2023-11&quot;: 2201951,  &quot;2023-12&quot;: 2135574
-    }
-}
-</code></pre>
-</details>
-<ul>
 <li><strong>Visualizations &amp; Data Findings:</strong></li>
 </ul>
-<pre><code>Monthly Overnight Stays Distribution (Eurostat tour_occ_nim 2023; EL62 Peak-Season Share = 71.08 %)
-2023-01 (Jan) :  1,591,829 ( 1.08 %)  █···················
-2023-02 (Feb) :  1,603,094 ( 1.09 %)  █···················
-2023-03 (Mar) :  2,450,684 ( 1.66 %)  █▌··················
-2023-04 (Apr) :  6,491,390 ( 4.41 %)  ████▏···············
-2023-05 (May) : 14,349,293 ( 9.75 %)  █████████···········
-2023-06 (Jun) : 22,554,193 (15.32 %)  ██████████████▏·····  ┐
-2023-07 (Jul) : 29,461,403 (20.01 %)  ██████████████████▋·  ├─ Peak Summer Season (EL62 TOUR_SOE_02 = 71.08 %)
-2023-08 (Aug) : 31,687,354 (21.53 %)  ████████████████████  │  (Greece Jun–Sep = 71.95 %)
-2023-09 (Sep) : 22,215,646 (15.09 %)  ██████████████······  ┘
-2023-10 (Oct) : 10,467,410 ( 7.11 %)  ██████▋·············
-2023-11 (Nov) :  2,201,951 ( 1.50 %)  █▍··················
-2023-12 (Dec) :  2,135,574 ( 1.45 %)  █▎··················
-
+<pre><code>EL62 Monthly Nights 2023, all accommodation (tour_occ_nin2m) - top-3 share = 63.81 %, Gini = 0.5827
+2023-01 (Jan) :     19,164 ( 0.10 %)  ····················
+2023-02 (Feb) :     27,636 ( 0.14 %)  ····················
+2023-03 (Mar) :     37,014 ( 0.19 %)  ····················
+2023-04 (Apr) :    518,558 ( 2.62 %)  ██··················
+2023-05 (May) :  1,975,245 ( 9.99 %)  ████████············
+2023-06 (Jun) :  3,411,642 (17.26 %)  ██████████████······
+2023-07 (Jul) :  4,386,318 (22.19 %)  ███████████████████·  ◀ top-3 month
+2023-08 (Aug) :  4,707,007 (23.82 %)  ████████████████████  ◀ top-3 month
+2023-09 (Sep) :  3,516,683 (17.79 %)  ███████████████·····  ◀ top-3 month
+2023-10 (Oct) :  1,045,691 ( 5.29 %)  ████················
+2023-11 (Nov) :     58,571 ( 0.30 %)  ····················
+2023-12 (Dec) :     59,270 ( 0.30 %)  ····················
 </code></pre>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>EL62 top-3 %</th>
+<th>EL62 Gini</th>
+<th>EL62 peak month %</th>
+<th>EL62 outside Jun–Sep %</th>
+<th>EL62 platforms top-3 %</th>
+<th>EL top-3 %</th>
+<th>EL Gini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2020</td>
+<td>86.25</td>
+<td>0.7240</td>
+<td>40.67</td>
+<td>12.80</td>
+<td>87.70</td>
+<td>70.09</td>
+<td>0.5998</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>81.51</td>
+<td>0.6791</td>
+<td>31.64</td>
+<td>8.95</td>
+<td>82.71</td>
+<td>70.40</td>
+<td>0.5910</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>65.06</td>
+<td>0.5922</td>
+<td>24.41</td>
+<td>18.00</td>
+<td>72.06</td>
+<td>58.73</td>
+<td>0.5118</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>63.81</td>
+<td>0.5827</td>
+<td>23.82</td>
+<td>18.93</td>
+<td>71.08</td>
+<td>56.86</td>
+<td>0.4894</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>63.99</td>
+<td>0.5836</td>
+<td>24.22</td>
+<td>19.44</td>
+<td>—</td>
+<td>56.71</td>
+<td>0.4891</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>63.91</td>
+<td>0.5828</td>
+<td>24.02</td>
+<td>19.54</td>
+<td>—</td>
+<td>56.77</td>
+<td>0.4886</td>
+</tr>
+</tbody>
+</table>
+<p>Reading: since 2022 the Ionian Islands' Gini has stayed at about 0.58 while annual nights grew. Seasonality is not easing. The off-season share is creeping up (18.0 % → 19.5 %). 2020–2021 are COVID-distorted. The islands are markedly more seasonal than Greece as a whole (Gini 0.58 vs 0.49).</p>
 <ul>
 <li><strong>Historical Log:</strong><ul>
-<li><strong>2026-09-24</strong> - Eurostat <code>tour_occ_nim</code> monthly nights verified at country level only (<code>geo=EL</code>); peak Aug = 21.53 %; Jun-Sep 71.95 %. No NUTS2 monthly publication.</li>
-<li><strong>2026-10-03</strong> - <strong>Key note (reconciliation):</strong> <em>what:</em> adopted <strong>71.08 % peak-season share</strong> (EL62, 2023) - NUTS2 level, replacing the country-level peak-month proxy; <em>why:</em> the dashboard's "seasonality" is a summer-season share, not the peak-month share we had used; <em>how:</em> read <code>TOUR_SOE_02</code> from the 2024 dashboard CSV export. <em>Flag:</em> exact month window (Jun-Sep vs Jul-Aug) to be confirmed from the methodology. → <code class="badge verified">VERIFIED</code>.</li>
+<li><strong>2026-09-24</strong> - Eurostat <code>tour_occ_nim</code> monthly nights verified at country level only (<code>geo=EL</code>); peak Aug = 21.53 %. That table has no EL62. The NUTS 2 monthly table (<code>tour_occ_nin2m</code>) was not checked at the time.</li>
+<li><strong>2026-10-03</strong> - adopted the dashboard's 71.08 % (EL62, 2023) as a "peak-season share"; month window unknown.</li>
+<li><strong>2026-11-03</strong> - <strong>Key note:</strong><ul>
+<li><em>what:</em> the headline is now the top-3-month share over all accommodation (EL62 2023 = 63.81 %), plus a Gini Seasonality Index;</li>
+<li><em>why:</em> recomputation showed <code>TOUR_SOE_02</code> is a top-3-month share, and its EL62 value covers online-platform nights only;</li>
+<li><em>how:</em> <code>tour_occ_nin2m</code> monthly EL62 nights, reconciled against the dashboard by <code>compute-data29-seasonality.py</code>.
+  Island-level (NUTS 3) monthly data does not exist at Eurostat. Fraport monthly airport passengers are a <code class="badge proposal">PROPOSAL</code> proxy.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -3678,7 +3783,7 @@ Superseded Gross Proxy (nights ÷ [beds × 365 days])         : 34.72 %  ██�
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample (Nights)</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code></li>
 <li><code>Raw Sample (Arrivals)</code>: <code>data/samples/eurostat-tour_occ_arn2-EL62-2022-2023.json</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (2 base observations: <code>5.928</code> nights in 2022, <code>5.930</code> nights in 2023; extended series verified to <code>5.58</code> in 2025)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (2 base observations: <code>5.928</code> nights in 2022, <code>5.930</code> nights in 2023; extended series verified to <code>5.58</code> in 2025)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-22.json</code> · <code>data/manifests/source-verification-2026-10-01.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3691,7 +3796,7 @@ Superseded Gross Proxy (nights ÷ [beds × 365 days])         : 34.72 %  ██�
 </li>
 </ul>
 <details>
-<summary>Raw Sample Payload / JSON Structure (Derived Observation Slice from <code>observations-2026-10-20.json</code>)</summary>
+<summary>Raw Sample Payload / JSON Structure (Derived Observation Slice from <code>observations-2026-11-03.json</code>)</summary>
 <pre><code class="language-json">[
     {
       &quot;observation_id&quot;: &quot;derived:Data30:nights_div_arrivals:2022&quot;,
@@ -3737,7 +3842,7 @@ Superseded Gross Proxy (nights ÷ [beds × 365 days])         : 34.72 %  ██�
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code></li>
 <li><code>Annotated Report</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.summary.md</code> · <code>.html</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (2 observations: <code>7,176.29</code> in 2022, <code>8,588.79</code> in 2023)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (2 observations: <code>7,176.29</code> in 2022, <code>8,588.79</code> in 2023)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-22.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/pull-eurostat-tourism.sh</code> · <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3787,7 +3892,7 @@ Superseded Gross Proxy (nights ÷ [beds × 365 days])         : 34.72 %  ██�
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code></li>
 <li><code>Annotated Report</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.summary.md</code> · <code>.html</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (1 observation: <code>"hotels"</code> in <code>EL62</code>, 2023)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (1 observation: <code>"hotels"</code> in <code>EL62</code>, 2023)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-22.json</code> · <code>data/manifests/source-verification-2026-10-03.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/export_observations.py</code></li>
 </ul>
@@ -3847,7 +3952,7 @@ I553 Camping &amp; RV Parks      :    123,419 nights ( 0.62 %)  ▏······�
 <li><strong>Data Pointers &amp; Provenance:</strong><ul>
 <li><code>Raw Sample</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.json</code></li>
 <li><code>Annotated Report</code>: <code>data/samples/eurostat-tour_occ_nin2-EL62-2022-2023.summary.md</code> · <code>.html</code></li>
-<li><code>Curated Observation</code>: <code>data/curated/observations-2026-10-20.json</code> (2 observations: <code>93.72 %</code> in 2022, <code>93.58 %</code> in 2023)</li>
+<li><code>Curated Observation</code>: <code>data/curated/observations-2026-11-03.json</code> (2 observations: <code>93.72 %</code> in 2022, <code>93.58 %</code> in 2023)</li>
 <li><code>Manifest</code>: <code>data/manifests/source-verification-2026-09-22.json</code></li>
 <li><code>ETL Script</code>: <code>scripts/verification/pull-eurostat-tourism.sh</code> · <code>scripts/verification/export_observations.py</code></li>
 </ul>

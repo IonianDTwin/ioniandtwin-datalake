@@ -35,7 +35,8 @@ VERIFIED 2026-10-20: Ookla 2024-Q3 performance slippy-map tiles clipped to GISCO
 - **Access Method:** `GET (AWS S3 public shapefile ZIP archive)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/ookla-performance-fixed-2024Q3.zip`
 - **Raw File Extension & Format:** `.zip (Shapefile)` — `application/zip containing ESRI Shapefile (gps_fixed_tiles.shp, 240 MB)`
-- **SHA-256 Checksum:** `00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e` (verified in `data/manifests/source-verification-2026-10-20.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `00b610cfcbc8d58ae4856fdbe2f69ebdd06df2b27ab6dd79452ce092df39de8e`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-20.json`
 - **Conversion Script (`.zip (Shapefile)` -> `.json`):** `scripts/verification/compute-data20-internet-speed.py`
 - **Conversion Command:** `python3 scripts/verification/compute-data20-internet-speed.py`
 - **Whitelisted Raw Variables (`kept`):** `avg_d_kbps`, `avg_u_kbps`, `avg_lat_ms`, `tests`, `devices`, `geometry`
@@ -56,7 +57,8 @@ VERIFIED 2026-10-20: Ookla 2024-Q3 performance slippy-map tiles clipped to GISCO
 - **Access Method:** `GET (AWS S3 public shapefile ZIP archive)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/ookla-performance-mobile-2024Q3.zip`
 - **Raw File Extension & Format:** `.zip (Shapefile)` — `application/zip containing ESRI Shapefile (gps_mobile_tiles.shp, 138 MB)`
-- **SHA-256 Checksum:** `08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5` (verified in `data/manifests/source-verification-2026-10-20.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `08f8a3d4c1cae257f69416474455033851f6fdab472dba628c23b7e69c1828f5`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-20.json`
 - **Conversion Script (`.zip (Shapefile)` -> `.json`):** `scripts/verification/compute-data20-internet-speed.py`
 - **Conversion Command:** `python3 scripts/verification/compute-data20-internet-speed.py`
 - **Whitelisted Raw Variables (`kept`):** `avg_d_kbps`, `avg_u_kbps`, `avg_lat_ms`, `tests`, `devices`, `geometry`

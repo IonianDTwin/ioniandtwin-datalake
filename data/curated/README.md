@@ -4,8 +4,8 @@
 
 ## Canonical Master Files
 
-- `observations-2026-10-20.json` / `.csv` — **99 schema-aligned observations** (28 base + 47 derived + 6 dashboard + 18 additional), the canonical **single source of truth** across all 23 `VERIFIED` indicators.
-- `composite-2026-10-20.json` — transparent composite prototype (`Tourism Pressure Index`) with exposed formula, weights, units, and polarity.
+- `observations-2026-11-03.json` / `.csv` — **146 schema-aligned observations** (16 base + 46 derived + 6 dashboard + 78 additional), the canonical **single source of truth**. It supersedes `observations-2026-10-20.*` (99 observations). Changes on 2026-11-03: Data29 annual series (D-026); Data05 (4) and Data15 (8) observations added; all monthly inputs moved to separate files. All other observations are unchanged.
+- `composite-2026-11-03.json` — transparent composite prototype (`Tourism Pressure Index`) with exposed formula, weights, units, and polarity.
 - `observations-data07-anticipated-congestion-2026-10-14.json` / `.csv` — **366 schema-compliant `Data07` forecast observations** (one per EL62 port per day, `2026-10-01` → `2026-11-30`; `temporal_granularity=forecast`, `spatial_ref.level=transport_node`). Kept separate from the annual/instant master snapshot because it is a 61-day forward schedule projection (`PROPOSAL`).
 
 ## Producer Audit & Series Inputs (also mirrored with `_meta` in `data/indicators/`)
@@ -16,10 +16,19 @@
 - `data19-platform-rental-share.json` & `observations-data19-platform-rental-share-2026-10-15.json`/`.csv` (`Data19` Eurostat `tour_ce_omn12` share)
 - `data20-internet-speed.json` & `observations-data20-internet-speed-2024Q3.json`/`.csv` (`Data20` Ookla 2024-Q3 spatial join)
 - `data24-protected-land.json` & `data24-protected-land.geojson` (`Data24` Natura 2000 ∩ EL62 land spatial join)
+- `data29-seasonality.json` & `observations-data29-seasonality-2026-11-03.json`/`.csv` (`Data29` annual seasonality from Eurostat `tour_occ_nin2m`, D-026)
+- `monthly-data29-nights-2026-11-03.json` (144 monthly nights, EL62 + EL, 2020–2025): kept **outside** the master, like Data07, and merged into the Data29 folder
+- `observations-data05-certifications-2026-10-01.json`/`.csv` (`Data05` EMAS / EU Ecolabel counts)
+- `observations-data15-air-quality-2026-09-30.json`/`.csv` (`Data15` CAMS, EL62 area-weighted + Corfu airport cell)
 
 ## Regeneration & Verification Commands
 
 ```bash
+# 0. Recompute the standalone series (each checks its inputs first and writes nothing on failure)
+python3 scripts/verification/compute-data29-seasonality.py
+python3 scripts/verification/compute-data15-air-quality.py
+python3 scripts/verification/compute-data05-certifications.py
+
 # 1. Rebuild master observations & composite roll-up
 python3 scripts/verification/build_dashboard.py \
   --manifest data/manifests/source-verification-2026-09-22.json \
@@ -30,4 +39,5 @@ python3 scripts/verification/build_dashboard.py \
 
 # 2. Rebuild & verify all 34 per-indicator folders (data/indicators/data01..data34)
 python3 scripts/verification/build_indicator_folders.py
+python3 scripts/verification/build_indicator_folders.py --check   # verify only
 ```

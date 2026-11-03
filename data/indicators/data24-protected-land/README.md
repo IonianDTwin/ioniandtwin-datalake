@@ -36,7 +36,8 @@ Spatial join complete: Natura 2000 Habitats ∪ Birds clipped to EL62 land (GISC
 - **Access Method:** `GET (GeoJSON boundary download)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/gisco-nuts-2021-3035-EL62.geojson`
 - **Raw File Extension & Format:** `.geojson` — `application/geo+json (EPSG:3035 equal-area MultiPolygon)`
-- **SHA-256 Checksum:** `6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d` (verified in `data/manifests/source-verification-2026-10-03.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-03.json`
 - **Conversion Script (`.geojson` -> `.json`):** `scripts/verification/pull-data02-bathing-water-el62.py`
 - **Conversion Command:** `python3 scripts/verification/pull-data02-bathing-water-el62.py`
 - **Whitelisted Raw Variables (`kept`):** `NUTS_ID`, `NAME_LATN`, `geometry`
@@ -53,7 +54,8 @@ Spatial join complete: Natura 2000 Habitats ∪ Birds clipped to EL62 land (GISC
 - **Access Method:** `GET (ArcGIS REST GeoJSON query via scripts/verification/pull-data24-protected-land.py)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/eea-natura2000-el62-envelope-habitats-4326.geojson`
 - **Raw File Extension & Format:** `.geojson` — `application/geo+json (34 polygon features in EPSG:4326)`
-- **SHA-256 Checksum:** `f3ea28641afac9d75171d7799febc6c902071137cd23fb4422bb8c8a8aa2d756` (verified in `data/manifests/source-verification-2026-10-03.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `f3ea28641afac9d75171d7799febc6c902071137cd23fb4422bb8c8a8aa2d756`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-03.json`
 - **Conversion Script (`.geojson` -> `.json`):** `scripts/verification/compute-data24-protected-land.py`
 - **Conversion Command:** `python3 scripts/verification/compute-data24-protected-land.py`
 - **Whitelisted Raw Variables (`kept`):** `SITECODE`, `SITENAME`, `Area_ha`, `geometry`
@@ -71,7 +73,8 @@ Spatial join complete: Natura 2000 Habitats ∪ Birds clipped to EL62 land (GISC
 - **Access Method:** `GET (ArcGIS REST GeoJSON query via scripts/verification/pull-data24-protected-land.py)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/eea-natura2000-el62-envelope-birds-4326.geojson`
 - **Raw File Extension & Format:** `.geojson` — `application/geo+json (25 polygon features in EPSG:4326)`
-- **SHA-256 Checksum:** `1f4966760df6cabcec4f49101b6685be02a9023d714828e30069f5aad6fe212d` (verified in `data/manifests/source-verification-2026-10-03.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `1f4966760df6cabcec4f49101b6685be02a9023d714828e30069f5aad6fe212d`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-03.json`
 - **Conversion Script (`.geojson` -> `.json`):** `scripts/verification/compute-data24-protected-land.py`
 - **Conversion Command:** `python3 scripts/verification/compute-data24-protected-land.py`
 - **Whitelisted Raw Variables (`kept`):** `SITECODE`, `SITENAME`, `Area_ha`, `geometry`

@@ -7,14 +7,14 @@
   "sources": [
     {
       "source_id": "CruiseMapper_schedules",
-      "path": "/home/scrublife/ionian-dtwin/scratch/cruise-pressure/schedules.json",
+      "path": "scratch/cruise-pressure/schedules.json",
       "sha256": "1490dd5a7fabf8dc265fafa127cac6cfa77cfba59e15293c1b2c333ea496ae98",
       "captured_at_utc": "2026-10-14T14:31:19.879417+00:00",
       "note": "cruisemapper.com (one-time bounded read; browser UA). One-time bounded read; NOT a production feed (substitute the OLKE port-authority declaration feed)."
     },
     {
       "source_id": "GreekNAP_sailing_traffic",
-      "path": "/home/scrublife/ionian-dtwin/scratch/ais-routes/export_sailing_traffic.csv",
+      "path": "scratch/ais-routes/export_sailing_traffic.csv",
       "sha256": "b756f6eb2c4eac53f996983ee215e0289bfab6fe53827696806abe2393f5fa7b",
       "note": "Greek National Access Point sailing-traffic export, Mar–Nov 2025 (empirical ferry baseline)."
     }

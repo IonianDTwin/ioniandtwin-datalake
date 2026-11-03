@@ -14,11 +14,11 @@
       "upstream_url": "https://ads.atmosphere.copernicus.eu/api/retrieve/v1/processes/cams-europe-air-quality-forecasts/execution",
       "raw_file_path": "data/samples/cams-europe-air-quality-forecasts-IONIAN-2026-09-30.zip",
       "sha256": "ecc26d470cdfa5c9ecd65b7dd6b1104e8692d23b998083a402951ddaa9d11574",
-      "conversion_script": "scripts/verification/build_indicator_folders.py"
+      "conversion_script": "scripts/verification/extract-cams-summary.py"
     }
   ],
-  "conversion_script": "scripts/verification/build_indicator_folders.py (NetCDF sliced to data/samples/cams-ionian-20260930-summary.json)",
-  "transformation_rule": "Slice CAMS European regional ensemble analysis NetCDF grid (37.0-40.5N, 19.0-22.0E, level=0m) at nearest grid point to Corfu International Airport (39.65N, 19.95E) and compute regional mean/max. Note: CAMS regional does not include CO2; NO2 and CO are retained as combustion proxies while point CO2 awaits local IoT sensors.",
+  "conversion_script": "scripts/verification/extract-cams-summary.py (NetCDF zip -> data/samples/cams-ionian-20260930-summary.json)",
+  "transformation_rule": "Slice CAMS European regional ensemble analysis NetCDF grid (37.0-40.5N, 19.0-22.0E, level=0m) at the 0.1-degree grid cell centred 39.65N 19.95E (the cell nearest Corfu International Airport, approx. 39.60N 19.91E) and compute regional mean/max over all 35x30 cells (scripts/verification/extract-cams-summary.py). Note: CAMS regional does not include CO2; NO2 and CO are retained as combustion proxies while point CO2 awaits local IoT sensors.",
   "feature_dictionary": {
     "refined_data.corfu_airport.lat": {
       "type": "number",

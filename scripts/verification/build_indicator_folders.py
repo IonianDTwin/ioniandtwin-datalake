@@ -23,9 +23,17 @@ Every indicator directory `data/indicators/dataXX-<slug>/` contains exactly 3 fi
 """
 from __future__ import annotations
 
+import argparse
+import glob
+import hashlib
 import json
 import sys
 from pathlib import Path
+
+try:
+    import jsonschema
+except ImportError:  # verification refuses to pass without a real schema validator
+    jsonschema = None
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
@@ -33,6 +41,46 @@ INDICATORS_DIR = DATA / "indicators"
 CURATED_DIR = DATA / "curated"
 SAMPLES_DIR = DATA / "samples"
 SCHEMA_PATH = ROOT / "schemas" / "observation-schema.json"
+# Single source of truth for observations (rebuilt by build_dashboard.py; D-026 added the Data29 series).
+MASTER_SNAPSHOT = "observations-2026-11-03.json"
+# Observation files kept OUTSIDE the master snapshot but merged into their indicator folder:
+# Data07 daily forecasts (PROPOSAL) and Data29 monthly nights (owner decision 2026-11-03).
+SEPARATE_OBS_FILES = {
+    "Data07": ["observations-data07-anticipated-congestion-2026-10-14.json"],
+    "Data29": ["monthly-data29-nights-2026-11-03.json"],
+}
+
+
+def curated_file_problems() -> list[str]:
+    """Missing separate files, and observation files in data/curated that nothing consumes (review F4)."""
+    problems = [f"separate observation file missing: data/curated/{n}"
+                for names in SEPARATE_OBS_FILES.values() for n in names if not (CURATED_DIR / n).exists()]
+    merged = ("observations-data06-airport-congestion-", "observations-data19-platform-rental-share-",
+              "observations-data20-internet-speed-", "observations-data02-bathing-water-",
+              "observations-data29-seasonality-", "observations-data05-certifications-",
+              "observations-data15-air-quality-")          # build_dashboard.py additional_series_observations()
+    listed = {n for names in SEPARATE_OBS_FILES.values() for n in names}
+    for p in sorted(CURATED_DIR.glob("*.json")):
+        n = p.name
+        if not (n.startswith("observations-") or n.startswith("monthly-")):
+            continue
+        if n == MASTER_SNAPSHOT or n in listed or n.startswith(merged):
+            continue
+        problems.append(f"orphan observation file (not merged, not checked): data/curated/{n}")
+    return problems
+
+
+def load_separate_obs() -> list[dict]:
+    out: list[dict] = []
+    for iid, names in SEPARATE_OBS_FILES.items():
+        for name in names:
+            if not (CURATED_DIR / name).exists():
+                continue                                   # reported by curated_file_problems()
+            for o in load_json(CURATED_DIR / name):
+                if o.get("indicator_id") != iid:
+                    raise ValueError(f"{name}: observation {o.get('observation_id')} is not {iid}")
+                out.append(o)
+    return out
 MAP_PATH = ROOT / "indicators" / "source-indicator-map.json"
 
 SLUGS = {
@@ -77,7 +125,37 @@ def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for block in iter(lambda: f.read(1 << 20), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def _jsonschema_version() -> str:
+    from importlib.metadata import version
+    return version("jsonschema")
+
+
+def manifest_hashes() -> dict[str, set[str]]:
+    """Map manifest file name -> every sha256 it records (any checksum field, plus .sha256 lists)."""
+    out: dict[str, set[str]] = {}
+    for f in sorted(glob.glob(str(DATA / "manifests" / "*.json"))):
+        hashes: set[str] = set()
+        doc = load_json(Path(f))
+        for e in doc.get("evidence", []) if isinstance(doc, dict) else []:
+            if isinstance(e, dict):
+                for k in ("checksum_sha256", "sample_checksum_sha256"):
+                    if e.get(k):
+                        hashes.add(e[k])
+        out[Path(f).name] = hashes
+    for f in sorted(glob.glob(str(DATA / "manifests" / "*.sha256"))):
+        out[Path(f).name] = {ln.split()[0] for ln in Path(f).read_text().splitlines() if ln.strip()}
+    return out
+
+
+def build_specs(master_obs: list[dict], extra_obs: list[dict]) -> dict[str, dict]:
     """Return per-indicator raw source descriptions, conversion refs, and refined data."""
     cams_summary = load_json(SAMPLES_DIR / "cams-ionian-20260930-summary.json")
     bwd_el62 = load_json(CURATED_DIR / "data02-bathing-water-el62-2024.json")
@@ -94,12 +172,11 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
     d22_derived = load_json(SAMPLES_DIR / "derived-data22-data25-2021-2025.json")
     d24_audit = load_json(CURATED_DIR / "data24-protected-land.json")
     elstat_beds = load_json(SAMPLES_DIR / "elstat-sto12-ionian-bedplaces-2021-2025.json")
-    d28_derived = load_json(SAMPLES_DIR / "derived-data28-occupancy-2021-2025.json")
+    d28_derived = load_json(SAMPLES_DIR / "derived-data28-nights-per-hotel-bed-index-2021-2025.json")
 
     obs_by_ind: dict[str, list[dict]] = {f"Data{i:02d}": [] for i in range(1, 35)}
-    for o in master_obs:
+    for o in master_obs + extra_obs:
         obs_by_ind.setdefault(o["indicator_id"], []).append(o)
-    obs_by_ind["Data07"] = d07_obs
 
     def obs_series_dict(iid: str) -> list[dict]:
         return [
@@ -163,14 +240,14 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
         "raw_variables_kept": ["dimension.c_resid", "dimension.unit", "dimension.nace_r2", "dimension.geo (EL62)", "dimension.time", "value"],
         "raw_variables_dropped": ["status_flags", "PCH_PRE (year-on-year % change unit)"],
         "conversion_script": "scripts/verification/build_dashboard.py (via render_pull_reports.decode)",
-        "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py",
+        "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py",
     }
 
     specs: dict[str, dict] = {}
 
     # Data01
     specs["Data01"] = {
-        "conversion_script": "scripts/verification/build_indicator_folders.py (NetCDF sliced to data/samples/cams-ionian-20260930-summary.json)",
+        "conversion_script": "scripts/verification/extract-cams-summary.py (NetCDF zip -> data/samples/cams-ionian-20260930-summary.json)",
         "raw_sources": [
             {
                 "source_id": "CAMS_ADS_air_quality",
@@ -193,11 +270,12 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
                 },
                 "raw_variables_kept": ["no2_conc", "co_conc", "pm10_conc", "pm2p5_conc", "latitude", "longitude", "level", "time"],
                 "raw_variables_dropped": ["upper_level_layers (filtered to surface level=0)"],
-                "conversion_script": "scripts/verification/build_indicator_folders.py",
-                "conversion_command": "python3 scripts/verification/build_indicator_folders.py",
+                "conversion_script": "scripts/verification/extract-cams-summary.py",
+                "conversion_command": "python3 scripts/verification/extract-cams-summary.py --check && python3 scripts/verification/build_indicator_folders.py",
+                "lineage_note": "The summary JSON was first produced ad hoc on 2026-10-01 without a retained script. scripts/verification/extract-cams-summary.py (2026-11-03) reproduces all 12 summary values from the retained zip.",
             }
         ],
-        "transformation_rule": "Slice CAMS European regional ensemble analysis NetCDF grid (37.0-40.5N, 19.0-22.0E, level=0m) at nearest grid point to Corfu International Airport (39.65N, 19.95E) and compute regional mean/max. Note: CAMS regional does not include CO2; NO2 and CO are retained as combustion proxies while point CO2 awaits local IoT sensors.",
+        "transformation_rule": "Slice CAMS European regional ensemble analysis NetCDF grid (37.0-40.5N, 19.0-22.0E, level=0m) at the 0.1-degree grid cell centred 39.65N 19.95E (the cell nearest Corfu International Airport, approx. 39.60N 19.91E) and compute regional mean/max over all 35x30 cells (scripts/verification/extract-cams-summary.py). Note: CAMS regional does not include CO2; NO2 and CO are retained as combustion proxies while point CO2 awaits local IoT sensors.",
         "feature_dictionary": {
             "refined_data.corfu_airport.lat": {"type": "number", "unit": "degrees_north", "role": "spatial_dimension", "description": "Latitude of nearest CAMS grid cell to Corfu Airport (CFU)."},
             "refined_data.corfu_airport.lon": {"type": "number", "unit": "degrees_east", "role": "spatial_dimension", "description": "Longitude of nearest CAMS grid cell to Corfu Airport (CFU)."},
@@ -302,7 +380,7 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
 
     # Data05
     specs["Data05"] = {
-        "conversion_script": "scripts/verification/build_indicator_folders.py",
+        "conversion_script": "scripts/verification/compute-data05-certifications.py (observations from the Greece extracts); extraction of the extracts themselves: none retained (2026-10-02)",
         "raw_sources": [
             {
                 "source_id": "EMAS_register_REST",
@@ -312,7 +390,9 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
                 "raw_file_path": "data/samples/emas-register-greece-2026-10-02.json",
                 "raw_format": "application/json (4,523 EU records filtered to 37 Greece records)",
                 "manifest": "data/manifests/source-verification-2026-10-02.json",
-                "sha256": "c8546768319f2f35796698a729b29c1375995f556b146877dca61ff2678e3288",
+                "sha256": "93a97b63c7d8bc59addb9ee8b15c4f449e99acccad1f667d6c7cee66efd6f059",
+                "upstream_response_sha256": "c8546768319f2f35796698a729b29c1375995f556b146877dca61ff2678e3288",
+                "lineage_note": "The local file is a Greece-only extract (37 records) of the full 14,650,764-byte EU register response. The full response was not retained; its hash is upstream_response_sha256 (manifest checksum_sha256). The extract hash matches the manifest's sample_checksum_sha256, which was updated after the 2026-10-14 PII redaction (commit 640336d). No extraction script was kept.",
                 "raw_schema_description": {
                     "registrationNumber": "EMAS registration code (e.g. 'EL-000120')",
                     "organisationName": "Registered legal entity name",
@@ -322,9 +402,9 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
                     "nacesAsString": "NACE economic activity classification string",
                 },
                 "raw_variables_kept": ["registrationNumber", "organisationName", "organisationCountryName", "city", "postalCode", "sitesCount", "nacesAsString"],
-                "raw_variables_dropped": ["contactPersonEmail (GDPR PII redacted)", "contactPersonPhone (GDPR PII redacted)", "streetAddress"],
-                "conversion_script": "scripts/verification/build_indicator_folders.py",
-                "conversion_command": "python3 scripts/verification/build_indicator_folders.py",
+                "raw_variables_dropped": ["email (GDPR PII, redacted 2026-10-14)", "phone (GDPR PII, redacted 2026-10-14)", "all non-Greece records"],
+                "conversion_script": "none retained (ad hoc extraction 2026-10-02)",
+                "conversion_command": "none retained; reproduce by re-pulling upstream_url and filtering as in transformation_rule",
             },
             {
                 "source_id": "EU_Ecolabel_catalogue_CSV",
@@ -333,8 +413,10 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
                 "access_method": "GET (semicolon-delimited CSV export, no key)",
                 "raw_file_path": "data/samples/eu-ecolabel-catalogue-greece-2026-10-02.json",
                 "raw_format": "text/csv (89,298 rows, semicolon-delimited) -> summarized to JSON",
-                "manifest": "data/manifests/source-verification-2026-10-02.json",
-                "sha256": "7a3d424d7d8b031b1516416e923b024cd47b83e3417308870b37334b9235592d",
+                "manifest": "data/manifests/source-verification-2026-11-03.json",
+                "sha256": "6ed15e62b9fdbe0de4fc00480fe444b222a244ce68e86249f4bf454d9beebe59",
+                "upstream_response_sha256": "7a3d424d7d8b031b1516416e923b024cd47b83e3417308870b37334b9235592d",
+                "lineage_note": "The local file is a JSON summary of the full 17,153,575-byte CSV export (89,298 licences). The full export was not retained; its hash is upstream_response_sha256 (manifest checksum_sha256). The summary's own hash was first recorded in data/manifests/source-verification-2026-11-03.json from the copy committed in 82bf2f4. No extraction script was kept.",
                 "raw_schema_description": {
                     "group_name": "Product/service group (checked for 'Tourist accommodation')",
                     "company_country": "Country of licence holder ('Greece')",
@@ -343,8 +425,8 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
                 },
                 "raw_variables_kept": ["group_name", "company_country", "licence_number", "extract_date"],
                 "raw_variables_dropped": ["vat_number", "company_contact_details"],
-                "conversion_script": "scripts/verification/build_indicator_folders.py",
-                "conversion_command": "python3 scripts/verification/build_indicator_folders.py",
+                "conversion_script": "none retained (ad hoc extraction 2026-10-02)",
+                "conversion_command": "none retained; reproduce by re-pulling upstream_url and filtering as in transformation_rule",
             },
         ],
         "transformation_rule": "Filter EU EMAS REST registration list to organisationCountryName=='Greece' (37 records) and match city/postalCode against Ionian Islands (EL62 = 0 records). Filter EU Ecolabel CSV export (89,298 licences) to Greece (450 licences) and group_name=='Tourist accommodation' (0 in Greece / 0 in EL62). Contact PII (email/phone) stripped before storage.",
@@ -429,7 +511,7 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
             {
                 "source_id": "GreekNAP_sailing_traffic",
                 "provider": "Greek National Access Point (NAP) — Domestic Ferry Sailing Traffic",
-                "upstream_url": "file:///home/scrublife/ionian-dtwin/scratch/ais-routes/export_sailing_traffic.csv",
+                "upstream_url": "UNDOCUMENTED: Greek National Access Point (NAP) sailing-traffic CSV export; the download address is still to be recorded (open item). Local copy: scratch/ais-routes/export_sailing_traffic.csv",
                 "access_method": "CSV bulk export (184,436 domestic ferry legs, Mar-Nov 2025)",
                 "raw_file_path": "scratch/ais-routes/export_sailing_traffic.csv",
                 "raw_format": "text/csv (184,436 rows)",
@@ -506,7 +588,7 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
         "raw_variables_kept": ["latitude", "longitude", "current.time", "current.temperature_2m", "current.relative_humidity_2m", "current.apparent_temperature", "daily.uv_index_max"],
         "raw_variables_dropped": ["generationtime_ms", "utc_offset_seconds", "elevation"],
         "conversion_script": "scripts/verification/pull-open-meteo.sh -> scripts/verification/build_dashboard.py",
-        "conversion_command": "bash scripts/verification/pull-open-meteo.sh && python3 scripts/verification/build_indicator_folders.py",
+        "conversion_command": "bash scripts/verification/pull-open-meteo.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py",
     }
 
     # Data13
@@ -548,9 +630,14 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
 
     # Data15
     specs["Data15"] = {
-        "conversion_script": "scripts/verification/build_indicator_folders.py",
-        "raw_sources": [specs["Data01"]["raw_sources"][0]],
-        "transformation_rule": "Extract ambient surface air pollutant concentrations (NO2, PM10, PM2.5, CO in ug/m3) over the Ionian Islands bounding box (37.0-40.5N, 19.0-22.0E) from CAMS European air quality ensemble analysis (D-008 confirmed Data15 = Ambient Air Quality).",
+        "conversion_script": "scripts/verification/compute-data15-air-quality.py (observations); scripts/verification/extract-cams-summary.py (summary)",
+        "raw_sources": [specs["Data01"]["raw_sources"][0], {
+            **[rs for rs in specs["Data02"]["raw_sources"] if rs["source_id"] == "Eurostat_GISCO_NUTS_2021"][0],
+            "conversion_script": "scripts/verification/compute-data15-air-quality.py",
+            "conversion_command": "python3 scripts/verification/compute-data15-air-quality.py && python3 scripts/verification/build_dashboard.py <manifests>",
+            "lineage_note": "EL62 land polygon used to area-weight the CAMS 0.1-degree cells (86 cells, 2,304.80 km2 intersected).",
+        }],
+        "transformation_rule": "Surface NO2, PM10, PM2.5, CO (ug/m3) from the CAMS European ensemble analysis, 2026-09-30T00Z (D-008: Data15 = ambient air quality). Observations (scripts/verification/compute-data15-air-quality.py): EL62 value = mean over 0.1-degree cells weighted by each cell's intersection area with EL62 land (EPSG:3035); point value = cell nearest Corfu airport. refined_data keeps the bounding-box summary (37.0-40.5N, 19.0-22.0E), which includes mainland and sea and is not the EL62 value. Caveat: a CAMS cell holds one concentration for land and sea together; land-area weighting assumes the land part equals the cell value, so for NO2 (cleaner over sea) the EL62 mean may slightly understate land concentrations (unweighted cell mean 2.39 vs weighted 2.67).",
         "feature_dictionary": {
             "refined_data.values_ug_m3.NO2.region_mean": {"type": "number", "unit": "ug/m3", "role": "target_indicator", "description": "Regional mean surface NO2 across the Ionian bounding box (1.96 ug/m3)."},
             "refined_data.values_ug_m3.PM10.region_mean": {"type": "number", "unit": "ug/m3", "role": "target_indicator", "description": "Regional mean surface PM10 across the Ionian bounding box (8.99 ug/m3)."},
@@ -847,7 +934,7 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
         "raw_variables_kept": ["dimension.c_resid", "dimension.unit (NR)", "dimension.nace_r2 (I551-I553)", "dimension.geo (EL62)", "dimension.time", "value"],
         "raw_variables_dropped": ["PCH_PRE (percentage change)"],
         "conversion_script": "scripts/verification/build_dashboard.py",
-        "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py",
+        "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py",
     }
 
     specs["Data26"] = {
@@ -889,7 +976,7 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
                 "raw_variables_kept": ["dimension.accomunit (BEDPL, ESTBL, BEDRM)", "dimension.unit (NR)", "dimension.nace_r2", "dimension.geo (EL62)", "dimension.time", "value"],
                 "raw_variables_dropped": ["PCH_PRE"],
                 "conversion_script": "scripts/verification/build_dashboard.py",
-                "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_indicator_folders.py",
+                "conversion_command": "bash scripts/verification/pull-eurostat-tourism.sh && python3 scripts/verification/build_dashboard.py && python3 scripts/verification/build_indicator_folders.py",
             },
             {
                 "source_id": "ELSTAT_STO12_capacity",
@@ -906,8 +993,9 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
                 },
                 "raw_variables_kept": ["year", "regional_unit", "bed_places_hotels_and_similar"],
                 "raw_variables_dropped": ["non_Ionian_regional_units"],
-                "conversion_script": "scripts/verification/build_indicator_folders.py",
-                "conversion_command": "python3 scripts/verification/build_indicator_folders.py",
+                "conversion_script": "scripts/verification/reproduce-derived-samples.py",
+                "conversion_command": "python3 scripts/verification/reproduce-derived-samples.py --check && python3 scripts/verification/build_indicator_folders.py",
+                "lineage_note": "The JSON was extracted ad hoc on 2026-10-01 from data/samples/elstat-sto12-{2021..2025}-capacity.xlsx (sheet ENG, 'REGIONAL UNIT OF ...' rows, hotels-and-similar bed-places column). scripts/verification/reproduce-derived-samples.py (2026-11-03) reproduces all 25 values from the retained workbooks.",
             },
         ],
         "transformation_rule": "Extract total tourist accommodation bed-places (accomunit='BEDPL', unit='NR', nace_r2='I551-I553') for NUTS2 EL62 from Eurostat tour_cap_nuts2 via `scripts/verification/build_dashboard.py`, supplemented by ELSTAT STO12 regional-unit hotel bed capacity (2021-2025).",
@@ -929,18 +1017,59 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
         "transformation_rule": "Adopt EU Tourism Dashboard indicator TOUR_DES_04 ('Net occupancy rate of bed-places') for NUTS2 EL62 (65.4% in 2023) via `scripts/verification/extract-eutd-dashboard-csv.py`, superseding gross annual nights/(beds*365) estimates.",
         "feature_dictionary": {
             "refined_data.net_occupancy_el62.value": {"type": "number", "unit": "%", "role": "target_indicator", "description": "Net occupancy rate of bed-places in EL62 (65.4% in 2023)."},
-            "refined_data.gross_seasonal_island_proxy_2021_2025": {"type": "object", "unit": "%", "role": "internal_disaggregation", "description": "Supplementary 180-day operating-season gross occupancy proxy across NUTS3 islands."},
+            "refined_data.nights_per_hotel_bed_index_2021_2025": {"type": "object", "unit": "%", "role": "internal_disaggregation", "description": "NOT an occupancy rate. Index = 100 x NUTS3 nights in all accommodation (Eurostat tour_occ_nin3, I551-I553) / (ELSTAT STO12 hotel-only bed-places x 365). Numerator and denominator cover different supply, so values overstate occupancy (Lefkada 2025 = 82.4). Reproduced by scripts/verification/reproduce-derived-samples.py. Context only; not used for the Data28 observation."},
         },
         "data": {
             "net_occupancy_el62": eutd_el62["el62"]["net_occupancy"],
-            "gross_seasonal_island_proxy_2021_2025": d28_derived,
+            "nights_per_hotel_bed_index_2021_2025": d28_derived,
         },
     }
 
     # Data29
     specs["Data29"] = {
-        "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py & scripts/verification/build_dashboard.py",
+        "conversion_script": "scripts/verification/compute-data29-seasonality.py -> scripts/verification/build_dashboard.py",
         "raw_sources": [
+            {
+                "source_id": "Eurostat_tour_occ_nin2m",
+                "provider": "Eurostat (European Commission)",
+                "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+                "access_method": "GET (JSON-stat 2.0 REST API, no key)",
+                "raw_file_path": "data/raw/eurostat-tour_occ_nin2m-EL62-EL-2020-2025.json",
+                "raw_format": "application/json (JSON-stat 2.0; month is a dimension M01..M12 + TOTAL, time is the year)",
+                "manifest": "data/manifests/source-verification-2026-11-03.json",
+                "sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+                "raw_schema_description": {
+                    "dimension.month": "'TOTAL' and 'M01'..'M12'",
+                    "dimension.geo": "'EL62' (Ionia Nisia) and 'EL' (Greece)",
+                    "dimension.time": "Reference year '2020'..'2025'",
+                    "dimension.nace_r2": "'I551-I553' (all tourist accommodation; no type split at NUTS 2)",
+                    "value": "Nights spent (unit NR)",
+                },
+                "raw_variables_kept": ["month", "geo", "time", "value"],
+                "raw_variables_dropped": ["freq (A)", "c_resid (TOTAL only)", "unit (NR only)"],
+                "conversion_script": "scripts/verification/compute-data29-seasonality.py",
+                "conversion_command": "python3 scripts/verification/compute-data29-seasonality.py && python3 scripts/verification/build_dashboard.py <manifests> && python3 scripts/verification/build_indicator_folders.py",
+            },
+            {
+                "source_id": "Eurostat_tour_ce_omn12_monthly",
+                "provider": "Eurostat (data shared by Airbnb, Booking.com, Expedia Group)",
+                "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?format=JSON&lang=EN&geo=EL62&geo=EL&indic_to=NGT_SP&c_resid=TOTAL&time=2020&time=2021&time=2022&time=2023",
+                "access_method": "GET (JSON-stat 2.0 REST API, no key)",
+                "raw_file_path": "data/raw/eurostat-tour_ce_omn12-EL62-EL-monthly-2020-2023.json",
+                "raw_format": "application/json (JSON-stat 2.0; month dimension)",
+                "manifest": "data/manifests/source-verification-2026-11-03.json",
+                "sha256": "4e2ec7512fa29d69410ac2b78694ccab9fa2765789cad949f3d1225bb3fba4c1",
+                "raw_schema_description": {
+                    "dimension.month": "'M01'..'M12'",
+                    "dimension.geo": "'EL62', 'EL'",
+                    "value": "Guest nights in short-stay accommodation booked via online platforms",
+                },
+                "raw_variables_kept": ["month", "geo", "time", "value"],
+                "raw_variables_dropped": ["indic_to (NGT_SP only)", "c_resid (TOTAL only)"],
+                "conversion_script": "scripts/verification/compute-data29-seasonality.py",
+                "conversion_command": "python3 scripts/verification/compute-data29-seasonality.py --check",
+                "lineage_note": "Used only to reconcile the dashboard EL62 value; no observation is emitted from it.",
+            },
             eutd_source("TOUR_SOE_02", 2023),
             {
                 "source_id": "Eurostat_tour_occ_nim",
@@ -962,14 +1091,30 @@ def build_specs(master_obs: list[dict], d07_obs: list[dict]) -> dict[str, dict]:
                 "conversion_command": "python3 scripts/verification/build_dashboard.py --manifest data/manifests/source-verification-2026-09-24.json",
             },
         ],
-        "transformation_rule": "Regional NUTS2 EL62 peak-season share (71.08% in 2023) is extracted from EU Tourism Dashboard TOUR_SOE_02 via `scripts/verification/extract-eutd-dashboard-csv.py`. National monthly profile (Greece geo='EL', peak month Aug = 21.53% of annual nights) is computed from Eurostat tour_occ_nim via `scripts/verification/build_dashboard.py` (D-010).",
+        "transformation_rule": (
+            "D-026. Headline: share of annual nights in the 3 busiest months (EU Tourism Dashboard TOUR_SOE_02 definition), "
+            "computed over ALL accommodation from Eurostat tour_occ_nin2m monthly nights for EL62 and EL, 2020-2025: "
+            "top3_share = sum(3 largest monthly nights) / sum(12 monthly nights) * 100 (EL62 2023 = 63.81 %). "
+            "Seasonality Index: Gini coefficient of the 12 monthly nights (EL62 2023 = 0.5827). Context: peak-month share, "
+            "share of nights outside June-September, and EL62 monthly nights. Computed by "
+            "scripts/verification/compute-data29-seasonality.py, which first checks the definition against the dashboard: "
+            "EL 2021-2023 match on all accommodation; EL62 2020-2023 match only on online-platform nights (tour_ce_omn12). "
+            "The dashboard EL62 value (71.08 % in 2023) is therefore kept as a separate platform-only series."
+        ),
         "feature_dictionary": {
-            "refined_data.el62_peak_season_share.value": {"type": "number", "unit": "%", "role": "target_indicator", "description": "Share of annual EL62 tourism nights concentrated in the peak season (71.08% in 2023)."},
-            "refined_data.greece_monthly_series_2023": {"type": "array", "unit": "nights and %", "role": "target_indicator", "description": "12 monthly national observations plus derived peak-month share (21.53%)."},
+            "refined_data.results.<geo>.<year>.top3_share_pct": {"type": "number", "unit": "%", "role": "target_indicator", "description": "Headline Data29: share of annual nights (all accommodation) in the 3 busiest months. EL62 2023 = 63.81."},
+            "refined_data.results.<geo>.<year>.gini": {"type": "number", "unit": "index (0-1)", "role": "target_indicator", "description": "Seasonality Index: Gini coefficient of the 12 monthly nights; 0 = even year-round, 0.917 = all nights in one month. EL62 2023 = 0.5827."},
+            "refined_data.results.<geo>.<year>.peak_month_share_pct": {"type": "number", "unit": "%", "role": "context_metric", "description": "Share of annual nights in the single busiest month (August in every year)."},
+            "refined_data.results.<geo>.<year>.share_outside_jun_sep_pct": {"type": "number", "unit": "%", "role": "context_metric", "description": "Share of annual nights in January-May and October-December; tracks off-season growth."},
+            "refined_data.results.<geo>.<year>.monthly_nights": {"type": "object", "unit": "nights", "role": "input_variable", "description": "Monthly nights M01..M12 from tour_occ_nin2m (all accommodation, I551-I553)."},
+            "refined_data.results.EL62.<year>.platform_top3_share_pct": {"type": "number", "unit": "%", "role": "context_metric", "description": "Same measure over online-platform nights only (tour_ce_omn12); equals the dashboard TOUR_SOE_02 EL62 value."},
+            "refined_data.dashboard_reconciliation": {"type": "array", "unit": "%", "role": "quality_check", "description": "Per geo/year: dashboard value, recomputed value, basis, match flag."},
+            "refined_data.dashboard_el62_platform_only": {"type": "object", "unit": "%", "role": "context_metric", "description": "EU Tourism Dashboard TOUR_SOE_02 EL62 2023 (71.08 %), relabelled as online-platform-only seasonality."},
         },
         "data": {
-            "el62_peak_season_share": eutd_el62["el62"]["peak_season_share"],
-            "greece_monthly_series_2023": obs_series_dict("Data29"),
+            **{k: v for k, v in load_json(CURATED_DIR / "data29-seasonality.json").items()
+               if k in ("definition", "dashboard_reconciliation", "dashboard_note", "caveats", "results")},
+            "dashboard_el62_platform_only": eutd_el62["el62"]["peak_season_share"],
         },
     }
 
@@ -1120,7 +1265,14 @@ def render_indicator_readme(iid: str, ind_meta: dict, raw_doc: dict, refined_doc
                 f"- **Access Method:** `{rs.get('access_method')}`",
                 f"- **Local Raw File (`data/raw/` or `data/samples/`):** `{rs.get('raw_file_path')}`",
                 f"- **Raw File Extension & Format:** `{ext_badge}` — `{rs.get('raw_format')}`",
-                f"- **SHA-256 Checksum:** `{rs.get('sha256')}` (verified in `{rs.get('manifest')}`)",
+                f"- **SHA-256 Checksum (of the local file, recomputed at build):** `{rs.get('sha256')}`",
+                f"- **Evidence Manifest:** `{rs.get('manifest')}`",
+            ])
+            if rs.get("upstream_response_sha256"):
+                lines.append(f"- **SHA-256 of the full upstream response (not retained):** `{rs.get('upstream_response_sha256')}`")
+            if rs.get("lineage_note"):
+                lines.append(f"- **Lineage Note:** {rs.get('lineage_note')}")
+            lines.extend([
                 f"- **Conversion Script (`{ext_badge}` -> `.json`):** `{rs.get('conversion_script')}`",
                 f"- **Conversion Command:** `{rs.get('conversion_command')}`",
                 f"- **Whitelisted Raw Variables (`kept`):** " + ", ".join(f"`{k}`" for k in rs.get("raw_variables_kept", [])),
@@ -1171,8 +1323,17 @@ def render_indicator_readme(iid: str, ind_meta: dict, raw_doc: dict, refined_doc
     return "\n".join(lines)
 
 
-def verify_indicator_folder(folder: Path, schema: dict) -> list[str]:
-    """Run two-tier verification on Option A indicator folder."""
+def verify_indicator_folder(folder: Path, schema: dict, man_hashes: dict[str, set[str]],
+                            expected_obs: dict[str, dict]) -> list[str]:
+    """Independent checks on one indicator folder, reading only what is on disk.
+
+    1. Structure: the three files exist and carry the required keys.
+    2. Provenance: every raw file exists; its sha256, recomputed now, equals the recorded
+       value and appears in the cited manifest (or in any manifest, reported separately).
+    3. Observations: each validates against schemas/observation-schema.json with a real
+       JSON Schema validator, and is identical to the record in the master snapshot.
+    4. Domain bounds for percentages and 0-1 scores.
+    """
     errors: list[str] = []
     raw_desc_path = folder / "raw-source-description.json"
     refined_path = folder / "refined-data.json"
@@ -1191,6 +1352,26 @@ def verify_indicator_folder(folder: Path, schema: dict) -> list[str]:
         for k in ("source_id", "provider", "upstream_url", "raw_file_path", "sha256", "raw_schema_description", "conversion_script"):
             if k not in rs:
                 errors.append(f"{folder.name}: raw_source missing '{k}'")
+        rel = rs.get("raw_file_path", "")
+        fp = ROOT / rel
+        if not fp.is_file():
+            errors.append(f"{folder.name}: raw file not on disk: {rel}")
+            continue
+        actual = sha256_file(fp)
+        if actual != rs.get("sha256"):
+            errors.append(f"{folder.name}: sha256 of {rel} is {actual[:12]}…, recorded {str(rs.get('sha256'))[:12]}…")
+        cited = Path(rs.get("manifest", "")).name
+        if cited not in man_hashes:
+            errors.append(f"{folder.name}: cited manifest not found: {rs.get('manifest')}")
+        elif actual not in man_hashes[cited]:
+            elsewhere = sorted(m for m, hs in man_hashes.items() if actual in hs)
+            if elsewhere:
+                errors.append(f"{folder.name}: {rel} hash not in cited manifest {cited}; found in {elsewhere} (update 'manifest')")
+            else:
+                errors.append(f"{folder.name}: {rel} hash {actual[:12]}… is not recorded in any manifest")
+        for script in [s for s in str(rs.get("conversion_script", "")).split() if s.startswith("scripts/")]:
+            if not (ROOT / script).exists():
+                errors.append(f"{folder.name}: conversion script does not exist: {script}")
 
     refined_doc = load_json(refined_path)
     for req_key in ("indicator_id", "indicator_name", "status", "source_citations", "conversion_script", "transformation_rule", "feature_dictionary", "refined_data", "observations"):
@@ -1201,154 +1382,166 @@ def verify_indicator_folder(folder: Path, schema: dict) -> list[str]:
     if not isinstance(obs_list, list):
         errors.append(f"{folder.name}: refined-data.json 'observations' must be a JSON array")
         return errors
+    if refined_doc.get("observations_count") != len(obs_list):
+        errors.append(f"{folder.name}: observations_count {refined_doc.get('observations_count')} != {len(obs_list)}")
 
-    required = set(schema.get("required", []))
-    props = schema.get("properties", {})
-    top_allowed = set(props)
-    nested = {
-        "spatial_ref": set(props["spatial_ref"]["properties"]),
-        "quality": set(props["quality"]["properties"]),
-        "provenance": set(props["provenance"]["properties"]),
-    }
-    gran_enum = set(props["temporal_granularity"].get("enum", []))
-    level_enum = set(props["spatial_ref"]["properties"]["level"].get("enum", []))
-    pol_enum = set(props["polarity"].get("enum", [])) | {None}
+    iid = raw_doc.get("indicator_id")
+    want_ids = sorted(oid for oid, o in expected_obs.items() if o.get("indicator_id") == iid)
+    have_ids = sorted(o.get("observation_id", "?") for o in obs_list)
+    if want_ids != have_ids:
+        errors.append(f"{folder.name}: observation ids differ from master snapshot ({len(have_ids)} in folder, {len(want_ids)} in master)")
 
+    validator_cls = jsonschema.validators.validator_for(schema)
+    validator = validator_cls(schema, format_checker=validator_cls.FORMAT_CHECKER)
     for o in obs_list:
         oid = o.get("observation_id", "?")
-        for k in required:
-            if k not in o:
-                errors.append(f"{folder.name} ({oid}): missing required '{k}'")
-        for k in o:
-            if k not in top_allowed:
-                errors.append(f"{folder.name} ({oid}): unknown top-level key '{k}'")
-        if o.get("temporal_granularity") not in gran_enum:
-            errors.append(f"{folder.name} ({oid}): bad temporal_granularity {o.get('temporal_granularity')!r}")
-        if "polarity" in o and o["polarity"] not in pol_enum:
-            errors.append(f"{folder.name} ({oid}): bad polarity {o.get('polarity')!r}")
-        for key, allowed in nested.items():
-            obj = o.get(key)
-            if isinstance(obj, dict):
-                for k in obj:
-                    if k not in allowed:
-                        errors.append(f"{folder.name} ({oid}): unknown {key} key '{k}'")
-        sr = o.get("spatial_ref", {})
-        if sr.get("level") not in level_enum:
-            errors.append(f"{folder.name} ({oid}): bad spatial_ref.level {sr.get('level')!r}")
+        for err in validator.iter_errors(o):
+            path = "/".join(str(x) for x in err.absolute_path) or "(root)"
+            errors.append(f"{folder.name} ({oid}): schema: {path}: {err.message[:160]}")
+        if oid in expected_obs and expected_obs[oid] != o:
+            errors.append(f"{folder.name} ({oid}): differs from the master snapshot record")
         val = o.get("value")
         unit = o.get("unit") or ""
-        if isinstance(val, (int, float)):
+        if isinstance(val, (int, float)) and not isinstance(val, bool):
             if unit in ("%", "% of total", "% of bathing waters") and not (0.0 <= float(val) <= 100.0):
                 errors.append(f"{folder.name} ({oid}): percentage out of [0,100]: {val}")
-            if unit == "score (0-1)" and not (0.0 <= float(val) <= 1.0):
+            if unit in ("score (0-1)", "index (0-1)") and not (0.0 <= float(val) <= 1.0):
                 errors.append(f"{folder.name} ({oid}): score out of [0,1]: {val}")
 
     return errors
 
 
+def check_all(schema: dict, master_obs: list[dict], extra_obs: list[dict]) -> list[str]:
+    expected = {o["observation_id"]: o for o in master_obs}
+    dup = [o["observation_id"] for o in extra_obs if o["observation_id"] in expected]
+    expected.update({o["observation_id"]: o for o in extra_obs})
+    man = manifest_hashes()
+    errors: list[str] = curated_file_problems()
+    errors += [f"observation id in both master and a separate file: {d}" for d in dup]
+    if len(expected) != len(master_obs) + len(extra_obs) - len(dup):
+        errors.append("duplicate observation ids inside the master or separate files")
+    folders = [INDICATORS_DIR / SLUGS[f"Data{i:02d}"] for i in range(1, 35)]
+    extra = sorted(p.name for p in INDICATORS_DIR.iterdir() if p.is_dir() and p not in folders)
+    if extra:
+        errors.append(f"unexpected folders under data/indicators/: {extra}")
+    for folder in folders:
+        if not folder.is_dir():
+            errors.append(f"missing indicator folder {folder.name}")
+            continue
+        errors.extend(verify_indicator_folder(folder, schema, man, expected))
+    return errors
+
+
 def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("--check", action="store_true",
+                    help="verify the existing folders against raw files, manifests and the master snapshot; write nothing")
+    args = ap.parse_args()
+
+    if jsonschema is None:
+        print("ERROR: the 'jsonschema' package is required (pip install -e '.[verify]').", file=sys.stderr)
+        return 2
+
     mapping = load_json(MAP_PATH)
     schema = load_json(SCHEMA_PATH)
     ind_map = {item["indicator_id"]: item for item in mapping["indicators"]}
 
-    master_obs_path = CURATED_DIR / "observations-2026-10-20.json"
-    d07_obs_path = CURATED_DIR / "observations-data07-anticipated-congestion-2026-10-14.json"
+    master_obs_path = CURATED_DIR / MASTER_SNAPSHOT
     master_obs = load_json(master_obs_path)
-    d07_obs = load_json(d07_obs_path) if d07_obs_path.exists() else []
+    extra_obs = load_separate_obs()
 
-    specs = build_specs(master_obs, d07_obs)
+    if not args.check:
+        specs = build_specs(master_obs, extra_obs)
 
-    obs_by_ind: dict[str, list[dict]] = {f"Data{i:02d}": [] for i in range(1, 35)}
-    for o in master_obs:
-        obs_by_ind.setdefault(o["indicator_id"], []).append(o)
-    obs_by_ind["Data07"] = d07_obs
+        obs_by_ind: dict[str, list[dict]] = {f"Data{i:02d}": [] for i in range(1, 35)}
+        for o in master_obs + extra_obs:
+            obs_by_ind.setdefault(o["indicator_id"], []).append(o)
 
-    INDICATORS_DIR.mkdir(parents=True, exist_ok=True)
-    all_errors: list[str] = []
-    folders_built = 0
+        INDICATORS_DIR.mkdir(parents=True, exist_ok=True)
+        for i in range(1, 35):
+            iid = f"Data{i:02d}"
+            folder = INDICATORS_DIR / SLUGS[iid]
+            folder.mkdir(parents=True, exist_ok=True)
 
-    for i in range(1, 35):
-        iid = f"Data{i:02d}"
-        slug = SLUGS[iid]
-        folder = INDICATORS_DIR / slug
-        folder.mkdir(parents=True, exist_ok=True)
+            # Remove old Option B filenames if present
+            for old_name in ("extracted-summary.json", "observations.json"):
+                old_p = folder / old_name
+                if old_p.exists():
+                    old_p.unlink()
 
-        # Remove old Option B filenames if present
-        for old_name in ("extracted-summary.json", "observations.json"):
-            old_p = folder / old_name
-            if old_p.exists():
-                old_p.unlink()
+            ind_meta = ind_map[iid]
+            spec = specs[iid]
+            obs_list = obs_by_ind.get(iid, [])
 
-        ind_meta = ind_map[iid]
-        spec = specs[iid]
-        obs_list = obs_by_ind.get(iid, [])
+            # Record the hash of the file as it is on disk now. A pinned value in the spec
+            # that disagrees is a hard error: the raw file changed since it was described.
+            for rs in spec["raw_sources"]:
+                fp = ROOT / rs["raw_file_path"]
+                if fp.is_file():
+                    actual = sha256_file(fp)
+                    if rs.get("sha256") and rs["sha256"] != actual:
+                        print(f"ERROR: {iid}: {rs['raw_file_path']} sha256 {actual[:12]}… differs from pinned "
+                              f"{rs['sha256'][:12]}…; investigate before rebuilding.", file=sys.stderr)
+                        return 1
+                    rs["sha256"] = actual
 
-        # 1. raw-source-description.json
-        raw_doc = {
-            "schema_version": "1.0",
-            "file_role": "raw_source_description",
-            "indicator_id": iid,
-            "indicator_name": ind_meta.get("name"),
-            "indicator_name_el": ind_meta.get("name_el"),
-            "category": ind_meta.get("category"),
-            "status": ind_meta.get("status"),
-            "conversion_script": spec["conversion_script"],
-            "raw_sources": spec["raw_sources"],
-        }
-
-        # 2. refined-data.json
-        source_citations = [
-            {
-                "source_id": rs["source_id"],
-                "provider": rs["provider"],
-                "upstream_url": rs["upstream_url"],
-                "raw_file_path": rs["raw_file_path"],
-                "sha256": rs["sha256"],
-                "conversion_script": rs["conversion_script"],
+            raw_doc = {
+                "schema_version": "1.0",
+                "file_role": "raw_source_description",
+                "indicator_id": iid,
+                "indicator_name": ind_meta.get("name"),
+                "indicator_name_el": ind_meta.get("name_el"),
+                "category": ind_meta.get("category"),
+                "status": ind_meta.get("status"),
+                "conversion_script": spec["conversion_script"],
+                "raw_sources": spec["raw_sources"],
             }
-            for rs in spec["raw_sources"]
-        ]
-        refined_doc = {
-            "schema_version": "1.0",
-            "file_role": "refined_indicator_data",
-            "indicator_id": iid,
-            "indicator_name": ind_meta.get("name"),
-            "indicator_name_el": ind_meta.get("name_el"),
-            "category": ind_meta.get("category"),
-            "status": ind_meta.get("status"),
-            "cadence": ind_meta.get("cadence"),
-            "source_citations": source_citations,
-            "conversion_script": spec["conversion_script"],
-            "transformation_rule": spec["transformation_rule"],
-            "feature_dictionary": spec["feature_dictionary"],
-            "refined_data": spec["data"],
-            "observations_count": len(obs_list),
-            "observations": obs_list,
-        }
+            source_citations = [
+                {
+                    "source_id": rs["source_id"],
+                    "provider": rs["provider"],
+                    "upstream_url": rs["upstream_url"],
+                    "raw_file_path": rs["raw_file_path"],
+                    "sha256": rs["sha256"],
+                    "conversion_script": rs["conversion_script"],
+                }
+                for rs in spec["raw_sources"]
+            ]
+            refined_doc = {
+                "schema_version": "1.0",
+                "file_role": "refined_indicator_data",
+                "indicator_id": iid,
+                "indicator_name": ind_meta.get("name"),
+                "indicator_name_el": ind_meta.get("name_el"),
+                "category": ind_meta.get("category"),
+                "status": ind_meta.get("status"),
+                "cadence": ind_meta.get("cadence"),
+                "source_citations": source_citations,
+                "conversion_script": spec["conversion_script"],
+                "transformation_rule": spec["transformation_rule"],
+                "feature_dictionary": spec["feature_dictionary"],
+                "refined_data": spec["data"],
+                "observations_count": len(obs_list),
+                "observations": obs_list,
+            }
+            (folder / "raw-source-description.json").write_text(
+                json.dumps(raw_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            (folder / "refined-data.json").write_text(
+                json.dumps(refined_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            (folder / "README.md").write_text(
+                render_indicator_readme(iid, ind_meta, raw_doc, refined_doc), encoding="utf-8")
+        print(f"Built 34 indicator folders under {INDICATORS_DIR.relative_to(ROOT)}/")
 
-        (folder / "raw-source-description.json").write_text(
-            json.dumps(raw_doc, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
-        (folder / "refined-data.json").write_text(
-            json.dumps(refined_doc, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
-        readme_md = render_indicator_readme(iid, ind_meta, raw_doc, refined_doc)
-        (folder / "README.md").write_text(readme_md, encoding="utf-8")
-
-        errs = verify_indicator_folder(folder, schema)
-        all_errors.extend(errs)
-        folders_built += 1
-
-    print(f"Built & verified {folders_built} Option-A indicator folders under {INDICATORS_DIR.relative_to(ROOT)}/")
-    print("Each folder now contains: raw-source-description.json + refined-data.json + README.md")
-    if all_errors:
-        print("VERIFICATION ERRORS:", file=sys.stderr)
-        for e in all_errors:
+    # Verification re-reads everything from disk, independently of the build step above.
+    errors = check_all(schema, master_obs, extra_obs)
+    if errors:
+        print(f"VERIFICATION FAILED ({len(errors)} problems):", file=sys.stderr)
+        for e in errors:
             print(f"  - {e}", file=sys.stderr)
         return 1
-    print("ALL 34 INDICATOR FOLDERS PASSED SYNTACTIC, PROVENANCE, AND SEMANTIC VERIFICATION.")
+    print(f"CHECK PASSED: 34 folders; every raw file present and its sha256 recorded in the cited manifest; "
+          f"{len(master_obs) + len(extra_obs)} observations ({len(master_obs)} master + {len(extra_obs)} in separate files) "
+          f"schema-valid (jsonschema {_jsonschema_version()}) and identical to their source files.")
     return 0
 
 

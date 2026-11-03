@@ -35,7 +35,8 @@ Anticipated schedule-based congestion (2026-10-14): cruise schedules (CruiseMapp
 - **Access Method:** `One-time bounded read parsed to JSON`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `scratch/cruise-pressure/schedules.json`
 - **Raw File Extension & Format:** `.json` — `application/json (117 planned cruise calls across Ionian ports)`
-- **SHA-256 Checksum:** `1490dd5a7fabf8dc265fafa127cac6cfa77cfba59e15293c1b2c333ea496ae98` (verified in `data/manifests/source-verification-2026-10-14.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `1490dd5a7fabf8dc265fafa127cac6cfa77cfba59e15293c1b2c333ea496ae98`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-14.json`
 - **Conversion Script (`.json` -> `.json`):** `scripts/verification/compute-data07-anticipated-congestion.py`
 - **Conversion Command:** `python3 scripts/verification/compute-data07-anticipated-congestion.py`
 - **Whitelisted Raw Variables (`kept`):** `port_id`, `date`, `ship`, `arrival`, `departure`
@@ -49,11 +50,12 @@ Anticipated schedule-based congestion (2026-10-14): cruise schedules (CruiseMapp
 | `ports[].calls[].arrival / departure` | Scheduled berth arrival and departure window |
 
 ### Source 2: `GreekNAP_sailing_traffic` (Greek National Access Point (NAP) — Domestic Ferry Sailing Traffic)
-- **Upstream URL:** `file:///home/scrublife/ionian-dtwin/scratch/ais-routes/export_sailing_traffic.csv`
+- **Upstream URL:** `UNDOCUMENTED: Greek National Access Point (NAP) sailing-traffic CSV export; the download address is still to be recorded (open item). Local copy: scratch/ais-routes/export_sailing_traffic.csv`
 - **Access Method:** `CSV bulk export (184,436 domestic ferry legs, Mar-Nov 2025)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `scratch/ais-routes/export_sailing_traffic.csv`
 - **Raw File Extension & Format:** `.csv` — `text/csv (184,436 rows)`
-- **SHA-256 Checksum:** `b756f6eb2c4eac53f996983ee215e0289bfab6fe53827696806abe2393f5fa7b` (verified in `data/manifests/source-verification-2026-10-14.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `b756f6eb2c4eac53f996983ee215e0289bfab6fe53827696806abe2393f5fa7b`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-14.json`
 - **Conversion Script (`.csv` -> `.json`):** `scripts/verification/compute-data07-anticipated-congestion.py`
 - **Conversion Command:** `python3 scripts/verification/compute-data07-anticipated-congestion.py`
 - **Whitelisted Raw Variables (`kept`):** `date`, `arrivalport`, `passengercount`, `vehiclecount`

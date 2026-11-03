@@ -35,7 +35,8 @@ VERIFIED 2026-10-15: platform nights from Eurostat tour_ce_omn12 (EC agreement w
 - **Access Method:** `GET (JSON-stat 2.0 REST API, no key)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/eurostat-tour_ce_omn12-el62-ngtsp-annual-2018-2025.json`
 - **Raw File Extension & Format:** `.json` — `application/json (JSON-stat 2.0 cube)`
-- **SHA-256 Checksum:** `421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd` (verified in `data/manifests/source-verification-2026-10-15.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `421338a3a15d9db86ef98b2ff1138e82b3a9c7b7c37aacf27427dca6d998abbd`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-15.json`
 - **Conversion Script (`.json` -> `.json`):** `scripts/verification/pull-data19-platform-rentals.py`
 - **Conversion Command:** `python3 scripts/verification/pull-data19-platform-rentals.py`
 - **Whitelisted Raw Variables (`kept`):** `indic_to (NGT_SP)`, `c_resid (TOTAL)`, `month (TOTAL)`, `geo (EL62)`, `time (2018..2025)`, `value`
@@ -55,7 +56,8 @@ VERIFIED 2026-10-15: platform nights from Eurostat tour_ce_omn12 (EC agreement w
 - **Access Method:** `GET (JSON-stat 2.0 REST API, no key)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/eurostat-tour_occ_nin2-el62-nr-annual-2018-2025.json`
 - **Raw File Extension & Format:** `.json` — `application/json (JSON-stat 2.0 cube)`
-- **SHA-256 Checksum:** `474ba9c359e92830964e2ad4d1c83f11d841b2d1e2d8dda20bf66dea9e14f158` (verified in `data/manifests/source-verification-2026-10-15.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `474ba9c359e92830964e2ad4d1c83f11d841b2d1e2d8dda20bf66dea9e14f158`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-15.json`
 - **Conversion Script (`.json` -> `.json`):** `scripts/verification/pull-data19-platform-rentals.py`
 - **Conversion Command:** `python3 scripts/verification/pull-data19-platform-rentals.py`
 - **Whitelisted Raw Variables (`kept`):** `c_resid (TOTAL)`, `unit (NR)`, `nace_r2 (I551-I553)`, `geo (EL62)`, `time (2018..2025)`, `value`

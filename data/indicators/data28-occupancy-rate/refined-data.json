@@ -26,11 +26,11 @@
       "role": "target_indicator",
       "description": "Net occupancy rate of bed-places in EL62 (65.4% in 2023)."
     },
-    "refined_data.gross_seasonal_island_proxy_2021_2025": {
+    "refined_data.nights_per_hotel_bed_index_2021_2025": {
       "type": "object",
       "unit": "%",
       "role": "internal_disaggregation",
-      "description": "Supplementary 180-day operating-season gross occupancy proxy across NUTS3 islands."
+      "description": "NOT an occupancy rate. Index = 100 x NUTS3 nights in all accommodation (Eurostat tour_occ_nin3, I551-I553) / (ELSTAT STO12 hotel-only bed-places x 365). Numerator and denominator cover different supply, so values overstate occupancy (Lefkada 2025 = 82.4). Reproduced by scripts/verification/reproduce-derived-samples.py. Context only; not used for the Data28 observation."
     }
   },
   "refined_data": {
@@ -41,7 +41,7 @@
       "unit": "%",
       "value": 65.4
     },
-    "gross_seasonal_island_proxy_2021_2025": {
+    "nights_per_hotel_bed_index_2021_2025": {
       "2021": {
         "Zakynthos": 23.1,
         "Kerkyra": 24.9,
@@ -85,7 +85,7 @@
       "observed_at": "2023",
       "observed_period_end": null,
       "temporal_granularity": "annual",
-      "ingested_at": "2026-10-20T12:25:17Z",
+      "ingested_at": "2026-11-03T11:53:01Z",
       "spatial_ref": {
         "level": "NUTS2",
         "code": "EL62",

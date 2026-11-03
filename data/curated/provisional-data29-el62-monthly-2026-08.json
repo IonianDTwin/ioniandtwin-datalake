@@ -1,0 +1,417 @@
+{
+  "audit": {
+    "status": "PROPOSAL",
+    "method": "(fixed in advance, not tuned to the result):\n  share(y, m)         = EL62 nights(y, m) / EL nights(y, m)                 from tour_occ_nin2m\n  share_hat(Y, m)     = mean of share(y, m) over the reference years before Y, excluding the\n                        COVID years 2020-2021\n  EL62_hat(Y, m)      = EL nights(Y, m) [tour_occ_nim]  x  share_hat(Y, m)",
+    "excluded_reference_years": [
+      2020,
+      2021
+    ],
+    "backtest": [
+      {
+        "year": 2023,
+        "reference_years": [
+          2022
+        ],
+        "monthly_abs_pct_error": {
+          "M01": 1.3,
+          "M02": 8.5,
+          "M03": 0.7,
+          "M04": 9.0,
+          "M05": 5.6,
+          "M06": 6.3,
+          "M07": 9.1,
+          "M08": 9.0,
+          "M09": 8.5,
+          "M10": 17.0,
+          "M11": 11.0,
+          "M12": 20.3
+        },
+        "top3_months_mean_abs_pct_error": 8.87,
+        "annual_sum_pct_error": -8.56,
+        "top3_share_actual": 63.81,
+        "top3_share_estimated": 63.57
+      },
+      {
+        "year": 2024,
+        "reference_years": [
+          2022,
+          2023
+        ],
+        "monthly_abs_pct_error": {
+          "M01": 7.1,
+          "M02": 26.9,
+          "M03": 8.5,
+          "M04": 10.3,
+          "M05": 5.1,
+          "M06": 0.1,
+          "M07": 7.0,
+          "M08": 5.8,
+          "M09": 0.0,
+          "M10": 7.8,
+          "M11": 3.6,
+          "M12": 1.0
+        },
+        "top3_months_mean_abs_pct_error": 4.3,
+        "annual_sum_pct_error": -4.29,
+        "top3_share_actual": 63.99,
+        "top3_share_estimated": 63.72
+      },
+      {
+        "year": 2025,
+        "reference_years": [
+          2022,
+          2023,
+          2024
+        ],
+        "monthly_abs_pct_error": {
+          "M01": 15.1,
+          "M02": 29.5,
+          "M03": 32.3,
+          "M04": 1.9,
+          "M05": 2.9,
+          "M06": 2.2,
+          "M07": 4.1,
+          "M08": 0.5,
+          "M09": 4.9,
+          "M10": 1.2,
+          "M11": 2.3,
+          "M12": 5.7
+        },
+        "top3_months_mean_abs_pct_error": 2.25,
+        "annual_sum_pct_error": -0.02,
+        "top3_share_actual": 63.91,
+        "top3_share_estimated": 63.75
+      }
+    ],
+    "estimates": [
+      {
+        "month": "2026-01",
+        "el_nights": 1651344,
+        "el62_share": 0.01298,
+        "el62_estimate": 21432,
+        "band_low": 19880,
+        "band_high": 24165,
+        "estimate_with_latest_year_share": 24165
+      },
+      {
+        "month": "2026-02",
+        "el_nights": 1764853,
+        "el62_share": 0.02048,
+        "el62_estimate": 36142,
+        "band_low": 27852,
+        "band_high": 46413,
+        "estimate_with_latest_year_share": 46413
+      },
+      {
+        "month": "2026-03",
+        "el_nights": 2682258,
+        "el62_share": 0.01737,
+        "el62_estimate": 46580,
+        "band_low": 40209,
+        "band_high": 61497,
+        "estimate_with_latest_year_share": 61497
+      },
+      {
+        "month": "2026-04",
+        "el_nights": 6918433,
+        "el62_share": 0.07885,
+        "el62_estimate": 545543,
+        "band_low": 502998,
+        "band_high": 588524,
+        "estimate_with_latest_year_share": 537977
+      },
+      {
+        "month": "2026-05",
+        "el_nights": 15823095,
+        "el62_share": 0.13723,
+        "el62_estimate": 2171393,
+        "band_low": 2056286,
+        "band_high": 2230878,
+        "estimate_with_latest_year_share": 2220287
+      },
+      {
+        "month": "2026-06",
+        "el_nights": 24061111,
+        "el62_share": 0.1457,
+        "el62_estimate": 3505661,
+        "band_low": 3410445,
+        "band_high": 3639585,
+        "estimate_with_latest_year_share": 3449922
+      },
+      {
+        "month": "2026-07",
+        "el_nights": 31701467,
+        "el62_share": 0.14726,
+        "el62_estimate": 4668222,
+        "band_low": 4291460,
+        "band_high": 4845732,
+        "estimate_with_latest_year_share": 4815868
+      },
+      {
+        "month": "2026-08",
+        "el_nights": 34685695,
+        "el62_share": 0.14461,
+        "el62_estimate": 5015746,
+        "band_low": 4688622,
+        "band_high": 5225653,
+        "estimate_with_latest_year_share": 4996311
+      }
+    ],
+    "uncertainty": "Band per month = Greek nights x min/max of that month's EL62 share over the reference years. It describes year-to-year share variation, not a statistical confidence interval.",
+    "caveats": [
+      "The backtest errors were negative in 2023 (-8.56 %) and 2024 (-4.29 %): EL62's share of Greek nights rose after COVID, and an equal-weight mean of past shares lags such a trend. Estimates for growing months are likely to lean low; 'estimate_with_latest_year_share' shows the trend-following alternative.",
+      "Only 1-3 reference years exist for the backtest (2023 used a single year), so the errors are indicative, not a calibration."
+    ],
+    "note": "Partial-year estimates: no annual seasonality measure is computed from them until the year is complete."
+  },
+  "observations": [
+    {
+      "observation_id": "Provisional:Data29:monthly_nights_estimate:EL62:2026-01",
+      "indicator_id": "Data29",
+      "indicator_name": "Seasonality (%)",
+      "series_label": "PROVISIONAL estimate of monthly nights (all accommodation), replaced by tour_occ_nin2m on release",
+      "source_id": "Derived_tour_occ_nim_x_EL62_share",
+      "observed_at": "2026-01",
+      "observed_period_end": null,
+      "temporal_granularity": "monthly",
+      "ingested_at": "2026-11-03T14:26:30Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 21432,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "dd8763adb9bb454e28af36e438d0b00dfdae49fb1c9c9507ff697f130d069a75",
+        "raw_manifest": "source-verification-2026-11-03",
+        "access_method": "derived",
+        "request_url": null,
+        "request_params": {
+          "formula": "EL nights 2026-01 x mean EL62/EL share of month 1 over [2022, 2023, 2024, 2025]",
+          "band": "19880-24165 (min-max of the reference-year shares)",
+          "status": "PROPOSAL",
+          "backtest": "see audit file"
+        }
+      }
+    },
+    {
+      "observation_id": "Provisional:Data29:monthly_nights_estimate:EL62:2026-02",
+      "indicator_id": "Data29",
+      "indicator_name": "Seasonality (%)",
+      "series_label": "PROVISIONAL estimate of monthly nights (all accommodation), replaced by tour_occ_nin2m on release",
+      "source_id": "Derived_tour_occ_nim_x_EL62_share",
+      "observed_at": "2026-02",
+      "observed_period_end": null,
+      "temporal_granularity": "monthly",
+      "ingested_at": "2026-11-03T14:26:30Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 36142,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "dd8763adb9bb454e28af36e438d0b00dfdae49fb1c9c9507ff697f130d069a75",
+        "raw_manifest": "source-verification-2026-11-03",
+        "access_method": "derived",
+        "request_url": null,
+        "request_params": {
+          "formula": "EL nights 2026-02 x mean EL62/EL share of month 2 over [2022, 2023, 2024, 2025]",
+          "band": "27852-46413 (min-max of the reference-year shares)",
+          "status": "PROPOSAL",
+          "backtest": "see audit file"
+        }
+      }
+    },
+    {
+      "observation_id": "Provisional:Data29:monthly_nights_estimate:EL62:2026-03",
+      "indicator_id": "Data29",
+      "indicator_name": "Seasonality (%)",
+      "series_label": "PROVISIONAL estimate of monthly nights (all accommodation), replaced by tour_occ_nin2m on release",
+      "source_id": "Derived_tour_occ_nim_x_EL62_share",
+      "observed_at": "2026-03",
+      "observed_period_end": null,
+      "temporal_granularity": "monthly",
+      "ingested_at": "2026-11-03T14:26:30Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 46580,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "dd8763adb9bb454e28af36e438d0b00dfdae49fb1c9c9507ff697f130d069a75",
+        "raw_manifest": "source-verification-2026-11-03",
+        "access_method": "derived",
+        "request_url": null,
+        "request_params": {
+          "formula": "EL nights 2026-03 x mean EL62/EL share of month 3 over [2022, 2023, 2024, 2025]",
+          "band": "40209-61497 (min-max of the reference-year shares)",
+          "status": "PROPOSAL",
+          "backtest": "see audit file"
+        }
+      }
+    },
+    {
+      "observation_id": "Provisional:Data29:monthly_nights_estimate:EL62:2026-04",
+      "indicator_id": "Data29",
+      "indicator_name": "Seasonality (%)",
+      "series_label": "PROVISIONAL estimate of monthly nights (all accommodation), replaced by tour_occ_nin2m on release",
+      "source_id": "Derived_tour_occ_nim_x_EL62_share",
+      "observed_at": "2026-04",
+      "observed_period_end": null,
+      "temporal_granularity": "monthly",
+      "ingested_at": "2026-11-03T14:26:30Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 545543,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "dd8763adb9bb454e28af36e438d0b00dfdae49fb1c9c9507ff697f130d069a75",
+        "raw_manifest": "source-verification-2026-11-03",
+        "access_method": "derived",
+        "request_url": null,
+        "request_params": {
+          "formula": "EL nights 2026-04 x mean EL62/EL share of month 4 over [2022, 2023, 2024, 2025]",
+          "band": "502998-588524 (min-max of the reference-year shares)",
+          "status": "PROPOSAL",
+          "backtest": "see audit file"
+        }
+      }
+    },
+    {
+      "observation_id": "Provisional:Data29:monthly_nights_estimate:EL62:2026-05",
+      "indicator_id": "Data29",
+      "indicator_name": "Seasonality (%)",
+      "series_label": "PROVISIONAL estimate of monthly nights (all accommodation), replaced by tour_occ_nin2m on release",
+      "source_id": "Derived_tour_occ_nim_x_EL62_share",
+      "observed_at": "2026-05",
+      "observed_period_end": null,
+      "temporal_granularity": "monthly",
+      "ingested_at": "2026-11-03T14:26:30Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 2171393,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "dd8763adb9bb454e28af36e438d0b00dfdae49fb1c9c9507ff697f130d069a75",
+        "raw_manifest": "source-verification-2026-11-03",
+        "access_method": "derived",
+        "request_url": null,
+        "request_params": {
+          "formula": "EL nights 2026-05 x mean EL62/EL share of month 5 over [2022, 2023, 2024, 2025]",
+          "band": "2056286-2230878 (min-max of the reference-year shares)",
+          "status": "PROPOSAL",
+          "backtest": "see audit file"
+        }
+      }
+    },
+    {
+      "observation_id": "Provisional:Data29:monthly_nights_estimate:EL62:2026-06",
+      "indicator_id": "Data29",
+      "indicator_name": "Seasonality (%)",
+      "series_label": "PROVISIONAL estimate of monthly nights (all accommodation), replaced by tour_occ_nin2m on release",
+      "source_id": "Derived_tour_occ_nim_x_EL62_share",
+      "observed_at": "2026-06",
+      "observed_period_end": null,
+      "temporal_granularity": "monthly",
+      "ingested_at": "2026-11-03T14:26:30Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 3505661,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "dd8763adb9bb454e28af36e438d0b00dfdae49fb1c9c9507ff697f130d069a75",
+        "raw_manifest": "source-verification-2026-11-03",
+        "access_method": "derived",
+        "request_url": null,
+        "request_params": {
+          "formula": "EL nights 2026-06 x mean EL62/EL share of month 6 over [2022, 2023, 2024, 2025]",
+          "band": "3410445-3639585 (min-max of the reference-year shares)",
+          "status": "PROPOSAL",
+          "backtest": "see audit file"
+        }
+      }
+    },
+    {
+      "observation_id": "Provisional:Data29:monthly_nights_estimate:EL62:2026-07",
+      "indicator_id": "Data29",
+      "indicator_name": "Seasonality (%)",
+      "series_label": "PROVISIONAL estimate of monthly nights (all accommodation), replaced by tour_occ_nin2m on release",
+      "source_id": "Derived_tour_occ_nim_x_EL62_share",
+      "observed_at": "2026-07",
+      "observed_period_end": null,
+      "temporal_granularity": "monthly",
+      "ingested_at": "2026-11-03T14:26:30Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 4668222,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "dd8763adb9bb454e28af36e438d0b00dfdae49fb1c9c9507ff697f130d069a75",
+        "raw_manifest": "source-verification-2026-11-03",
+        "access_method": "derived",
+        "request_url": null,
+        "request_params": {
+          "formula": "EL nights 2026-07 x mean EL62/EL share of month 7 over [2022, 2023, 2024, 2025]",
+          "band": "4291460-4845732 (min-max of the reference-year shares)",
+          "status": "PROPOSAL",
+          "backtest": "see audit file"
+        }
+      }
+    },
+    {
+      "observation_id": "Provisional:Data29:monthly_nights_estimate:EL62:2026-08",
+      "indicator_id": "Data29",
+      "indicator_name": "Seasonality (%)",
+      "series_label": "PROVISIONAL estimate of monthly nights (all accommodation), replaced by tour_occ_nin2m on release",
+      "source_id": "Derived_tour_occ_nim_x_EL62_share",
+      "observed_at": "2026-08",
+      "observed_period_end": null,
+      "temporal_granularity": "monthly",
+      "ingested_at": "2026-11-03T14:26:30Z",
+      "spatial_ref": {
+        "level": "NUTS2",
+        "code": "EL62",
+        "geometry": null
+      },
+      "value": 5015746,
+      "unit": "nights",
+      "polarity": null,
+      "provenance": {
+        "raw_checksum_sha256": "dd8763adb9bb454e28af36e438d0b00dfdae49fb1c9c9507ff697f130d069a75",
+        "raw_manifest": "source-verification-2026-11-03",
+        "access_method": "derived",
+        "request_url": null,
+        "request_params": {
+          "formula": "EL nights 2026-08 x mean EL62/EL share of month 8 over [2022, 2023, 2024, 2025]",
+          "band": "4688622-5225653 (min-max of the reference-year shares)",
+          "status": "PROPOSAL",
+          "backtest": "see audit file"
+        }
+      }
+    }
+  ]
+}

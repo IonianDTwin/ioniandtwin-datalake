@@ -13,6 +13,8 @@
       "response_status": 200,
       "content_type": "application/geo+json",
       "checksum_sha256": "c015eaa40a0af0fe88b1467585cccffa38535de0d0aa8cd96bddf6317be81d60",
+      "sample_checksum_sha256": "6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d",
+      "sample_checksum_note": "Added 2026-11-03: structured copy of the EL62-subset hash already given in this entry's note. checksum_sha256 is the full Europe NUTS2 file.",
       "accessed_at": "2026-10-03T09:28:00Z",
       "authentication": "none",
       "sample_path": "data/raw/gisco-nuts-2021-3035-EL62.geojson",

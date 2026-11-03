@@ -34,7 +34,8 @@ Spatial 1-HHI of NUTS3 island night shares (0.636-0.640). Flag: dashboard TOUR_S
 - **Access Method:** `GET (SDMX 2.1 JSON-stat 2.0 REST API, no key)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/samples/eurostat-tour_occ_nin3-EL621-624-2021-2025.json`
 - **Raw File Extension & Format:** `.json` — `application/json (wrapper of 4 NUTS3 SDMX cubes)`
-- **SHA-256 Checksum:** `ee9c29ff4ecce9aabc23b1b9b360096c004213ed6e2a6b30c257f0934517e916` (verified in `data/manifests/source-verification-2026-10-01.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `ee9c29ff4ecce9aabc23b1b9b360096c004213ed6e2a6b30c257f0934517e916`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-01.json`
 - **Conversion Script (`.json` -> `.json`):** `scripts/verification/build_dashboard.py`
 - **Conversion Command:** `python3 scripts/verification/build_dashboard.py --manifest data/manifests/source-verification-2026-10-01.json`
 - **Whitelisted Raw Variables (`kept`):** `geo (EL621, EL622, EL623, EL624)`, `c_resid (TOTAL)`, `unit (NR)`, `nace_r2 (I551-I553)`, `time (2021..2025)`, `value`

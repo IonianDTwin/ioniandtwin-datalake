@@ -34,7 +34,8 @@ VERIFIED 2026-10-20: OpenSky free REST states/all filtered to 25km buffer, alt<=
 - **Access Method:** `GET (anonymous REST JSON API)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/opensky-ionian-states-20261020-105525.json`
 - **Raw File Extension & Format:** `.json` — `application/json (OpenSky state-vector array)`
-- **SHA-256 Checksum:** `9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a` (verified in `data/manifests/source-verification-2026-10-20.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `9c8b228401c53d74ab25ad92e83264af574613745bb2d7f3586377e5cccb610a`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-20.json`
 - **Conversion Script (`.json` -> `.json`):** `scripts/verification/pull-data06-airport-congestion.py`
 - **Conversion Command:** `python3 scripts/verification/pull-data06-airport-congestion.py`
 - **Whitelisted Raw Variables (`kept`):** `icao24`, `callsign`, `origin_country`, `longitude`, `latitude`, `baro_altitude`, `on_ground`, `velocity`

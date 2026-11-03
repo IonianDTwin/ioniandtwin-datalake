@@ -34,7 +34,8 @@
 - **Access Method:** `GET (public CSV bulk export)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/eutd-tourism-dashboard-2024-indicators.csv`
 - **Raw File Extension & Format:** `.csv` — `text/csv (UTF-8, comma-delimited, 81,939 rows)`
-- **SHA-256 Checksum:** `ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12` (verified in `data/manifests/source-verification-2026-10-03.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-03.json`
 - **Conversion Script (`.csv` -> `.json`):** `scripts/verification/extract-eutd-dashboard-csv.py`
 - **Conversion Command:** `python3 scripts/verification/extract-eutd-dashboard-csv.py && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `code ('TOUR_DES_13')`, `nuts_code_2021 ('EL62')`, `year (2023)`, `value`, `unit`

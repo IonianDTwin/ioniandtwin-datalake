@@ -34,7 +34,8 @@ EL62 = 65.4 % net occupancy (2023) - from EU Tourism Dashboard TOUR_DES_04. Supe
 - **Access Method:** `GET (public CSV bulk export)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/eutd-tourism-dashboard-2024-indicators.csv`
 - **Raw File Extension & Format:** `.csv` — `text/csv (UTF-8, comma-delimited, 81,939 rows)`
-- **SHA-256 Checksum:** `ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12` (verified in `data/manifests/source-verification-2026-10-03.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `ab45bb4b2b0b831df183684a05adb52f5bca0270d3b90f1993af0bd77d35aa12`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-03.json`
 - **Conversion Script (`.csv` -> `.json`):** `scripts/verification/extract-eutd-dashboard-csv.py`
 - **Conversion Command:** `python3 scripts/verification/extract-eutd-dashboard-csv.py && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `code ('TOUR_DES_04')`, `nuts_code_2021 ('EL62')`, `year (2023)`, `value`, `unit`
@@ -57,7 +58,7 @@ EL62 = 65.4 % net occupancy (2023) - from EU Tourism Dashboard TOUR_DES_04. Supe
 | Refined JSONPath | Type | Unit | Role | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `refined_data.net_occupancy_el62.value` | `number` | `%` | `target_indicator` | Net occupancy rate of bed-places in EL62 (65.4% in 2023). |
-| `refined_data.gross_seasonal_island_proxy_2021_2025` | `object` | `%` | `internal_disaggregation` | Supplementary 180-day operating-season gross occupancy proxy across NUTS3 islands. |
+| `refined_data.nights_per_hotel_bed_index_2021_2025` | `object` | `%` | `internal_disaggregation` | NOT an occupancy rate. Index = 100 x NUTS3 nights in all accommodation (Eurostat tour_occ_nin3, I551-I553) / (ELSTAT STO12 hotel-only bed-places x 365). Numerator and denominator cover different supply, so values overstate occupancy (Lefkada 2025 = 82.4). Reproduced by scripts/verification/reproduce-derived-samples.py. Context only; not used for the Data28 observation. |
 
 ## 4. Normalized Observations (`refined-data.json -> observations[]`)
 

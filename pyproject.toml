@@ -17,6 +17,7 @@ dependencies = []
 verify = [
     "httpx>=0.27",
     "pypdf>=4.0",
+    "jsonschema>=4.18",
 ]
 
 [tool.setuptools]

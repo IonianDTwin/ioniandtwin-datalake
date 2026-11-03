@@ -64,6 +64,12 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+
+
+def _repo_rel(p) -> str:
+    """Record input paths relative to the repository: absolute paths reveal the workstation layout."""
+    p = Path(p).resolve()
+    return str(p.relative_to(ROOT)) if ROOT in p.parents else p.name
 CURATED = ROOT / "data" / "curated"
 
 # ---------------------------------------------------------------------------
@@ -415,11 +421,11 @@ def main() -> int:
                    "+ w_veh*L_ferry_veh/C_veh); level low<0.50, medium<0.85, high>=0.85 "
                    "(research-notes 2026-10-15 §4)."),
         "sources": [
-            {"source_id": "CruiseMapper_schedules", "path": str(args.schedules),
+            {"source_id": "CruiseMapper_schedules", "path": _repo_rel(args.schedules),
              "sha256": sched_sha, "captured_at_utc": cruise["captured_at_utc"],
              "note": cruise["source"] + ". One-time bounded read; NOT a production feed "
                      "(substitute the OLKE port-authority declaration feed)."},
-            {"source_id": "GreekNAP_sailing_traffic", "path": str(args.ferry),
+            {"source_id": "GreekNAP_sailing_traffic", "path": _repo_rel(args.ferry),
              "sha256": ferry_sha,
              "note": "Greek National Access Point sailing-traffic export, Mar–Nov 2025 "
                      "(empirical ferry baseline)."},

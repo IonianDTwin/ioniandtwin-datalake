@@ -22,7 +22,7 @@
       "upstream_url": "https://www.statistics.gr/en/statistics/-/publication/STO12/",
       "raw_file_path": "data/samples/elstat-sto12-ionian-bedplaces-2021-2025.json",
       "sha256": "68e1a44e39df1698f46b66c6ae32d054febb1d6e813c5e7e554153e5b59d81be",
-      "conversion_script": "scripts/verification/build_indicator_folders.py"
+      "conversion_script": "scripts/verification/reproduce-derived-samples.py"
     }
   ],
   "conversion_script": "scripts/verification/build_dashboard.py",
@@ -117,7 +117,7 @@
       "observed_at": "2022",
       "observed_period_end": null,
       "temporal_granularity": "annual",
-      "ingested_at": "2026-10-20T12:25:17Z",
+      "ingested_at": "2026-11-03T11:53:01Z",
       "spatial_ref": {
         "level": "NUTS2",
         "code": "EL62",
@@ -141,7 +141,7 @@
       "observed_at": "2023",
       "observed_period_end": null,
       "temporal_granularity": "annual",
-      "ingested_at": "2026-10-20T12:25:17Z",
+      "ingested_at": "2026-11-03T11:53:01Z",
       "spatial_ref": {
         "level": "NUTS2",
         "code": "EL62",

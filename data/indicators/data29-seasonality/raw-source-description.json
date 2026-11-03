@@ -6,8 +6,66 @@
   "indicator_name_el": null,
   "category": "tourism_performance",
   "status": "VERIFIED",
-  "conversion_script": "scripts/verification/extract-eutd-dashboard-csv.py & scripts/verification/build_dashboard.py",
+  "conversion_script": "scripts/verification/compute-data29-seasonality.py -> scripts/verification/build_dashboard.py",
   "raw_sources": [
+    {
+      "source_id": "Eurostat_tour_occ_nin2m",
+      "provider": "Eurostat (European Commission)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "access_method": "GET (JSON-stat 2.0 REST API, no key)",
+      "raw_file_path": "data/raw/eurostat-tour_occ_nin2m-EL62-EL-2020-2025.json",
+      "raw_format": "application/json (JSON-stat 2.0; month is a dimension M01..M12 + TOTAL, time is the year)",
+      "manifest": "data/manifests/source-verification-2026-11-03.json",
+      "sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "raw_schema_description": {
+        "dimension.month": "'TOTAL' and 'M01'..'M12'",
+        "dimension.geo": "'EL62' (Ionia Nisia) and 'EL' (Greece)",
+        "dimension.time": "Reference year '2020'..'2025'",
+        "dimension.nace_r2": "'I551-I553' (all tourist accommodation; no type split at NUTS 2)",
+        "value": "Nights spent (unit NR)"
+      },
+      "raw_variables_kept": [
+        "month",
+        "geo",
+        "time",
+        "value"
+      ],
+      "raw_variables_dropped": [
+        "freq (A)",
+        "c_resid (TOTAL only)",
+        "unit (NR only)"
+      ],
+      "conversion_script": "scripts/verification/compute-data29-seasonality.py",
+      "conversion_command": "python3 scripts/verification/compute-data29-seasonality.py && python3 scripts/verification/build_dashboard.py <manifests> && python3 scripts/verification/build_indicator_folders.py"
+    },
+    {
+      "source_id": "Eurostat_tour_ce_omn12_monthly",
+      "provider": "Eurostat (data shared by Airbnb, Booking.com, Expedia Group)",
+      "upstream_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?format=JSON&lang=EN&geo=EL62&geo=EL&indic_to=NGT_SP&c_resid=TOTAL&time=2020&time=2021&time=2022&time=2023",
+      "access_method": "GET (JSON-stat 2.0 REST API, no key)",
+      "raw_file_path": "data/raw/eurostat-tour_ce_omn12-EL62-EL-monthly-2020-2023.json",
+      "raw_format": "application/json (JSON-stat 2.0; month dimension)",
+      "manifest": "data/manifests/source-verification-2026-11-03.json",
+      "sha256": "4e2ec7512fa29d69410ac2b78694ccab9fa2765789cad949f3d1225bb3fba4c1",
+      "raw_schema_description": {
+        "dimension.month": "'M01'..'M12'",
+        "dimension.geo": "'EL62', 'EL'",
+        "value": "Guest nights in short-stay accommodation booked via online platforms"
+      },
+      "raw_variables_kept": [
+        "month",
+        "geo",
+        "time",
+        "value"
+      ],
+      "raw_variables_dropped": [
+        "indic_to (NGT_SP only)",
+        "c_resid (TOTAL only)"
+      ],
+      "conversion_script": "scripts/verification/compute-data29-seasonality.py",
+      "conversion_command": "python3 scripts/verification/compute-data29-seasonality.py --check",
+      "lineage_note": "Used only to reconcile the dashboard EL62 value; no observation is emitted from it."
+    },
     {
       "source_id": "EU_Tourism_Dashboard_2024",
       "provider": "European Commission / Joint Research Centre (JRC) — EU Tourism Dashboard",

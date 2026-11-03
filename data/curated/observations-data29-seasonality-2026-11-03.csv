@@ -1,0 +1,49 @@
+observation_id,series_label,observed_at,spatial_code,value,unit
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL62:2020,share of annual nights in the 3 busiest months (all accommodation),2020,EL62,86.25,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL62:2020,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2020,EL62,0.724,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL62:2020,peak-month share of annual nights (all accommodation),2020,EL62,40.67,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL62:2020,share of annual nights outside June-September (all accommodation),2020,EL62,12.8,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL62:2021,share of annual nights in the 3 busiest months (all accommodation),2021,EL62,81.51,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL62:2021,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2021,EL62,0.6791,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL62:2021,peak-month share of annual nights (all accommodation),2021,EL62,31.64,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL62:2021,share of annual nights outside June-September (all accommodation),2021,EL62,8.95,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL62:2022,share of annual nights in the 3 busiest months (all accommodation),2022,EL62,65.06,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL62:2022,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2022,EL62,0.5922,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL62:2022,peak-month share of annual nights (all accommodation),2022,EL62,24.41,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL62:2022,share of annual nights outside June-September (all accommodation),2022,EL62,18.0,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL62:2023,share of annual nights in the 3 busiest months (all accommodation),2023,EL62,63.81,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL62:2023,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2023,EL62,0.5827,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL62:2023,peak-month share of annual nights (all accommodation),2023,EL62,23.82,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL62:2023,share of annual nights outside June-September (all accommodation),2023,EL62,18.93,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL62:2024,share of annual nights in the 3 busiest months (all accommodation),2024,EL62,63.99,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL62:2024,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2024,EL62,0.5836,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL62:2024,peak-month share of annual nights (all accommodation),2024,EL62,24.22,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL62:2024,share of annual nights outside June-September (all accommodation),2024,EL62,19.44,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL62:2025,share of annual nights in the 3 busiest months (all accommodation),2025,EL62,63.91,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL62:2025,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2025,EL62,0.5828,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL62:2025,peak-month share of annual nights (all accommodation),2025,EL62,24.02,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL62:2025,share of annual nights outside June-September (all accommodation),2025,EL62,19.54,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL:2020,share of annual nights in the 3 busiest months (all accommodation),2020,EL,70.09,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL:2020,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2020,EL,0.5998,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL:2020,peak-month share of annual nights (all accommodation),2020,EL,32.06,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL:2020,share of annual nights outside June-September (all accommodation),2020,EL,27.57,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL:2021,share of annual nights in the 3 busiest months (all accommodation),2021,EL,70.4,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL:2021,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2021,EL,0.591,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL:2021,peak-month share of annual nights (all accommodation),2021,EL,27.5,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL:2021,share of annual nights outside June-September (all accommodation),2021,EL,19.75,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL:2022,share of annual nights in the 3 busiest months (all accommodation),2022,EL,58.73,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL:2022,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2022,EL,0.5118,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL:2022,peak-month share of annual nights (all accommodation),2022,EL,22.47,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL:2022,share of annual nights outside June-September (all accommodation),2022,EL,26.4,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL:2023,share of annual nights in the 3 busiest months (all accommodation),2023,EL,56.86,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL:2023,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2023,EL,0.4894,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL:2023,peak-month share of annual nights (all accommodation),2023,EL,21.53,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL:2023,share of annual nights outside June-September (all accommodation),2023,EL,28.05,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL:2024,share of annual nights in the 3 busiest months (all accommodation),2024,EL,56.71,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL:2024,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2024,EL,0.4891,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL:2024,peak-month share of annual nights (all accommodation),2024,EL,21.58,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL:2024,share of annual nights outside June-September (all accommodation),2024,EL,28.18,%
+Eurostat_tour_occ_nin2m:Data29:top3_share:EL:2025,share of annual nights in the 3 busiest months (all accommodation),2025,EL,56.77,%
+Eurostat_tour_occ_nin2m:Data29:gini:EL:2025,Seasonality Index: Gini coefficient of monthly nights (all accommodation),2025,EL,0.4886,index (0-1)
+Eurostat_tour_occ_nin2m:Data29:peak_month_share:EL:2025,peak-month share of annual nights (all accommodation),2025,EL,21.72,%
+Eurostat_tour_occ_nin2m:Data29:share_outside_jun_sep:EL:2025,share of annual nights outside June-September (all accommodation),2025,EL,28.31,%

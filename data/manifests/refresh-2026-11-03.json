@@ -1,0 +1,58 @@
+{
+  "manifest_id": "refresh-2026-11-03",
+  "created_at": "2026-11-03T12:01:01Z",
+  "scope": "Automated refresh pulls by scripts/refresh/run.py (candidates; not yet promoted).",
+  "evidence": [
+    {
+      "source_id": "Eurostat_tour_occ_nin2m",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL",
+      "method": "GET (scripts/refresh/run.py)",
+      "access_type": "api",
+      "response_status": 200,
+      "content_type": "application/json",
+      "checksum_sha256": "78c4e09fc4317cc0521c998a84434c071d010affec5f5a3b9b0bee54e727c60f",
+      "size_bytes": 5991,
+      "accessed_at": "2026-11-03T12:01:01Z",
+      "authentication": "none",
+      "sample_path": "data/raw/refresh/eurostat-tour_occ_nin2m-EL62-EL-20261103T120101Z.json",
+      "publisher_updated": "2026-10-20T23:00:00+0200",
+      "verification_status": "CANDIDATE",
+      "note": "Refresh job eurostat_tour_occ_nin2m; not promoted. content_sha256 added after the run (same day); content identical to the verified raw file.",
+      "content_sha256": "4701098e47c55d14a86bee50dc4e11224e5db4d8c7902f0eb2ce72c14f56b9ad"
+    },
+    {
+      "source_id": "Eurostat_tour_occ_nim_EL_2020_2026",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nim?format=JSON&lang=EN&geo=EL&unit=NR&c_resid=TOTAL&nace_r2=I551-I553&sinceTimePeriod=2020-01",
+      "method": "GET (scripts/refresh/run.py)",
+      "access_type": "api",
+      "response_status": 200,
+      "content_type": "application/json",
+      "checksum_sha256": "dd8763adb9bb454e28af36e438d0b00dfdae49fb1c9c9507ff697f130d069a75",
+      "size_bytes": 6583,
+      "accessed_at": "2026-11-03T12:01:07Z",
+      "authentication": "none",
+      "sample_path": "data/raw/refresh/eurostat-tour_occ_nim-EL-20261103T120107Z.json",
+      "publisher_updated": "2026-10-30T23:00:00+0100",
+      "verification_status": "CANDIDATE",
+      "note": "Refresh job eurostat_tour_occ_nim_EL; not promoted. content_sha256 added after the run (same day); content identical to the verified raw file.",
+      "content_sha256": "2107b984cd5b6c8e887cb240e2d9c554e7eb735d49562e59a854414a0207ada3"
+    },
+    {
+      "source_id": "Eurostat_tour_ce_omn12_monthly",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?format=JSON&lang=EN&geo=EL62&geo=EL&indic_to=NGT_SP&c_resid=TOTAL&time=2020&time=2021&time=2022&time=2023",
+      "method": "GET (scripts/refresh/run.py)",
+      "access_type": "api",
+      "response_status": 200,
+      "content_type": "application/json",
+      "checksum_sha256": "4e2ec7512fa29d69410ac2b78694ccab9fa2765789cad949f3d1225bb3fba4c1",
+      "size_bytes": 4467,
+      "accessed_at": "2026-11-03T12:01:08Z",
+      "authentication": "none",
+      "sample_path": "data/raw/refresh/eurostat-tour_ce_omn12-EL62-EL-monthly-20261103T120108Z.json",
+      "publisher_updated": "2026-10-02T11:00:00+0200",
+      "verification_status": "CANDIDATE",
+      "note": "Refresh job eurostat_tour_ce_omn12; not promoted. content_sha256 added after the run (same day); content identical to the verified raw file.",
+      "content_sha256": "8b124a1972ef0e65212dce3ebc51d9476d32bfdebcd0384d429b8ded276d3b19"
+    }
+  ]
+}

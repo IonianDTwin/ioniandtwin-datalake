@@ -6,7 +6,7 @@
   "indicator_name_el": "Ποιότητα Αέρα",
   "category": "climate_adaptation",
   "status": "VERIFIED",
-  "conversion_script": "scripts/verification/build_indicator_folders.py",
+  "conversion_script": "scripts/verification/compute-data15-air-quality.py (observations); scripts/verification/extract-cams-summary.py (summary)",
   "raw_sources": [
     {
       "source_id": "CAMS_ADS_air_quality",
@@ -40,8 +40,38 @@
       "raw_variables_dropped": [
         "upper_level_layers (filtered to surface level=0)"
       ],
-      "conversion_script": "scripts/verification/build_indicator_folders.py",
-      "conversion_command": "python3 scripts/verification/build_indicator_folders.py"
+      "conversion_script": "scripts/verification/extract-cams-summary.py",
+      "conversion_command": "python3 scripts/verification/extract-cams-summary.py --check && python3 scripts/verification/build_indicator_folders.py",
+      "lineage_note": "The summary JSON was first produced ad hoc on 2026-10-01 without a retained script. scripts/verification/extract-cams-summary.py (2026-11-03) reproduces all 12 summary values from the retained zip."
+    },
+    {
+      "source_id": "Eurostat_GISCO_NUTS_2021",
+      "provider": "Eurostat GISCO",
+      "upstream_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2021_3035_LEVL_2.geojson",
+      "access_method": "GET (GeoJSON boundary download)",
+      "raw_file_path": "data/raw/gisco-nuts-2021-3035-EL62.geojson",
+      "raw_format": "application/geo+json (EPSG:3035 equal-area MultiPolygon)",
+      "manifest": "data/manifests/source-verification-2026-10-03.json",
+      "sha256": "6b53f249bf425424c0f19eaba403c3183ef378432a6408a0e93e6d9d1fdca35d",
+      "raw_schema_description": {
+        "properties.NUTS_ID": "NUTS2 code ('EL62')",
+        "properties.NAME_LATN": "Region name ('Ionia Nisia')",
+        "geometry": "MultiPolygon in EPSG:3035 LAEA projection"
+      },
+      "raw_variables_kept": [
+        "NUTS_ID",
+        "NAME_LATN",
+        "geometry"
+      ],
+      "raw_variables_dropped": [
+        "CNTR_CODE",
+        "MOUNT_TYPE",
+        "URBN_TYPE",
+        "COAST_TYPE"
+      ],
+      "conversion_script": "scripts/verification/compute-data15-air-quality.py",
+      "conversion_command": "python3 scripts/verification/compute-data15-air-quality.py && python3 scripts/verification/build_dashboard.py <manifests>",
+      "lineage_note": "EL62 land polygon used to area-weight the CAMS 0.1-degree cells (86 cells, 2,304.80 km2 intersected)."
     }
   ]
 }

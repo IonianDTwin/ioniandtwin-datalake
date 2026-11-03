@@ -34,7 +34,8 @@ ASSUMPTION: clean = classified Excellent/Good/Sufficient (Greece 2024: 99.94% of
 - **Access Method:** `GET (ArcGIS REST GeoJSON query, no key)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/raw/eea-bwd-greece-2024.geojson`
 - **Raw File Extension & Format:** `.geojson` — `application/geo+json (1,729 Point features across Greece)`
-- **SHA-256 Checksum:** `ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf` (verified in `data/manifests/source-verification-2026-10-20.json`)
+- **SHA-256 Checksum (of the local file, recomputed at build):** `ae444f3a26aa9b206c134b1e5a03fc9dd808dabb1c078d498ed3e0d28a04c5bf`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-20.json`
 - **Conversion Script (`.geojson` -> `.json`):** `scripts/verification/pull-data02-bathing-water-el62.py`
 - **Conversion Command:** `python3 scripts/verification/pull-data02-bathing-water-el62.py`
 - **Whitelisted Raw Variables (`kept`):** `countryCode`, `bathingWaterIdentifier`, `quality2024`, `lat`, `lon`, `geometry`

@@ -1,0 +1,114 @@
+[
+  {
+    "observation_id": "EMAS_register_REST:Data05:emas_registrations:EL62:2026-10-01",
+    "indicator_id": "Data05",
+    "indicator_name": "EMAS / EU Ecolabel",
+    "series_label": "EMAS-registered organisations",
+    "source_id": "EMAS_register_REST",
+    "observed_at": "2026-10-01T22:12:00+00:00",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-11-03T11:53:01Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 0,
+    "unit": "organisations",
+    "polarity": "positive",
+    "provenance": {
+      "raw_checksum_sha256": "93a97b63c7d8bc59addb9ee8b15c4f449e99acccad1f667d6c7cee66efd6f059",
+      "raw_manifest": "source-verification-2026-10-02",
+      "access_method": "derived",
+      "request_url": "https://webgate.ec.europa.eu/emas2/public/rest/registration/list",
+      "request_params": {
+        "formula": "count of Greek registrations with an Ionian postal prefix (49/28/29/31) or Ionian place name"
+      }
+    }
+  },
+  {
+    "observation_id": "EMAS_register_REST:Data05:emas_registrations:EL:2026-10-01",
+    "indicator_id": "Data05",
+    "indicator_name": "EMAS / EU Ecolabel",
+    "series_label": "EMAS-registered organisations",
+    "source_id": "EMAS_register_REST",
+    "observed_at": "2026-10-01T22:12:00+00:00",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-11-03T11:53:01Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 37,
+    "unit": "organisations",
+    "polarity": "positive",
+    "provenance": {
+      "raw_checksum_sha256": "93a97b63c7d8bc59addb9ee8b15c4f449e99acccad1f667d6c7cee66efd6f059",
+      "raw_manifest": "source-verification-2026-10-02",
+      "access_method": "derived",
+      "request_url": "https://webgate.ec.europa.eu/emas2/public/rest/registration/list",
+      "request_params": {
+        "formula": "count of registrations with organisationCountryName = Greece"
+      }
+    }
+  },
+  {
+    "observation_id": "EU_Ecolabel_catalogue_CSV:Data05:ecolabel_tourist_accommodation:EL62:2026-10-01",
+    "indicator_id": "Data05",
+    "indicator_name": "EMAS / EU Ecolabel",
+    "series_label": "EU Ecolabel licences, tourist accommodation group",
+    "source_id": "EU_Ecolabel_catalogue_CSV",
+    "observed_at": "2026-10-01T22:12:00+00:00",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-11-03T11:53:01Z",
+    "spatial_ref": {
+      "level": "NUTS2",
+      "code": "EL62",
+      "geometry": null
+    },
+    "value": 0,
+    "unit": "licences",
+    "polarity": "positive",
+    "provenance": {
+      "raw_checksum_sha256": "6ed15e62b9fdbe0de4fc00480fe444b222a244ce68e86249f4bf454d9beebe59",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv",
+      "request_params": {
+        "formula": "bounded by Greek tourist-accommodation licences (= 0)"
+      }
+    }
+  },
+  {
+    "observation_id": "EU_Ecolabel_catalogue_CSV:Data05:ecolabel_tourist_accommodation:EL:2026-10-01",
+    "indicator_id": "Data05",
+    "indicator_name": "EMAS / EU Ecolabel",
+    "series_label": "EU Ecolabel licences, tourist accommodation group",
+    "source_id": "EU_Ecolabel_catalogue_CSV",
+    "observed_at": "2026-10-01T22:12:00+00:00",
+    "observed_period_end": null,
+    "temporal_granularity": "instant",
+    "ingested_at": "2026-11-03T11:53:01Z",
+    "spatial_ref": {
+      "level": "country",
+      "code": "EL",
+      "geometry": null
+    },
+    "value": 0,
+    "unit": "licences",
+    "polarity": "positive",
+    "provenance": {
+      "raw_checksum_sha256": "6ed15e62b9fdbe0de4fc00480fe444b222a244ce68e86249f4bf454d9beebe59",
+      "raw_manifest": "source-verification-2026-11-03",
+      "access_method": "derived",
+      "request_url": "https://publicstorage.data.env.service.ec.europa.eu/ecolabel/exports/most-recent-export.csv",
+      "request_params": {
+        "formula": "count of Greek licences in group 'Tourist accommodation'"
+      }
+    }
+  }
+]

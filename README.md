@@ -22,7 +22,7 @@ This is the shared, publication-ready subset of the IonianDTwin project: the ind
 1. **`docs/data-preparation-progress.md`** - the go-to tracker: current status of all Data01-Data34, JSON payload structure, a dated change history per indicator, and the "what's next" work queue.
 2. **`data/README.md`** - the holistic data-handling contract: zero-duplication `data/raw/` lake, all-JSON edited rule, dual feature descriptions (`_meta.feature_dictionary` + `README.md`), and spatial rule (`D-014`).
 3. **`data/indicators/data01-<slug>/` … `data34-<slug>/`** - per-indicator folders, each containing `raw-source-description.json` (raw source URL, `sha256`, raw schema, variable whitelist & conversion script), `refined-data.json` (project-ready JSON, feature dictionary & normalized observations), and `README.md`.
-4. **`data/curated/observations-2026-10-20.json`** / `.csv` - the canonical master snapshot across all verified indicators.
+4. **`data/curated/observations-2026-11-03.json`** / `.csv` - the canonical master snapshot across all verified indicators.
 5. **`sources/data-resources.md`** - one entry per Data01-Data34: online source link, access method, and ETL path.
 
 ## Data status

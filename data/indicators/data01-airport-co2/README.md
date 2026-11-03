@@ -3,7 +3,7 @@
 ## Pipeline Lineage (Raw Extension -> Conversion Script -> Refined JSON)
 
 ```text
-  data/samples/cams-europe-air-quality-forecasts-IONIAN-2026-09-30.zip [.zip (NetCDF .nc)]  ──( scripts/verification/build_indicator_folders.py )──>  refined-data.json [.json]
+  data/samples/cams-europe-air-quality-forecasts-IONIAN-2026-09-30.zip [.zip (NetCDF .nc)]  ──( scripts/verification/extract-cams-summary.py )──>  refined-data.json [.json]
 ```
 
 ## Quick Navigation (Option A Folder Layout)
@@ -19,7 +19,7 @@
 - **Category:** `environmental_health_pollutants`
 - **Refresh Cadence:** `paused`
 - **Raw Input File Extension(s):** `.zip (NetCDF .nc)`
-- **Primary Conversion / Builder Script:** `scripts/verification/build_indicator_folders.py (NetCDF sliced to data/samples/cams-ionian-20260930-summary.json)`
+- **Primary Conversion / Builder Script:** `scripts/verification/extract-cams-summary.py (NetCDF zip -> data/samples/cams-ionian-20260930-summary.json)`
 - **Refined Output Format:** `.json` (`refined-data.json`)
 - **Observations Emitted:** `0`
 
@@ -34,9 +34,11 @@ CAMS access verified 2026-10-01; CAMS regional has no CO2 variable -> NO2/CO/PM 
 - **Access Method:** `POST via cads-api-client (CAMS_API_KEY in untracked .env)`
 - **Local Raw File (`data/raw/` or `data/samples/`):** `data/samples/cams-europe-air-quality-forecasts-IONIAN-2026-09-30.zip`
 - **Raw File Extension & Format:** `.zip (NetCDF .nc)` — `application/zip containing NetCDF classic (ENS_ANALYSIS.nc)`
-- **SHA-256 Checksum:** `ecc26d470cdfa5c9ecd65b7dd6b1104e8692d23b998083a402951ddaa9d11574` (verified in `data/manifests/source-verification-2026-10-01.json`)
-- **Conversion Script (`.zip (NetCDF .nc)` -> `.json`):** `scripts/verification/build_indicator_folders.py`
-- **Conversion Command:** `python3 scripts/verification/build_indicator_folders.py`
+- **SHA-256 Checksum (of the local file, recomputed at build):** `ecc26d470cdfa5c9ecd65b7dd6b1104e8692d23b998083a402951ddaa9d11574`
+- **Evidence Manifest:** `data/manifests/source-verification-2026-10-01.json`
+- **Lineage Note:** The summary JSON was first produced ad hoc on 2026-10-01 without a retained script. scripts/verification/extract-cams-summary.py (2026-11-03) reproduces all 12 summary values from the retained zip.
+- **Conversion Script (`.zip (NetCDF .nc)` -> `.json`):** `scripts/verification/extract-cams-summary.py`
+- **Conversion Command:** `python3 scripts/verification/extract-cams-summary.py --check && python3 scripts/verification/build_indicator_folders.py`
 - **Whitelisted Raw Variables (`kept`):** `no2_conc`, `co_conc`, `pm10_conc`, `pm2p5_conc`, `latitude`, `longitude`, `level`, `time`
 - **Dropped / Redacted Fields:** `upper_level_layers (filtered to surface level=0)`
 
@@ -53,7 +55,7 @@ CAMS access verified 2026-10-01; CAMS regional has no CO2 variable -> NO2/CO/PM 
 
 ## 3. Transformation & Refined Data Dictionary (`refined-data.json`)
 
-**Transformation Rule:** Slice CAMS European regional ensemble analysis NetCDF grid (37.0-40.5N, 19.0-22.0E, level=0m) at nearest grid point to Corfu International Airport (39.65N, 19.95E) and compute regional mean/max. Note: CAMS regional does not include CO2; NO2 and CO are retained as combustion proxies while point CO2 awaits local IoT sensors.
+**Transformation Rule:** Slice CAMS European regional ensemble analysis NetCDF grid (37.0-40.5N, 19.0-22.0E, level=0m) at the 0.1-degree grid cell centred 39.65N 19.95E (the cell nearest Corfu International Airport, approx. 39.60N 19.91E) and compute regional mean/max over all 35x30 cells (scripts/verification/extract-cams-summary.py). Note: CAMS regional does not include CO2; NO2 and CO are retained as combustion proxies while point CO2 awaits local IoT sensors.
 
 | Refined JSONPath | Type | Unit | Role | Description |
 | :--- | :--- | :--- | :--- | :--- |
