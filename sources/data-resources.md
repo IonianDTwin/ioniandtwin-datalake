@@ -236,11 +236,16 @@ Status: `VERIFIED` (pull-tested) · `PARTIAL` (data present / access partially c
 - ETL: read the value directly. `VERIFIED` EL62 = **65.4 % net occupancy** (2023). Note: this is the standard *net* rate (nights ÷ beds×open-days); the earlier gross derivation (nights ÷ beds×365 ≈ 28-36 %) is superseded.
 
 ### Data29 · Seasonality (%)
-- Status: `VERIFIED` (via EU Tourism Dashboard, 2026-10-03)
-- Source: EU Tourism Dashboard "Tourism seasonality" (`TOUR_SOE_02`) - Eurostat underlying.
-- Online source: https://tourism-dashboard.ec.europa.eu/ · dashboard export `2024_TourismDashboard_Indicators_Export.csv`.
-- Data access: `download` (dashboard CSV).
-- ETL: read the value directly. `VERIFIED` EL62 = **71.08 % peak-season share** (2023). Flag: exact month window (Jun-Sep vs Jul-Aug) to be confirmed from the dashboard methodology. Supersedes the country-level peak-month proxy (21.53 %).
+- Status: `VERIFIED` (redefined 2026-11-03; independently reviewed)
+- Source: Eurostat `tour_occ_nin2m`, nights at tourist accommodation by month and NUTS 2 region (from 2020), all accommodation (I551-I553). Definition from the EU Tourism Dashboard "Tourism seasonality" (`TOUR_SOE_02`).
+- Online source: `https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2m?format=JSON&lang=EN&geo=EL62&geo=EL&unit=NR&c_resid=TOTAL`
+- Data access: `api` (JSON-stat 2.0, no key). Released once a year (2025 published 2026-10-20).
+- ETL: `scripts/verification/compute-data29-seasonality.py`.
+  - Headline = share of annual nights in the 3 busiest months: EL62 **63.81 % (2023), 63.99 % (2024), 63.91 % (2025)**.
+  - Seasonality Index = Gini of the 12 monthly nights (EL62 2023 = 0.5827).
+  - `TOUR_SOE_02` is the same top-3-month formula, but for NUTS 2 regions it uses **online-platform nights only** (`tour_ce_omn12`). The EL62 dashboard value **71.08 % (2023)** is kept as a separate platform-only series. Verified by exact recomputation for 2020-2023 and for 7 other regions.
+  - Monthly nights (EL62 + EL, 2020-2025) are in `data/curated/monthly-data29-nights-2026-11-03.json`.
+  - Current-year provisional estimates (`PROPOSAL`): `compute-data29-provisional.py`.
 
 ### Data30 · Average length of stay
 - Status: `VERIFIED` (formula **confirmed** 2026-10-03: `nights ÷ arrivals`)
