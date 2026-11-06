@@ -1,0 +1,233 @@
+{
+  "manifest_id": "source-verification-2026-11-06-data07",
+  "created_at": "2026-11-05T23:35:00Z",
+  "scope": "Task T2b of the 2026-11-04 work plan: bounded read-only reproduction of the Data07 source findings of agy research-notes 2026-11-04 section 5 (OLKE cruise schedule PDFs, ELIME observed cruise statistics). Only the pages and files listed below were fetched; no crawling. Note: the host clock read 2026-11-05T23:33Z (= 2026-11-06 01:33 local, UTC+2).",
+  "robots_checks": [
+    {
+      "host": "www.corfuport.gr",
+      "url": "https://www.corfuport.gr/robots.txt",
+      "status": 200,
+      "result": "User-agent * disallows only Joomla system paths (/administrator/, /components/, /modules/, /plugins/, /tmp/ etc.); the fetched pages are not disallowed."
+    },
+    {
+      "host": "elime.gr",
+      "url": "https://elime.gr/robots.txt",
+      "status": 200,
+      "result": "User-agent * disallows only /wp-admin/ (admin-ajax allowed); fetched paths allowed."
+    },
+    {
+      "host": "docs.google.com",
+      "url": "https://docs.google.com/robots.txt",
+      "status": 200,
+      "result": "Generic Google Docs robots; the two 'uc?id=' public download links are the links published by corfuport.gr itself and were fetched once each."
+    }
+  ],
+  "licence_status": {
+    "OLKE": "not found: only a page-footer 'Copyright 2026 Organismos Limenos Kerkyras, all rights reserved'; no reuse/open-data licence or terms text on the cruise pages or inside the PDFs.",
+    "ELIME": "found, restrictive: Terms page says content is owned by elime.gr and copyright-protected; limited licence for access and personal use, no download or modification without written consent. No open-data licence found. Written consent for reuse is an open item."
+  },
+  "evidence": [
+    {
+      "source_id": "OLKE_cruise_page",
+      "name": "OLKE cruise page (Στατιστικά & Πρόγραμμα, lists schedule PDFs)",
+      "provider": "Οργανισμός Λιμένα Κέρκυρας (corfuport.gr)",
+      "page_url": null,
+      "url": "https://www.corfuport.gr/%CE%BA%CF%81%CE%BF%CF%85%CE%B1%CE%B6%CE%B9%CE%AD%CF%81%CE%B1.html",
+      "method": "HTTP GET (curl, follow redirects), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "response_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "checksum_sha256": "62b32bb41587ae62630fcbe8c383b2c844a4abe7a3649dfcd6ad0012527f995b",
+      "size_bytes": 112523,
+      "accessed_at": "2026-11-05T23:33:20Z",
+      "authentication": "none",
+      "raw_path": "data/raw/corfuport-cruise-page-2026-11-06.html",
+      "page_count": null,
+      "notes": "Links the 2020-2026 schedule PDFs via Google Drive (docs.google.com/uc?id=...). Page text: schedule is compiled from ship announcements and subject to change; check for latest version. Footer: 'Copyright 2026 Organismos Limenos Kerkyras. All rights reserved' (no reuse licence). The other candidate page (/κρουαζιέρα/πρόγραμμα-κρουαζιέρας.html, 42,959 bytes) links only the 2026 file; fetched into scratchpad only, not retained."
+    },
+    {
+      "source_id": "OLKE_cruise_schedule_2025",
+      "name": "OLKE Cruise Schedule 2025.pdf",
+      "provider": "Οργανισμός Λιμένα Κέρκυρας",
+      "page_url": "https://www.corfuport.gr/%CE%BA%CF%81%CE%BF%CF%85%CE%B1%CE%B6%CE%B9%CE%AD%CF%81%CE%B1.html",
+      "url": "https://docs.google.com/uc?id=1gvB2cTjBJhD76gA3Uq9rMwmT26W6qa5h&export=download",
+      "method": "HTTP GET (curl, follow redirects), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "response_status": 200,
+      "content_type": "application/octet-stream (served; file is PDF)",
+      "checksum_sha256": "d580b6cc42c2c8ed1c6f29677e3fba5f0c87cca448d6140fe76f8f2837e413c2",
+      "size_bytes": 857597,
+      "accessed_at": "2026-11-05T23:33:21Z",
+      "authentication": "none",
+      "raw_path": "data/raw/corfuport-cruise-schedule-2025-2026-11-06.pdf",
+      "page_count": 7,
+      "notes": "HTTP 303 to drive.usercontent.google.com then 200. PDF metadata: Producer Microsoft Excel 2016, CreationDate/ModDate 2025-11-17T17:10:20+02:00 (i.e. exported after the 2025 season, not a pre-season schedule). Cell dates carry no year (d/m); year taken from the link title. Size equals the 857,597 bytes recorded by agy on 2026-11-04.",
+      "redirect_final_url": "https://drive.usercontent.google.com/download?id=1gvB2cTjBJhD76gA3Uq9rMwmT26W6qa5h&export=download"
+    },
+    {
+      "source_id": "OLKE_cruise_schedule_2026",
+      "name": "OLKE Cruise Schedule 2026.pdf",
+      "provider": "Οργανισμός Λιμένα Κέρκυρας",
+      "page_url": "https://www.corfuport.gr/%CE%BA%CF%81%CE%BF%CF%85%CE%B1%CE%B6%CE%B9%CE%AD%CF%81%CE%B1.html",
+      "url": "https://docs.google.com/uc?id=1PwALRHY4Y2C_Nwhw2ysjC7PF6pYD547J&export=download",
+      "method": "HTTP GET (curl, follow redirects), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "response_status": 200,
+      "content_type": "application/octet-stream (served; file is PDF)",
+      "checksum_sha256": "f883dad771dbb9643d63c000c05b5b33f96dbca108ce99fd8020440a75c89813",
+      "size_bytes": 601848,
+      "accessed_at": "2026-11-05T23:33:23Z",
+      "authentication": "none",
+      "raw_path": "data/raw/corfuport-cruise-schedule-2026-2026-11-06.pdf",
+      "page_count": 11,
+      "notes": "PDF title 'CRUISE SCHEDULE 2026 as of0 5-10-2026 plain.xls' (snapshot as of 2026-10-05), Producer Microsoft Print To PDF, created 2026-10-06. Not a live feed: later changes are not in this file. Size equals the 601,848 bytes recorded by agy.",
+      "redirect_final_url": "https://drive.usercontent.google.com/download?id=1PwALRHY4Y2C_Nwhw2ysjC7PF6pYD547J&export=download"
+    },
+    {
+      "source_id": "ELIME_cruise_page",
+      "name": "ELIME cruise statistics page",
+      "provider": "Ένωση Λιμένων Ελλάδος (elime.gr)",
+      "page_url": null,
+      "url": "https://elime.gr/krouaziera/",
+      "method": "HTTP GET (curl, follow redirects), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "response_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "checksum_sha256": "bf679a9a7f975c6998534cd8d1303c05ca3f3fb52d86822455c80ef06d4d05f1",
+      "size_bytes": 300218,
+      "accessed_at": "2026-11-05T23:33:26Z",
+      "authentication": "none",
+      "raw_path": "data/raw/elime-krouaziera-page-2026-11-06.html",
+      "page_count": null,
+      "notes": "Links ELIME cruise statistics PDFs including 2025 and 2024-2023 arrival reports. Footer links to Terms ('Όροι & Προϋποθέσεις') and Privacy Policy."
+    },
+    {
+      "source_id": "ELIME_arrivals_2025",
+      "name": "ELIME arrivals of cruise ships and passengers 2025 vs 2024 (all ports)",
+      "provider": "Ένωση Λιμένων Ελλάδος",
+      "page_url": "https://elime.gr/krouaziera/",
+      "url": "https://elime.gr/wp-content/uploads/2026/03/ΣΤΟΙΧΕΙΑ-ΑΦΙΞΕΩΝ-ΚΡΟΥΑΖΙΕΡΑΣ-2025._.pdf",
+      "method": "HTTP GET (curl, follow redirects), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "response_status": 200,
+      "content_type": "application/pdf",
+      "checksum_sha256": "d4c76ee8640687bda33ba8f837b7c07039b89a3fa6864823efd60e8e2f9be827",
+      "size_bytes": 61121,
+      "accessed_at": "2026-11-05T23:33:26Z",
+      "authentication": "none",
+      "raw_path": "data/raw/elime-cruise-arrivals-2025-vs-2024-2026-11-06.pdf",
+      "page_count": 2,
+      "notes": "Table: rank, port, arrivals of cruise ships and arrivals of cruise passengers for 01/01-31/12/2025 and 2024; total 6129 calls / 8.415.713 passengers (2025). Greek thousands separator '.'. PDF creation 2026-03-20; no 'preliminary' or source footnote in extracted text."
+    },
+    {
+      "source_id": "ELIME_arrivals_2024_2023",
+      "name": "ELIME arrivals of cruise ships and passengers 2024 vs 2023 (all ports)",
+      "provider": "Ένωση Λιμένων Ελλάδος",
+      "page_url": "https://elime.gr/krouaziera/",
+      "url": "https://elime.gr/wp-content/uploads/2025/03/ΣΤΟΙΧΕΙΑ-ΑΦΙΞΕΩΝ-ΚΡΟΥΑΖΙΕΡΑΣ-ΣΥΝΟΛΙΚΑ-2024-2023.pdf",
+      "method": "HTTP GET (curl, follow redirects), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "response_status": 200,
+      "content_type": "application/pdf",
+      "checksum_sha256": "66d3040365a58326ac2663b53d2d730ab8830292e63e234660e50b7363f2d637",
+      "size_bytes": 59986,
+      "accessed_at": "2026-11-05T23:33:26Z",
+      "authentication": "none",
+      "raw_path": "data/raw/elime-cruise-arrivals-2024-vs-2023-2026-11-06.pdf",
+      "page_count": 1,
+      "notes": "Same table layout for 2024 and 2023; total 5490 / 7,927,709 (2024) and 5227 / 7,002,751 (2023). Decimal-comma thousands separator in this file."
+    },
+    {
+      "source_id": "ELIME_terms_page",
+      "name": "ELIME Terms and Conditions page",
+      "provider": "Ένωση Λιμένων Ελλάδος",
+      "page_url": "https://elime.gr/krouaziera/",
+      "url": "https://elime.gr/oroi-kai-proypotheseis/",
+      "method": "HTTP GET (curl, follow redirects), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "response_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "checksum_sha256": "03973a95b31b6afe4d0c454d7e3490b6e405f7839cca6dee99054fe0920cf45d",
+      "size_bytes": 250890,
+      "accessed_at": "2026-11-05T23:34:56Z",
+      "authentication": "none",
+      "raw_path": "data/raw/elime-terms-page-2026-11-06.html",
+      "page_count": null,
+      "notes": "Licence text: content is property of elime.gr and protected by copyright; 'limited licence for access and personal use of this site. You may not download or modify it. This may be done only with our written consent.'"
+    }
+  ],
+  "parse_results": {
+    "tool": "pypdf 6.20.1 in .venv (already installed; pypdf>=4.0 already listed in pyproject.toml [verify])",
+    "scripts": "internal reproduction scripts (extract_text, parse_olke_2025/2026, sample_days); not published",
+    "olke_2025": {
+      "rows": 518,
+      "rows_parsed_with_times": 517,
+      "sum_pax_517_rows": 914178,
+      "sum_pax_518_rows": 914220,
+      "row_without_etd": "SUN 3/8 RUNNING ON WAVES, PAX 42, ETD cell blank, stay '#VALUE!'",
+      "date_range": "01-02 .. 12-31 (no year in cells)",
+      "rows_overnight_gt0": 83
+    },
+    "olke_2026": {
+      "rows": 591,
+      "rows_parsed": 591,
+      "sum_pax": 1119578,
+      "sum_pax_589_rows_excl_ids_509_561": 1118595,
+      "excluded_ids": {
+        "509": "INSIGNIA 2026-10-18 PAX 803",
+        "561": "LE CHAMPLAIN 2026-11-13 PAX 180"
+      },
+      "date_range": "01-02 .. 12-29",
+      "snapshot": "as of 2026-10-05"
+    },
+    "elime": {
+      "2025": {
+        "Corfu": [
+          467,
+          894179
+        ],
+        "Kefalonia-Ithaki": [
+          148,
+          256679
+        ],
+        "Zakynthos": [
+          48,
+          41245
+        ]
+      },
+      "2024": {
+        "Corfu": [
+          437,
+          815613
+        ],
+        "Kefalonia-Ithaki": [
+          137,
+          186219
+        ],
+        "Zakynthos": [
+          67,
+          102428
+        ]
+      },
+      "2023": {
+        "Corfu": [
+          353,
+          667182
+        ],
+        "Kefalonia-Ithaki": [
+          112,
+          160478
+        ],
+        "Zakynthos": [
+          74,
+          123218
+        ]
+      },
+      "lefkada_row": "absent from both ELIME PDFs"
+    },
+    "realisation_2025_corfu": {
+      "calls": "467/518=90.15% (467/517=90.33%)",
+      "pax": "894179/914178=97.81% (894179/914220=97.81%)"
+    }
+  }
+}

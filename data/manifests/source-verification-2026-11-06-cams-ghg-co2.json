@@ -1,0 +1,173 @@
+{
+  "manifest_id": "source-verification-2026-11-06-cams-ghg-co2",
+  "created_at": "2026-11-06T17:55:00Z",
+  "scope": "Data01 feasibility: can real CO2 concentration replace the NO2/CO proxy? Research and bounded pull performed by Claude Code inline as a second one-off exception to the research/implementation boundary, explicitly authorised by the owner on 2026-11-06 ('i would like you to check it'). Two one-day pulls, 8 lead times each, Ionian bbox only.",
+  "catalogue_check": {
+    "url": "https://ads.atmosphere.copernicus.eu/api/catalogue/v1/collections/cams-global-greenhouse-gas-forecasts",
+    "accessed_at": "2026-11-06T17:35:00Z",
+    "response_status": 200,
+    "content_type": "application/json",
+    "findings": {
+      "title": "CAMS global greenhouse gas forecasts",
+      "resolution": "high-resolution forecast approximately 9 km (catalogue text); delivered grid 0.1 degree (VERIFIED in pulled file)",
+      "temporal_extent": "2024-03-01 to present (catalogue updated 2026-11-06); daily forecast run, 5-day lead time, 3-hourly steps",
+      "latency": "run a few hours behind real time; initial conditions from a 4-day-old analysis (satellite CO2 latency)",
+      "surface_values": "form help text: select variable carbon_dioxide and model level 137 for surface values",
+      "licence": "CC-BY-4.0 (catalogue licence link and request-form licence widget)",
+      "system_changes": "upgraded about once a year (resolution, species, accuracy); catalogue recommends the EGG4 reanalysis for consistent long-term series"
+    },
+    "correction_to_D-016": "D-016 paused CO2 as 'CAMS global GHG CO2 (~0.75 deg) too coarse'. 0.75 deg is the EGG4 reanalysis; the forecast product is ~9 km / 0.1 deg, the same grid step as the CAMS regional air-quality data used for Data15."
+  },
+  "evidence": [
+    {
+      "source_id": "CAMS_GHG_forecast_CO2_ml137_2026-10-30",
+      "provider": "Copernicus Atmosphere Monitoring Service (ECMWF), Atmosphere Data Store",
+      "url": "https://ads.atmosphere.copernicus.eu/api/retrieve/v1/processes/cams-global-greenhouse-gas-forecasts/execution",
+      "method": "POST via cads-api-client 1.5.4 (CAMS_API_KEY in untracked .env), scripts/verification/pull-cams-ghg-co2.py",
+      "request": {
+        "variable": [
+          "carbon_dioxide"
+        ],
+        "model_level": [
+          "137"
+        ],
+        "date": [
+          "2026-10-30/2026-10-30"
+        ],
+        "leadtime_hour": [
+          "0",
+          "3",
+          "6",
+          "9",
+          "12",
+          "15",
+          "18",
+          "21"
+        ],
+        "area": [
+          40.5,
+          19.0,
+          37.0,
+          22.0
+        ],
+        "data_format": "netcdf_zip"
+      },
+      "accessed_at": "2026-11-06T17:43:36Z",
+      "response_status": "completed (file delivered)",
+      "content_type": "application/zip (NetCDF data_mlev.nc)",
+      "size_bytes": 56441,
+      "checksum_sha256": "81f68a8124230943ce81fe375cfe59f7448cd85fea028a506a4df2437e3c4185",
+      "evidence_location": "data/raw/cams-ghg-forecast-co2-ml137-IONIAN-2026-10-30.zip",
+      "schema": "variable co2, 'Carbon dioxide mass mixing ratio', units kg kg**-1; dims forecast_period 8, forecast_reference_time 1, model_level 1, latitude 36, longitude 31; grid step 0.1 deg",
+      "summary_ppm": {
+        "conversion": "ppm = kg/kg x 28.9644 / 44.0095 x 1e6",
+        "region_mean": 435.9,
+        "region_min": 419.06,
+        "region_max": 501.88,
+        "open_sea_cell_37.2N_19.2E_mean": 430.1,
+        "airport_cells_daily_mean_min_max": {
+          "CFU (39.6N 19.9E)": [
+            432.56,
+            428.88,
+            443.91
+          ],
+          "EFL (38.1N 20.5E)": [
+            437.98,
+            430.99,
+            448.92
+          ],
+          "ZTH (37.8N 20.9E)": [
+            432.67,
+            431.04,
+            435.51
+          ],
+          "PVK (38.9N 20.8E)": [
+            439.26,
+            427.12,
+            452.8
+          ]
+        }
+      }
+    },
+    {
+      "source_id": "CAMS_GHG_forecast_CO2_ml137_2025-08-15",
+      "provider": "Copernicus Atmosphere Monitoring Service (ECMWF), Atmosphere Data Store",
+      "url": "https://ads.atmosphere.copernicus.eu/api/retrieve/v1/processes/cams-global-greenhouse-gas-forecasts/execution",
+      "method": "POST via cads-api-client 1.5.4, scripts/verification/pull-cams-ghg-co2.py",
+      "request": {
+        "variable": [
+          "carbon_dioxide"
+        ],
+        "model_level": [
+          "137"
+        ],
+        "date": [
+          "2025-08-15/2025-08-15"
+        ],
+        "leadtime_hour": [
+          "0",
+          "3",
+          "6",
+          "9",
+          "12",
+          "15",
+          "18",
+          "21"
+        ],
+        "area": [
+          40.5,
+          19.0,
+          37.0,
+          22.0
+        ],
+        "data_format": "netcdf_zip"
+      },
+      "accessed_at": "2026-11-06T17:44:57Z",
+      "response_status": "completed (file delivered)",
+      "content_type": "application/zip (NetCDF data_mlev.nc)",
+      "size_bytes": 58509,
+      "checksum_sha256": "c84ccf1536148c2e69c729feb4f9c375e5dc94201a71591a1cfd384de017e96a",
+      "evidence_location": "data/raw/cams-ghg-forecast-co2-ml137-IONIAN-2025-08-15.zip",
+      "summary_ppm": {
+        "region_mean": 424.75,
+        "region_min": 406.35,
+        "region_max": 539.27,
+        "open_sea_cell_37.2N_19.2E_mean": 419.6,
+        "airport_cells_daily_mean_min_max": {
+          "CFU": [
+            427.54,
+            422.54,
+            435.51
+          ],
+          "EFL": [
+            424.32,
+            417.67,
+            438.46
+          ],
+          "ZTH": [
+            422.2,
+            415.93,
+            442.05
+          ],
+          "PVK": [
+            424.53,
+            416.1,
+            437.74
+          ]
+        }
+      }
+    }
+  ],
+  "interpretation": [
+    "VERIFIED: modelled surface CO2 is available at each airport's 0.1 deg cell, 3-hourly, daily, from 2024-03-01, CC BY 4.0, with the project's existing ADS credential.",
+    "VERIFIED (2 days only): airport cells sit 2-9 ppm above an open-sea cell and show a diurnal cycle (night/early-morning highs, e.g. PVK 452.8 at 00 UTC vs 427.1 at 09 UTC on 2026-10-30), consistent with boundary-layer accumulation of land fluxes.",
+    "VERIFIED (2 days only): the peak tourism day (2025-08-15) is about 10 ppm lower than 2026-10-30, the opposite of tourism pressure; summer vegetation uptake and the annual growth of about 2-3 ppm/yr dominate.",
+    "ASSUMPTION: at 9 km the airport's own emissions are a minor part of the cell signal; whether the CAMS emission inventory includes airport/aviation surface emissions was not checked.",
+    "RISK: forecast system upgrades about yearly break series consistency; values are a forecast (lead time 0-21 h from a 4-day-old analysis), not an observation.",
+    "RISK (review round 2): the 0.1 deg 'airport cells' are coastal land-sea mixes (land fraction EFL 28 %, ZTH 44 %, CFU 56 %, PVK 64 %); the EFL cell centre is sea and the PVK cell is mainland (EL631 Aitoloakarnania), not EL62.",
+    "RISK (review round 2): at this scale CO2 is a regional carbon-cycle signal and is anti-correlated with tourism pressure (region mean 424.75 ppm on peak day 2025-08-15 vs 435.90 ppm on 2026-10-30). 'Airport cell minus one sea cell' is a land-vs-sea contrast, not an airport signal.",
+    "RISK (review round 2): forecast product upgraded about yearly; not trend-homogeneous. EGG4 reanalysis (0.75 deg) is the trend-stable product."
+  ],
+  "status": "VERIFIED (access, content, licence). Not adopted for Data01 (review round 2; D-031 stands). Possible separate regional background-CO2 indicator is a PROPOSAL pending owner decision.",
+  "review": "Independent review 2026-11-06, round 2: files, conversion and figures reproduced exactly; do NOT adopt as Data01 headline; at most a separate regional background-CO2 indicator outside Data01 and the composite, with a robust marine background (regional percentile, not one cell)."
+}

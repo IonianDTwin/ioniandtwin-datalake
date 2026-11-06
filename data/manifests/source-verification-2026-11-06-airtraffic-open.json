@@ -1,0 +1,197 @@
+{
+  "manifest_id": "source-verification-2026-11-06-airtraffic-open",
+  "created_at": "2026-11-06T17:30:00Z",
+  "scope": "Claude Code reproduction of agy research-notes 2026-11-06 items 3-5 (open-licensed island air traffic, Fraport 'Flights' definition, declared capacity). Bounded read-only pulls: 1 EUROCONTROL CSV, 4 Eurostat JSON queries, 1 HSCA PDF.",
+  "evidence": [
+    {
+      "source_id": "EUROCONTROL_airport_traffic_2025",
+      "provider": "EUROCONTROL Aviation Intelligence Portal (ansperformance.eu)",
+      "url": "https://www.eurocontrol.int/performance/data/download/csv/airport_traffic_2025.csv",
+      "method": "HTTP GET (curl), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "accessed_at": "2026-11-06T17:19:34Z",
+      "response_status": 200,
+      "content_type": "text/csv",
+      "size_bytes": 8275390,
+      "checksum_sha256": "b9dae4924d77e7229b8cea43e6219a62c2ef914ed5bae3c6760b39902a6402c1",
+      "evidence_location": "data/raw/eurocontrol-airport_traffic_2025-2026-11-06.csv",
+      "licence": "not checked (ASSUMPTION: open with attribution; agy gave no terms text)",
+      "schema": "YEAR,MONTH_NUM,MONTH_MON,FLT_DATE,APT_ICAO,APT_NAME,STATE_NAME,FLT_DEP_1,FLT_ARR_1,FLT_TOT_1,FLT_DEP_IFR_2,FLT_ARR_IFR_2,FLT_TOT_IFR_2; daily rows per airport; IFR movements, no passengers.",
+      "reproduced_2025_monthly_FLT_TOT_1": {
+        "LGKR": [
+          137,
+          320,
+          406,
+          1349,
+          3170,
+          5184,
+          6341,
+          6572,
+          5206,
+          3325,
+          470,
+          381
+        ],
+        "LGKF": [
+          111,
+          84,
+          112,
+          234,
+          742,
+          1293,
+          1745,
+          1846,
+          1284,
+          452,
+          69,
+          119
+        ],
+        "LGZA": [
+          107,
+          32,
+          116,
+          347,
+          1583,
+          2617,
+          3137,
+          3178,
+          2651,
+          1174,
+          133,
+          121
+        ],
+        "LGPZ": [
+          96,
+          90,
+          99,
+          180,
+          701,
+          1160,
+          1535,
+          1544,
+          1158,
+          539,
+          80,
+          89
+        ]
+      },
+      "reproduced_2025_totals": {
+        "LGKR": 32861,
+        "LGKF": 8091,
+        "LGZA": 15196,
+        "LGPZ": 7271
+      },
+      "comparison_with_fraport_flights_2025": {
+        "CFU": "32,861 vs 32,762 (+0.30 %)",
+        "EFL": "8,091 vs 8,128 (-0.46 %)",
+        "ZTH": "15,196 vs 15,265 (-0.45 %)",
+        "PVK": "7,271 vs 7,013 (+3.68 %)"
+      },
+      "notes": [
+        "agy figures reproduced exactly.",
+        "Totals within 0.5 % of Fraport for CFU/EFL/ZTH support reading Fraport 'Flights' as movements (arrivals + departures). Fraport publishes no definition (ASSUMPTION, well supported).",
+        "PVK +3.7 %: agy attributes this to military/state IFR movements at Aktion (ASSUMPTION, plausible, not checked).",
+        "No row for 2025-02-28 at any of the four airports (cause not checked).",
+        "The daily file is not day-complete: e.g. LGKR lacks 19 January 2025 days, including 2025-01-13..01-22, while Fraport reports 130 CFU flights that month. Absent days are not zero traffic (corrected after independent review round 2, 2026-11-06). Use monthly or annual FLT_TOT_1 only, never daily."
+      ]
+    },
+    {
+      "source_id": "Eurostat_avia_paoa_Ionian_airports",
+      "provider": "Eurostat",
+      "url_template": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/avia_paoa?rep_airp={EL_LGKR|EL_LGKF|EL_LGZA|EL_LGPZ}&freq=M&unit=PAS&tra_meas=PAS_CRD&schedule=TOTAL&tra_cov=TOTAL&sinceTimePeriod=2024-01&format=JSON&lang=en",
+      "method": "HTTP GET (curl), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public API, no authentication",
+      "accessed_at": "2026-11-06T17:20:08Z",
+      "response_status": 200,
+      "content_type": "application/json",
+      "dataset_updated": "2026-11-06T11:00:00+0100",
+      "licence": "Eurostat reuse policy (CC BY 4.0, attribution), as for the project's other Eurostat sources",
+      "files": {
+        "EL_LGKR": {
+          "path": "data/raw/eurostat-avia_paoa-EL_LGKR-PAS_CRD-monthly-2024-2026-11-06.json",
+          "size_bytes": 4288,
+          "sha256": "c379ca165be302ff3f9bff5ae1e4dbaf39db17bdeff7214e94748d33a7bde4d3"
+        },
+        "EL_LGKF": {
+          "path": "data/raw/eurostat-avia_paoa-EL_LGKF-PAS_CRD-monthly-2024-2026-11-06.json",
+          "size_bytes": 4265,
+          "sha256": "5ca88f27529de8dec6c671d4493e6ff961a8d00df88bab6afc80c875b3406987"
+        },
+        "EL_LGZA": {
+          "path": "data/raw/eurostat-avia_paoa-EL_LGZA-PAS_CRD-monthly-2024-2026-11-06.json",
+          "size_bytes": 4272,
+          "sha256": "14cae0d960bbf8760109b274d0d4b934beea7896648504eb8e1c072822580d66"
+        },
+        "EL_LGPZ": {
+          "path": "data/raw/eurostat-avia_paoa-EL_LGPZ-PAS_CRD-monthly-2024-2026-11-06.json",
+          "size_bytes": 4243,
+          "sha256": "cb4b8f4aa855633bd54ac301cae29e21af684f761a4ba6a645580059ad65cc1e"
+        }
+      },
+      "coverage": "monthly 2024-01 to 2026-04 (28 months) for all four airports; no status flags. Lag about 6 months behind Fraport's monthly PDFs.",
+      "comparison_with_fraport_passengers": {
+        "CFU": {
+          "2024": "4,336,735 vs 4,343,748 (-0.16 %)",
+          "2025": "4,608,966 vs 4,618,810 (-0.21 %)",
+          "top3_2025": "58.04 vs 58.05",
+          "gini_2025": "0.5251 vs 0.5253",
+          "max_monthly_diff_pct_2025": 0.31
+        },
+        "EFL": {
+          "2024": "868,701 vs 872,536 (-0.44 %)",
+          "2025": "889,760 vs 893,697 (-0.44 %)",
+          "top3_2025": "64.78 vs 64.82",
+          "gini_2025": "0.5834 vs 0.5837",
+          "max_monthly_diff_pct_2025": 0.88
+        },
+        "ZTH": {
+          "2024": "2,221,372 vs 2,223,010 (-0.07 %)",
+          "2025": "2,280,931 vs 2,282,774 (-0.08 %)",
+          "top3_2025": "63.70 vs 63.70",
+          "gini_2025": "0.5844 vs 0.5843",
+          "max_monthly_diff_pct_2025": 2.03
+        },
+        "PVK": {
+          "2024": "822,233 vs 824,894 (-0.32 %)",
+          "2025": "872,443 vs 875,962 (-0.40 %)",
+          "top3_2025": "64.52 vs 64.49",
+          "gini_2025": "0.5939 vs 0.5934",
+          "max_monthly_diff_pct_2025": 26.05
+        }
+      },
+      "notes": [
+        "agy reported this query as returning no data with rep_airp=LGKR and did not test the EL_ codes; Claude Code tested them: populated.",
+        "PAS_CRD (passengers carried) is slightly below Fraport terminal passengers (ASSUMPTION: definition difference such as transit/direct-transit handling).",
+        "PVK monthly differences up to 26-35 % in some months despite annual agreement within 0.4 %: month allocation differs; investigate before monthly PVK use (RISK)."
+      ]
+    },
+    {
+      "source_id": "HSCA_S25_coordination_parameters",
+      "provider": "Hellenic Slot Coordination Authority (hsca.gr); document footer 'Fraport Greece - September 2024'",
+      "page_url": "https://hsca.gr/coordination-parameters/",
+      "url": "https://hsca.gr/hsca-files/S25PARAMETERS.pdf",
+      "method": "HTTP GET (curl), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "accessed_at": "2026-11-06T17:20:20Z",
+      "response_status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 3144653,
+      "checksum_sha256": "40058b5c1809cb169325b29212347fee34e642fd4160151d8eb6d23e1b3747fc",
+      "evidence_location": "data/samples/hsca/S25PARAMETERS.pdf",
+      "licence": "not checked",
+      "findings": "Page 3 table 'Declared S25 Runway & Terminal Coordination Parameters' with columns ARR R60, DEP R60, TTL R60, ARR R20, TTL R20, TTL R15, ARR T60/10, DEP T60/10, L/F. Rows: CFU level 3 '8 12 20 7'; EFL level 3 '3 6 2'; PVK level 2 '4 8'; ZTH level 3 banded '3 7 2' / '4 8 2'. R60/60 applies to ZTH and EFL, R60/20 to CFU, R60/15 to PVK. Page 4 stands: CFU 9 + 2 (MARS), EFL 3 + 1 (MARS).",
+      "unresolved": "Text extraction collapses empty cells, so the column of each value is not determinable from text alone. Across airports the second value is about twice the first (RHO 11/22, SKG 13/26, JMK 5/12), which suggests ARR R60 / TTL R60 rather than ARR / DEP. agy's reading (EFL ARR 3, DEP 6, TTL 9; TTL R20 = 2 for EFL/ZTH) is therefore not reproduced. Needs visual reading of page 3 before any figure is cited.",
+      "on_agy_threshold_grounding": "RISK: agy states the Data06 thresholds 4/3/3/3 'directly match' HSCA parameters. The thresholds are an instantaneous aircraft count in a 25 km / 3,000 m buffer; HSCA values are hourly or 20-minute movement rates. Matching numbers is post-hoc, not a derivation. The thresholds stay ASSUMPTION; HSCA is the candidate basis for a re-specified threshold.",
+      "citable_after_review": "Independent review round 2 (2026-11-06) resolved the p.3 header (ARR R60 | DEP R60 | TTL R60 | ARR R20 | TTL R20 | TTL R15 | ARR T60/10 | DEP T60/10 | L/F). Citable: runway ARR R60 / TTL R60 = CFU 8/20, EFL 3/6, ZTH 3-4/7-8, PVK 4/8; terminal ARR/DEP T60/10 and L/F = CFU 1,250/1,250/90 %, EFL 1,130/630/90 %, ZTH 1,260/970/90 %, PVK 570/630/80 %. Not citable without a visual read: DEP R60 and the R20/R15 columns. The banded rows '5 11 4' / '4 10 3' belong to CHQ (Chania), not CFU; agy's 'CFU ARR R20 = 4' and '20-minute windows 4/2/2/3' are unsupported."
+    }
+  ],
+  "verdict_on_agy_research_notes_2026-11-06": {
+    "item_1_aviation_emissions": "not reproduced (no pull needed: D-031 already keeps Data01 as concentration). EUROCONTROL g2g_emissions national-level claim not checked.",
+    "item_2_environmental_information_route": "legal citations (KYA 11764/653/2006, Law 4727/2020) not checked; treat as leads.",
+    "item_3_fraport": "per-airport site terms: plausible, ASSUMPTION; Aug 2026 revision +107 not reproduced (PDFs not retained); 12_2025 PDF metadata CreationDate 2026-01-05 reproduced, so the 128 KB figure of 2026-11-04 was an agy erratum, not a re-issue.",
+    "item_4_capacity": "document located and retained; runway ARR R60 / TTL R60 and terminal figures citable after review round 2; agy's R20 figures misattributed (CHQ rows).",
+    "item_5_open_alternatives": "EUROCONTROL reproduced exactly; Eurostat avia_paoa found populated by Claude Code (agy had not tested the EL_ codes)."
+  },
+  "status": "VERIFIED (access and reproduction) for EUROCONTROL (monthly/annual only) and Eurostat; HSCA partly citable (see citable_after_review). Eurostat as published Data29 island proxy approved by review round 2 (DECISION pending owner).",
+  "review": "Independent review 2026-11-06, round 2: Eurostat and EUROCONTROL figures reproduced exactly; Eurostat may replace Fraport as published Data29 island proxy with labelling conditions; EUROCONTROL daily rows not day-complete; HSCA citable narrowly."
+}

@@ -1,0 +1,104 @@
+{
+  "manifest_id": "source-verification-2026-11-06-fraport",
+  "created_at": "2026-11-06T11:20:00Z",
+  "scope": "Bounded read-only reproduction of agy research-notes 2026-11-04 section 2 (Fraport Greece Channel A per-airport monthly traffic PDFs, December 2025 vs 2024) for CFU, EFL, ZTH, PVK. Four PDFs and four robots.txt files fetched once each; no crawling. Task T2c of the 2026-11-04 work plan.",
+  "robots_checks": [
+    {"host": "www.cfu-airport.gr", "url": "https://www.cfu-airport.gr/robots.txt", "status": 200, "result": "User-agent * disallows only /166388109*; /uploads/ allowed."},
+    {"host": "www.efl-airport.gr", "url": "https://www.efl-airport.gr/robots.txt", "status": 200, "result": "Same as CFU; /uploads/ allowed."},
+    {"host": "www.zth-airport.gr", "url": "https://www.zth-airport.gr/robots.txt", "status": 200, "result": "Same as CFU; /uploads/ allowed."},
+    {"host": "www.pvk-airport.gr", "url": "https://www.pvk-airport.gr/robots.txt", "status": 200, "result": "Same as CFU; /uploads/ allowed."}
+  ],
+  "licence_status": {
+    "Fraport_Greece": "not checked in this pull (research boundary): reuse terms and revision policy remain open research item R3 for agy. PDF footer: 'Source: FG Traffic Data Management (preliminary data). Traffic statistics are provisional and subject to change.'"
+  },
+  "evidence": [
+    {
+      "source_id": "Fraport_CFU_12_2025vs2024",
+      "provider": "Fraport Greece (Corfu airport site)",
+      "url": "https://www.cfu-airport.gr/uploads/sys_nodelng/2/2871/Kerkira_12_Traffic_2025vs2024.pdf",
+      "method": "HTTP GET (curl), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "accessed_at": "2026-11-06T11:11:15Z",
+      "response_status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 170012,
+      "checksum_sha256": "1094f89bedabf18bf51431697b390ddf690a7d3791d37e4be1d7cc76a714b1f6",
+      "evidence_location": "data/samples/fraport-2025/Kerkira_12_Traffic_2025vs2024.pdf"
+    },
+    {
+      "source_id": "Fraport_EFL_12_2025vs2024",
+      "provider": "Fraport Greece (Kefalonia airport site)",
+      "url": "https://www.efl-airport.gr/uploads/sys_nodelng/2/2875/Kefallinia_12_Traffic_2025vs2024.pdf",
+      "method": "HTTP GET (curl), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "accessed_at": "2026-11-06T11:11:16Z",
+      "response_status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 169630,
+      "checksum_sha256": "09ed8d66bd0622d73dc13978d638d2dc49cda947d6e20e00b46d985fe0ffbe49",
+      "evidence_location": "data/samples/fraport-2025/Kefallinia_12_Traffic_2025vs2024.pdf"
+    },
+    {
+      "source_id": "Fraport_ZTH_12_2025vs2024",
+      "provider": "Fraport Greece (Zakynthos airport site)",
+      "url": "https://www.zth-airport.gr/uploads/sys_nodelng/2/2877/Zakinthos_12_Traffic_2025vs2024.pdf",
+      "method": "HTTP GET (curl), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "accessed_at": "2026-11-06T11:11:18Z",
+      "response_status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 170009,
+      "checksum_sha256": "65fe268b7ee88662872dae0beaa17a24df4cc1d5ad07484c876f5dc4b2d9f37d",
+      "evidence_location": "data/samples/fraport-2025/Zakinthos_12_Traffic_2025vs2024.pdf"
+    },
+    {
+      "source_id": "Fraport_PVK_12_2025vs2024",
+      "provider": "Fraport Greece (Aktion airport site)",
+      "url": "https://www.pvk-airport.gr/uploads/sys_nodelng/2/2879/Aktion_12_Traffic_2025vs2024.pdf",
+      "method": "HTTP GET (curl), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "accessed_at": "2026-11-06T11:11:19Z",
+      "response_status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 169579,
+      "checksum_sha256": "30a7a3bf2a0a95237a032fc8a3ee64ce0713eb2f9be86c9864fe4ebdb43b9ec6",
+      "evidence_location": "data/samples/fraport-2025/Aktion_12_Traffic_2025vs2024.pdf"
+    }
+  ],
+  "schema_observations": [
+    "Two pages per PDF: page 1 passengers, page 2 flights; rows JANUARY..DECEMBER + TOTAL <IATA>; columns Domestic / International / Total, each 2025, 2024, %Δ.",
+    "Number format: '.' thousands separator, ',' decimal separator (agy notes said ',' thousands; corrected).",
+    "File sizes ~170 KB versus ~128 KB recorded by agy on 2026-11-04: the files may have been re-issued; no earlier copy retained to compare.",
+    "Monthly passenger and flight sums equal the printed TOTAL row for every airport and year (checked by the script)."
+  ],
+  "derived_outputs": {
+    "script": "scripts/verification/reproduce-fraport-airport-traffic.py",
+    "script_sha256": "7e4e4b47768555138e5d274e8a989941534f574fbc8925eb28096868897b7976",
+    "command": "python3 -P scripts/verification/reproduce-fraport-airport-traffic.py --json data/samples/fraport-2025/fraport-ionian-2025vs2024-summary.json",
+    "summary_file": "data/samples/fraport-2025/fraport-ionian-2025vs2024-summary.json",
+    "summary_sha256": "e912b09cfa9f6797c3d852180892fe7b6c3b202ed626bba39e3b72701c291856",
+    "gini_definition": "Gini of the 12 monthly total-passenger values, G = sum((2i-n-1)x_i)/(n*sum x), x sorted ascending."
+  },
+  "reproduced_values": {
+    "CFU": {"2024": {"passengers": 4343748, "flights": 31474, "intl_share_pct": 90.79, "peak": "Aug 927,546 (21.35 %)", "top3_share_pct": 58.54, "gini": 0.5299},
+            "2025": {"passengers": 4618810, "flights": 32762, "intl_share_pct": 90.41, "peak": "Aug 976,245 (21.14 %)", "top3_share_pct": 58.05, "gini": 0.5253}},
+    "EFL": {"2024": {"passengers": 872536, "flights": 7998, "intl_share_pct": 86.64, "peak": "Aug 212,523 (24.36 %)", "top3_share_pct": 65.80, "gini": 0.5901},
+            "2025": {"passengers": 893697, "flights": 8128, "intl_share_pct": 86.08, "peak": "Aug 211,471 (23.66 %)", "top3_share_pct": 64.82, "gini": 0.5837}},
+    "ZTH": {"2024": {"passengers": 2223010, "flights": 15127, "intl_share_pct": 95.13, "peak": "Aug 511,175 (22.99 %)", "top3_share_pct": 63.67, "gini": 0.5823},
+            "2025": {"passengers": 2282774, "flights": 15265, "intl_share_pct": 95.61, "peak": "Aug 527,049 (23.09 %)", "top3_share_pct": 63.70, "gini": 0.5843}},
+    "PVK": {"2024": {"passengers": 824894, "flights": 6712, "intl_share_pct": 98.26, "peak": "Jul 191,709 (23.24 %)", "top3_share_pct": 64.48, "gini": 0.5920},
+            "2025": {"passengers": 875962, "flights": 7013, "intl_share_pct": 98.49, "peak": "Aug 203,746 (23.26 %)", "top3_share_pct": 64.49, "gini": 0.5934}},
+    "ALL_4": {"2024": {"passengers": 8264188, "intl_share_pct": 92.26, "peak": "Aug 1,836,562 (22.22 %)", "top3_share_pct": 61.13, "gini": 0.5561},
+              "2025": {"passengers": 8671243, "intl_share_pct": 92.15, "peak": "Aug 1,918,511 (22.12 %)", "top3_share_pct": 60.79, "gini": 0.5535}}
+  },
+  "comparison_with_agy": {
+    "matched": "Annual passenger totals (all 10 rows); per-airport peak month and peak share, top-3 share and Gini (all 8 airport-years).",
+    "did_not_match": [
+      "International share: wrong for all airports (e.g. CFU 2025 agy 91.8 % vs 90.41 %; ZTH 2025 agy 93.3 % vs 95.61 %).",
+      "Peak-month passenger counts: off by 9 to 4,002 for every row (e.g. CFU Aug 2025 agy 976,349 vs 976,245).",
+      "4-airport combined: peak share, top-3 share and Gini slightly off (2025 top-3 agy 60.87 % vs 60.79 %; Gini 0.5546 vs 0.5535)."
+    ],
+    "consequence": "Use only the reproduced values above; the agy section 2 derived table is superseded."
+  },
+  "status": "VERIFIED (access and reproduction). Source adoption for Data29 island proxy remains PROPOSAL pending R3 (reuse terms, revision policy) and Codewhale review."
+}

@@ -1,0 +1,67 @@
+{
+  "manifest_id": "source-verification-2026-11-06-data19",
+  "created_at": "2026-11-06T00:00:00Z",
+  "scope": "T2a: reproduction of the agy 2026-11-04 Data19 finding (national-minus-regional gap in tour_ce_omn12 2024). Bounded read-only pulls; no observation or folder changes.",
+  "evidence": [
+    {
+      "source_id": "Eurostat_tour_ce_omn12",
+      "description": "Platform nights, EL + 13 NUTS 2, 2022-2025",
+      "provider": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_omn12?format=JSON&lang=EN&c_resid=TOTAL&unit=NR&indic_to=NGT_SP&month=TOTAL&geo=EL&geo=EL30&geo=EL41&geo=EL42&geo=EL43&geo=EL51&geo=EL52&geo=EL53&geo=EL54&geo=EL61&geo=EL62&geo=EL63&geo=EL64&geo=EL65&time=2022&time=2023&time=2024&time=2025",
+      "method": "HTTP GET, read-only, User-Agent IonianDTwin-verification/0.1, no credentials",
+      "response_status": 200,
+      "content_type": "application/json",
+      "accessed_at": "2026-11-05T23:32:58Z",
+      "checksum_sha256": "04d2a75c33743a857a005c9660649b495951fa8616c30196599a396b51d695ed",
+      "size_bytes": 4034,
+      "raw_path": "data/raw/eurostat-tour_ce_omn12-el-nuts2-ngtsp-nr-annual-2022-2025-2026-11-06.json",
+      "dataset_updated": "2026-10-02T11:00:00+0200",
+      "authentication": "none"
+    },
+    {
+      "source_id": "Eurostat_tour_ce_oan3",
+      "description": "Platform nights, EL621-EL624, 2022-2025",
+      "provider": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_ce_oan3?format=JSON&lang=EN&c_resid=TOTAL&unit=NR&indic_to=NGT_SP&geo=EL621&geo=EL622&geo=EL623&geo=EL624&time=2022&time=2023&time=2024&time=2025",
+      "method": "HTTP GET, read-only, User-Agent IonianDTwin-verification/0.1, no credentials",
+      "response_status": 200,
+      "content_type": "application/json",
+      "accessed_at": "2026-11-05T23:33:00Z",
+      "checksum_sha256": "6cc9d1d1d305856598e79a93e759d3904d4f180f7eafb6b4283e2c352cd8563f",
+      "size_bytes": 3081,
+      "raw_path": "data/raw/eurostat-tour_ce_oan3-el621-el624-ngtsp-nr-annual-2022-2025-2026-11-06.json",
+      "dataset_updated": "2026-09-22T23:00:00+0200",
+      "authentication": "none"
+    },
+    {
+      "source_id": "Eurostat_tour_occ_nin2",
+      "description": "Conventional nights EL62 (I551-I553), 2022-2025",
+      "provider": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&lang=EN&c_resid=TOTAL&unit=NR&nace_r2=I551-I553&geo=EL62&time=2022&time=2023&time=2024&time=2025",
+      "method": "HTTP GET, read-only, User-Agent IonianDTwin-verification/0.1, no credentials",
+      "response_status": 200,
+      "content_type": "application/json",
+      "accessed_at": "2026-11-05T23:33:01Z",
+      "checksum_sha256": "ac588029f92360cede7a0c6e7a7aab0e6891b81a93eb3b0e3f9edc2c81ff477e",
+      "size_bytes": 3007,
+      "raw_path": "data/raw/eurostat-tour_occ_nin2-el62-nr-i551-i553-annual-2022-2025-2026-11-06.json",
+      "dataset_updated": "2026-10-20T23:00:00+0200",
+      "authentication": "none"
+    },
+    {
+      "source_id": "Eurostat_tour_occ_nin2",
+      "description": "Conventional nights EL62, all NACE splits, 2022-2025",
+      "provider": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tour_occ_nin2?format=JSON&lang=EN&c_resid=TOTAL&unit=NR&geo=EL62&time=2022&time=2023&time=2024&time=2025",
+      "method": "HTTP GET, read-only, User-Agent IonianDTwin-verification/0.1, no credentials",
+      "response_status": 200,
+      "content_type": "application/json",
+      "accessed_at": "2026-11-05T23:33:18Z",
+      "checksum_sha256": "f615c3f9ac4fdbe21352a63bbf3e7ae87165acb561a07c9b174d604e17ced1ac",
+      "size_bytes": 3535,
+      "raw_path": "data/raw/eurostat-tour_occ_nin2-el62-nr-allnace-annual-2022-2025-2026-11-06.json",
+      "dataset_updated": "2026-10-20T23:00:00+0200",
+      "authentication": "none"
+    }
+  ]
+}

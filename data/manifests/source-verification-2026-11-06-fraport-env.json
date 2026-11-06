@@ -1,0 +1,73 @@
+{
+  "manifest_id": "source-verification-2026-11-06-fraport-env",
+  "created_at": "2026-11-06T11:30:00Z",
+  "scope": "Data01 (airport CO2): does Fraport Greece publish CO2 for CFU, EFL, ZTH, PVK? Research performed by Claude Code inline as a one-off exception to the research/implementation boundary, explicitly authorised by the owner on 2026-11-06. Bounded: 2 web searches, sitemap, 3 HTML pages, 2 PDFs retained.",
+  "robots_checks": [
+    {"host": "www.fraport-greece.com", "url": "https://fraport-greece.com/en.robots.txt (301 from /robots.txt)", "status": 200, "result": "User-agent * disallows only /etc/ and /libs/; /content/dam/ and /en/ pages allowed."}
+  ],
+  "licence_status": {
+    "Fraport_Greece": "found, restrictive. https://www.fraport-greece.com/en/site-services/legal-information.html (read 2026-11-06; HTML retained at data/samples/fraport-env/fraport-greece-legal-information-2026-11-06.html, HTTP 200, text/html, 179,801 B, sha256 a80b1312a4fda2e9523ac34b777bb863a74752ae5920a095f6ebbbd920f8b313, fetched 2026-11-06T16:52:57Z). Verbatim: 'Fraport Greece permits the sorting and downloading of all contents in its websites only for personal and non-commercial use. Any other use requires the express written consent of Fraport Greece.' and 'The contents may not be modified or utilized on other websites or networked computers without the express written consent of Fraport Greece.' Media Center contents may be republished by journalists with attribution. Scope: fraport-greece.com only. Whether the same terms govern the per-airport sites (cfu-airport.gr etc., source of the traffic PDFs) was not checked (ASSUMPTION that they do)."
+  },
+  "review": "Independent review 2026-11-06, round 1: item 4 CONFIRMED WITH NOTES. Fixes applied: legal-page HTML retained (§3.3); Scope 2 basis wording corrected (§3.4).",
+  "evidence": [
+    {
+      "source_id": "Fraport_ENV_STRAT_CLA_2026",
+      "name": "10th Annual Report on Environmental Strategy, Cluster A (period July 2025 - July 2026), version 01.00, 40 pages",
+      "provider": "Fraport Regional Airports of Greece A S.A.",
+      "page_url": "https://www.fraport-greece.com/en/sustainability/environmental-strategy/environmental-strategy.html",
+      "url": "https://www.fraport-greece.com/content/dam/fraport-company-greece/documents/en/sustainability/environmental-strategy/annual-environmental-strategy/10th-annual-environmental-strategy-report/ENV_STRAT_REPORT_CLA_%CE%95%CE%9D_2026.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/ENV_STRAT_REPORT_CLA_%CE%95%CE%9D_2026.pdf",
+      "method": "HTTP GET (curl), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "accessed_at": "2026-11-06T11:24:00Z",
+      "response_status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 1812427,
+      "checksum_sha256": "dff6a4827113a0bd15b515f07cda4f9edcd386b70f2f86262b05f34f72cba658",
+      "evidence_location": "data/samples/fraport-env/ENV_STRAT_REPORT_CLA_EN_2026.pdf",
+      "findings": {
+        "page_38_table_10_verified_CO2e_2025_tonnes": {
+          "columns": "Scope 1 direct | Scope 2 indirect | Total (location based)",
+          "CFU": [94.9, 1837.0, 1931.9],
+          "ZTH": [123.6, 963.0, 1086.6],
+          "EFL": [37.4, 618.2, 655.6],
+          "PVK": [15.9, 643.8, 659.7],
+          "cluster_A_total_7_airports": [1362.4, 12051.5, 13413.9]
+        },
+        "page_37_targets": "Scope 1+2 CO2eq: -42.0 % by 2030, -80.7 % by 2040, net zero by 2045; base year 2018; FGA+FGB+FGM.",
+        "page_38_accreditation": "ACA Level 1 (footprint measurement) renewed for 6 airports; Level 2 for SKG.",
+        "page_30_air_quality": "Permanent air quality monitoring station at CFU (and SKG); mobile-station campaigns at EFL, ZTH, PVK (and CHQ, KVA); dispersion modelling per Environmental Terms. Results published in annual Environmental Bulletins per airport.",
+        "scope_note": "Scope 1 and 2 only: airport-operator fuel, generators, refrigerants and purchased electricity. Aircraft (LTO) emissions are not included."
+      }
+    },
+    {
+      "source_id": "Fraport_CFU_Env_Bulletin_2024",
+      "name": "Environmental Bulletin of Kerkira Airport (CFU) - 2024, R2, 19 pages",
+      "provider": "Fraport Regional Airports of Greece A S.A.",
+      "page_url": "https://www.fraport-greece.com/en/sustainability/environmental-strategy/environmental-bulletins.html",
+      "url": "https://www.fraport-greece.com/content/dam/fraport-company-greece/documents/en/sustainability/environmental-strategy/environmental-bulletins/2024/CFU_Environmental%20Bulletin%202024_R2_eng.pdf/_jcr_content/renditions/original.media_file.download_attachment.file/CFU_Environmental%20Bulletin%202024_R2_eng.pdf",
+      "method": "HTTP GET (curl -L), User-Agent IonianDTwin-verification/0.1",
+      "access_type": "public web, no authentication",
+      "accessed_at": "2026-11-06T11:25:00Z",
+      "response_status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 4213368,
+      "checksum_sha256": "818ecf69d84df37cc3a6b85d3f94ede650e3237c3af0e1f590d9e66437cede13",
+      "evidence_location": "data/samples/fraport-env/CFU_Environmental_Bulletin_2024_R2_eng.pdf",
+      "findings": {
+        "page_7_monitoring": "One measurement point, 39°36'44.9\"N 19°54'28.4\"E, KTEO parking lot ~500 m east of the airport; period 2024-01-01 to 2024-12-31; pollutants PM10, PM2.5, NO2, SO2, C6H6, O3. CO2 is not measured. Summary only (PM10 exceedances attributed to an asphalt plant outside the airport); no numeric series in the bulletin.",
+        "page_8_modelling": "AEDT + AERMOD dispersion modelling; contours for PM10, PM2.5, NOx, SOx, C6H6, CO (a CO2 contour figure is shown); no exceedances.",
+        "page_14_CO2e_2024_tonnes": {
+          "scope1_fleet_vehicles": 83.7, "scope1_generators": 26.4, "scope1_heating": 0.0, "scope1_refrigerants": 0.0,
+          "scope2_electricity_location_based": 2503.6, "scope2_electricity_market_based": 1828.9,
+          "total_location_based": 2613.7, "total_market_based": 1939.0,
+          "kg_CO2e_per_passenger": {"location_based": 0.60, "market_based": 0.45}
+        }
+      }
+    }
+  ],
+  "observations": [
+    "RISK: In Table 10 only the Total column is labelled '(Location based)'; the Scope 2 column header is 'Indirect emissions Scope 2', so reading it as location-based is inferred (Total - Scope 1 = 1,931.9 - 94.9 = 1,837.0). CFU 2025 Scope 2 (1,837.0 t) is 0.4 % from the 2024 market-based figure (1,828.9 t, bulletin) and 27 % below the 2024 location-based one (2,503.6 t). Either a real fall or a basis mix-up; unresolved. Do not use CFU 2025 Scope 2 until Fraport clarifies the basis.",
+    "Earlier bulletins exist per airport for 2018-2024 (EFL 2024 only in the Greek folder), so an annual 2018-2025 series is plausibly assemblable; not pulled."
+  ],
+  "status": "VERIFIED (access and content). Use in Data01 is a PROPOSAL needing a DECISION (redefinition from concentration to operator emissions) and Codewhale review; reuse requires Fraport's written consent."
+}
