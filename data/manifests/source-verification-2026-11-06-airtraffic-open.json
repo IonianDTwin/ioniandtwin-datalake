@@ -192,6 +192,6 @@
     "item_4_capacity": "document located and retained; runway ARR R60 / TTL R60 and terminal figures citable after review round 2; agy's R20 figures misattributed (CHQ rows).",
     "item_5_open_alternatives": "EUROCONTROL reproduced exactly; Eurostat avia_paoa found populated by Claude Code (agy had not tested the EL_ codes)."
   },
-  "status": "VERIFIED (access and reproduction) for EUROCONTROL (monthly/annual only) and Eurostat; HSCA partly citable (see citable_after_review). Eurostat as published Data29 island proxy approved by review round 2 (DECISION pending owner).",
+  "status": "VERIFIED (access and reproduction) for EUROCONTROL (monthly/annual only) and Eurostat; HSCA partly citable (see citable_after_review). Eurostat avia_paoa adopted as the published Data29 island-level proxy (D-032, 2026-11-06).",
   "review": "Independent review 2026-11-06, round 2: Eurostat and EUROCONTROL figures reproduced exactly; Eurostat may replace Fraport as published Data29 island proxy with labelling conditions; EUROCONTROL daily rows not day-complete; HSCA citable narrowly."
 }

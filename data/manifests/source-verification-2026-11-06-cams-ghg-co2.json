@@ -168,6 +168,6 @@
     "RISK (review round 2): at this scale CO2 is a regional carbon-cycle signal and is anti-correlated with tourism pressure (region mean 424.75 ppm on peak day 2025-08-15 vs 435.90 ppm on 2026-10-30). 'Airport cell minus one sea cell' is a land-vs-sea contrast, not an airport signal.",
     "RISK (review round 2): forecast product upgraded about yearly; not trend-homogeneous. EGG4 reanalysis (0.75 deg) is the trend-stable product."
   ],
-  "status": "VERIFIED (access, content, licence). Not adopted for Data01 (review round 2; D-031 stands). Possible separate regional background-CO2 indicator is a PROPOSAL pending owner decision.",
+  "status": "VERIFIED (access, content, licence). Not adopted for Data01 (review round 2; D-031 stands). A separate regional background-CO2 indicator was declined by the owner on 2026-11-06.",
   "review": "Independent review 2026-11-06, round 2: files, conversion and figures reproduced exactly; do NOT adopt as Data01 headline; at most a separate regional background-CO2 indicator outside Data01 and the composite, with a robust marine background (regional percentile, not one cell)."
 }
